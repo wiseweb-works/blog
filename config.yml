@@ -1,0 +1,195 @@
+baseURL: "https://wiseweb.works"
+title: "Wise"
+DefaultContentLanguage: tr
+paginate: 5
+theme: hugo-PaperMod
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+
+minify:
+    disableXML: false
+    minifyOutput: true
+
+languages:
+    tr:
+        languageName: ":tr:"
+        languageAltTitle: Turkish
+        weight: 1
+        homeInfoParams:
+            Title: "Wise Web Works"
+            Content: Yarından az önceki günden daha çok akıllı!
+        menu:
+            main:
+                - identifier: Anasayfa
+                  name: Anasayfa
+                  url: /
+                  weight: 1
+                - identifier: Blog
+                  name: Blog
+                  url: /post/
+                  weight: 2
+                - identifier: İletişim
+                  name: İletişim
+                  url: /page/iletisim/
+                  weight: 3
+                - identifier: Etiketler
+                  name: Etiketler
+                  url: /tags/
+                  weight: 4
+                - identifier: Arşiv
+                  name: "Arşiv"
+                  url: /archives/
+                  weight: 5
+                - identifier: Ara
+                  name: "Ara \U0001f50d"
+                  url: /search/
+                  weight: 6
+
+    en:
+        languageName: ":gb:"
+        languageAltTitle: "English"
+        weight: 2
+        homeInfoParams:
+            Title: "Wise Web Works"
+            Content: Smarter Web Now!
+        menu:
+            main:
+                - identifier: Home
+                  name: Home
+                  url: /
+                  weight: 1
+                - identifier: Blog
+                  name: Blog
+                  url: /post/
+                  weight: 2
+                - identifier: Contact
+                  name: Contact
+                  url: /page/iletisim/
+                  weight: 3
+                - identifier: Tags
+                  name: Tags
+                  url: /tags/
+                  weight: 4
+                - identifier: Archives
+                  name: Archives
+                  url: /archives/
+                  weight: 5
+                - identifier: Search
+                  name: "Search \U0001f50d"
+                  url: /search/
+                  weight: 6
+
+    de:
+        languageName: ":de:"
+        languageAltTitle: Deutsch
+        weight: 3
+        homeInfoParams:
+            Title: "Weise Web Jobs"
+            Content: Jetzt Weiser!
+        menu:
+            main:
+                - identifier: Startzeite
+                  name: Startzeite
+                  url: /
+                  weight: 1
+                - identifier: Bloggen
+                  name: Bloggen
+                  url: /post/
+                  weight: 2
+                - identifier: Kontakt
+                  name: Kontakt
+                  url: /page/iletisim/
+                  weight: 3
+                - identifier: Stichworte
+                  name: Stichworte
+                  url: /tags/
+                  weight: 4
+                - identifier: Archiv
+                  name: Archiv
+                  url: /archives/
+                  weight: 5
+                - identifier: Suche
+                  name: "Suche \U0001f50d"
+                  url: /search/
+                  weight: 6
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
+params:
+    env: production
+    title: "Wise Web Works"
+    description: "Smarter Web Now!"
+    keywords: [Blog, Portfolio, PaperMod]
+    author: Wise
+    DateFormat: "2 January, 2006"
+    defaultTheme: auto
+    disableThemeToggle: false
+    ShowReadingTime: true
+    ShowShareButtons: false
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: false
+    ShowCodeCopyButtons: true
+    disableSpecial1stPost: true
+    disableScrollToTop: false
+    rss: true
+    comments: false
+    hidemeta: false
+    hideSummary: false
+    tocopen: false
+    ShowToc: true
+    searchHidden: false
+    displayFullLangName: true
+
+    socialIcons:
+        - name: mastodon
+          url: "https://fosstodon.org/@wise"
+        - name: github
+          url: "https://github.com/wiseweb-works"
+        - name: email
+          url: "mailto:wisewebworks@outlook.com"
+        - name: rss
+          url: "/index.xml"
+        - name: other
+          url: "https://sites.google.com/site/whydidyouclickonthelink/"
+
+
+    fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 1000
+        threshold: 0.4
+        minMatchCharLength: 0
+        keys: ["title", "permalink", "summary", "content"]
+
+    editPost:
+        URL: "https://github.com/wiseweb-works/blog/tree/master/content"
+        # Text: "Suggest Changes"
+        appendFilePath: true
+
+    assets:
+        disableHLJS: true
+        disableFingerprinting: true
+        favicon: "/favicons/favicon.ico"
+        favicon16x16:  "/favicons/favicon-16x16.png"
+        favicon32x32:  "/favicons/favicon-32x32.png"
+        apple_touch_icon:  "/favicons/apple-touch-icon.png"
+
+    cover:
+        hidden: true
+        hiddenInList: true
+        hiddenInSingle: true
+
+taxonomies:
+    category: categories
+    tag: tags
+    series: series

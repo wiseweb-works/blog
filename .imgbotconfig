@@ -1,0 +1,8 @@
+{
+    "schedule": "weekly",
+    "aggressiveCompression": "true",
+    "compressWiki": "true",
+    "minKBReduced": 500,
+    "prTitle" : "New photos are compressed by me. What are you waiting for :D",
+    "prBody" : " Text before optimization ratio {optimization_ratio} Text after optimization ratio",
+}
