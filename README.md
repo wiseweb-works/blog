@@ -1,2 +1,0 @@
-# blog
-Wise Web Blog
