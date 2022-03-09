@@ -1,0 +1,4 @@
+---
+title: "Ara"
+layout: "search"
+---
