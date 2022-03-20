@@ -49,10 +49,12 @@ Here's why:
 
 ### Built With
 
-This website is designed with components that is fast, reliable and cares about your privacy. The components we use are as follows.
+This website is designed with components that is **fast**, reliable and cares about your privacy. The components we use are as follows.
 
 * [Hugo](https://gohugo.io/)
 * [PaperMod](https://github.com/adityatelange/hugo-PaperMod/)
+
+[![Speed Test Results][speedtest-result]](https://pagespeed.web.dev/report?url=https%3A%2F%2Fwiseweb.works%2F)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -119,3 +121,4 @@ Project Link: [https://github.com/wiseweb-works/blog](https://github.com/wiseweb
 [mastodon-shield]: https://img.shields.io/badge/-mastodon-black.svg?style=for-the-badge&logo=mastodon&colorB=555
 [mastodon-url]: https://fosstodon.org/@wise
 [product-screenshot]: /static/images/webpage-screenshot.png
+[speedtest-result]: /static/images/speedtest.svg
