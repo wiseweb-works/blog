@@ -129,4 +129,5 @@ SON DURUM
 Neden Cipher Strength %100 değil derseniz TLS 1.3 ile otomatik gelen ve biz istemesek de eklenen "TLS_AES_128_GCM_SHA256 (0x1301)" yüzünden şu an %100 yapmak mümkün değil. TLS 1.3'ü kapatırım o zaman gelmez diye düşünürseniz o zaman da başka yerden puanınız gidiyor maalesef.
 
 # Son
+
 Bu yazı daha önce https://teknolojirehberleri.xyz adresinde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.

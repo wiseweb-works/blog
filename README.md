@@ -62,9 +62,9 @@ This website is designed with components that is **fast**, reliable and cares ab
 ## Roadmap
 
 - [X] Publish first version of website
-- [ ] Multi-language Support
-    - [ ] English
-    - [ ] German
+- [X] Multi-language Support (since 03.2022)
+    - [X] English
+    - [X] German
 - [ ] Add Useful software reviews and code reviews
 - [ ] Add Additional Templates for non-js users
 - [ ] Add a roadmap to create your own Hugo site with PaperMod theme
