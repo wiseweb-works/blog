@@ -3,6 +3,6 @@
     "ignoredFiles": [
         "*.svg",
     ],
-    "minKBReduced": 0,
+    "minKBReduced": 5,
     "aggressiveCompression": "true"
 }
