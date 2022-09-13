@@ -138,6 +138,8 @@ params:
     ShowPostNavLinks: true
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
+    ShowWordCount: true
+    ShowRssButtonInSectionTermList: true
     disableSpecial1stPost: true
     disableScrollToTop: false
     rss: true
