@@ -180,7 +180,7 @@ params:
 
     assets:
         disableHLJS: true
-        disableFingerprinting: true
+        disableFingerprinting: false
         favicon: "/favicons/favicon.ico"
         favicon16x16:  "/favicons/favicon-16x16.png"
         favicon32x32:  "/favicons/favicon-32x32.png"

@@ -95,7 +95,7 @@ Wenn Sie nun ein ungefähres Bild des Prozesses im Kopf haben, beginne ich mit d
 
 | |  |
 |---|---|
-| ![TCP_Handshake](/images/TCP-Handshake.jpg) | ![TCP_Handshake_2](/images/TCP-Handshake-2.png) |
+| {{< img src="/images/TCP-Handshake.jpg" >}} | {{< img src="/images/TCP-Handshake-2.png" >}} |
 
 Wie auf den Fotos zu sehen, kann bei reibungslosem Ablauf die Kommunikation in 3 Schritten erfolgen. Aber wenn Sie fragen, warum wir das in 3 Schritten machen, geht das nicht auch kürzer? Ich würde (vorerst) nein sagen, nein, für eine Vollduplex-Kommunikation müssen beide Parteien SYN- und ACK-Pakete senden. Vielleicht erzähle ich Ihnen in Zukunft andere Wege, aber im Moment ist es so. Wie auch immer, der TCP/UDP-Teil ist immer kurz und einfach.
 
@@ -105,7 +105,7 @@ Nach dem Aufbau einer Kommunikation über TCP ist der Client die Person, die die
 
 | |  |
 |---|---|
-| ![TLS_Handshake](/images/TLS-Handshake.png) | ![TLS_Handshake_2](/images/TLS-Handshake-2.png) |
+| {{< img src="/images/TLS-Handshake.png" >}} | {{< img src="/images/TLS-Handshake-2.png" >}} |
 
 Wie auf den Fotos zu sehen ist, ist der Vorgang fast derselbe wie beim Herstellen einer Verbindung zu einer Webseite. Je nach Bedarf werden nur bestimmte Stufen hinzugefügt, entfernt oder geändert. Beispielsweise übermitteln die Parteien gemäß PFS, was für Advanced Privacy steht, den Front-Key nicht mit dem asymmetrischen Schlüssel des Servers. Da in diesem Fall für jede Sitzung derselbe Schlüssel verwendet wird, werden die Daten gespeichert und sind dann rückwirkend lesbar, indem auf einen Tag gewartet wird, an dem der Schlüssel enthüllt wird. Deshalb wurde diese Änderung vorgenommen. Auch hier möchte ich gemäß dem Zero-Trust-Bedrohungsmodell, dass jede Schicht und jeder Prozess den Prozess vorantreibt, ohne darauf zu vertrauen, dass die andere ihre Arbeit korrekt erledigt. Aus diesem Grund wollen wir, dass die Pakete gemäß der Funktion `tls-auth` verschlüsselt werden und die Integrität der ein- und ausgehenden Daten bereits im ersten Kommunikationsmoment in der TLS-Schicht überprüft wird. Vom ersten Moment an, in dem Sie Hallo sagen, können Dritte nicht verstehen, wovon Sie sprechen und in welcher Phase Sie sich befinden. Dazu wird die erste Kommunikation mit einem oder mehreren vorgegebenen Schlüsseln gestartet und bei Bedarf werden diese Schlüssel in regelmäßigen Abständen erneuert. So wird auch bis zur Erstellung des ersten Pre-Keys in der TLS-Schicht die Vertraulichkeit nicht kompromittiert und Unbefugte nicht umsonst erstellt.
 
@@ -115,7 +115,7 @@ Wenn dieser gesamte Vorgang erfolgreich abgeschlossen und der Datenkanal bestand
 
 | Encrypt-then-MAC (EtM) | Encrypt-and-MAC (E&M) | MAC-then-Encrypt (MtE) |
 |---|---|---|
-| ![](/images/EtM.png) | ![](/images/EaM.png) | ![](/images/MtE.png) |
+| {{< img src="/images/EtM.png" >}} | {{< img src="/images/EaM.png" >}} | {{< img src="/images/MtE.png" >}} |
 
 - Laut EtM, dem ersten Ansatz, werden die Daten zuerst verschlüsselt, dann als Ergebnis des Digests mit einem anderen Schlüssel verschlüsselt und das resultierende Ergebnis in Blöcken zusammen gesendet. Wenn wir uns reale Lösungen ansehen, die es verwenden, fällt uns zuerst das IPSec-Protokoll ein. Dies ist die einzige Methode, die die höchste Sicherheitsdefinition in AE erreichen kann, dies kann jedoch nur erreicht werden, wenn der verwendete MAC-Algorithmus frei von Korruption ist oder noch nicht geknackt wurde. Für SSHv2 sind auch verschiedene EtM-Cipher-Suites verfügbar. Beachten Sie jedoch, dass für Daten und Digest eine Schlüsseltrennung zwingend erforderlich ist (für Verschlüsselung und Schlüssel-Hashing müssen unterschiedliche Schlüssel verwendet werden), da Sie sonst je nach verwendeter Verschlüsselungsmethode und Hash-Funktion möglicherweise ein unsicheres Ergebnis erhalten.
 
@@ -123,7 +123,7 @@ Wenn dieser gesamte Vorgang erfolgreich abgeschlossen und der Datenkanal bestand
 
 - Laut MtE, dem dritten und letzten mir bekannten Ansatz, wird eine Zusammenfassungsdatei auf Basis von Klartext generiert. Dann werden der Klartext und die Digest-Datei zusammen mit dem Schlüssel verschlüsselt. Der Chiffretext und die Chiffretextdatei werden zusammen gesendet. Wenn wir uns reale Lösungen ansehen, die es verwenden, sind das in erster Linie SSL/TLS-Implementierungen. Wir alle wissen, wie zuverlässig und nachhaltig SSL/TLS-Anwendungen an sich sind. Darüber hinaus wurden im Laufe der Jahre Verbesserungen wie `MAC-then-pad-then-encrypt` vorgenommen, um die Sicherheit zu erhöhen. Gemäß dieser Verbesserung wird zuerst der Klartext verdaut, dann auf die Blockgröße aufgefüllt und dann die Verschlüsselung durchgeführt. Dies führt zu einem noch zuverlässigeren Verschlüsselungsergebnis. Aber es gibt Fälle, in denen der Padding-Mechanismus Angriffe wie Padding Oracle verursacht, wenn er bestimmte Fehler macht.
 
-![TAP-TUN](/images/TAP-TUN.png)
+{{< img src="/images/TAP-TUN.png" >}}
 
 Nach der Auswahl des zu verwendenden AEAD-Ansatzes wird je nach Verwendung von TAP oder TUN der in der obigen Grafik dargestellte Weg beschritten. Gemäß diesem Pfad geht die im Benutzerbereich ausgeführte/gewünschte Aktion zu den TAP/TUN-Adaptern auf Kernel-Ebene. Da sich diese Adapter auf der Kernel-Ebene befinden, arbeiten sie sehr schnell. Dann führen die virtuellen Adapter die notwendige Verschlüsselung mit der entsprechenden Bibliothek durch, fügen ggf. den Digest hinzu und stellen die Paketgröße ein. Dann sendet der Server Pakete sequentiell über die Ethernet-Schnittstelle an die Ethernet-Schnittstelle des Clients. Der Client, der es erhält, konfiguriert die Pakete neu, organisiert sie, kombiniert sie bei Bedarf und entschlüsselt sie mit den erforderlichen Bibliotheken. Nach der Entschlüsselung überträgt es den Client über den virtuellen Adapter an den Endbenutzer. Als Ergebnis all dieser mathematischen Operationen und Bemühungen erreichte der Benutzer also nach einigen Zyklen den gewünschten Inhalt. Es ist ziemlich lang zu erklären, aber sehr einfach zu bedienen, liebe Leser. Sie müssen nur die entsprechende [Skriptseite](https://github.com/wiseweb-works/openvpn-most-secure-install/) auf meiner GitHub-Seite besuchen. Das zugehörige Skript nimmt all diese Anpassungen interaktiv für Sie vor. Alles, was Sie tun müssen, ist sich zurückzulehnen und zu genießen.
 

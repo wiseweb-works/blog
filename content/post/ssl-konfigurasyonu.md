@@ -121,10 +121,10 @@ ssl_dhparam /etc/nginx/dhparam.pem; >> Diffie-Hellman anahtar değişim algoritm
 Ayarları yaptıktan sonra "sudo nginx -t" ve ardından eğer bir hata mesajı görmez iseniz "sudo service nginx restart" komutu ile ayarları uygulayıp servisi baştan başlatın. Artık sizin belirlediğiniz konfigürasyon ve şartlar ile bağlantı sağlanacaktır. Eğer öncesi/sonrası puanlama farkını görmek isterseniz aşağıdaki görsellere bakabilirsiniz veya kendi sitenizi "https://www.ssllabs.com/ssltest/index.html" adresinden test edebilirsiniz.
 
 İLK HALİ
-![İlk Hali](/images/ssl-ilk-hali-ssllabs.png)
+{{< img src="/images/ssl-ilk-hali-ssllabs.png" >}}
 
 SON DURUM
-![Son Hali](/images/ssl-son-hali-ssllabs.png)
+{{< img src="/images/ssl-son-hali-ssllabs.png" >}}
 
 Neden Cipher Strength %100 değil derseniz TLS 1.3 ile otomatik gelen ve biz istemesek de eklenen "TLS_AES_128_GCM_SHA256 (0x1301)" yüzünden şu an %100 yapmak mümkün değil. TLS 1.3'ü kapatırım o zaman gelmez diye düşünürseniz o zaman da başka yerden puanınız gidiyor maalesef.
 

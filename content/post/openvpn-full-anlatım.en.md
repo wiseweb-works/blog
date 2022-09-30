@@ -95,7 +95,7 @@ Now, if you have an approximate picture of the process in your mind, I start wit
 
 | |  |
 |---|---|
-| ![TCP_Handshake](/images/TCP-Handshake.jpg) | ![TCP_Handshake_2](/images/TCP-Handshake-2.png) |
+| {{< img src="/images/TCP-Handshake.jpg" >}} | {{< img src="/images/TCP-Handshake-2.png" >}} |
 
 As can be seen in the photos, if the process runs smoothly, communication can be made in 3 steps. But if you ask why we are doing this in 3 steps, can't it be done in a shorter way? I would say (for now) no, no, for a full-duplex communication, both parties need to send SYN and ACK packets. Maybe I'll tell you different ways in the future, but for now this is how it is. Anyway, the TCP/UDP part is always short and simple.
 
@@ -106,7 +106,7 @@ A data channel other than the control channel is created to communicate and the 
 
 | |  |
 |---|---|
-| ![TLS_Handshake](/images/TLS-Handshake.png) | ![TLS_Handshake_2](/images/TLS-Handshake-2.png) |
+| {{< img src="/images/TLS-Handshake.png" >}} | {{< img src="/images/TLS-Handshake-2.png" >}} |
 
 As can be seen in the photos, the process is almost the same as when connecting to a web page. Only certain stages are added, removed or changed according to needs. For example, in accordance with PFS, which stands for Advanced Privacy, the parties do not transmit the front-key with the server's asymmetric key. Because in this case, since the same key will be used for each session, the data will be stored and then the data will be readable retrospectively by waiting for a day when the key is revealed. That's why this change was made. Again, in accordance with the zero trust threat model, I want each layer and process to advance the process without trusting the other to do their job correctly. That's why we want the packets to be encrypted according to the `tls-auth` feature and to verify the integrity of the incoming and outgoing data, even at that first communication moment in the TLS layer. From the first moment you say hello, third parties will not be able to understand what you are talking about and at what stage you are. For this, the first communication is started with a predetermined key(s) and if necessary, these keys are renewed at regular intervals. Thus, even until the first pre-key is created in the TLS layer, confidentiality is not compromised and unauthorized parties are not created in vain.
 
@@ -116,7 +116,7 @@ If this whole process has been completed successfully and the data channel has b
 
 | Encrypt-then-MAC (EtM) | Encrypt-and-MAC (E&M) | MAC-then-Encrypt (MtE) |
 |---|---|---|
-| ![](/images/EtM.png) | ![](/images/EaM.png) | ![](/images/MtE.png) |
+| {{< img src="/images/EtM.png" >}} | {{< img src="/images/EaM.png" >}} | {{< img src="/images/MtE.png" >}} |
 
 - According to EtM, which is the first approach, the data is first encrypted, then encrypted with another key as a result of the digest, and the resulting result is sent together in blocks. If we look at real-world solutions that use it, the IPSec protocol will come to mind first. This is the only method that can achieve the highest security definition in AE, but this can only be achieved if the MAC algorithm used is free of corruption or has not yet been cracked. Various EtM cipher suites are also available for SSHv2. Note, however, that key separation is mandatory for data and digest (different keys must be used for encryption and key hashing), otherwise you may end up with a potentially insecure result depending on the particular encryption method and hash function used.
 
@@ -124,7 +124,7 @@ If this whole process has been completed successfully and the data channel has b
 
 - According to MtE, which is the third and last approach that I know of, a summary file is generated based on plain text. Then the plaintext and digest file together are encrypted with the key. The ciphertext and ciphertext file are sent together. If we look at real world solutions that use it, first and foremost are SSL/TLS implementations. We all know how reliable and sustainable SSL/TLS applications are in themselves. Beyond that, improvements such as `MAC-then-pad-then-encrypt` have been made over the years to increase security. According to this improvement, first the plain text is digested, then filled up to the block size, and then the encryption is done. This results in an even more reliable encryption result. But there are cases where the padding mechanism causes attacks like Padding Oracle if it makes certain mistakes.
 
-![TAP-TUN](/images/TAP-TUN.png)
+{{< img src="/images/TAP-TUN.png" >}}
 
 After selecting the AEAD approach to be used, the path shown in the graphic above is followed according to the use of TAP or TUN. According to this path, the action done/desired to be done in the user area goes to TAP/TUN adapters at the kernel level. Because these adapters are at the kernel level, they operate very quickly. Then the virtual adapters do the necessary encryption with the relevant library, add the digest if necessary, and set the packet size. Then the server sends packets sequentially to the client's Ethernet interface over the Ethernet interface. The client that receives it reconfigures the packages, organizes them, combines them if necessary, and decrypts them with the necessary libraries. After decrypting it, it transmits the client to the end user via the virtual adapter. Thus, as a result of all these mathematical operations and efforts, after a few cycles, the user reached the desired content. It is quite long to explain, but very easy to use, dear readers. You just have to visit the relevant [script page](https://github.com/wiseweb-works/openvpn-most-secure-install/) on my GitHub page. The related script makes all these adjustments interactively for you. All you have to do is sit back and enjoy.
 
