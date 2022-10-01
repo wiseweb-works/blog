@@ -25,7 +25,7 @@
   <p align="center">
     We support and believe Wise Web and Non-Profit Organizations.
     <br />
-    <a href="https://wiseweb.works"><strong>Explore the Blog »</strong></a>
+    <a href="https://wiseweb-works.github.io/blog/"><strong>Explore the Blog »</strong></a>
     <br />
     <br />
     <a href="https://github.com/wiseweb-works/blog/issues">Report Bug</a>
@@ -38,7 +38,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://wiseweb.works)
+[![Product Name Screen Shot][product-screenshot]](https://wiseweb-works.github.io/blog/)
 
 I am a web designer, blog writer and system security volunteer, I work to make the world a better place with my friends. I believe that everyone should be able to surf the Internet in a private and secure way, without being tracked, as in 1999. The breakthrough of the previous century was the Wide Web World. The breakthrough of this century will be Wise Web Works.
 
@@ -54,7 +54,7 @@ This website is designed with components that is **fast**, reliable and cares ab
 * [Hugo](https://gohugo.io/)
 * [PaperMod](https://github.com/adityatelange/hugo-PaperMod/)
 
-[![Speed Test Results][speedtest-result]](https://pagespeed.web.dev/report?url=https%3A%2F%2Fwiseweb.works%2F)
+[![Speed Test Results][speedtest-result]]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -64,10 +64,10 @@ This website is designed with components that is **fast**, reliable and cares ab
 - [X] Publish first version of website
 - [X] Multi-language Support (since 03.2022)
     - [X] English
-    - [X] German
-- [ ] Add Useful software reviews and code reviews
-- [ ] Add Additional Templates for non-js users
-- [ ] Add a roadmap to create your own Hugo site with PaperMod theme
+    - [X] Deutsch
+- [X] Add Useful software reviews and code reviews
+- [Partial-Ready] Add Additional Templates for non-js users
+- [ ] Add a roadmap about our new PaperMod-X theme (Soon!)
 
 See the [open issues](https://github.com/wiseweb-works/blog/issues) for a full list of proposed features (and known issues).
 

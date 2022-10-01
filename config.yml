@@ -181,10 +181,10 @@ params:
     assets:
         disableHLJS: true
         disableFingerprinting: false
-        favicon: "/favicons/favicon.ico"
-        favicon16x16:  "/favicons/favicon-16x16.png"
-        favicon32x32:  "/favicons/favicon-32x32.png"
-        apple_touch_icon:  "/favicons/apple-touch-icon.png"
+        favicon: "/blog/favicons/favicon.ico"
+        favicon16x16:  "/blog/favicons/favicon-16x16.png"
+        favicon32x32:  "/blog/favicons/favicon-32x32.png"
+        apple_touch_icon:  "/blog/favicons/apple-touch-icon.png"
 
     cover:
         hidden: true
