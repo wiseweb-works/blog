@@ -54,7 +54,7 @@ This website is designed with components that is **fast**, reliable and cares ab
 * [Hugo](https://gohugo.io/)
 * [PaperMod](https://github.com/adityatelange/hugo-PaperMod/)
 
-[![Speed Test Results][speedtest-result]]
+![Speed Test Results][speedtest-result]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
