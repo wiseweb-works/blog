@@ -10,10 +10,10 @@ Bugün sizlere mevcut sunucunuzda eğer bir websitesi ve/veya App serve ediyorsa
 
 Daha önceki yazımızda olduğu gibi süreci yine basit, önerilen ve ileri-seviye olarak üç farklı başlık altında anlatacağım. Başlık içerikleri kişisel gerekliliklere göre aşamalı düşünülmüştür. Başlıklar bir biri ile bağlantılı olmasına rağmen istenilen bir aşamada bırakılması sorun oluşturmayacaktır.
 
-
 ## Basit konfigürasyon
 
 Öncelikle içinde bulunduğumuz Linux sürümünün paket yöneticisi ile güncellemeleri konsol üzerinden yüklememiz gerekmektedir.
+
 ```
 Ubuntu için: sudo apt update && sudo apt upgrade -y
 
@@ -50,11 +50,13 @@ ssl_ecdh_curve secp521r1:secp384r1; >> Ekliptik eğrileri kullanmamız gereken 
 
 ssl_ciphers DH-RSA-AES256-SHA:DH-RSA-AES256-SHA256:DHE-RSA-AES256-GCM-SHA384:DH-RSA-AES256-GCM-SHA384:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:ECDH-ECDSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:ECDH-RSA-AES256-SHA:AECDH-AES256-SHA:ECDHE-ECDSA-AES256-SHA384:ECDH-ECDSA-AES256-SHA384:ECDH-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:ECDH-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDH-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-CCM:DHE-RSA-AES256-CCM8:ECDHE-ECDSA-AES256-CCM:ECDHE-ECDSA-AES256-CCM8:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-CHACHA20-POLY1305:DHE-RSA-CHACHA20-POLY1305; >> En güvenilir bulduğum SSL algoritmalarının bir araya getirilerek sadece bunları kullanmasını sunucuya söyleyen kod.
 ```
+
 Tek tek araştırmak isteyenler için tüm cipherlar: "https://testssl.sh/openssl-iana.mapping.html"
 
 Ayarları yaptıktan sonra kontrol etmek isterseniz: "sudo nginx -t" komutunu kullanabilirsiniz. Eğer bir hata mesajı görmez iseniz "sudo systemctl restart nginx" veya "sudo service nginx restart" komutu ile ayarları uygulayıp servisi baştan başlatabilirsiniz
 
 ## Önerilen ayarlar
+
 Bir önceki ayarlara ek olarak performans özelinde bazı iyileştirmeler ve bunun yanı sıra sitenizin SSL test sitelerinde üst sıralara çıkmasını sağlayacak bazı ek konfigürasyonlar yapacağız. Bunun ardından ise sitenizin kullanıcı ile erişiminde faydalı olarak bazı başlıkları (header) ve sitenizin kaynaklarının üçüncü kişi siteler tarafından sömürülmemesi için bir takım iyileştirmeler yapacağız.
 
 ```
@@ -81,9 +83,11 @@ add_header Content-Security-Policy "default-src 'self' https: data: 'unsafe-inli
 
 add_header Permissions-Policy "camera=(), fullscreen=(self), geolocation=(), microphone=(), payment=()" always; >> Tarayıcıya hangi izinleri isteyeceğinizi veya hangilerine hiç ihtiyacınız olmayacağını belirterek çeşitli zehirleme türleri (cache-poisoning veya js-poisoning) ile sizin siteniz üzerinden bilgi toplanmasını engeller.
 ```
+
 Ayarları yaptıktan sonra kontrol etmek isterseniz: "sudo nginx -t" komutunu kullanabilirsiniz. Eğer bir hata mesajı görmez iseniz "sudo systemctl restart nginx" veya "sudo service nginx restart" komutu ile ayarları uygulayıp servisi baştan başlatabilirsiniz.
 
 ## İleri Seviye Ayarlar
+
 Öncelikle sitenize sadece ssl üzerinden bağlanması gerektiğini gösterecek bir başlık ekleyeceğiz. Bu sayede sizin sitenize daha önce girmiş olanlar ve hali hazırda bu başlığı tarayıcısında mevcut olanlar istese bile sizin sitenize Non-SSL şekilde erişemeyecekler. Ardından ise HTTP oturumlarına kullanılması gereken SSL sertifikalarını zımbalayacağız ve önceki yöntemin yanından hangi sertifikalar ile bağlanması gerekeceğini de önceden belirtmiş olacağız. Bu sayede yetkili bir üst sertifika yöneticisi veya kök yöneticisi olsanız dahi sizin adınıza imzaladığı sertifika ile sizin sitenize bağlanamayacaklar. Zamaında Türkiyede yerleşik E-Tuğra Kök Sertifika sağlayıcısı *.google.com adresine bir sertifika imzaladı. Biraz araştırırsanız hangi dönemde meydana geldiğini ve nedenini (ne kadar kötü sonuçlara neden olabileceğini) fardekersiniz. Şimdi başlayalım son konfigürasyon kısmına.
 
 Öncelikle sitenizin SSL üzerinden hiçbir soruna neden olmaksızın erişilebiliyor olduğundan emin olun. Ardından nginx konfig dosyasına aşağıdaki başlıklardan isteğinize göre birini ekleyin. Ama dikkat edin sadece bir tanesini.
@@ -130,4 +134,4 @@ Neden Cipher Strength %100 değil derseniz TLS 1.3 ile otomatik gelen ve biz ist
 
 # Son
 
-Bu yazı daha önce https://teknolojirehberleri.xyz adresinde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.
+Bu yazı daha önce <https://teknolojirehberleri.xyz> adresinde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.

@@ -17,7 +17,8 @@ Today, there is almost no business that cannot be done online. Even our work, wh
 
 First of all, OpenVPN must be installed on both the server and client (the device to be connected) side. Then, a settings (config) file should be edited that shows the conditions under which the devices will communicate. The main event is that this config file is generated and used by the client. This config file is divided into server_config used by the server and client_config used by the client.
 
-### The settings file maintained by the server contains the following entries:
+### The settings file maintained by the server contains the following entries
+
 - `port 1194` specifies which port it will receive a connection request to make the OpenVPN connection.
 - `proto tcp` Connection possible over TCP or UDP. Setting entry entered for selection.
 - `dev tun` TAP or TUN interface can be used. These are virtual interfaces. TAP layer 2 establishes a connection, while TUN layer 3 establishes a connection.
@@ -48,7 +49,8 @@ First of all, OpenVPN must be installed on both the server and client (the devic
 - `status /var/log/openvpn/status.log` Setting that tells where status reports are written and where log files are kept
 - `verb 3` This setting, which is the abbreviation of the word Verbose, is the setting of how detailed the status report is to be given.
 
-### The client-side settings file contains the following entries:
+### The client-side settings file contains the following entries
+
 - `client` indicates that the device is in the client role
 - `proto tcp-client` reports to use TCP as protocol
 - `remote $IP $PORT` The part where the IP address and Port number of the server(s) to be connected are set
@@ -81,6 +83,7 @@ You can find detailed documentation of these settings and more on the [OpenVPN](
 ## What happens when establishing an OpenVPN connection?
 
 Every time I connect with OpenVPN I feel like R2-D2 hijacking their Starfleet plans. People don't always want to find themselves in deep scrutiny and may ask someone to explain to them what and how. In my purpose of writing this article, I actually asked myself this question and I put a lot of effort to get the answer. I don't want you to work so hard, but I can't say that you should upload it immediately, don't think about the rest, it's my job. As I promised at the beginning, I will explain this process to you in depth and leave the decision to you. Here's how the process works in an OpenVPN connection, pros and cons (as I've been able to figure it out so far). You first establish a TCP/UDP connection. You run a process like any application that uses TCP, and then you switch to the TLS layer. You are doing handshake and some authentication at TLS layer. This layer is also called the control channel. Then a certain communication is fixed and the data channel is passed. The process of encrypting and decrypting the data packets to be sent this time in the data or data channel begins. For this, devices are talking to each other and data is started to be sent under certain common conditions. In short, at the end of the process I have described in this way, the communication we started from 0 ends with the safe and desired data access to us, or requests are sent again, this time in a reverse way, over the connection that is kept open. Thus, a system like nested pipes emerges. If you need to write the only important thing required for the article here:
+
 - It will be `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P512`.
   - Here the `TLS` input specifies that the control channel will be executed over the TLS layer. Other alternatives are `SSL` or `NULL`.
   - The `ECDHE` input specifies that the first pre-key will be generated using the Elliptic Diffie-Hellman algorithm. Other alternatives are to use `DHE`, `DH` or not.

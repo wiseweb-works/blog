@@ -13,7 +13,6 @@ Well, you explained it well, but where is the point of this work, I seem to hear
 
 {{< img src="/images/key-size-comparison.jpg" >}}
 
-
 ## Production process of ECC Certificate
 
 First of all (as always), we need to install the latest updates via the console with the package manager of the Linux version we are in.
@@ -123,6 +122,7 @@ We can verify that we have generated the CSR correctly:
 ```
 openssl req -in csr.pem -noout -text -verify
 ```
+
 * `-verify` asks OpenSSL to verify the signature in the CSR
 
 This should produce the following expected results in the output:
@@ -173,6 +173,7 @@ If nothing is wrong, it will tell you:
 IMPORTANT NOTES:
  - The dry run was successful.
 ```
+
 The actual command is just as follows:
 
 ```

@@ -8,10 +8,10 @@ author: "Wise"
 
 Bugün sizlerle bir sunucu kiraladığınız zaman güvenli bir şekilde bağlanmamızı sağlayan SSH hizmetini nasıl daha güvenli ve dışarıdan gelecek kötü niyetli isteklerden uzak tutabiliriz bundan bahsedeceğim. Öncelikle süreci basit, önerilen ve ileri-seviye olarak üç farklı başlık altında anlatacağım. Başlık içerikleri kişisel gerekliliklere göre aşamalı düşünülmüştür. Başlıklar bir biri ile bağlantılı olmasına rağmen istenilen bir aşamada bırakılması sorun oluşturmayacaktır.
 
-
 ## Basit Güvenlik Önlemleri
 
 Öncelikle içinde bulunduğumuz Linux sürümünün paket yöneticisi ile güncellemeleri konsol üzerinden yüklememiz gerekmektedir.
+
 ```
 Ubuntu için: sudo apt update && sudo apt upgrade -y
 
@@ -29,6 +29,7 @@ Ubuntu üzerinden devam edecek olursak
 ```
 sudo nano /etc/ssh/sshd_config # Ayar dosyasını açmaya yarayan komut
 ```
+
 Bulup değiştireceğimiz başlıklar
 
 ```
@@ -38,9 +39,11 @@ X11Forwarding yes >> Eğer başında hastag var ise kaldırıyoruz yok ise "yes"
 #MaxAuthTries 6 >> Başındaki hashtag işaretini kaldırıyoruz ve "6" olan değeri 3 yapıyoruz. Bu komut şifrenizi kaç kez deneyebileceklerini düzenler. 6 sayısı gereksiz derece yüksek bir değer olup genel kabul 3 ve veya 4 olması yönündedir.
 #Protocol 2 >> Eğer başında hastag var ise kaldırıyoruz, böyle bir kayıt hiç yok ise "Protocol 2" şeklindeki değeri ilk bulduğumuz boşluğa ekliyoruz. Bu komut SSH'ın sadece en yeni protokolü ile bağlantıların yapılmasını sağlayarak eski protokolün açıklıklarından sizi korur.
 ```
+
 Ayarları yaptıktan sonra kontrol etmek isterseniz: "sudo sshd -t" komutunu kullanabilirsiniz. Eğer bir hata mesajı görmez iseniz "sudo systemctl restart sshd" veya "sudo service sshd restart" komutu ile ayarları uygulayıp servisi baştan başlatabilirsiniz
 
 ## Önerilen ayarlar
+
 Bir önceki ayarlara ek olarak kullanıcı bazlı oturum açma, sadece güvenli anahtar kullanarak oturum açma ve Root kullanıcısı ile oturum açmayı kısıtlama gibi ek ayarlamalar yapacağız. Öncelikle yerel bilgisayarınızdaki kullanıcınız için bir gizli anahtar üretmeniz gerekiyor. Bunun için eğer linux tabanlı bir işletim sistemi kullanıyor iseniz
 
 ```
@@ -54,6 +57,7 @@ ssh-keygen -t ecdsa -b 521 # Daha güvenli ve daha hızlı olan ekliptik anahtar
 >>>> Enter passphrase (empty for no passphrase): [Press enter key]
 >>>> Enter same passphrase again: [Press enter key]
 ```
+
 Diğer sorulara Enter'a basarak cevap vermiş ve anahtar için belirli bir konum yazmamış iseniz anahtar çiftiniz (.pub= halka açık anahtar) / uzantısız olan gizli anahtar) /home/KULLANICI_ADINIZ/.ssh klasörüne kaydedilmiştir. Ürettiğiniz anahtarı sunucunuza tanıtmak için aşağıdaki kodu kullanabilirsiniz.
 
 ```
@@ -62,6 +66,7 @@ ssh-copy-id -i ~/.ssh/ANAHTAR_ISMINIZ.pub SUNUCUDAKI_KULLANICI_ADINIZ@SUNUCU_IP_
 
 Kendi anahtarınızı ürettikten sonra sunucuya sadece anahtar ile erişmek için;
 Bulup değiştireceğimiz başlıklar
+
 ```
 #PasswordAuthentication no >> Başındaki hashtag işaretini kaldırıyoruz ve "no" olan değeri no olarak bırakıyoruz. Bu komut sunucuya şifre ile bağlanmayı engeller. Kullanıcılar sadece ssh_keyleri ile bağlanabilirler.
 PubkeyAuthentication yes >> Eğer var ise başındaki hastag işaretini kaldırıyoruz ve değeri yes olarak belirliyoruz. Bu komut az önce oluşturduğunuz gizli key ile oturum açmanıza izin veren komuttur.
@@ -72,12 +77,15 @@ ChallengeResponseAuthentication no >> Var ise başındaki hastag işaretini kal
 KerberosAuthentication no >> Var ise başındaki hastag işaretini kaldırıyoruz ve değeri no olarak belirliyoruz. Bu komut diğer oturum açma yöntemlerini devre dışı bırakıyor.
 GSSAPIAuthentication no >> Var ise başındaki hastag işaretini kaldırıyoruz ve değeri no olarak belirliyoruz. Bu komut diğer oturum açma yöntemlerini devre dışı bırakıyor.
 ```
+
 Ayarları yaptıktan sonra kontrol etmek isterseniz: "sudo sshd -t" komutunu kullanabilirsiniz. Eğer bir hata mesajı görmez iseniz "sudo systemctl restart sshd" veya "sudo service sshd restart" komutu ile ayarları uygulayıp servisi baştan başlatabilirsiniz
 
 ## İleri Seviye Ayarlar
+
 Öncelikle standart SSH bağlantı portu olan 22 yi değiştirip ardından SSH bağlantısı sırasında kullanılan şifreleme araçlarını daha da güçlü hale getireceğiz. Ardından sunucunu SSH hizmetinin loglarının (kayıt defteri kayıtlarının) nasıl tutulacağını belirleyeceğiz.
 
 Bulup değiştireceğimiz başlıklar
+
 ```
 #Port 22 >> Bunu bulup başındaki hastag işaretini kaldırıyoruz ve oraya başka hizmet tarafından kullanılmayan ve açık olan bir port numarasını yazıyoruz. Örneğin 2992 olabilir.
 LogLevel INFO >> Bu ayarı bulup değiştiriyoruz yok ise ekliyoruz. Kayıt seviyesini belirlememize yarıyor.
@@ -91,6 +99,7 @@ PermitTunnel no >> Bu ayarı bulup değiştiriyoruz yok ise ekliyoruz.
 Daha da ileri giderek SSH bağlantısı sırasında kullanılan şifreleme algoritmalarını, doğrulama algoritmalarını, anahtar değişim algoritmalarını ve diğer algoritmaların hangilerinin öntanımlı olacağını belirliyoruz.
 
 Root kullanıcısı veya sudo yetkisine sahip bir kullanıcı ile aşağıdaki komutları sırasıyla çalıştırıyoruz.
+
 ```
 1] rm /etc/ssh/ssh_host_*
 2] ssh-keygen -t rsa -b 4096 -f /etc/ssh/ssh_host_rsa_key -N ""
@@ -102,10 +111,11 @@ Root kullanıcısı veya sudo yetkisine sahip bir kullanıcı ile aşağıdaki k
 ```
 
 Ayarları yaptıktan sonra "sudo sshd -t" ve ardından eğer bir hata mesajı görmez iseniz "sudo service sshd restart" komutu ile ayarları uygulayıp servisi baştan başlatın. Artık yeni belirlediğiniz port üzerinden ve sadece sizin gizli anahtarınız ile sunucuya bağlanabileceksiniz. Bağlanmak için ise;
+
 ```
 ssh -i ~/.ssh/ANAHTAR_ISMINIZ SUNUCUDAKI_KULLANICI_ADINIZ@SUNUCU_IP_ADRESI -p PORT_NUMARASI # komutunu kullanabilirsiniz. Gelen bildirimlere Enter deyip devam edebilirsiniz.
 ```
 
 # Son
 
-Bu yazı daha önce https://teknolojirehberleri.xyz adresinde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.
+Bu yazı daha önce <https://teknolojirehberleri.xyz> adresinde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.

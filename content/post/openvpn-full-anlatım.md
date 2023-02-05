@@ -17,7 +17,8 @@ Günümüzde artık internet üzerinden yapılmayan bir iş neredeyse kalmadı. 
 
 Öncelikle hem sunucu hem de istemci (bağlanacak cihaz) tarafında OpenVPN'in kurulu olması gerekiyor. Ardından cihazların hangi şartlar altında iletişim kuracaklarını gösterir bir ayar (config) dosyasının düzenlenmesi gerekmektedir. Asıl olay zaten bu config dosyasının üretilmesi ve istemci tarafından kullanılmasıdır. Bu config dosyası sunucu tarafından kullanılan server_config ve istemci tarafından kullanılan client_config olarak ikiye ayrılır.
 
-### Server tarafında tutulan ayar dosyası şu girdileri içermektedir:
+### Server tarafında tutulan ayar dosyası şu girdileri içermektedir
+
 - `port 1194` OpenVPN bağlantısını yapmak için kendisine hangi port üzerinden bağlantı talebi geleceğini belirtir.
 - `proto tcp` Bağlantının TCP veya UDP üzerinden yapılması mümkün. Seçim için girilen ayar girdisi.
 - `dev tun` TAP veya TUN arabirimi kullanılabilir. Bunlar sanal arabirimlerdir. TAP layer 2 bir bağlantı kurarken TUN layer 3 bir bağlantı kurar.
@@ -48,7 +49,8 @@ Günümüzde artık internet üzerinden yapılmayan bir iş neredeyse kalmadı. 
 - `status /var/log/openvpn/status.log` Durum raporlarının yazılacağı konumu ve log dosyalarının tutulduğu konumu bildiren ayar
 - `verb 3` Verbose kelimesinin kısaltılmışı olan bu ayar ne kadar detaylı durum raporu verileceğinin ayarıdır.
 
-### İstemci tarafında tutulan ayar dosyası şu girdileri içermektedir:
+### İstemci tarafında tutulan ayar dosyası şu girdileri içermektedir
+
 - `client` İlgili cihazın istemci rolünde olduğunu belirtiyor
 - `proto tcp-client` Protokol olarak TCP'nin kullanılacağını bildiriyor
 - `remote $IP $PORT` Bağlanılacak sunucu(ların) IP adresinin ve Port numarasının ayarladığı kısım
@@ -81,6 +83,7 @@ Bu ayarları ve daha bir çoğunun ayrıntılı dökümantasyonunu [OpenVPN](htt
 ## OpenVPN bağlantısı kurulurken neler oluyor ?
 
 OpenVPN ile bağlantı kurduğum her zaman kendimi Yıldız Filosu planlarını kaçıran R2-D2 gibi hissediyorum. İnsanlar kendilerini her zaman için derinlemesine bir inceleme içerisinde bulmak istemiyorlar ve birilerinin onlara neyin nasıl döndüğünü açıklamalarını isteyebiliyorlar. Benim bu yazıyı kaleme alma amacımda aslında bu soruyu kendime sormuş olmam ve cevabını almak için çok çaba sarfetmiş olmam. Sizin de bu kadar uğraşmanızı istemem fakat size hemencecik bunu yükle gerisini düşünme o iş bende de diyemem. Başta söz verdiğim gibi derinlemesine bir şekilde bu süreci sizlere anlatacağım ve kararı size bırakacağım. Bir OpenVPN bağlantısında artısıyla eksisiyle (benim şu ana kadar çözebildiğim şekliyle) süreç şöyle işliyor. Önce bir TCP/UDP bağlantısı kuruyorsunuz. TCP kullanan her uygulama gibi bir süreç yürütüyorsunuz ve ardından TLS katmanına geçiyorsunuz. TLS katmanında el sıkışma (handshake) ve bazı kimlik doğrulama işlemleri yapıyorsunuz. Bu katmana aynı zamanda kontrol kanalı da deniliyor. Ardından belirli bir iletişim tutturulmuş oluyor ve veri kanalına geçiliyor. Veri veya data kanalında bu sefer gönderilecek veri paketlerinin şifrelenmesi ve çözülmesi süreci başlıyor. Bunun için yine cihazlar birbirleri ile konuşuyor ve belirli ortak şartlar altında veriler gönderilmeye başlanıyor. Kısaca bu şekilde anlattığım sürecin sonunda 0'dan başlattığımız iletişim bize güvenli ve istediğimiz şekilde verilerin ulaşması ile son buluyor veya açık tutulan bağlantı üzerinden bu sefer tersine bir yolla yeniden istekler iletiliyor. Böylece iç içe borular gibi bir sistem ortaya çıkıyor. Yazı için gerekli olan tek önemli şeyi buraya yazmak gerekirse eğer:
+
 - `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P512` şeklinde olacaktır.
   - Burada `TLS` girdisi kontrol kanalının TLS katmanı üzerinden yürütüleceğini belirtir. Diğer alternatifler `SSL` veya `NULL`'dur.
   - `ECDHE` girdisi Elliptik Diffie-Hellman algoritması kullanılarak ilk ön-anahtarın üretileceğini belirtir. Diğer alternatifler `DHE`, `DH` veya kullanmamaktır.

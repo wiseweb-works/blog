@@ -13,10 +13,10 @@ Peki iyi güzel anlattın da bu işin aması nerede dediğinizi duyar gibiyim. S
 
 {{< img src="/images/key-size-comparison.jpg" >}}
 
-
 ## ECC Sertifikasının üretim süreci
 
 Öncelikle (her zaman olduğu gibi) içinde bulunduğumuz Linux sürümünün paket yöneticisi ile son güncellemeleri konsol üzerinden yüklememiz gerekmektedir.
+
 ```
 Ubuntu için: sudo apt update && sudo apt upgrade -y
 
@@ -39,8 +39,8 @@ openssl ecparam -genkey -name secp384r1 -out privkey.pem
 * `-name` parametresi OpenSSL'ye hangi eğrinin kullanılacağını söyler.
 * `-out` parametresi OpenSSL'ye çıktıyı bir dosyaya yazmasını söyler.
 
-
 OpenSSL'nin çıktısını varsayılan olarak PEM biçiminde yazdığını unutmayın. EC anahtarlarını işleyen `ec` komutuyla OpenSSL'nin doğru şeyi yaptığını kontrol edebiliriz:
+
 ```
 openssl ec -in privkey.pem -noout -text
 ```
@@ -50,6 +50,7 @@ openssl ec -in privkey.pem -noout -text
 * `-text`, OpenSSL'ye anahtar hakkındaki bilgileri düz metin biçiminde yazmasını söyler
 
 Her şey yolunda giderse ve anahtar doğru şekilde oluşturulduysa, OpenSSL aşağıdakine benzer bir şey gösterecektir:
+
 ```
 read EC key
 Private-Key: (384 bit)
@@ -121,6 +122,7 @@ CSR'yi doğru şekilde oluşturduğumuzu doğrulayabiliriz:
 ```
 openssl req -in csr.pem -noout -text -verify
 ```
+
 * `-verify` OpenSSL'nin CSR'deki imzayı doğrulamasını ister
 
 Bu, çıktıda beklenen şu sonuçları üretmelidir:
@@ -171,6 +173,7 @@ Hiçbir şey yanlış değilse, size şunu söyleyecektir:
 IMPORTANT NOTES:
  - The dry run was successful.
 ```
+
 Gerçek komut hemen aşağıdaki gibidir:
 
 ```

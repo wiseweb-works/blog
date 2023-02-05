@@ -51,11 +51,13 @@ ssl_ecdh_curve secp521r1:secp384r1; >> Es ist der Befehl, der uns sagt, welche 
 
 ssl_chiffren DH-RSA-AES256-SHA:DH-RSA-AES256-SHA256:DHE-RSA-AES256-GCM-SHA384:DH-RSA-AES256-GCM-SHA384:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_PODSADHESA:25_SHA256 -ECDSA-AES256 -RSA-AES256-SHA:AECDH-AES256-SHA:ECDHE-ECDSA-AES256-SHA384:ECDH-ECDSA-AES256-SHA384:ECDH-RSA-AES256-SHA384:ECDHE-ECDSA-AES256 -GCM-SHA384:ECDH-ECDSA -AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDH-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-CCM:DHE-RSA-AES256-CCM8 :ECDHE-ECDSA-AES256-CCM :ECDHE-ECDSA-AES256-CCM8:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-CHACHA20-POLY1305:DHE-RSA-CHACHA20-POLY1305; >> Der Code, der den Server anweist, nur die SSL-Algorithmen zu verwenden, die ich am zuverlässigsten finde.
 ```
+
 Alle Chiffren für diejenigen, die einzeln recherchieren wollen: "https://testssl.sh/openssl-iana.mapping.html"
 
 Wenn Sie nach dem Vornehmen der Einstellungen überprüfen möchten: Sie können den Befehl „sudo nginx -t“ verwenden. Wenn Sie keine Fehlermeldung sehen, können Sie die Einstellungen übernehmen und den Dienst mit dem Befehl "sudo systemctl restart nginx" oder "sudo service nginx restart" neu starten.
 
 ## Empfohlene Einstellungen
+
 Zusätzlich zu den vorherigen Einstellungen werden wir einige Leistungsverbesserungen sowie einige zusätzliche Konfigurationen vornehmen, die es Ihrer Website ermöglichen, auf SSL-Testseiten einen höheren Rang einzunehmen. Danach werden wir einige Verbesserungen vornehmen, um sicherzustellen, dass einige Header und Ressourcen Ihrer Website nicht von Websites Dritter ausgenutzt werden, was für den Benutzerzugriff Ihrer Website von Vorteil ist.
 
 ```
@@ -120,7 +122,8 @@ Als Bonus möchte ich Ihnen einen weiteren Befehl zeigen, dessen Ausführung lan
 Nachdem der Vorgang abgeschlossen ist, müssen Sie den folgenden Befehl zur nginx-Konfigurationsdatei hinzufügen.
 ssl_dhparam /etc/nginx/dhparam.pem; >> Der Befehl zum Ändern der während des Diffie-Hellman-Schlüsselaustauschalgorithmus zu verwendenden Werte mit den gerade erstellten geheimen Werten, abgesehen von den Standardwerten.
 ```
-Nachdem Sie die Einstellungen vorgenommen haben, übernehmen Sie die Einstellungen mit dem Befehl „sudo nginx -t“ und dann, wenn Sie keine Fehlermeldung sehen, „sudo service nginx restart“ und starten Sie den Dienst neu. Nun wird die Verbindung mit der von Ihnen festgelegten Konfiguration und Bedingungen bereitgestellt. Wenn Sie den Vorher/Nachher-Bewertungsunterschied sehen möchten, können Sie sich die Bilder unten ansehen oder Ihre eigene Website unter „https://www.ssllabs.com/ssltest/index.html“ testen.
+
+Nachdem Sie die Einstellungen vorgenommen haben, übernehmen Sie die Einstellungen mit dem Befehl „sudo nginx -t“ und dann, wenn Sie keine Fehlermeldung sehen, „sudo service nginx restart“ und starten Sie den Dienst neu. Nun wird die Verbindung mit der von Ihnen festgelegten Konfiguration und Bedingungen bereitgestellt. Wenn Sie den Vorher/Nachher-Bewertungsunterschied sehen möchten, können Sie sich die Bilder unten ansehen oder Ihre eigene Website unter „<https://www.ssllabs.com/ssltest/index.html“> testen.
 
 VOR
 {{< img src="/images/ssl-ilk-hali-ssllabs.png" >}}
@@ -132,4 +135,4 @@ Wenn Sie fragen, warum die Cipher-Stärke nicht 100 % beträgt, ist es derzeit n
 
 # Ende
 
-Dieser Artikel wurde zuvor unter https://teknolojirehberleri.xyz veröffentlicht. Um ein persönliches Portfolio zu erstellen, hatte ich das Bedürfnis, es auf meiner persönlichen Website erneut zu veröffentlichen.
+Dieser Artikel wurde zuvor unter <https://teknolojirehberleri.xyz> veröffentlicht. Um ein persönliches Portfolio zu erstellen, hatte ich das Bedürfnis, es auf meiner persönlichen Website erneut zu veröffentlichen.

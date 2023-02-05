@@ -17,7 +17,8 @@ Heutzutage gibt es fast kein Geschäft, das nicht online erledigt werden kann. S
 
 Zunächst muss OpenVPN sowohl auf der Server- als auch auf der Clientseite (dem zu verbindenden Gerät) installiert werden. Dann sollte eine Einstellungsdatei (Konfigurationsdatei) bearbeitet werden, die die Bedingungen zeigt, unter denen die Geräte kommunizieren. Das Hauptereignis ist, dass diese Konfigurationsdatei vom Client generiert und verwendet wird. Diese Konfigurationsdatei ist unterteilt in server_config, die vom Server verwendet wird, und client_config, die vom Client verwendet wird.
 
-### Die vom Server verwaltete Einstellungsdatei enthält die folgenden Einträge:
+### Die vom Server verwaltete Einstellungsdatei enthält die folgenden Einträge
+
 - `Port 1194` gibt an, welcher Port eine Verbindungsanfrage zum Herstellen der OpenVPN-Verbindung erhält.
 - `proto tcp` Verbindung über TCP oder UDP möglich. Einstellungseintrag zur Auswahl eingetragen.
 - `dev tun` TAP- oder TUN-Schnittstelle kann verwendet werden. Dies sind virtuelle Schnittstellen. TAP-Schicht 2 stellt eine Verbindung her, während TUN-Schicht 3 eine Verbindung herstellt.
@@ -48,7 +49,8 @@ Zunächst muss OpenVPN sowohl auf der Server- als auch auf der Clientseite (dem 
 - `status /var/log/openvpn/status.log` Einstellung, die angibt, wo Statusberichte geschrieben und wo Protokolldateien aufbewahrt werden
 - `verb 3` Diese Einstellung, die die Abkürzung des Wortes Verbose ist, ist die Einstellung, wie detailliert der Statusbericht gegeben werden soll.
 
-### Die clientseitige Einstellungsdatei enthält die folgenden Einträge:
+### Die clientseitige Einstellungsdatei enthält die folgenden Einträge
+
 - `client` gibt an, dass sich das Gerät in der Client-Rolle befindet
 - `proto tcp-client` meldet TCP als Protokoll
 - `remote $IP $PORT` Der Teil, in dem die IP-Adresse und die Portnummer des/der zu verbindenden Server(s) festgelegt werden
@@ -81,6 +83,7 @@ Eine ausführliche Dokumentation dieser Einstellungen und mehr finden Sie auf de
 ## Was passiert beim Aufbau einer OpenVPN-Verbindung?
 
 Jedes Mal, wenn ich mich mit OpenVPN verbinde, fühle ich mich, als würde R2-D2 ihre Pläne der Sternenflotte entführen. Die Leute wollen sich nicht immer einer genauen Prüfung unterziehen und bitten vielleicht jemanden, ihnen zu erklären, was und wie. In meiner Absicht, diesen Artikel zu schreiben, habe ich mir diese Frage tatsächlich gestellt und mich sehr bemüht, die Antwort zu bekommen. Ich möchte nicht, dass Sie sich so viel Mühe geben, aber ich kann nicht sagen, dass Sie es sofort hochladen sollen, denken Sie nicht an den Rest, es ist mein Job. Wie eingangs versprochen, werde ich Ihnen diesen Vorgang ausführlich erläutern und Ihnen die Entscheidung überlassen. So funktioniert der Prozess in einer OpenVPN-Verbindung, Vor- und Nachteile (wie ich es bisher herausfinden konnte). Sie bauen zunächst eine TCP/UDP-Verbindung auf. Sie führen einen Prozess wie jede Anwendung aus, die TCP verwendet, und wechseln dann zur TLS-Schicht. Sie führen einen Handshake und eine Authentifizierung auf der TLS-Schicht durch. Diese Schicht wird auch Steuerkanal genannt. Dann wird eine bestimmte Kommunikation festgelegt und der Datenkanal weitergegeben. Der Prozess der Ver- und Entschlüsselung der diesmal zu versendenden Datenpakete im Daten- bzw. Datenkanal beginnt. Dazu sprechen Geräte miteinander und Daten werden unter bestimmten gemeinsamen Bedingungen gesendet. Kurz gesagt, am Ende des von mir so beschriebenen Prozesses endet die von uns bei 0 begonnene Kommunikation mit dem sicheren und erwünschten Datenzugriff auf uns, oder es werden erneut Anfragen gesendet, diesmal auf umgekehrtem Weg, über die Verbindung that offen gehalten wird. So entsteht ein System wie ineinander verschachtelte Rohre. Wenn Sie hier das einzig Wichtige für den Artikel schreiben müssen:
+
 - Es wird `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P512` sein.
   - Hier gibt die Eingabe `TLS` an, dass der Kontrollkanal über die TLS-Schicht ausgeführt wird. Andere Alternativen sind `SSL` oder `NULL`.
   - Die Eingabe `ECDHE` gibt an, dass der erste Vorschlüssel unter Verwendung des elliptischen Diffie-Hellman-Algorithmus generiert wird. Andere Alternativen sind die Verwendung von `DHE`, `DH` oder nicht.

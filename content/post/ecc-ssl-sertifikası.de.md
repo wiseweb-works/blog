@@ -13,7 +13,6 @@ Nun, Sie haben es gut erklärt, aber wo ist der Sinn dieser Arbeit, scheine ich 
 
 {{< img src="/images/key-size-comparison.jpg" >}}
 
-
 ## Produktionsprozess des ECC-Zertifikats
 
 Zuerst müssen wir (wie immer) die neuesten Updates über die Konsole mit dem Paketmanager der Linux-Version installieren, in der wir uns befinden.
@@ -45,6 +44,7 @@ Beachten Sie, dass OpenSSL seine Ausgabe standardmäßig im PEM-Format schreibt.
 ```
 openssl ec -in privkey.pem -noout -text
 ```
+
 * `-in` ist eine Eingabedatei
 * Das `-noout` weist OpenSSL an, den Schlüssel nicht zu extrahieren, und gibt sinnlos privkey.pem nach stdout aus.
 * `-text` weist OpenSSL an, Informationen über den Schlüssel im Klartextformat zu schreiben
@@ -61,6 +61,7 @@ pub:
 ASN1 OID: secp384r1
 NIST CURVE: P-384
 ```
+
 Dadurch wird bestätigt, dass der Schlüssel mit der P-384-Kurve erstellt wurde. Wenn Sie sich fragen, warum wir nicht P-512 statt P-384 verwenden, Let's Encrypt signiert nicht, wenn die Ekliptikkurven höher als 384 Bit sind, und moderne Browser wie Google Chrome markieren Websites, die 512-Bit-Ekliptikkurven verwenden, als ungültig . Das ist die kurze Antwort.
 
 ## Erstellen wir eine OpenSSL-Konfiguration für das Zertifikat
@@ -82,6 +83,7 @@ emailAddress = admin@example.com
 [ reqext ]
 subjectAltName = DNS:example.com, DNS:www.example.com
 ```
+
 Hier ist eine kurze Beschreibung dieser Konfigurationsoptionen:
 
 Im erforderlichen `[ req ]`-Abschnitt:
@@ -109,6 +111,7 @@ Der zum Generieren einer CSR erforderliche OpenSSL-Befehl lautet `req` .
 ```
 openssl req -new -config openssl.cnf -key privkey.pem -out csr.pem
 ```
+
 * `-new` teilt OpenSSL mit, dass wir eine CSR erstellt haben (und wir keine bestehende CSR untersuchen)
 * `-config` openssl.cnf gibt die Konfigurationsdatei an, die wir oben erstellt haben
 * `-key privkey.pem` gibt den privaten Schlüssel an, den wir oben erstellt haben
@@ -119,6 +122,7 @@ Wir können überprüfen, ob wir die CSR korrekt erstellt haben:
 ```
 openssl req -in csr.pem -noout -text -verify
 ```
+
 * `-verify` fordert OpenSSL auf, die Signatur in der CSR zu verifizieren
 
 Dies sollte die folgenden erwarteten Ergebnisse in der Ausgabe erzeugen:
@@ -169,6 +173,7 @@ Wenn nichts falsch ist, wird es Ihnen sagen:
 WICHTIGE NOTIZEN:
  - Der Probelauf war erfolgreich.
 ```
+
 Der eigentliche Befehl lautet wie folgt:
 
 ```

@@ -57,6 +57,7 @@ All ciphers for those who want to research one by one: "https://testssl.sh/opens
 If you want to check after making the settings: You can use the command "sudo nginx -t". If you do not see an error message, you can apply the settings and restart the service with the command "sudo systemctl restart nginx" or "sudo service nginx restart"
 
 ## Recommended settings
+
 In addition to the previous settings, we will make some performance improvements, as well as some additional configurations that will enable your site to rank higher in SSL test sites. After that, we will make some improvements to ensure that some headers and resources of your site are not exploited by third party sites, which will be beneficial for your site's user access.
 
 ```
@@ -134,4 +135,4 @@ If you ask why Cipher Strength is not 100%, it is not possible to make 100% at t
 
 # End
 
-This article was previously published at https://teknolojirehberleri.xyz. In order to create a personal portfolio, I felt the need to republish it on my personal site.
+This article was previously published at <https://teknolojirehberleri.xyz>. In order to create a personal portfolio, I felt the need to republish it on my personal site.

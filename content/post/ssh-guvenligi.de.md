@@ -12,6 +12,7 @@ Heute werde ich darüber sprechen, wie wir den SSH-Dienst, der es uns ermöglich
 ## Einfache Sicherheitsvorkehrungen
 
 Zuerst müssen wir die Updates über die Konsole mit dem Paketmanager der Linux-Version installieren, in der wir uns befinden.
+
 ```
 Ubuntu: sudo apt update && sudo apt upgrade -y
 
@@ -29,6 +30,7 @@ Wenn wir weitermachen, Ubuntu
 ```
 sudo nano /etc/ssh/sshd_config # Befehl zum Öffnen der Einstellungsdatei
 ```
+
 Titel werden wir finden und ersetzen
 
 ```
@@ -38,6 +40,7 @@ X11Forwarding yes >> Wenn am Anfang ein Hashtag steht, entfernen wir es, andernf
 #MaxAuthTries 6 >> Wir entfernen den Hashtag am Anfang und ändern den Wert von „6“ auf 3. Dieser Befehl regelt, wie oft sie Ihr Passwort versuchen dürfen. Die Zahl 6 ist ein unnötig hoher Wert und die allgemeine Akzeptanz liegt bei 3 oder 4.
 #Protokol 2 >> Wenn am Anfang ein Hashtag steht, entfernen wir es, wenn es keinen solchen Eintrag gibt, fügen wir den Wert in Form von „Protokol 2“ an das erste Leerzeichen an, das wir finden. Dieser Befehl stellt sicher, dass Verbindungen nur mit dem neuesten SSH-Protokoll hergestellt werden, und schützt Sie so vor Schwachstellen des alten Protokolls.
 ```
+
 Wenn Sie nach dem Vornehmen der Einstellungen überprüfen möchten: Sie können den Befehl „sudo sshd -t“ verwenden. Wenn Sie keine Fehlermeldung sehen, können Sie die Einstellungen übernehmen und den Dienst mit dem Befehl "sudo systemctl restart sshd" oder "sudo service sshd restart" neu starten.
 
 ## Empfohlene Einstellungen
@@ -116,4 +119,4 @@ Sie können den Befehl ssh -i ~/.ssh/KEY_NAME USER_NAME@SERVER_IP_ADRESS -p PORT
 
 # Ende
 
-Dieser Artikel wurde zuvor unter https://teknolojirehberleri.xyz veröffentlicht. Um ein persönliches Portfolio zu erstellen, hatte ich das Bedürfnis, es auf meiner persönlichen Website erneut zu veröffentlichen.
+Dieser Artikel wurde zuvor unter <https://teknolojirehberleri.xyz> veröffentlicht. Um ein persönliches Portfolio zu erstellen, hatte ich das Bedürfnis, es auf meiner persönlichen Website erneut zu veröffentlichen.
