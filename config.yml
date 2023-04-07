@@ -4,16 +4,34 @@ DefaultContentLanguage: tr
 paginate: 5
 theme: hugo-PaperMod
 
-enableInlineShortcodes: true
-enableRobotsTXT: true
-buildDrafts: false
-buildFuture: false
-buildExpired: false
-enableEmoji: true
+imaging:
+  resampleFilter: Linear
+  #resampleFilter: MitchellNetravali (Cubic filter for alternative)
+  hint: picture
+  exif:
+    disableDate: true
+    disableLatLong: true
+    excludeFields: ".*"
 
 minify:
     disableXML: false
     minifyOutput: true
+
+frontmatter:
+  date:
+  - date
+  - publishDate
+  - lastmod
+  expiryDate:
+  - expiryDate
+  lastmod:
+  - lastmod
+  - :git
+  - date
+  - publishDate
+  publishDate:
+  - publishDate
+  - date
 
 languages:
     tr:
@@ -150,6 +168,14 @@ params:
     ShowToc: true
     searchHidden: false
     displayFullLangName: true
+    ShowFullTextinRSS: true
+    enableInlineShortcodes: true
+    enableRobotsTXT: true
+    buildDrafts: false
+    buildFuture: false
+    buildExpired: false
+    enableEmoji: true
+    enableGitInfo: true
 
     socialIcons:
         - name: mastodon
@@ -159,9 +185,9 @@ params:
         - name: email
           url: "mailto:wisewebworks@outlook.com"
         - name: rss
-          url: "/index.xml"
+          url: "https://wiseweb-works.github.io/blog/index.xml"
         - name: other
-          url: "https://sites.google.com/site/whydidyouclickonthelink/"
+          url: "https://www.youtube.com/watch?v=ct5OucxpuUg"
 
 
     fuseOpts:

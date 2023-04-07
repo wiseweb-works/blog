@@ -14,7 +14,7 @@ Daha önceki yazımızda olduğu gibi süreci yine basit, önerilen ve ileri-sev
 
 Öncelikle içinde bulunduğumuz Linux sürümünün paket yöneticisi ile güncellemeleri konsol üzerinden yüklememiz gerekmektedir.
 
-```
+```bash
 Ubuntu için: sudo apt update && sudo apt upgrade -y
 
 Fedora için: sudo yum update -y
@@ -26,11 +26,11 @@ Güncellemeler yüklendikten sonra ise sunucunuzdaki (Benim olayımda Ubuntu) ng
 
 Ubuntu üzerinden devam edecek olursak (Tek Ip Tek Sunucu Yapılandırması)
 
-```
+```bash
 sudo nano /etc/nginx/nginx.config # Ayar dosyasını açmaya yarayan komut
 ```
 
-```
+```text
 Eklenecek (varsa değiştirilecek) başlıklar
 listen 443 ssl http2; >> ipv4 üzerinden 443 portuna gelen istekleri http2 protokolü ile karşılayıp ssl bağlantısı kurmaya yarıyor.
 
@@ -59,7 +59,7 @@ Ayarları yaptıktan sonra kontrol etmek isterseniz: "sudo nginx -t" komutunu ku
 
 Bir önceki ayarlara ek olarak performans özelinde bazı iyileştirmeler ve bunun yanı sıra sitenizin SSL test sitelerinde üst sıralara çıkmasını sağlayacak bazı ek konfigürasyonlar yapacağız. Bunun ardından ise sitenizin kullanıcı ile erişiminde faydalı olarak bazı başlıkları (header) ve sitenizin kaynaklarının üçüncü kişi siteler tarafından sömürülmemesi için bir takım iyileştirmeler yapacağız.
 
-```
+```text
 Eklenecek (varsa değiştirilecek) başlıklar
 ssl_session_cache shared:TLS:2m; >> TLS bağlantılarının işçiler (nginx workers) arasında nasıl dağıtılacağını ve ne kadar süre ile bağlantıların ortak kullanılacağını belirten kod
 
@@ -92,7 +92,7 @@ Ayarları yaptıktan sonra kontrol etmek isterseniz: "sudo nginx -t" komutunu ku
 
 Öncelikle sitenizin SSL üzerinden hiçbir soruna neden olmaksızın erişilebiliyor olduğundan emin olun. Ardından nginx konfig dosyasına aşağıdaki başlıklardan isteğinize göre birini ekleyin. Ama dikkat edin sadece bir tanesini.
 
-```
+```text
 add_header Strict-Transport-Security "max-age=2592000;" always; >> Sitenize 30 gün boyunca sadece HTTPS üzerinden erişilebileceğini belirten başlık. (Alt alan adları dahil değil)
 
 add_header Strict-Transport-Security "max-age=2592000; includeSubDomains;" always; >> Sitenize alt alan adları da dahil olmak üzere 30 gün boyunca sadece HTTPS üzerinden erişilebileceğini belirten başlık.
@@ -106,7 +106,7 @@ add_header Strict-Transport-Security "max-age=0; includeSubDomains"; >> HSTS öz
 
 Yukarıda belirtilen başlığı ekledikten sonra şimdi kullanmış olduğunuz ssl sertifikasının özetinin HTTP oturumuna zımbalanmasına geldi. Bu aşamada mevcut sertifikanızın bir özetini çıkarmamız, üst imzalayan yetkilinin sertifikasının özetini çıkarmamız ve en üst kök sertifika yetkilisi de dahil olmak üzere tüm zinciri tamamlayana kadar bu özet çıkarma sürecini devam ettirmemiz gerekiyor. Bu nedenle root kullanıcısı veya sudo yetkisine sahip bir kullanıcı ile aşağıdaki komutları sırasıyla çalıştırıyoruz. (Anlatım Let's Encrypt özelinde yapılmıştır.)
 
-```
+```bash
 1] cat /etc/letsencrypt/live/SUNUCU_ADINIZ/cert.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | base64 >> Bu komut sizin sitenize ait sertifikanın özetini çıkaracaktır. Sonuç değerini bir yere kopyalayın.
 2] curl -s https://letsencrypt.org/certs/lets-encrypt-x4-cross-signed.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | base64 >> Bu komut letsencrypt'e ait çoklu imzalı sertifikalardan bir tanesinin özetini çıkaracaktır.
 3] curl -s https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | base64 >> Bu komut letsencrypt'e ait çoklu imzalı sertifikalardan bir tanesinin özetini çıkaracaktır.
@@ -125,10 +125,10 @@ ssl_dhparam /etc/nginx/dhparam.pem; >> Diffie-Hellman anahtar değişim algoritm
 Ayarları yaptıktan sonra "sudo nginx -t" ve ardından eğer bir hata mesajı görmez iseniz "sudo service nginx restart" komutu ile ayarları uygulayıp servisi baştan başlatın. Artık sizin belirlediğiniz konfigürasyon ve şartlar ile bağlantı sağlanacaktır. Eğer öncesi/sonrası puanlama farkını görmek isterseniz aşağıdaki görsellere bakabilirsiniz veya kendi sitenizi "https://www.ssllabs.com/ssltest/index.html" adresinden test edebilirsiniz.
 
 İLK HALİ
-{{< img src="/images/ssl-ilk-hali-ssllabs.png" >}}
+{{< img src="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png" >}}
 
 SON DURUM
-{{< img src="/images/ssl-son-hali-ssllabs.png" >}}
+{{< img src="/images/ssl-anlatim/ssl-son-hali-ssllabs.png" >}}
 
 Neden Cipher Strength %100 değil derseniz TLS 1.3 ile otomatik gelen ve biz istemesek de eklenen "TLS_AES_128_GCM_SHA256 (0x1301)" yüzünden şu an %100 yapmak mümkün değil. TLS 1.3'ü kapatırım o zaman gelmez diye düşünürseniz o zaman da başka yerden puanınız gidiyor maalesef.
 

@@ -15,7 +15,7 @@ As in our previous article, I will explain the process again under three differe
 
 First of all, we need to install the updates via the console with the package manager of the Linux version we are in.
 
-```
+```bash
 Ubuntu: sudo apt update && sudo apt upgrade -y
 
 Fedora: sudo yum update -y
@@ -27,11 +27,11 @@ After the updates are installed, we start configuring the nginx/apache service (
 
 If we continue on Ubuntu (Single IP for Single Server Configuration)
 
-```
+```bash
 sudo nano /etc/nginx/nginx.config # Command to open the settings file
 ```
 
-```
+```text
 Titles to be added (changed if any)
 listen 443 ssl http2; >> It serves to meet the requests coming to port 443 via ipv4 with http2 protocol and establish ssl connection.
 
@@ -60,7 +60,7 @@ If you want to check after making the settings: You can use the command "sudo ng
 
 In addition to the previous settings, we will make some performance improvements, as well as some additional configurations that will enable your site to rank higher in SSL test sites. After that, we will make some improvements to ensure that some headers and resources of your site are not exploited by third party sites, which will be beneficial for your site's user access.
 
-```
+```text
 Titles to be added (changed if any)
 ssl_session_cache shared:TLS:2m; >> Code specifying how TLS connections will be distributed among workers (nginx workers) and for how long the connections will be shared
 
@@ -93,7 +93,7 @@ First, we'll add a header to your site to indicate that it should only be connec
 
 First, make sure that your site can be accessed over SSL without causing any problems. Then add one of the following headers to the nginx config file as per your request. But beware, only one.
 
-```
+```text
 add_header Strict-Transport-Security "max-age=2592000;" always; >> Header stating that your site can only be accessed over HTTPS for 30 days. (Not including subdomains)
 
 add_header Strict-Transport-Security "max-age=2592000; includeSubDomains;" always; >> Header stating that your site can only be accessed over HTTPS for 30 days, including subdomains.
@@ -107,7 +107,7 @@ add_header Strict-Transport-Security "max-age=0; includeSubDomains"; >> Title fo
 
 After adding the header mentioned above, now it's time to staple the hash of the ssl certificate you used to the HTTP session. At this stage we need to extract a hash of your current certificate, hash the top signing authority's certificate, and continue this hashing process until we've completed the entire chain, including the top root certificate authority. For this reason, we run the following commands respectively with a root user or a user with sudo authority. (The lecture was made specifically for Let's Encrypt.)
 
-```
+```bash
 1] cat /etc/letsencrypt/live/YOUR SERVER_NAME/cert.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | base64 >> This command will extract the hash of your site's certificate. Copy the result value somewhere.
 2] curl -s https://letsencrypt.org/certs/lets-encrypt-x4-cross-signed.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | base64 >> This command will extract one of the multi-signed certificates of letsencrypt.
 3] curl -s https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | base64 >> This command will extract one of the multi-signed certificates of letsencrypt.
@@ -126,10 +126,10 @@ ssl_dhparam /etc/nginx/dhparam.pem; >> The command to change the values ​​to
 After making the settings, apply the settings with the command "sudo nginx -t" and then, if you do not see an error message, "sudo service nginx restart" and restart the service. Now the connection will be provided with the configuration and conditions you have specified. If you want to see the before/after scoring difference, you can look at the images below or test your own site at "https://www.ssllabs.com/ssltest/index.html".
 
 BEFORE
-{{< img src="/images/ssl-ilk-hali-ssllabs.png" >}}
+{{< img src="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png" >}}
 
 AFTER
-{{< img src="/images/ssl-son-hali-ssllabs.png" >}}
+{{< img src="/images/ssl-anlatim/ssl-son-hali-ssllabs.png" >}}
 
 If you ask why Cipher Strength is not 100%, it is not possible to make 100% at the moment because of the "TLS_AES_128_GCM_SHA256 (0x1301)" that comes automatically with TLS 1.3 and is added even if we don't want it. If you think that I will turn off TLS 1.3, then it will not come, then unfortunately your points are gone from somewhere else.
 

@@ -11,13 +11,13 @@ Heute lernen wir, wie man SSL-Zertifikate generiert, um sicherzustellen, dass de
 
 Nun, Sie haben es gut erklärt, aber wo ist der Sinn dieser Arbeit, scheine ich Sie sagen zu hören. Ich werde Sie verärgern, aber dieses Geschäft hat keinen Sinn. Der Grund, warum dies nicht der Fall ist, ist in der Hintergrundmathematik verborgen. Ich werde kurz auf die kleinen Unterschiede in der Herstellung und Verwendung beider Zertifikate eingehen, erklären, wie und warum sie große Unterschiede verursachen, und im letzten Teil werde ich über etwas sprechen, das nicht als Bonus im Titel steht. (Für den Bonus musst du bis zum Ende lesen :D)
 
-{{< img src="/images/key-size-comparison.jpg" >}}
+{{< img src="/images/ecc-ssl/key-size-comparison.jpg" >}}
 
 ## Produktionsprozess des ECC-Zertifikats
 
 Zuerst müssen wir (wie immer) die neuesten Updates über die Konsole mit dem Paketmanager der Linux-Version installieren, in der wir uns befinden.
 
-```
+```bash
 Ubuntu: sudo apt update && sudo apt upgrade -y
 
 Fedora: sudo yum update -y
@@ -31,7 +31,7 @@ Nachdem die Updates installiert sind, beginnen wir mit der Konfiguration des ngi
 
 Zuerst generieren wir den privaten Schlüssel mit OpenSSL. Der OpenSSL-Befehl, den wir verwenden werden, ist „ecparam“ (EC-Parametermanipulation) und um die Konfigurationsparameter an diesen Befehl zu übergeben:
 
-```
+```bash
 openssl ecparam -genkey -name secp384r1 -out privkey.pem
 ```
 
@@ -41,7 +41,7 @@ openssl ecparam -genkey -name secp384r1 -out privkey.pem
 
 Beachten Sie, dass OpenSSL seine Ausgabe standardmäßig im PEM-Format schreibt. Wir können überprüfen, ob OpenSSL das Richtige tut, mit dem Befehl `ec`, der EC-Schlüssel verarbeitet:
 
-```
+```bash
 openssl ec -in privkey.pem -noout -text
 ```
 
@@ -51,7 +51,7 @@ openssl ec -in privkey.pem -noout -text
 
 Wenn alles gut geht und der Schlüssel korrekt generiert wurde, zeigt OpenSSL etwa Folgendes:
 
-```
+```text
 read EC key
 Private-Key: (384 bit)
 priv:
@@ -68,7 +68,7 @@ Dadurch wird bestätigt, dass der Schlüssel mit der P-384-Kurve erstellt wurde.
 
 Jetzt müssen wir eine OpenSSL-Konfigurationsdatei erstellen, die die domänenspezifischen Parameter enthält, für die wir das TLS-Zertifikat erhalten möchten. In diesem Beispiel tragen wir die folgende Konfiguration in eine `openssl.cnf`-Datei ein:
 
-```
+```text
 [ req ]
 prompt = no
 encrypt_key = no
@@ -108,7 +108,7 @@ Der letzte Schritt auf der Client-Seite besteht darin, die Zertifikatsignieranfo
 
 Der zum Generieren einer CSR erforderliche OpenSSL-Befehl lautet `req` .
 
-```
+```bash
 openssl req -new -config openssl.cnf -key privkey.pem -out csr.pem
 ```
 
@@ -119,7 +119,7 @@ openssl req -new -config openssl.cnf -key privkey.pem -out csr.pem
 
 Wir können überprüfen, ob wir die CSR korrekt erstellt haben:
 
-```
+```bash
 openssl req -in csr.pem -noout -text -verify
 ```
 
@@ -127,7 +127,7 @@ openssl req -in csr.pem -noout -text -verify
 
 Dies sollte die folgenden erwarteten Ergebnisse in der Ausgabe erzeugen:
 
-```
+```text
 verify OK
 Certificate Request:
     Data:
@@ -158,7 +158,7 @@ Ist beispielsweise die Domain „example.com“ bei Cloudflare registriert, kön
 
 Es wird normalerweise empfohlen, zuerst mit `--dry-run` sicherzustellen, dass alles in Ordnung ist, um sicherzustellen, dass alles in Ordnung ist.
 
-```
+```bash
 certbot nginx certonly --dry-run --domain "example.com" --domain "www.example.com" --csr csr.pem
 ```
 
@@ -169,14 +169,14 @@ Der Certbot-Client überprüft auf der Befehlszeile, ob die angeforderte Liste d
 
 Wenn nichts falsch ist, wird es Ihnen sagen:
 
-```
+```text
 WICHTIGE NOTIZEN:
  - Der Probelauf war erfolgreich.
 ```
 
 Der eigentliche Befehl lautet wie folgt:
 
-```
+```bash
 certbot nginx certonly --domain "example.com" --domain "www.example.com" --csr csr.pem
 ```
 
@@ -189,7 +189,7 @@ An dieser Stelle kann die CSR `csr.pem` gelöscht werden.
 
 Wenn wir neugierig sind, können wir die vom Client zurückgegebenen Zertifikate mit OpenSSL mit dem Befehl "x509" überprüfen:
 
-```
+```bash
 openssl x509 -in 0001_chain.pem -noout -text
 ```
 
@@ -207,14 +207,14 @@ Unter Debian Linux erstelle ich gerne Unterverzeichnisse für meine Domains, ind
 
 Wenn wir alles richtig gemacht haben, bestätigt die Überprüfung des Zertifikats mit einem Webbrowser wie Chrome, dass es sich um ein EC-Zertifikat handelt:
 
-{{< img src="/images/ecc-sll-key-chrome.png" >}}
+{{< img src="/images/ecc-ssl/ecc-sll-key-chrome.png" >}}
 
 Mozilla Observatory wird uns auch eine A+ Bewertung geben!
 
-{{< img src="/images/ecc-ssl-key-mozilla.png" >}}
+{{< img src="/images/ecc-ssl/ecc-ssl-key-mozilla.png" >}}
 
 Darüber hinaus können wir als Ergebnis des SSL Labs-Berichts sehen, dass ein 384-Bit-ECC-Zertifikat verwendet wurde.
 
-{{< img src="/images/ecc-ssl-key-ssllabs.png" >}}
+{{< img src="/images/ecc-ssl/ecc-ssl-key-ssllabs.png" >}}
 
 HINWEIS: Dieser Artikel profitiert vom Artikel von [Benjamin Black](https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc) zum gleichen Thema.

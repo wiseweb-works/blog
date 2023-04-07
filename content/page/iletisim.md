@@ -19,7 +19,7 @@ Benimle iletişim kurmak isterseniz:
 **mastodon** fosstodon.org/@wise  
 **xmpp** wise[at]yax.im
 
-*Blog'um, [RSS](https://wiseweb.works/index.xml) destekler. Arzu ederseniz kullanmakta olduğunuz RSS okuyucu üzerinden kayıt olabilirsiniz.*
+*Blog'um, [RSS](https://wiseweb-works.github.io/blog/index.xml) destekler. Arzu ederseniz kullanmakta olduğunuz RSS okuyucu üzerinden kayıt olabilirsiniz.*
 
 ---
 
@@ -29,4 +29,4 @@ Bu site, [Hugo](https://gohugo.io/) kullanılarak ve [PaperMod](https://github.c
 
 ![512kbClub](https://512kb.club/assets/images/green-team.svg)
 
-[^1]: https://ged296123.gitlab.io/yunbere/
+[^1]: https://yunbere.hayalmasal.org/

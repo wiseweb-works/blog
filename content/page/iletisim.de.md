@@ -19,7 +19,7 @@ Wenn Sie mich kontaktieren möchten:
 **Mastodon** fosstodon.org/@wise  
 **xmpp** wise[at]yax.im
 
-*Mein Blog unterstützt [RSS](https://wiseweb.works/index.xml). Wenn Sie möchten, können Sie sich über den von Ihnen verwendeten RSS-Reader anmelden.*
+*Mein Blog unterstützt [RSS](https://wiseweb-works.github.io/blog/index.xml). Wenn Sie möchten, können Sie sich über den von Ihnen verwendeten RSS-Reader anmelden.*
 
 ---
 
@@ -29,4 +29,4 @@ Diese Seite wurde mit [Hugo](https://gohugo.io/) und mit dem Theme [PaperMod](ht
 
 ![512kbClub](https://512kb.club/assets/images/green-team.svg)
 
-[^1]: https://ged296123.gitlab.io/yunbere/
+[^1]: https://yunbere.hayalmasal.org/

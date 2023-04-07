@@ -28,7 +28,7 @@ jobs:
           extended: true
 
       - name: Build site
-        run: hugo --minify
+        run: hugo --minify --enableGitInfo --gc --baseURL https://wiseweb-works.github.io/blog/ 
 
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3

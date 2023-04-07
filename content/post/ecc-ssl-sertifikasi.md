@@ -11,13 +11,13 @@ Bugün sizlerle yönettiğiniz bir web sitesi veya uygulama sunucusu ile ziyaret
 
 Peki iyi güzel anlattın da bu işin aması nerede dediğinizi duyar gibiyim. Sizi üzeceğim fakat bu işin aması yok. Olmamasının sebebi ise işin arka plandaki matematikte saklı. Kısaca her iki sertifika üretim ve kullanımındaki ufak farklardan bahsedip, bunların nasıl ve neden büyük farklara neden olduğunu açıklayıp son kısımda da bonus olarak başlıkta yazmayan bir şeyden bahsedeceğim. (Sonuna kadar okumanız gerekecek bonus için :D)
 
-{{< img src="/images/key-size-comparison.jpg" >}}
+{{< img src="/images/ecc-ssl/key-size-comparison.jpg" >}}
 
 ## ECC Sertifikasının üretim süreci
 
 Öncelikle (her zaman olduğu gibi) içinde bulunduğumuz Linux sürümünün paket yöneticisi ile son güncellemeleri konsol üzerinden yüklememiz gerekmektedir.
 
-```
+```bash
 Ubuntu için: sudo apt update && sudo apt upgrade -y
 
 Fedora için: sudo yum update -y
@@ -31,7 +31,7 @@ Güncellemeler yüklendikten sonra ise sunucunuzdaki (Benim olayımda Ubuntu) ng
 
 İlk olarak, OpenSSL ile özel anahtarı oluşturuyoruz. Kullanacağımız OpenSSL komutu `ecparam` (EC parametre manipülasyonu) ve konfigürasyon parametrelerini bu komuta geçirmek için:
 
-```
+```bash
 openssl ecparam -genkey -name secp384r1 -out privkey.pem
 ```
 
@@ -41,7 +41,7 @@ openssl ecparam -genkey -name secp384r1 -out privkey.pem
 
 OpenSSL'nin çıktısını varsayılan olarak PEM biçiminde yazdığını unutmayın. EC anahtarlarını işleyen `ec` komutuyla OpenSSL'nin doğru şeyi yaptığını kontrol edebiliriz:
 
-```
+```bash
 openssl ec -in privkey.pem -noout -text
 ```
 
@@ -51,7 +51,7 @@ openssl ec -in privkey.pem -noout -text
 
 Her şey yolunda giderse ve anahtar doğru şekilde oluşturulduysa, OpenSSL aşağıdakine benzer bir şey gösterecektir:
 
-```
+```text
 read EC key
 Private-Key: (384 bit)
 priv:
@@ -68,7 +68,7 @@ Bu, anahtarın P-384 eğrisi ile oluşturulduğunu doğrular. Neden P-384 yerine
 
 Şimdi TLS sertifikası almak istediğimiz etki alanına özgü parametreleri içeren bir OpenSSL yapılandırma dosyası oluşturmalıyız. Bu örnekte, bir `openssl.cnf` dosyasına aşağıdaki konfigürasyonu gireceğiz:
 
-```
+```text
 [ req ]
 prompt = no
 encrypt_key = no
@@ -108,7 +108,7 @@ Let's Encrypt v2, joker alan adlarını destekler, bu nedenle bu örnekte, apeks
 
 Bir CSR oluşturmak için gereken OpenSSL komutu `req` 'dir.
 
-```
+```bash
 openssl req -new -config openssl.cnf -key privkey.pem -out csr.pem
 ```
 
@@ -119,7 +119,7 @@ openssl req -new -config openssl.cnf -key privkey.pem -out csr.pem
 
 CSR'yi doğru şekilde oluşturduğumuzu doğrulayabiliriz:
 
-```
+```bash
 openssl req -in csr.pem -noout -text -verify
 ```
 
@@ -127,7 +127,7 @@ openssl req -in csr.pem -noout -text -verify
 
 Bu, çıktıda beklenen şu sonuçları üretmelidir:
 
-```
+```text
 verify OK
 Certificate Request:
     Data:
@@ -158,7 +158,7 @@ Son adım, CSR'yi bir ACME istemcisiyle Let's Encrypt'e imzalaması için gönde
 
 Her şeyin yolunda olduğundan emin olmak için önce `--dry-run` ile düzgün sonuç alınacağından emin olunması genellikle tavsiye edilir.
 
-```
+```bash
 certbot nginx certonly --dry-run --domain "example.com" --domain "www.example.com" --csr csr.pem
 ```
 
@@ -169,14 +169,14 @@ Certbot istemcisi, komut satırında istenen alan adları listesinin sertifikada
 
 Hiçbir şey yanlış değilse, size şunu söyleyecektir:
 
-```
+```text
 IMPORTANT NOTES:
  - The dry run was successful.
 ```
 
 Gerçek komut hemen aşağıdaki gibidir:
 
-```
+```bash
 certbot nginx certonly --domain "example.com" --domain "www.example.com" --csr csr.pem
 ```
 
@@ -189,7 +189,7 @@ Bu noktada, CSR `csr.pem` silinebilir.
 
 Merak ediyorsak, `x509` komutunu kullanarak istemci tarafından OpenSSL ile döndürülen sertifikaları inceleyebiliriz:
 
-```
+```bash
 openssl x509 -in 0001_chain.pem -noout -text
 ```
 
@@ -207,14 +207,14 @@ Debian Linux'ta, özel anahtarımı `/home/KULLANICI_ADI/SSL/private/example.com
 
 Her şeyi doğru yaptıysak, sertifikayı Chrome gibi bir web tarayıcısı ile incelediğimizde, bunun bir EC sertifikası olduğunu onaylayacaktır:
 
-{{< img src="/images/ecc-sll-key-chrome.png" >}}
+{{< img src="/images/ecc-ssl/ecc-sll-key-chrome.png" >}}
 
 Mozilla Gözlemevi de bize A+ notu verecek!
 
-{{< img src="/images/ecc-ssl-key-mozilla.png" >}}
+{{< img src="/images/ecc-ssl/ecc-ssl-key-mozilla.png" >}}
 
 Ayrıca SSL Labs'ın rapor sonucunda 384 Bitlik bir ECC sertifikası'nın kullanıldığını görebiliyoruz.
 
-{{< img src="/images/ecc-ssl-key-ssllabs.png" >}}
+{{< img src="/images/ecc-ssl/ecc-ssl-key-ssllabs.png" >}}
 
 NOT: Bu yazıda [Benjamin Black](https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc)'in aynı konulu yazısından faydalanılmıştır.

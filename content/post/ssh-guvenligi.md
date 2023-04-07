@@ -12,7 +12,7 @@ Bugün sizlerle bir sunucu kiraladığınız zaman güvenli bir şekilde bağlan
 
 Öncelikle içinde bulunduğumuz Linux sürümünün paket yöneticisi ile güncellemeleri konsol üzerinden yüklememiz gerekmektedir.
 
-```
+```bash
 Ubuntu için: sudo apt update && sudo apt upgrade -y
 
 Fedora için: sudo yum update -y
@@ -26,13 +26,13 @@ SSHD servisinin ayarlarının tutulduğu dosya genel itibariyle "/etc/ssh/sshd_c
 
 Ubuntu üzerinden devam edecek olursak
 
-```
+```bash
 sudo nano /etc/ssh/sshd_config # Ayar dosyasını açmaya yarayan komut
 ```
 
 Bulup değiştireceğimiz başlıklar
 
-```
+```text
 #ClientAliveInterval 0  >> Başındaki hashtag işaretini kaldırıyoruz ve "0" olan değeri 300 yapıyoruz. Bu komut bağlantı kullanılmadığı (idle konumunda kaldığı) zaman kaç sn sonra bağlantının otomatik kapatılacağını düzenler
 #PermitEmptyPasswords no >> Başındaki hashtag işaretini kaldırıyoruz ve "no" olan değeri değiştirmiyoruz. Bu komut boş veya şifresiz kullanıcıların bağlanmasını engeller. Yani boş şifrelere izin vermez.
 X11Forwarding yes >> Eğer başında hastag var ise kaldırıyoruz yok ise "yes" olan değeri no olarak değiştiriyoruz. Bu komut sunucu üzerinde GUI arayüzüne sahip uygulamaları çalıştırma kolaylığı sağlamasına rağmen suistimal edilmesi mümkün bir durum olduğundan kapatıyoruz.
@@ -46,7 +46,7 @@ Ayarları yaptıktan sonra kontrol etmek isterseniz: "sudo sshd -t" komutunu kul
 
 Bir önceki ayarlara ek olarak kullanıcı bazlı oturum açma, sadece güvenli anahtar kullanarak oturum açma ve Root kullanıcısı ile oturum açmayı kısıtlama gibi ek ayarlamalar yapacağız. Öncelikle yerel bilgisayarınızdaki kullanıcınız için bir gizli anahtar üretmeniz gerekiyor. Bunun için eğer linux tabanlı bir işletim sistemi kullanıyor iseniz
 
-```
+```text
 ssh-keygen -t rsa -b 4096 # yazdıktan sonra aşağıdaki sorulara cevap olarak istediğiniz şifreyi giriniz
 >>>> Enter passphrase (empty for no passphrase): [Press enter key]
 >>>> Enter same passphrase again: [Press enter key]
@@ -60,14 +60,14 @@ ssh-keygen -t ecdsa -b 521 # Daha güvenli ve daha hızlı olan ekliptik anahtar
 
 Diğer sorulara Enter'a basarak cevap vermiş ve anahtar için belirli bir konum yazmamış iseniz anahtar çiftiniz (.pub= halka açık anahtar) / uzantısız olan gizli anahtar) /home/KULLANICI_ADINIZ/.ssh klasörüne kaydedilmiştir. Ürettiğiniz anahtarı sunucunuza tanıtmak için aşağıdaki kodu kullanabilirsiniz.
 
-```
+```text
 ssh-copy-id -i ~/.ssh/ANAHTAR_ISMINIZ.pub SUNUCUDAKI_KULLANICI_ADINIZ@SUNUCU_IP_ADRESI # yazdıktan sonra kullanıcınızın şifresini sorucak ve doğru girdiğiniz takdirde onay mesajı ile karşılaşacaksınız.
 ```
 
 Kendi anahtarınızı ürettikten sonra sunucuya sadece anahtar ile erişmek için;
 Bulup değiştireceğimiz başlıklar
 
-```
+```text
 #PasswordAuthentication no >> Başındaki hashtag işaretini kaldırıyoruz ve "no" olan değeri no olarak bırakıyoruz. Bu komut sunucuya şifre ile bağlanmayı engeller. Kullanıcılar sadece ssh_keyleri ile bağlanabilirler.
 PubkeyAuthentication yes >> Eğer var ise başındaki hastag işaretini kaldırıyoruz ve değeri yes olarak belirliyoruz. Bu komut az önce oluşturduğunuz gizli key ile oturum açmanıza izin veren komuttur.
 #PermitRootLogin no >> Başındaki hashtag işaretini kaldırıyoruz ve "no" olan değeri no olarak bırakıyoruz. Bu komut ROOT kullanıcısının ki en yetkili kullanıcıdır sunucuya erişmesini engelliyor. Ancak başka bir kullanıcı ile erişip sonra ROOT kullancısına geçiş yapabilirsiniz.
@@ -86,7 +86,7 @@ Ayarları yaptıktan sonra kontrol etmek isterseniz: "sudo sshd -t" komutunu kul
 
 Bulup değiştireceğimiz başlıklar
 
-```
+```text
 #Port 22 >> Bunu bulup başındaki hastag işaretini kaldırıyoruz ve oraya başka hizmet tarafından kullanılmayan ve açık olan bir port numarasını yazıyoruz. Örneğin 2992 olabilir.
 LogLevel INFO >> Bu ayarı bulup değiştiriyoruz yok ise ekliyoruz. Kayıt seviyesini belirlememize yarıyor.
 AllowAgentForwarding no >> Bu ayarı bulup değiştiriyoruz yok ise ekliyoruz. Alternatif yönlendirme yöntemlerini devredışı bırakıyor.
@@ -100,7 +100,7 @@ Daha da ileri giderek SSH bağlantısı sırasında kullanılan şifreleme algor
 
 Root kullanıcısı veya sudo yetkisine sahip bir kullanıcı ile aşağıdaki komutları sırasıyla çalıştırıyoruz.
 
-```
+```bash
 1] rm /etc/ssh/ssh_host_*
 2] ssh-keygen -t rsa -b 4096 -f /etc/ssh/ssh_host_rsa_key -N ""
 3] ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N ""
@@ -112,7 +112,7 @@ Root kullanıcısı veya sudo yetkisine sahip bir kullanıcı ile aşağıdaki k
 
 Ayarları yaptıktan sonra "sudo sshd -t" ve ardından eğer bir hata mesajı görmez iseniz "sudo service sshd restart" komutu ile ayarları uygulayıp servisi baştan başlatın. Artık yeni belirlediğiniz port üzerinden ve sadece sizin gizli anahtarınız ile sunucuya bağlanabileceksiniz. Bağlanmak için ise;
 
-```
+```texte
 ssh -i ~/.ssh/ANAHTAR_ISMINIZ SUNUCUDAKI_KULLANICI_ADINIZ@SUNUCU_IP_ADRESI -p PORT_NUMARASI # komutunu kullanabilirsiniz. Gelen bildirimlere Enter deyip devam edebilirsiniz.
 ```
 

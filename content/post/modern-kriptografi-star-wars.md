@@ -5,7 +5,7 @@ tags: ["kriptografi", "star wars", "security", "ssl" ,"tls"]
 author: "Wise"
 draft: false
 cover:
-    image: "/images/its-a-trap.jpg"
+    image: "/images/starwars-kriptografi/its-a-trap.jpg"
     hidden: false
 ---
 > Uzun uzun bir zaman önce (!) pek de uzak olmayan bir galakside yaşayan insanlar internet üzerinden yapmış oldukları işlemlerin daha güvenli bir temele oturması ve bu iletişimin tarafları dışındaki üçüncü kişilerin bu iletişimi dinleyememesi ve hakkında bilgi sahibi olamaması için bir takım şifreleme yöntemleri geliştirmeye karar verirler. [INTRO](https://starwarsintrocreator.kassellabs.io/#!/BM5xzF-d7ZTSDYuCtJC9)
@@ -16,7 +16,7 @@ Basit anlatımıyla internet üzerinde bir websitesi barındırmamıza ve dünya
 
 |    |    |  
 |--- |--- |
-| {{< img src="/images/connection-is-secure.jpeg" >}} | {{< img src="/images/not-private-notification.png" >}} |
+| {{< img src="/images/starwars-kriptografi/connection-is-secure.jpeg" >}} | {{< img src="/images/starwars-kriptografi/not-private-notification.png" >}} |
 
 Konunun girişine eklenmiş olan videoda 1977 yapımı Star Wars New Hope filminde (bunca yıldan sonra spoiler denemez artık) Galaktik İmparatorluk tarafından bütün galaksiyi yok edebilecek güçte ve devasa ölçekte bir ölüm yıldızı yapıldığının haberi alınır. Bu haberin alınması üzerine kendilerine Rebellion (isyancı) diyen bir grup bu ölçekte ve güçte bir geminin normal gemi savaşları ile yok edilemeyeceğini anlamış ve bu planları çalıp geminin zayıf noktalarını incelemeye karar vermişlerdir. Orijinal üçlemenin ilk filmi olmasına rağmen tarihsel olarak 4'ncü film olması nedeniyle filmin başlangıcında bu planların çalındığını fakat henüz inceleme imkanı bulunamadan planları çalan uzay gemisinin imparatorluk kuvvetleri ve meşhur Dart Vader tarafından kovalandığını görüyoruz. Kovalamacanın sonuna doğru ellerindeki planları güvenli bir şekilde isyan kuvvetlerinin ana karargahına göndermeleri gerektiğini fakat imparatorluk kuvvetleri tarafından takip edilirken bunun çok zor olacağını anlayan Prenses Leia kendisince en güvenli gördüğü yöntemi kullanarak R2-D2 sınıfı bir robotun belleğine planları yükler ve filmimiz burada başlar. Videonun başlangıcında Dart Vader ve imparatorluk kuvvetleri tarafından geminin tamamı aranmasına rağmen Ölüm Yıldızının çalınmış planları bir türlü bulunamaz. Her ne kadar asilerden biri olduğu bilinse de (henüz Dart Vader tarafından ispatlanamamış) Prenses Leia diplomatik bir resmi görevde olduğunu söylemiş ve kendilerine böyle bir verinin gelmediğini iddia etmiştir. Yapılan incelemede gemiden böyle bir verinin aktarıldığını gösteren bir bilgiye de rastlanamamış olması sevgili Vader’ımızı çokça kızdırmıştır.
 

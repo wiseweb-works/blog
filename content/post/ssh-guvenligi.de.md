@@ -13,7 +13,7 @@ Heute werde ich darüber sprechen, wie wir den SSH-Dienst, der es uns ermöglich
 
 Zuerst müssen wir die Updates über die Konsole mit dem Paketmanager der Linux-Version installieren, in der wir uns befinden.
 
-```
+```bash
 Ubuntu: sudo apt update && sudo apt upgrade -y
 
 Fedora: sudo yum update -y
@@ -27,13 +27,13 @@ Die Datei, die die Einstellungen des SSHD-Dienstes enthält, befindet sich im Al
 
 Wenn wir weitermachen, Ubuntu
 
-```
+```bash
 sudo nano /etc/ssh/sshd_config # Befehl zum Öffnen der Einstellungsdatei
 ```
 
 Titel werden wir finden und ersetzen
 
-```
+```text
 #ClientAliveInterval 0 >> Wir entfernen den Hashtag am Anfang und ändern den Wert von „0“ auf 300. Dieser Befehl regelt das automatische Schließen der Verbindung nach wie vielen Sekunden, wenn die Verbindung nicht genutzt wird (sie bleibt im Ruhezustand) .
 #PermitEmptyPasswords nein >> Wir entfernen das Hashtag am Anfang und ändern den "nein"-Wert nicht. Dieser Befehl verhindert, dass leere oder unverschlüsselte Benutzer eine Verbindung herstellen. Es erlaubt also keine leeren Passwörter.
 X11Forwarding yes >> Wenn am Anfang ein Hashtag steht, entfernen wir es, andernfalls ändern wir den „yes“-Wert auf no. Obwohl dieser Befehl das Ausführen von Anwendungen mit GUI-Schnittstelle auf dem Server erleichtert, schließen wir ihn, da er missbraucht werden kann.
@@ -47,7 +47,7 @@ Wenn Sie nach dem Vornehmen der Einstellungen überprüfen möchten: Sie können
 
 Zusätzlich zu den vorherigen Einstellungen werden wir zusätzliche Einstellungen vornehmen, wie z. B. benutzerbasierte Anmeldung, Anmeldung nur mit sicherem Schlüssel und Einschränkung der Anmeldung mit Root-Benutzer. Zuerst müssen Sie einen geheimen Schlüssel für Ihren Benutzer auf Ihrem lokalen Computer generieren. Dazu, wenn Sie ein Linux-basiertes Betriebssystem verwenden
 
-```
+```text
 Nachdem Sie ssh-keygen -t rsa -b 4096 # eingegeben haben, geben Sie das gewünschte Passwort als Antwort auf die folgenden Fragen ein
 >>>> Passphrase eingeben (leer für keine Passphrase): [Entertaste drücken]
 >>>> Gleiche Passphrase erneut eingeben: [Entertaste drücken]
@@ -61,14 +61,14 @@ ssh-keygen -t ecdsa -b 521 # Erzeugt einen sichereren und schnelleren Ekliptiksc
 
 Wenn Sie andere Fragen mit der Eingabetaste beantwortet und keinen bestimmten Speicherort für den Schlüssel eingegeben haben, wird Ihr Schlüsselpaar (.pub=öffentlicher Schlüssel) / privater Schlüssel ohne Erweiterung) im Ordner /home/USER_NAME/.ssh gespeichert. Sie können den folgenden Code verwenden, um den von Ihnen generierten Schlüssel auf Ihrem Server einzuführen.
 
-```
+```text
 ssh-copy-id -i ~/.ssh/KEY_NAME.pub Nachdem Sie USER_NAME@SERVER_IP_ADRESS # auf dem SERVER eingegeben haben, werden Sie nach dem Passwort Ihres Benutzers gefragt und wenn Sie es richtig eingeben, sehen Sie eine Bestätigungsnachricht.
 ```
 
 Nachdem Sie Ihren eigenen Schlüssel generiert haben, greifen Sie nur mit dem Schlüssel auf den Server zu;
 Titel werden wir finden und ersetzen
 
-```
+```text
 #PasswordAuthentication no >> Wir entfernen den Hashtag am Anfang und belassen den „no“-Wert auf no. Dieser Befehl verhindert, dass eine Verbindung zum Server mit einem Kennwort hergestellt wird. Benutzer können sich nur mit ssh_keys verbinden.
 PubkeyAuthentication yes >> Falls ja, entfernen wir das Rautezeichen am Anfang und setzen den Wert auf yes. Dieser Befehl ist der Befehl, mit dem Sie sich mit dem gerade erstellten geheimen Schlüssel anmelden können.
 #PermitRootLogin no >> Wir entfernen den Hashtag am Anfang und belassen den „no“-Wert auf no. Dieser Befehl verhindert, dass der ROOT-Benutzer, der am stärksten autorisierte Benutzer ist, auf den Server zugreift. Sie können jedoch mit einem anderen Benutzer darauf zugreifen und dann zum ROOT-Benutzer wechseln.
@@ -87,7 +87,7 @@ Zunächst werden wir den Standard-SSH-Verbindungsport 22 ändern und dann die w�
 
 Titel werden wir finden und ersetzen
 
-```
+```text
 #Port 22 >> Wir finden das und entfernen das Rautezeichen am Anfang und schreiben dort eine Portnummer, die von keinem anderen Dienst verwendet wird und offen ist. Zum Beispiel könnte es 2992 sein.
 LogLevel INFO >> Wir finden diese Einstellung und ändern sie, wenn nicht, fügen wir sie hinzu. Es hilft uns, den Aufnahmepegel einzustellen.
 AllowAgentForwarding no >> Wir finden diese Einstellung und ändern sie, wenn nicht, fügen wir sie hinzu. Deaktiviert alternative Routing-Methoden.
@@ -101,7 +101,7 @@ Wir gehen noch weiter und bestimmen, welcher der Verschlüsselungsalgorithmen, A
 
 Wir führen die folgenden Befehle jeweils mit einem Root-Benutzer oder einem Benutzer mit sudo-Berechtigung aus.
 
-```
+```bash
 1] rm /etc/ssh/ssh_host_*
 2] ssh-keygen -t rsa -b 4096 -f /etc/ssh/ssh_host_rsa_key -N ""
 3] ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N ""
@@ -113,7 +113,7 @@ Wir führen die folgenden Befehle jeweils mit einem Root-Benutzer oder einem Ben
 
 Nachdem Sie die Einstellungen vorgenommen haben, übernehmen Sie die Einstellungen mit dem Befehl „sudo sshd -t“ und dann, wenn Sie keine Fehlermeldung sehen, „sudo service sshd restart“ und starten Sie den Dienst neu. Jetzt können Sie sich über den gerade definierten Port und nur mit Ihrem privaten Schlüssel mit dem Server verbinden. Verbinden;
 
-```
+```text
 Sie können den Befehl ssh -i ~/.ssh/KEY_NAME USER_NAME@SERVER_IP_ADRESS -p PORT_NUMBER # verwenden. Sie können fortfahren, indem Sie bei den eingehenden Benachrichtigungen die Eingabetaste sagen.
 ```
 

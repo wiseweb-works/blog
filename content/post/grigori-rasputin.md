@@ -5,7 +5,7 @@ tags: ["müzik", "rasputin", "konu dışı", "ilginç"]
 author: "Wise"
 draft: false
 cover:
-    image: "/images/rasputin-cover.jpeg"
+    image: "/images/rasputin/rasputin-cover.jpeg"
     hidden: false # only hide on current single page
 ---
 Nerede doğduğunu bilmediğimiz Grigori Rasputin isimli bu arkadaşın çocukluk yılları daha çok Sibirya geçiyor. Mavi gözleri ve etkileyici mimikleri var. Daha küçük yaştan itibaren insanları etkilemeyi ve ilgi çekmeyi başaran bir yapısı mevcut. Hatta bir keresinde yaşı küçük olmasına rağmen babasının çiftliğinden çalınan bir atı kimin çaldığını kehanet yoluyla tahmin eder. Herkes (babası da dahil) Rasputin’e inanmamış olsa da sonradan hırsız kendisi gelip suçunu itiraf eder. Bu olaydan sonra ailesi ve bütün çevresi onun gerçekten doğaüstü güçlere sahip olduğunu düşünmeye başlamıştır.

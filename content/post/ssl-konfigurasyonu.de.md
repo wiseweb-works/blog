@@ -15,7 +15,7 @@ Wie in unserem vorherigen Artikel werde ich den Prozess noch einmal unter drei v
 
 Zuerst müssen wir die Updates über die Konsole mit dem Paketmanager der Linux-Version installieren, in der wir uns befinden.
 
-```
+```bash
 Ubuntu: sudo apt update && sudo apt upgrade -y
 
 Fedora: sudo yum update -y
@@ -27,11 +27,11 @@ Nachdem die Updates installiert sind, beginnen wir mit der Konfiguration des ngi
 
 Wenn wir mit Ubuntu fortfahren (Single IP for Single Server Configuration)
 
-```
+```bash
 sudo nano /etc/nginx/nginx.config # Befehl zum Öffnen der Einstellungsdatei
 ```
 
-```
+```text
 Zu ergänzende Titel (gegebenenfalls geändert)
 hören 443 ssl http2; >> Es dient dazu, die Anfragen zu erfüllen, die über IPv4 mit dem http2-Protokoll an Port 443 kommen, und eine SSL-Verbindung aufzubauen.
 
@@ -60,7 +60,7 @@ Wenn Sie nach dem Vornehmen der Einstellungen überprüfen möchten: Sie können
 
 Zusätzlich zu den vorherigen Einstellungen werden wir einige Leistungsverbesserungen sowie einige zusätzliche Konfigurationen vornehmen, die es Ihrer Website ermöglichen, auf SSL-Testseiten einen höheren Rang einzunehmen. Danach werden wir einige Verbesserungen vornehmen, um sicherzustellen, dass einige Header und Ressourcen Ihrer Website nicht von Websites Dritter ausgenutzt werden, was für den Benutzerzugriff Ihrer Website von Vorteil ist.
 
-```
+```text
 Zu ergänzende Titel (gegebenenfalls geändert)
 ssl_session_cache freigegeben:TLS:2m; >> Code, der angibt, wie TLS-Verbindungen auf Worker (nginx-Worker) verteilt werden und wie lange die Verbindungen geteilt werden
 
@@ -93,7 +93,7 @@ Zunächst fügen wir Ihrer Website einen Header hinzu, um anzuzeigen, dass sie n
 
 Stellen Sie zunächst sicher, dass Ihre Website problemlos über SSL aufgerufen werden kann. Fügen Sie dann gemäß Ihrer Anfrage einen der folgenden Header zur nginx-Konfigurationsdatei hinzu. Aber Achtung, nur einer.
 
-```
+```text
 add_header Strict-Transport-Security "max-age=2592000;" immer; >> Header, der besagt, dass auf Ihre Website 30 Tage lang nur über HTTPS zugegriffen werden kann. (ohne Subdomains)
 
 add_header Strict-Transport-Security "max-age=2592000; includeSubDomains;" immer; >> Header, der besagt, dass Ihre Website 30 Tage lang nur über HTTPS aufgerufen werden kann, einschließlich Subdomains.
@@ -107,7 +107,7 @@ add_header Strict-Transport-Security "max-age=0; includeSubDomains"; >> Titel f�
 
 Nachdem Sie den oben erwähnten Header hinzugefügt haben, ist es jetzt an der Zeit, den Hash des verwendeten SSL-Zertifikats an die HTTP-Sitzung anzuheften. In diesem Stadium müssen wir einen Hash Ihres aktuellen Zertifikats extrahieren, das Zertifikat der obersten Unterzeichnungsstelle hashen und diesen Hash-Prozess fortsetzen, bis wir die gesamte Kette einschließlich der obersten Stammzertifizierungsstelle abgeschlossen haben. Aus diesem Grund führen wir die folgenden Befehle jeweils mit einem Root-Benutzer oder einem Benutzer mit sudo-Berechtigung aus. (Der Vortrag wurde speziell für Let's Encrypt gemacht.)
 
-```
+```bash
 1] cat /etc/letsencrypt/live/IHR SERVERNAME/cert.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binär | base64 >> Dieser Befehl extrahiert den Hash des Zertifikats Ihrer Website. Kopieren Sie den Ergebniswert irgendwo hin.
 2] curl -s https://letsencrypt.org/certs/lets-encrypt-x4-cross-signed.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binär | base64 >> Dieser Befehl extrahiert eines der mehrfach signierten Zertifikate von letsencrypt.
 3] curl -s https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binär | base64 >> Dieser Befehl extrahiert eines der mehrfach signierten Zertifikate von letsencrypt.
@@ -126,10 +126,10 @@ ssl_dhparam /etc/nginx/dhparam.pem; >> Der Befehl zum Ändern der während des D
 Nachdem Sie die Einstellungen vorgenommen haben, übernehmen Sie die Einstellungen mit dem Befehl „sudo nginx -t“ und dann, wenn Sie keine Fehlermeldung sehen, „sudo service nginx restart“ und starten Sie den Dienst neu. Nun wird die Verbindung mit der von Ihnen festgelegten Konfiguration und Bedingungen bereitgestellt. Wenn Sie den Vorher/Nachher-Bewertungsunterschied sehen möchten, können Sie sich die Bilder unten ansehen oder Ihre eigene Website unter „<https://www.ssllabs.com/ssltest/index.html“> testen.
 
 VOR
-{{< img src="/images/ssl-ilk-hali-ssllabs.png" >}}
+{{< img src="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png" >}}
 
 NACH
-{{< img src="/images/ssl-son-hali-ssllabs.png" >}}
+{{< img src="/images/ssl-anlatim/ssl-son-hali-ssllabs.png" >}}
 
 Wenn Sie fragen, warum die Cipher-Stärke nicht 100 % beträgt, ist es derzeit nicht möglich, 100 % zu erreichen, da „TLS_AES_128_GCM_SHA256 (0x1301)“ automatisch mit TLS 1.3 geliefert wird und hinzugefügt wird, auch wenn wir es nicht möchten. Wenn Sie denken, dass ich TLS 1.3 abschalte, dann wird es nicht kommen, dann sind Ihre Punkte leider woanders weg.
 
