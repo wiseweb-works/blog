@@ -1,3 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https://wiseweb-works.github.io/blog/sitemap.xml

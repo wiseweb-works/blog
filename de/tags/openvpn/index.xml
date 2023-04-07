@@ -1,1 +1,788 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>openvpn on Wise</title><link>https://wiseweb-works.github.io/blog/de/tags/openvpn/</link><description>Recent content in openvpn on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 27 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/de/tags/openvpn/index.xml" rel="self" type="application/rss+xml"/><item><title>Eingehender OpenVPN-Test</title><link>https://wiseweb-works.github.io/blog/de/post/openvpn-full-anlat%C4%B1m/</link><pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/de/post/openvpn-full-anlat%C4%B1m/</guid><description>Einführung und Zusammenfassung Heute werden wir OpenVPN, meiner Meinung nach eine der wichtigsten Software der letzten Zeit, ausführlich überprüfen. In diesem Test werden wir zuerst darüber sprechen, wofür OpenVPN verwendet wird. Dann untersuchen wir, was wir zum Ausführen des Programms benötigen und was vor dem ersten Ausführen zu tun ist. Abschließend werde ich versuchen zu erklären, was vom ersten Moment des Verbindungsaufbaus bis zum letzten Schritt, wenn die Daten entschlüsselt werden, im Hintergrund vor sich geht.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>openvpn on Wise</title><link>https://wiseweb-works.github.io/blog/de/tags/openvpn/</link><description>Recent content in openvpn on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 27 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/de/tags/openvpn/index.xml" rel="self" type="application/rss+xml"/><item><title>Eingehender OpenVPN-Test</title><link>https://wiseweb-works.github.io/blog/de/post/openvpn-full-anlatim/</link><pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/de/post/openvpn-full-anlatim/</guid><description>Einführung und Zusammenfassung Heute werden wir OpenVPN, meiner Meinung nach eine der wichtigsten Software der letzten Zeit, ausführlich überprüfen. In diesem Test werden wir zuerst darüber sprechen, wofür OpenVPN verwendet wird. Dann untersuchen wir, was wir zum Ausführen des Programms benötigen und was vor dem ersten Ausführen zu tun ist. Abschließend werde ich versuchen zu erklären, was vom ersten Moment des Verbindungsaufbaus bis zum letzten Schritt, wenn die Daten entschlüsselt werden, im Hintergrund vor sich geht.</description><content:encoded><![CDATA[<h1 id="einführung-und-zusammenfassung">Einführung und Zusammenfassung</h1>
+<p>Heute werden wir OpenVPN, meiner Meinung nach eine der wichtigsten Software der letzten Zeit, ausführlich überprüfen. In diesem Test werden wir zuerst darüber sprechen, wofür OpenVPN verwendet wird. Dann untersuchen wir, was wir zum Ausführen des Programms benötigen und was vor dem ersten Ausführen zu tun ist. Abschließend werde ich versuchen zu erklären, was vom ersten Moment des Verbindungsaufbaus bis zum letzten Schritt, wenn die Daten entschlüsselt werden, im Hintergrund vor sich geht. Daher schätze ich, dass unser Artikel aus 3 Teilen und gegebenenfalls einem Frage-Antwort-Abschnitt bestehen wird. Jetzt schnallen wir uns an und machen einen Ausflug in die tiefe und düstere Welt des Internets.</p>
+<h2 id="was-ist-openvpn-und-wofür-wird-es-verwendet">Was ist OpenVPN und wofür wird es verwendet?</h2>
+<p>Heutzutage gibt es fast kein Geschäft, das nicht online erledigt werden kann. Sogar unsere Arbeit, die normalerweise nicht online ist, hat sich aufgrund der Pandemie und der neuen Normalität auf die Arbeit von zu Hause aus entwickelt. Es gab jedoch große Probleme, sowohl weil es eine Arbeitsmethode ist, an die wir nicht gewöhnt sind, als auch weil unsere Leute nicht sehr gut mit Technologie umgehen können. Bevor klar wurde, dass die Menschen sich von ihren Heimcomputern mit ihren Bürocomputern verbinden mussten, kamen einige Unternehmen auf frivole Ideen, wie zum Beispiel, Bürocomputer zu den Häusern der Mitarbeiter zu schicken. Sie haben sehr gut verstanden, wie falsch das war, aus dem Feedback, das sie in kurzer Zeit erhalten haben. Kurz gesagt, es wurde endlich akzeptiert, dass elektronische Geräte im Büro bleiben und irgendwie eine sichere und nachhaltige Verbindung aus der Ferne hergestellt werden sollte. Natürlich befanden sich Institutionen auch schon früher in solchen Nöten, aber eine solche Großsituation kam damals nicht in Frage. Vor der Pandemie wurden verschiedene Protokolle wie PPTP, L2TP, IPSec, IKev2, SSTP und schließlich OpenVPN verwendet. Dies sind normalerweise Abkürzungen für bestimmte lange und ausgefallene Wörter, und ihre grundlegende Logik besteht darin, zwei oder mehr Geräte zu verbinden und sie so zu verhalten, als ob sie sich im selben Netzwerk befinden. Ich werde nicht viel sagen, da Protokolle vor OpenVPN gewisse Schwächen, Langsamkeit und technische Schwierigkeiten bei der Implementierung mit sich brachten. OpenVPN ist der Name des Protokolls und Programms, das es mindestens 2 Geräten in der Rolle von Server und Client ermöglicht, sich miteinander zu verbinden, und zwar auf eine Weise, die Industriestandards entspricht. Ich verwende ein Remote-Desktop-Programm. Ich höre Sie anscheinend sagen, was die Notwendigkeit dafür ist. Leider müssen er und alle anderen Programme wie er grundsätzlich dieses Protokoll verwenden. Wenn Sie das Schildsymbol oder die Verbindungsdetails in TeamViewer, einem der bekanntesten, drücken, können Sie das OpenVPN-Protokoll sehen.</p>
+<h2 id="was-brauchen-wir-um-eine-openvpn-verbindung-aufzubauen">Was brauchen wir, um eine OpenVPN-Verbindung aufzubauen?</h2>
+<p>Zunächst muss OpenVPN sowohl auf der Server- als auch auf der Clientseite (dem zu verbindenden Gerät) installiert werden. Dann sollte eine Einstellungsdatei (Konfigurationsdatei) bearbeitet werden, die die Bedingungen zeigt, unter denen die Geräte kommunizieren. Das Hauptereignis ist, dass diese Konfigurationsdatei vom Client generiert und verwendet wird. Diese Konfigurationsdatei ist unterteilt in server_config, die vom Server verwendet wird, und client_config, die vom Client verwendet wird.</p>
+<h3 id="die-vom-server-verwaltete-einstellungsdatei-enthält-die-folgenden-einträge">Die vom Server verwaltete Einstellungsdatei enthält die folgenden Einträge</h3>
+<ul>
+<li><code>Port 1194</code> gibt an, welcher Port eine Verbindungsanfrage zum Herstellen der OpenVPN-Verbindung erhält.</li>
+<li><code>proto tcp</code> Verbindung über TCP oder UDP möglich. Einstellungseintrag zur Auswahl eingetragen.</li>
+<li><code>dev tun</code> TAP- oder TUN-Schnittstelle kann verwendet werden. Dies sind virtuelle Schnittstellen. TAP-Schicht 2 stellt eine Verbindung her, während TUN-Schicht 3 eine Verbindung herstellt.</li>
+<li><code>user none</code> Ermöglicht das Verbinden von Benutzern mit einem nicht autorisierten Benutzer auf dem Server.</li>
+<li><code>group $NOGROUP</code> Ermöglicht es, sich verbindende Benutzer mit einer nicht autorisierten Gruppe auf dem Server als Gruppe zu verknüpfen.</li>
+<li><code>persist-key</code> Eine Autorisierungseinstellung für die Erstellung und den Neustart der virtuellen Schnittstelle</li>
+<li><code>persist-tun</code> Ebenfalls eine Berechtigungseinstellung für die Erstellung und den Neustart der virtuellen Schnittstelle</li>
+<li><code>keepalive 10 120</code> Eine Einstellung dafür, wie viele Verbindungen aktiv gehalten werden und wie lange die aktive Verbindung beendet wird, wenn keine Kommunikation hergestellt wird.</li>
+<li><code>ifconfig-pool-persist ipp.txt</code> Eine Einstellung, um die von OpenVPN an Clients im virtuellen Netzwerk vergebenen IP-Adressen beizubehalten und ihnen dieselben Adressen zuzuweisen, wenn sie sich wieder verbinden</li>
+<li><code>push &quot;dhcp-option DNS 1.1.1.1&quot;</code> Eine DNS-Einstellung, die der Server beim Verlassen des Netzwerks verwenden soll</li>
+<li><code>compress</code> Der Teil, in dem Komprimierungsoptionen festgelegt werden</li>
+<li><code>dh none</code> Eine Einstellung zum Ein- oder Ausschalten von Diffie-Hellman</li>
+<li><code>ecdh-curve</code> Wenn Sie Elliptic Curve Diffie-Hellman verwenden, wird die Einstellung angepasst, neben der die Kurve ausgewählt werden muss</li>
+<li><code>dh dh.pem</code>-Einstellung, die den Speicherort der PEM-Datei angibt, die Sie vorher erstellen müssen, wenn Sie Diffie-Hellman verwenden</li>
+<li><code>tls-crypt tls-crypt.key</code> Erforderliche Einstellung, um die TLS-Schicht noch vor dem Pre-Shared Master zu verschlüsseln</li>
+<li><code>tls-auth tls-auth.key 0</code>Einstellung, die es ermöglicht, Parteien über die Verschlüsselung hinaus in der Pre-Handshake-Phase der TLS-Schicht zu authentifizieren</li>
+<li><code>crl-verify crl.pem</code> Einstellung um zu prüfen, ob die generierten Zertifikate über die CRL-Liste widerrufen werden oder nicht</li>
+<li><code>ca ca.crt</code> Eine Einstellung, die den Speicherort des Zertifikats der Zertifizierungsstelle des generierten Zertifikats meldet</li>
+<li><code>cert $SERVER_NAME.crt</code> Eine Einstellung, die den Speicherort des Zertifikats des Servers angibt</li>
+<li><code>key $SERVER_NAME.key</code> Eine Einstellung, die den Speicherort des erforderlichen asymmetrischen geheimen Schlüssels neben dem Zertifikat des Servers angibt</li>
+<li><code>auth $HMAC_ALG</code> Eine Einstellung, die beschreibt, welcher Hash-Algorithmus für den Datenkanal verwendet werden soll, und ggf. <code>tls-auth</code></li>
+<li><code>cipher $CIPHER</code> Eine Einstellung, die angibt, welcher Verschlüsselungsalgorithmus für den Datenkanal verwendet werden soll</li>
+<li><code>ncp-ciphers $CIPHER</code> Eine Einstellung, die angibt, welche Verschlüsselungsalgorithmen der Server verwenden kann</li>
+<li><code>tls-server</code> Eine Einstellung, die den Server anweist, den TLS-Kanal zu verwenden</li>
+<li>Eine Einstellung <code>tls-version-min 1.2</code> meldet die niedrigste Version, die auf dem TLS-Kanal verwendet werden soll</li>
+<li><code>tls-cipher $CC_CIPHER</code> Die Verschlüsselung wird auch auf der TLS-Schicht verwendet, mit Ausnahme des Datenkanals, der die Einstellung ist, die die Verschlüsselung des Steuerkanals deklariert</li>
+<li><code>client-config-dir /etc/openvpn/ccd</code> Einstellung, die angibt, wo Client-Einstellungsdateien aufbewahrt werden</li>
+<li><code>status /var/log/openvpn/status.log</code> Einstellung, die angibt, wo Statusberichte geschrieben und wo Protokolldateien aufbewahrt werden</li>
+<li><code>verb 3</code> Diese Einstellung, die die Abkürzung des Wortes Verbose ist, ist die Einstellung, wie detailliert der Statusbericht gegeben werden soll.</li>
+</ul>
+<h3 id="die-clientseitige-einstellungsdatei-enthält-die-folgenden-einträge">Die clientseitige Einstellungsdatei enthält die folgenden Einträge</h3>
+<ul>
+<li><code>client</code> gibt an, dass sich das Gerät in der Client-Rolle befindet</li>
+<li><code>proto tcp-client</code> meldet TCP als Protokoll</li>
+<li><code>remote $IP $PORT</code> Der Teil, in dem die IP-Adresse und die Portnummer des/der zu verbindenden Server(s) festgelegt werden</li>
+<li><code>dev tun</code> legt fest, welche der TUN/TAP-Schnittstellen verwendet werden sollen</li>
+<li><code>resolve-retry infinite</code> Wir sagen Ihnen, wie lange Sie warten müssen, wenn sich die Adressauflösung aufgrund von IP oder DNS verzögert</li>
+<li><code>nobind</code>-Einstellung, um keine Verbindung zu einer Adresse im lokalen Netzwerk herzustellen</li>
+<li><code>persist-key</code> Ermöglicht das Lesen von Schlüsseldateien ohne zusätzliche Autorisierung beim Neustart</li>
+<li><code>persist-tun</code> Es ermöglicht auch, dass die TUN/TAP-Schnittstelle beim Neustart ohne Autorisierung aufgeweckt wird</li>
+<li><code>remote-cert-tls server</code> Überprüft das Zertifikat des verbundenen Servers auf TLS-Ebene</li>
+<li><code>verify-x509-name $SERVER_NAME name</code> Befehl, der den Namen im Zertifikat angibt, zu dem der Server zurückkehren wird, und wie der Name des Servers lauten soll</li>
+<li><code>auth $HMAC_ALG</code> Befehl, der angibt, welcher Algorithmus für die Validierung verwendet werden soll</li>
+<li><code>auth-nocache</code> Speichert das für die Anmeldung erforderliche Passwort nicht</li>
+<li><code>cipher $CIPHER</code> Befehl zur Auswahl des für die Verschlüsselung zu verwendenden Algorithmus</li>
+<li><code>tls-client</code> aktiviert TLS während der TLS-Kommunikation und übernimmt die Client-Rolle</li>
+<li><code>tls-version-min 1.2</code> Legt die niedrigste TLS-Version fest</li>
+<li><code>tls-cipher $CC_CIPHER</code> wählt den Verschlüsselungsalgorithmus aus, der im TLS-Steuerkanal verwendet werden soll</li>
+<li><code>ignore-unknown-option block-outside-dns</code> Verhindert, dass unbekannte DNS-Adressen verwendet werden</li>
+<li><code>setenv opt block-outside-dns</code> blockiert DNS-Leaks für Windows 10</li>
+<li><code>Verb 3</code> Bestimmt den Grad der Berichterstattung</li>
+<li><code>compress</code> Hier werden die Einstellungen des Komprimierungsalgorithmus gemeldet</li>
+<li><code>&quot;&lt;ca&gt;/etc/openvpn/easy-rsa/pki/ca.crt&lt;/ca&gt;&quot;</code> Hartcodierte Einbettung der erwarteten Server-Zertifizierungsstellendatei</li>
+<li><code>&quot;&lt;cert&gt;/etc/openvpn/easy-rsa/pki/issued/$CLIENT.crt&lt;/cert&gt;&quot;</code> Hartcodierte Einbettung der Client-Zertifikatsdatei</li>
+<li><code>&quot;&lt;key&gt;/etc/openvpn/easy-rsa/pki/private/$CLIENT.key&lt;/key&gt;&quot;</code> Hartcodierte Einbettung des asymmetrischen geheimen Schlüssels des Clients</li>
+<li><code>&quot;&lt;tls-crypt&gt;/etc/openvpn/tls-crypt.key&lt;/tls-crypt&gt;&quot;</code> Angabe der Schlüsseldatei für TLS-Crypt</li>
+<li><code>&quot;&lt;tls-auth&gt;/etc/openvpn/tls-auth.key&lt;/tls-auth&gt;&quot;</code> Angabe der Schlüsseldatei für die TLS-Authentifizierung</li>
+<li><code>key-direction 1</code> weist Client und Server Rollen für die TLS-Layer-Verschlüsselung zu (0 und 1)</li>
+</ul>
+<p>Eine ausführliche Dokumentation dieser Einstellungen und mehr finden Sie auf der Webseite <a href="https://openvpn.net/community-resources/reference-manual-for-openvpn-2-4/">OpenVPN</a>.</p>
+<h2 id="was-passiert-beim-aufbau-einer-openvpn-verbindung">Was passiert beim Aufbau einer OpenVPN-Verbindung?</h2>
+<p>Jedes Mal, wenn ich mich mit OpenVPN verbinde, fühle ich mich, als würde R2-D2 ihre Pläne der Sternenflotte entführen. Die Leute wollen sich nicht immer einer genauen Prüfung unterziehen und bitten vielleicht jemanden, ihnen zu erklären, was und wie. In meiner Absicht, diesen Artikel zu schreiben, habe ich mir diese Frage tatsächlich gestellt und mich sehr bemüht, die Antwort zu bekommen. Ich möchte nicht, dass Sie sich so viel Mühe geben, aber ich kann nicht sagen, dass Sie es sofort hochladen sollen, denken Sie nicht an den Rest, es ist mein Job. Wie eingangs versprochen, werde ich Ihnen diesen Vorgang ausführlich erläutern und Ihnen die Entscheidung überlassen. So funktioniert der Prozess in einer OpenVPN-Verbindung, Vor- und Nachteile (wie ich es bisher herausfinden konnte). Sie bauen zunächst eine TCP/UDP-Verbindung auf. Sie führen einen Prozess wie jede Anwendung aus, die TCP verwendet, und wechseln dann zur TLS-Schicht. Sie führen einen Handshake und eine Authentifizierung auf der TLS-Schicht durch. Diese Schicht wird auch Steuerkanal genannt. Dann wird eine bestimmte Kommunikation festgelegt und der Datenkanal weitergegeben. Der Prozess der Ver- und Entschlüsselung der diesmal zu versendenden Datenpakete im Daten- bzw. Datenkanal beginnt. Dazu sprechen Geräte miteinander und Daten werden unter bestimmten gemeinsamen Bedingungen gesendet. Kurz gesagt, am Ende des von mir so beschriebenen Prozesses endet die von uns bei 0 begonnene Kommunikation mit dem sicheren und erwünschten Datenzugriff auf uns, oder es werden erneut Anfragen gesendet, diesmal auf umgekehrtem Weg, über die Verbindung that offen gehalten wird. So entsteht ein System wie ineinander verschachtelte Rohre. Wenn Sie hier das einzig Wichtige für den Artikel schreiben müssen:</p>
+<ul>
+<li>Es wird <code>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P512</code> sein.
+<ul>
+<li>Hier gibt die Eingabe <code>TLS</code> an, dass der Kontrollkanal über die TLS-Schicht ausgeführt wird. Andere Alternativen sind <code>SSL</code> oder <code>NULL</code>.</li>
+<li>Die Eingabe <code>ECDHE</code> gibt an, dass der erste Vorschlüssel unter Verwendung des elliptischen Diffie-Hellman-Algorithmus generiert wird. Andere Alternativen sind die Verwendung von <code>DHE</code>, <code>DH</code> oder nicht.</li>
+<li>Die <code>ECDSA</code>-Daten geben an, dass der Elliptic Digital Signature Certificate Algorithm für die gegenseitige Authentifizierung und den asymmetrischen Schlüssel verwendet wird. Eine weitere verfügbare Alternative ist <code>RSA</code>. Die anderen braucht man nicht zu zählen.</li>
+<li>Gibt den Verschlüsselungsalgorithmus an, der auf dem Datenkanal <code>AES_256_GCM</code> verwendet werden soll. Andere Alternativen sind <code>AES-128-CBC</code>, <code>AES-128-GCM</code> und <code>AES-256-CBC</code>.</li>
+<li><code>SHA384</code> gibt den zu verwendenden Hash-Algorithmus an. Die andere Alternative ist <code>SHA256</code>.</li>
+<li><code>P512</code> ermöglicht die Auswahl der elliptischen Kurve als Prime-512. Andere Alternativen sind <code>P-256</code> und <code>P-384</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="der-prozess-des-aufbaus-der-tcp-verbindung">Der Prozess des Aufbaus der TCP-Verbindung</h3>
+<p>Wenn Sie nun ein ungefähres Bild des Prozesses im Kopf haben, beginne ich mit der Erklärung des TCP-Prozesses. Nehmen wir an, wir haben in unserem Fall einen Client und einen Server, und die Verbindung besteht nur aus diesen beiden. Der Client sendet ein SYN (m)-Paket an den Server, mit dem er sich verbinden möchte. Als Antwort sendet der Server ein SYN (n)-Paket und ein ACK (m+1)-Paket über denselben Port. Der Client, der dies empfängt, gibt ebenfalls als Antwort ACK (n+1) zurück, und es findet ein 3-Wege-TCP-Handshake oder ein 3-Wege-TCP-Handshake statt. Somit haben wir einen offenen Kanal zwischen Client und Server über den angegebenen Port.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_240x0_resize_q50_h2_linear.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_300x0_resize_q50_h2_linear.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_360x0_resize_q50_h2_linear.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_420x0_resize_q50_h2_linear.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_480x0_resize_q50_h2_linear.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_600x0_resize_q50_h2_linear.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_768x0_resize_q50_h2_linear.webp 768w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_800x0_resize_q50_h2_linear.webp 800w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_960x0_resize_q50_h2_linear.webp 960w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake.jpg" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_666x0_resize_q50_h2_linear_3.webp 666w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Wie auf den Fotos zu sehen, kann bei reibungslosem Ablauf die Kommunikation in 3 Schritten erfolgen. Aber wenn Sie fragen, warum wir das in 3 Schritten machen, geht das nicht auch kürzer? Ich würde (vorerst) nein sagen, nein, für eine Vollduplex-Kommunikation müssen beide Parteien SYN- und ACK-Pakete senden. Vielleicht erzähle ich Ihnen in Zukunft andere Wege, aber im Moment ist es so. Wie auch immer, der TCP/UDP-Teil ist immer kurz und einfach.</p>
+<h3 id="prozess-der-in-der-tls-schicht-ausgeführt-wird">Prozess, der in der TLS-Schicht ausgeführt wird</h3>
+<p>Nach dem Aufbau einer Kommunikation über TCP ist der Client die Person, die die Konversation auf eine andere Ebene bringt. Clients fordern immer etwas vom Server an oder fordern eine Antwort an. Im Allgemeinen reagieren Server nicht auf eine Anfrage, die nicht bei ihnen angekommen ist. Der Prozess läuft nach dem Prinzip <code>Erst Nachfrage, dann Angebot</code> ab. Ja, die Parteien befinden sich jetzt auf der TLS-Schicht. Der Client begrüßt zuerst den Server. Kein Scherz, es ist echt. Das erste vom Client gesendete Paket wird als <code>Client-Hello</code>-Paket bezeichnet. Neben diesem Paket (um den Vorgang zu beschleunigen) das Paket <code>Supported-Chipers</code>, das die unterstützten Verschlüsselungsalgorithmen angibt, eine vom Client zufällig generierte Nummer, ein <code>SNI</code>-Servernamensindikator, wenn mehr als ein Dienst vorhanden ist die auf derselben IP-Adresse ausgeführt werden, und ggf. die Sitzungs-ID. . Die Antwort des Servers darauf ist zunächst einmal ein höfliches Hallo. Denn das erste Paket, das der Server als Antwort sendet, heißt <code>Server-Hello</code>-Paket. Neben diesem Paket sendet das <code>Selected-Chiper</code>-Paket, das das Serverzertifikat, die unterstützten Verschlüsselungsalgorithmen und den ausgewählten Algorithmus angibt, eine von ihm generierte Zufallszahl, gegebenenfalls die Sitzungs-ID und eine SNI-ähnliche ID wenn sich mehr als ein Client über dieselbe IP verbindet. . Der Client verifiziert zunächst anhand des Serverzertifikats, ob es sich wirklich um die Person handelt, auf die er wartet, indem er die Kommunikation startet. Außerdem prüft der Server in manchen Fällen mit einem Zertifikat, ob der Client einer der Clients ist, die er erwartet. Wenn dieser gegenseitige Authentifizierungsprozess positiv ist, wird die nächste Stufe bestanden. Der Schlüsselerzeugungs- und Austauschprozess wird ausgelöst. In dieser Phase greift der Client erneut ein und sagt, dass er den Schlüssel mit dem Algorithmus ändern möchte, den er während dieser Kommunikation festgelegt hat, was als unsicher gilt. Die Parteien beginnen mit der Generierung eines Prekeys mit Diffie-Hellman oder ECDHE. Dazu werden Pre-Secrets von Client und Server geteilt. Die Antworten, die durch Ausführen einer Reihe mathematischer Operationen gefunden wurden, werden nach oben gesendet, und das gleiche Ergebnis wird durch erneutes Ausführen mathematischer Operationen erreicht. Das Ergebnis ist der erste Fore-Key, den sie sicher zwischen ihnen erstellt haben. Danach, mit dem von ihnen bestimmten Verschlüsselungsalgorithmus, Ein anderer Datenkanal als der Steuerkanal wird zur Kommunikation erstellt, und der Prozess wird von dort aus fortgesetzt.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_850x0_resize_q50_h2_linear_3.webp 850w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_712x0_resize_q50_h2_linear_3.webp 712w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Wie auf den Fotos zu sehen ist, ist der Vorgang fast derselbe wie beim Herstellen einer Verbindung zu einer Webseite. Je nach Bedarf werden nur bestimmte Stufen hinzugefügt, entfernt oder geändert. Beispielsweise übermitteln die Parteien gemäß PFS, was für Advanced Privacy steht, den Front-Key nicht mit dem asymmetrischen Schlüssel des Servers. Da in diesem Fall für jede Sitzung derselbe Schlüssel verwendet wird, werden die Daten gespeichert und sind dann rückwirkend lesbar, indem auf einen Tag gewartet wird, an dem der Schlüssel enthüllt wird. Deshalb wurde diese Änderung vorgenommen. Auch hier möchte ich gemäß dem Zero-Trust-Bedrohungsmodell, dass jede Schicht und jeder Prozess den Prozess vorantreibt, ohne darauf zu vertrauen, dass die andere ihre Arbeit korrekt erledigt. Aus diesem Grund wollen wir, dass die Pakete gemäß der Funktion <code>tls-auth</code> verschlüsselt werden und die Integrität der ein- und ausgehenden Daten bereits im ersten Kommunikationsmoment in der TLS-Schicht überprüft wird. Vom ersten Moment an, in dem Sie Hallo sagen, können Dritte nicht verstehen, wovon Sie sprechen und in welcher Phase Sie sich befinden. Dazu wird die erste Kommunikation mit einem oder mehreren vorgegebenen Schlüsseln gestartet und bei Bedarf werden diese Schlüssel in regelmäßigen Abständen erneuert. So wird auch bis zur Erstellung des ersten Pre-Keys in der TLS-Schicht die Vertraulichkeit nicht kompromittiert und Unbefugte nicht umsonst erstellt.</p>
+<h3 id="prozess-der-in-der-datenschicht-ausgeführt-wird">Prozess, der in der Datenschicht ausgeführt wird</h3>
+<p>Wenn dieser gesamte Vorgang erfolgreich abgeschlossen und der Datenkanal bestanden wurde, sind Sie nun beim besten Teil der Arbeit angelangt. Die Daten werden mit der AES-Verschlüsselungsmethode verschlüsselt. Während der Verschlüsselung werden die Tabellen gemäß dem CBC-GCM-Zählermodus gemäß Ihrer Auswahl gemischt, und bei diesem Vorgang wird gemäß Ihrer Auswahl ein 128- oder 256-Bit-Verschlüsselungsschlüssel verwendet. Unabhängig von Ihrer Wahl beträgt die Verschlüsselungsblocklänge natürlich 128 Bit. Nur die Länge des Verschlüsselungsschlüssels ändert sich. AES-256-GCM, das ich für diese Erklärung ausgewählt habe, ist ein AEAD-Verschlüsselungstyp. Es fasst die von ihm gesendeten Daten unabhängig von anderen Kanälen und Prozessen zu einem bestimmten Zeitpunkt zusammen und versendet sie zusammen mit der Zusammenfassung. Somit werden Authentifizierungs- und Verschlüsselungsfunktionen in AEAD erfüllt, was für <code>Authentication Encryption with Associated Data</code> steht. Es gibt ein Problem, das hier eine Unterscheidung erfordert. In welcher Phase und in welcher Reihenfolge werden wir die Verschlüsselungs- und Hash-Algorithmen verwenden?</p>
+<table>
+<thead>
+<tr>
+<th>Encrypt-then-MAC (EtM)</th>
+<th>Encrypt-and-MAC (E&amp;M)</th>
+<th>MAC-then-Encrypt (MtE)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/EtM_hud65c113a516a1b62e4fe8858ed9ec486_23252_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/EtM_hud65c113a516a1b62e4fe8858ed9ec486_23252_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/EtM_hud65c113a516a1b62e4fe8858ed9ec486_23252_330x0_resize_q50_h2_linear_3.webp 330w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/EtM.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/EaM_hube37f114dbb3921bcee6e141d846fe73_17342_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/EaM_hube37f114dbb3921bcee6e141d846fe73_17342_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/EaM_hube37f114dbb3921bcee6e141d846fe73_17342_330x0_resize_q50_h2_linear_3.webp 330w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/EaM.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/MtE_hu0e87705e5c72f609d1e7f72a494fc1ac_5729_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/MtE_hu0e87705e5c72f609d1e7f72a494fc1ac_5729_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/MtE_hu0e87705e5c72f609d1e7f72a494fc1ac_5729_324x0_resize_q50_h2_linear_3.webp 324w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/MtE.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Laut EtM, dem ersten Ansatz, werden die Daten zuerst verschlüsselt, dann als Ergebnis des Digests mit einem anderen Schlüssel verschlüsselt und das resultierende Ergebnis in Blöcken zusammen gesendet. Wenn wir uns reale Lösungen ansehen, die es verwenden, fällt uns zuerst das IPSec-Protokoll ein. Dies ist die einzige Methode, die die höchste Sicherheitsdefinition in AE erreichen kann, dies kann jedoch nur erreicht werden, wenn der verwendete MAC-Algorithmus frei von Korruption ist oder noch nicht geknackt wurde. Für SSHv2 sind auch verschiedene EtM-Cipher-Suites verfügbar. Beachten Sie jedoch, dass für Daten und Digest eine Schlüsseltrennung zwingend erforderlich ist (für Verschlüsselung und Schlüssel-Hashing müssen unterschiedliche Schlüssel verwendet werden), da Sie sonst je nach verwendeter Verschlüsselungsmethode und Hash-Funktion möglicherweise ein unsicheres Ergebnis erhalten.</p>
+</li>
+<li>
+<p>Gemäß dem zweiten Ansatz, E&amp;M, werden Klartextdaten verschlüsselt und daneben wird eine Zusammenfassung des Verschlüsselungszustands der Klartextdaten hinzugefügt. Obwohl hier nur ein Schlüssel verwendet wird, zeigt die Tatsache, dass zwei unterschiedliche Ergebnisse (Verschlüsselungsergebnis und Digest-Ergebnis) für dieselben Daten vorliegen, deutlich, dass die Sicherheit nicht gut genug ist. Als reale Lösung mit diesem System können wir die ersten Versionen von SSH als Beispiel anführen. Um dies zu verbessern, wurden Methoden wie das Verschlüsseln der gesendeten Zusammenfassungsdatei mit demselben Schlüssel ausprobiert.</p>
+</li>
+<li>
+<p>Laut MtE, dem dritten und letzten mir bekannten Ansatz, wird eine Zusammenfassungsdatei auf Basis von Klartext generiert. Dann werden der Klartext und die Digest-Datei zusammen mit dem Schlüssel verschlüsselt. Der Chiffretext und die Chiffretextdatei werden zusammen gesendet. Wenn wir uns reale Lösungen ansehen, die es verwenden, sind das in erster Linie SSL/TLS-Implementierungen. Wir alle wissen, wie zuverlässig und nachhaltig SSL/TLS-Anwendungen an sich sind. Darüber hinaus wurden im Laufe der Jahre Verbesserungen wie <code>MAC-then-pad-then-encrypt</code> vorgenommen, um die Sicherheit zu erhöhen. Gemäß dieser Verbesserung wird zuerst der Klartext verdaut, dann auf die Blockgröße aufgefüllt und dann die Verschlüsselung durchgeführt. Dies führt zu einem noch zuverlässigeren Verschlüsselungsergebnis. Aber es gibt Fälle, in denen der Padding-Mechanismus Angriffe wie Padding Oracle verursacht, wenn er bestimmte Fehler macht.</p>
+</li>
+</ul>
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_879x0_resize_q50_h2_linear_3.webp 879w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+
+<p>Nach der Auswahl des zu verwendenden AEAD-Ansatzes wird je nach Verwendung von TAP oder TUN der in der obigen Grafik dargestellte Weg beschritten. Gemäß diesem Pfad geht die im Benutzerbereich ausgeführte/gewünschte Aktion zu den TAP/TUN-Adaptern auf Kernel-Ebene. Da sich diese Adapter auf der Kernel-Ebene befinden, arbeiten sie sehr schnell. Dann führen die virtuellen Adapter die notwendige Verschlüsselung mit der entsprechenden Bibliothek durch, fügen ggf. den Digest hinzu und stellen die Paketgröße ein. Dann sendet der Server Pakete sequentiell über die Ethernet-Schnittstelle an die Ethernet-Schnittstelle des Clients. Der Client, der es erhält, konfiguriert die Pakete neu, organisiert sie, kombiniert sie bei Bedarf und entschlüsselt sie mit den erforderlichen Bibliotheken. Nach der Entschlüsselung überträgt es den Client über den virtuellen Adapter an den Endbenutzer. Als Ergebnis all dieser mathematischen Operationen und Bemühungen erreichte der Benutzer also nach einigen Zyklen den gewünschten Inhalt. Es ist ziemlich lang zu erklären, aber sehr einfach zu bedienen, liebe Leser. Sie müssen nur die entsprechende <a href="https://github.com/wiseweb-works/openvpn-most-secure-install/">Skriptseite</a> auf meiner GitHub-Seite besuchen. Das zugehörige Skript nimmt all diese Anpassungen interaktiv für Sie vor. Alles, was Sie tun müssen, ist sich zurückzulehnen und zu genießen.</p>
+<h1 id="faq-und-ende">FAQ und Ende</h1>
+<p>Erhielt mich per <a href="mailto:wisewebworks@outlook.com">Mail</a>, <a href="https://fosstodon.org/@wise">Fosstodon</a> oder <a href="https://github.com/wiseweb-works">GitHub</a> I werde versuchen, hier von Zeit zu Zeit Fragen hinzuzufügen. So kommen Sie historisch gesehen direkt zum Ergebnis, ohne darüber nachzudenken, welche Art von Fragen zu welchem ​​Zeitpunkt aufgetreten sind oder ob es eine Lösung gibt. Abgesehen davon, wenn es Fragen gibt, die einer zusätzlichen Erklärung bedürfen, ohne das technische Dokument zu ändern, denke ich, sie in diesen Abschnitt aufzunehmen.</p>
+]]></content:encoded></item></channel></rss>

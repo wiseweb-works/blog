@@ -1,1 +1,789 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>openvpn on Wise</title><link>https://wiseweb-works.github.io/blog/tags/openvpn/</link><description>Recent content in openvpn on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 27 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/openvpn/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenVPN Derinlemesine Anlatım</title><link>https://wiseweb-works.github.io/blog/post/openvpn-full-anlat%C4%B1m/</link><pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/openvpn-full-anlat%C4%B1m/</guid><description>Giriş ve Özet Bugün sizlerle kendi bence son zamanların en önemli yazılımlarından olan OpenVPN ile ilgili derinlemesine bir inceleme yapacağız. Bu incelememizde öncelikle OpenVPN&amp;rsquo;in ne için kullanıldığından bahsedeceğiz. Ardından programı çalıştırmak için nelere ihtiyaç duyduğumuzu ve ilk çalıştırma öncesi yapılması gerekenleri inceleyeceğiz. Son olarak da bağlantının başlatıldığı ilk andan verinin çözüldüğü son adıma kadar nelerin arka planda döndüğünü anlatmaya çalışacağım. Dolayısıyla yazımız tahminimce 3 bölüm ve gerekirse bir de soru-cevap bölümünden oluşacak.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>openvpn on Wise</title><link>https://wiseweb-works.github.io/blog/tags/openvpn/</link><description>Recent content in openvpn on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 27 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/openvpn/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenVPN Derinlemesine Anlatım</title><link>https://wiseweb-works.github.io/blog/post/openvpn-full-anlatim/</link><pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/openvpn-full-anlatim/</guid><description>Giriş ve Özet Bugün sizlerle kendi bence son zamanların en önemli yazılımlarından olan OpenVPN ile ilgili derinlemesine bir inceleme yapacağız. Bu incelememizde öncelikle OpenVPN&amp;rsquo;in ne için kullanıldığından bahsedeceğiz. Ardından programı çalıştırmak için nelere ihtiyaç duyduğumuzu ve ilk çalıştırma öncesi yapılması gerekenleri inceleyeceğiz. Son olarak da bağlantının başlatıldığı ilk andan verinin çözüldüğü son adıma kadar nelerin arka planda döndüğünü anlatmaya çalışacağım. Dolayısıyla yazımız tahminimce 3 bölüm ve gerekirse bir de soru-cevap bölümünden oluşacak.</description><content:encoded><![CDATA[<h1 id="giriş-ve-özet">Giriş ve Özet</h1>
+<p>Bugün sizlerle kendi bence son zamanların en önemli yazılımlarından olan OpenVPN ile ilgili derinlemesine bir inceleme yapacağız. Bu incelememizde öncelikle OpenVPN&rsquo;in ne için kullanıldığından bahsedeceğiz. Ardından programı çalıştırmak için nelere ihtiyaç duyduğumuzu ve ilk çalıştırma öncesi yapılması gerekenleri inceleyeceğiz. Son olarak da bağlantının başlatıldığı ilk andan verinin çözüldüğü son adıma kadar nelerin arka planda döndüğünü anlatmaya çalışacağım. Dolayısıyla yazımız tahminimce 3 bölüm ve gerekirse bir de soru-cevap bölümünden oluşacak. Şimdi kemerlerimizi bağlayalım ve internetin derin ve kasvetli dünyasında bir geziye çıkalım.</p>
+<h2 id="openvpn-nedir-ve-ne-için-kullanılıyor-">OpenVPN nedir ve ne için kullanılıyor ?</h2>
+<p>Günümüzde artık internet üzerinden yapılmayan bir iş neredeyse kalmadı. Hatta normalde internet üzerinden olmayan çalışma eylemimiz bile pandemi ve yeni normal nedeniyle evden çalışmaya doğru evrildi. Fakat hem alışık olmadığımız bir çalışma yöntemi olması nedeniyle hem de insanlarımızın teknoloji ile arasının pek iyi olmaması nedeniyle büyük sorunlar yaşandı. İnsanların evlerindeki bilgisayarlardan ofisteki bilgisayarlarına bağlanması gerektiği anlaşılmadan önce bazı firmalar çalışanların evlerine ofis bilgisayarlarını gönderme gibi uçuk fikirler buldu. Bunun ne kadar hatalı bir gidiş yolu olduğunu kısa süre içinde aldıkları geri dönüşlerden çok iyi anladılar. Kısaca elektronik cihazların ofiste kalması ve bir şekilde uzaktan güvenli ve sürdürülebilir bir bağlantı yapılması gerektiği sonunda kabullenildi. Kurumlar daha önceleri de kendilerini böyle ihtiyaçlar içinde buluyordu elbette ama bu derece büyük ölçekli bir durum söz konusu değildi o zamanlar. Pandemi öncesinde PPTP, L2TP, IPSec, IKev2, SSTP ve nihayet OpenVPN gibi çeşitli protokoller kullanıyordu. Bunlar genelde belirli uzun ve havalı kelimelerin kısaltması olup temel mantıkları iki veya daha fazla cihazı birbirine bağlamak ve aynı ağdaymış gibi hareket etmelerini sağlamak üzerinedir. OpenVPN&rsquo;den önceki protokoller belirli zayıflıkları, yavaşlıkları ve uygulanmasıyla ilgili teknik zorlukları da beraberlerinde getirdikleri için çok bahsetmeyeceğim. OpenVPN sunucu ve istemci rolündeki en az 2 cihazın birbirlerine bağlanması ve  bunu endüstiri standartlarını karşılayacak şekilde yapmasına yarayan protokol ve programın adıdır. Ben uzak masaüstü programı kullanıyorum buna ne gerek var dediğinizi duyar gibiyim. Maalesef o ve onun gibi diğer tüm programlar temelde bu protokolü kullanmak durumunda kalıyorlar. En meşhurlarından olan TeamViewer programında kalkan simgesine veya bağlantı ayrıntılarına bastığınız takdirde OpenVPN protokolünü görebilirsiniz.</p>
+<h2 id="openvpn-bağlantısı-kurmak-için-nelere-ihtiyaç-duyarız-">OpenVPN bağlantısı kurmak için nelere ihtiyaç duyarız ?</h2>
+<p>Öncelikle hem sunucu hem de istemci (bağlanacak cihaz) tarafında OpenVPN&rsquo;in kurulu olması gerekiyor. Ardından cihazların hangi şartlar altında iletişim kuracaklarını gösterir bir ayar (config) dosyasının düzenlenmesi gerekmektedir. Asıl olay zaten bu config dosyasının üretilmesi ve istemci tarafından kullanılmasıdır. Bu config dosyası sunucu tarafından kullanılan server_config ve istemci tarafından kullanılan client_config olarak ikiye ayrılır.</p>
+<h3 id="server-tarafında-tutulan-ayar-dosyası-şu-girdileri-içermektedir">Server tarafında tutulan ayar dosyası şu girdileri içermektedir</h3>
+<ul>
+<li><code>port 1194</code> OpenVPN bağlantısını yapmak için kendisine hangi port üzerinden bağlantı talebi geleceğini belirtir.</li>
+<li><code>proto tcp</code> Bağlantının TCP veya UDP üzerinden yapılması mümkün. Seçim için girilen ayar girdisi.</li>
+<li><code>dev tun</code> TAP veya TUN arabirimi kullanılabilir. Bunlar sanal arabirimlerdir. TAP layer 2 bir bağlantı kurarken TUN layer 3 bir bağlantı kurar.</li>
+<li><code>user nobody</code> Bağlanan kullanıcıların sunucu üzerinde yetkisiz bir kullanıcıya linklenmesini sağlıyor.</li>
+<li><code>group $NOGROUP</code> Bağlanan kullanıcıların sunucu üzerinde grup olarak da yetkisiz bir gruba linklenmesini sağlıyor.</li>
+<li><code>persist-key</code> Sanal arabirimin oluşturulması ve yeniden başlatılması ile ilgili bir yetkilendirme ayarı</li>
+<li><code>persist-tun</code> Yine aynı şekilde sanal arabirimin oluşturulması ve yeniden başlatılması ile ilgili bir yetkilendirme ayarı</li>
+<li><code>keepalive 10 120</code> Kaç adet bağlantının aktif tutulacağını ve ne kadar süre iletişim kurulmaz ise aktif bağlantının sonlandırılacağı ile ilgili bir ayar</li>
+<li><code>ifconfig-pool-persist ipp.txt</code> OpenVPN tarafından istemcilere sanal ağda verilen IP adreslerinin tutulması ve tekrar bağlandıkları takdirde aynı adreslerin verilmesi için bir ayar</li>
+<li><code>push &quot;dhcp-option DNS 1.1.1.1&quot;</code> Sunucunun ağa çıkarken kullanması için bir DNS ayarı</li>
+<li><code>compress</code> Sıkıştırma seçeneklerinin ayarlandığı kısım</li>
+<li><code>dh none</code> Diffie-Hellman&rsquo;ın açılıp kapatılması ile ilgili bir ayar</li>
+<li><code>ecdh-curve</code> Eğer Elliptik Eğri Diffie-Hellman kullanıyor iseniz yanında seçmeniz gereken eğrinin ayarlandığı ayar</li>
+<li><code>dh dh.pem</code> Diffie-Hellman kullanıyor iseniz önceden oluşturmanız gereken PEM dosyasının konumunu belirten ayar</li>
+<li><code>tls-crypt tls-crypt.key</code> TLS katmanının pre-shared master öncesinde dahi şifrelenmesi için gerekli ayar</li>
+<li><code>tls-auth tls-auth.key 0</code> TLS katmanının pre-handshake aşamasında şifrelenmesinin de ötesinde tarafların da doğrulanmasını sağlayan ayar</li>
+<li><code>crl-verify crl.pem</code> Üretilen sertifikaların revoke edilip edilmediğinin CRL listesi üzerinden kontrol edilmesine yarayan ayar</li>
+<li><code>ca ca.crt</code> Üretilen sertifikaya ait sertifika otoritesinin sertifikasının konumunu bildiren bir ayar</li>
+<li><code>cert $SERVER_NAME.crt</code> Sunucunun sertifikasının konumunu bildiren bir ayar</li>
+<li><code>key $SERVER_NAME.key</code> Sunucunun sertifikasının yanında yine gerekli olan asimetrik secret keyinin konumunu bildiren bir ayar</li>
+<li><code>auth $HMAC_ALG</code> Veri kanalı ve gerekirse <code>tls-auth</code> için hangi özet algoritmasının kullanılacağını bildiren bir ayar</li>
+<li><code>cipher $CIPHER</code> Veri kanalı için hangi şifreleme algoritmasının kullanılacağını bildiren bir ayar</li>
+<li><code>ncp-ciphers $CIPHER</code> Sunucunun kullanabileceği şifreleme algoritmalarını bildiren bir ayar</li>
+<li><code>tls-server</code> Sunucunun TLS kanalını kullanmasını söyleyen bir ayar</li>
+<li><code>tls-version-min 1.2</code> TLS kanalında kullanılması için en düşük versiyonu bildiren bir ayar</li>
+<li><code>tls-cipher $CC_CIPHER</code> Veri kanalından hariç TLS katmanında da şifreleme kullanılıyor bu da kontrol kanalı şifrelemesini bildiren ayar</li>
+<li><code>client-config-dir /etc/openvpn/ccd</code> İstemci ayar dosyalarının tutulduğu konumu bildiren ayar</li>
+<li><code>status /var/log/openvpn/status.log</code> Durum raporlarının yazılacağı konumu ve log dosyalarının tutulduğu konumu bildiren ayar</li>
+<li><code>verb 3</code> Verbose kelimesinin kısaltılmışı olan bu ayar ne kadar detaylı durum raporu verileceğinin ayarıdır.</li>
+</ul>
+<h3 id="istemci-tarafında-tutulan-ayar-dosyası-şu-girdileri-içermektedir">İstemci tarafında tutulan ayar dosyası şu girdileri içermektedir</h3>
+<ul>
+<li><code>client</code> İlgili cihazın istemci rolünde olduğunu belirtiyor</li>
+<li><code>proto tcp-client</code> Protokol olarak TCP&rsquo;nin kullanılacağını bildiriyor</li>
+<li><code>remote $IP $PORT</code> Bağlanılacak sunucu(ların) IP adresinin ve Port numarasının ayarladığı kısım</li>
+<li><code>dev tun</code> TUN/TAP arabirimlerinden hangisinin kullanılacağını ayarlıyor</li>
+<li><code>resolv-retry infinite</code> Eğer IP veya DNS nedeniyle adres çözümlemesi gecikir ise ne kadar süre ile bekleyeceğini söylüyoruz</li>
+<li><code>nobind</code> Lokaldeki herhangi bir adrese bağlanılmamasını bildiren ayar</li>
+<li><code>persist-key</code> Yeniden başlatma durumunda anahtar dosyalarının ek bir yetkiye gerek kalmadan okunabilmesini yarar</li>
+<li><code>persist-tun</code> Aynı şekilde yeniden başlatma durumunda TUN/TAP arabiriminin yetkiye gerek kalmadan uyandırılabilmesine yarar</li>
+<li><code>remote-cert-tls server</code> Bağlanılan sunucunun sertifikasını TLS katmanında doğrulanmasını sağlar</li>
+<li><code>verify-x509-name $SERVER_NAME name</code> Sunucunun geri döneceği sertifikasındaki ismi ve sunucunun isminin ne olması gerektiğini bildiren komut</li>
+<li><code>auth $HMAC_ALG</code> Doğrulama için hangi algoritmanın kullanılacağını bildiren komut</li>
+<li><code>auth-nocache</code> Oturum açmak için gerekli parolayı önbelleğe almaz</li>
+<li><code>cipher $CIPHER</code> Şifreleme için kullanılacak algoritmayı seçmeye yarayan komut</li>
+<li><code>tls-client</code> TLS iletişimi sırasında TLS&rsquo;yi etkinleştirir ve istemci rolünü üstlenir</li>
+<li><code>tls-version-min 1.2</code> En düşük TLS versiyonunu ayarlar</li>
+<li><code>tls-cipher $CC_CIPHER</code> TLS kontrol kanalında kullanılacak şifreleme algoritmasını seçer</li>
+<li><code>ignore-unknown-option block-outside-dns</code> Bilinmeyen DNS adreslerinin kullanılmasını engeller</li>
+<li><code>setenv opt block-outside-dns</code> Windows 10 için DNS sızıntılarını engeller</li>
+<li><code>verb 3</code> Rapor verme derecesini belirler</li>
+<li><code>compress</code> Sıkıştırma algoritması ayarları burada bildirilir</li>
+<li><code>&quot;&lt;ca&gt;/etc/openvpn/easy-rsa/pki/ca.crt&lt;/ca&gt;&quot;</code> Beklenilen sunucu sertifika otoritesi dosyasının Hard-Coded gömülmesi</li>
+<li><code>&quot;&lt;cert&gt;/etc/openvpn/easy-rsa/pki/issued/$CLIENT.crt&lt;/cert&gt;&quot;</code> İstemci sertifika dosyasının Hard-Coded gömülmesi</li>
+<li><code>&quot;&lt;key&gt;/etc/openvpn/easy-rsa/pki/private/$CLIENT.key&lt;/key&gt;&quot;</code> İstemci asimetrik secret keyinin Hard-Coded gömülmesi</li>
+<li><code>&quot;&lt;tls-crypt&gt;/etc/openvpn/tls-crypt.key&lt;/tls-crypt&gt;&quot;</code> TLS crypt için key dosyasının belirtilmesi</li>
+<li><code>&quot;&lt;tls-auth&gt;/etc/openvpn/tls-auth.key&lt;/tls-auth&gt;&quot;</code> TLS auth için key dosyasının belirtilmesi</li>
+<li><code>key-direction 1</code> TLS katmanı şifrelenmesi için istemci ve sunucuya rol atıyor (0 ve 1 şeklinde)</li>
+</ul>
+<p>Bu ayarları ve daha bir çoğunun ayrıntılı dökümantasyonunu <a href="https://openvpn.net/community-resources/reference-manual-for-openvpn-2-4/">OpenVPN</a> web sayfasında bulabilirsiniz.</p>
+<h2 id="openvpn-bağlantısı-kurulurken-neler-oluyor-">OpenVPN bağlantısı kurulurken neler oluyor ?</h2>
+<p>OpenVPN ile bağlantı kurduğum her zaman kendimi Yıldız Filosu planlarını kaçıran R2-D2 gibi hissediyorum. İnsanlar kendilerini her zaman için derinlemesine bir inceleme içerisinde bulmak istemiyorlar ve birilerinin onlara neyin nasıl döndüğünü açıklamalarını isteyebiliyorlar. Benim bu yazıyı kaleme alma amacımda aslında bu soruyu kendime sormuş olmam ve cevabını almak için çok çaba sarfetmiş olmam. Sizin de bu kadar uğraşmanızı istemem fakat size hemencecik bunu yükle gerisini düşünme o iş bende de diyemem. Başta söz verdiğim gibi derinlemesine bir şekilde bu süreci sizlere anlatacağım ve kararı size bırakacağım. Bir OpenVPN bağlantısında artısıyla eksisiyle (benim şu ana kadar çözebildiğim şekliyle) süreç şöyle işliyor. Önce bir TCP/UDP bağlantısı kuruyorsunuz. TCP kullanan her uygulama gibi bir süreç yürütüyorsunuz ve ardından TLS katmanına geçiyorsunuz. TLS katmanında el sıkışma (handshake) ve bazı kimlik doğrulama işlemleri yapıyorsunuz. Bu katmana aynı zamanda kontrol kanalı da deniliyor. Ardından belirli bir iletişim tutturulmuş oluyor ve veri kanalına geçiliyor. Veri veya data kanalında bu sefer gönderilecek veri paketlerinin şifrelenmesi ve çözülmesi süreci başlıyor. Bunun için yine cihazlar birbirleri ile konuşuyor ve belirli ortak şartlar altında veriler gönderilmeye başlanıyor. Kısaca bu şekilde anlattığım sürecin sonunda 0&rsquo;dan başlattığımız iletişim bize güvenli ve istediğimiz şekilde verilerin ulaşması ile son buluyor veya açık tutulan bağlantı üzerinden bu sefer tersine bir yolla yeniden istekler iletiliyor. Böylece iç içe borular gibi bir sistem ortaya çıkıyor. Yazı için gerekli olan tek önemli şeyi buraya yazmak gerekirse eğer:</p>
+<ul>
+<li><code>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P512</code> şeklinde olacaktır.
+<ul>
+<li>Burada <code>TLS</code> girdisi kontrol kanalının TLS katmanı üzerinden yürütüleceğini belirtir. Diğer alternatifler <code>SSL</code> veya <code>NULL</code>&lsquo;dur.</li>
+<li><code>ECDHE</code> girdisi Elliptik Diffie-Hellman algoritması kullanılarak ilk ön-anahtarın üretileceğini belirtir. Diğer alternatifler <code>DHE</code>, <code>DH</code> veya kullanmamaktır.</li>
+<li><code>ECDSA</code> verisi karşılıklı kimlik doğrulama ve asimetrik anahtar için Elliptik Dijital İmza Sertifikası Algoritmasının kullanılacağını belirtir. Diğer kullanılabilir alternatif <code>RSA</code>&lsquo;dır. Diğerlerini saymaya gerek bile yok.</li>
+<li><code>AES_256_GCM</code> veri kanalında kullanılacak şifreleme algoritmasının belirtir. Diğer alternatifler <code>AES-128-CBC</code>, <code>AES-128-GCM</code> ve <code>AES-256-CBC</code>&lsquo;dir</li>
+<li><code>SHA384</code> kullanılacak özet algoritmasını belirtir. Diğer alternatif <code>SHA256</code>&lsquo;dır.</li>
+<li><code>P512</code> ise kullanılacak elliptik eğrinin Prime-512 adlı eğri olarak seçilmesini sağlar. Diğer alternatifler <code>P-256</code> ve <code>P-384</code>&lsquo;dür.</li>
+</ul>
+</li>
+</ul>
+<h3 id="tcp-bağlantısının-kurulması-süreci">TCP bağlantısının kurulması süreci</h3>
+<p>Şimdi kafanızda sürecin yaklaşık bir resmi oluştu ise başlangıcı TCP sürecinin anlatımıyla yapıyorum. Olayımızda bir istemci ve bir sunucunun olduğunu ve bağlantının sadece bu ikisinden ibaret olduğunu düşünelim. İstemci bağlanmak istediği sunucuya bir SYN (m) paketi gönderir. Sunucu ise buna cevap olarak aynı port üzerinden bir SYN (n) paketi ve ACK (m+1) paket gönderir. Bunu alan istemci de cevap olarak ACK (n+1) şeklinde dönüş yapar ve 3&rsquo;lü TCP el sıkışması veya 3 Way TCP handshake gerçekleşmiş olur. Böylece belirtilen port üzerinden istemci ve sunucu arasında açık bir kanalımız oluştu.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_240x0_resize_q50_h2_linear.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_300x0_resize_q50_h2_linear.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_360x0_resize_q50_h2_linear.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_420x0_resize_q50_h2_linear.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_480x0_resize_q50_h2_linear.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_600x0_resize_q50_h2_linear.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_768x0_resize_q50_h2_linear.webp 768w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_800x0_resize_q50_h2_linear.webp 800w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_960x0_resize_q50_h2_linear.webp 960w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake.jpg" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_666x0_resize_q50_h2_linear_3.webp 666w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Fotoğraflarda da görüleceği üzere eğer süreç sorunsuz işler ise 3 adımda iletişim kurulabiliyor. Fakat neden 3 adımda bu işi yapıyoruz daha kısa şekilde olmaz mı derseniz size (şimdilik) hayır olmaz full-duplex bir iletişim için her iki tarafın da SYN ve ACK paketlerini göndermesi gerekiyor derim. İleride belki farklı yollarını da anlatırım ama şimdilik böyle. Zaten işin TCP/UDP kısmı her zaman için kısa ve basittir.</p>
+<h3 id="tls-katmanındaki-işletilen-süreç">TLS katmanındaki işletilen süreç</h3>
+<p>TCP üzerinden bir iletişim kurulmasının ardından yine muhabbeti başka bir aşamaya taşıyan kişi istemci oluyor. Her zaman için istemciler sunucudan bir şeyler talep eder veya bir cevap ister. Sunucular genel olarak kendilerine gelmeyen bir isteği cevapladığı çok görülmemiştir. Önce talep sonra arz ilkesine göre süreç ilerler. Evet, taraflar TLS katmanındalar şimdi. İstemci sunucuya önce bir merhaba diyor. Şaka değil gerçek. İstemci tarafından gönderilen ilk pakete <code>Client-Hello</code> paketi denir. Bu paketin yanında (süreci hızlandırmak adına) desteklediği şifreleme algoritmalarını belirten <code>Supported-Chipers</code> paketi, istemci tarafından rastgele üretilmiş bir sayı, aynı IP adresinde birden fazla hizmet çalıştırılıyor ise bir <code>SNI</code> sunucu adı indikatörü ve yine gerekiyor ise oturum ID&rsquo;si gönderilir. Sunucunun buna cevabı ise öncelikle kibar bir merhaba demek oluyor. Çünkü sunucunun cevaben gönderdiği ilk pakete de <code>Server-Hello</code> paketi denir. Bu paketin yanında sunucu sertifikasını, kendi desteklediği şifreleme algoritmalarını ve seçtiği algoritmayı belirten <code>Selected-Chiper</code> paketi, kendisinin ürettiği rastgele bir sayıyı, gerekirse Oturum ID&rsquo;sini ve aynı IP üzerinden birden fazla istemci bağlanıyor ise buna ilişkin SNI benzeri bir ID&rsquo;yi gönderir. İstemci öncelikle iletişime başladığı tarafından gerçekten beklediği kişi olup olmadığını sunucu sertifikası ile doğrular. Ayrıca bazı durumlarda da sunucu istemcinin beklediği istemcilerden biri olup olmadığını yine sertifika ile doğrular. Eğer bu karşılıklı doğrulama (mutual-authentication) süreci olumlu sonuçlanır ise bir sonraki aşamaya geçilir. Anahtar üretim ve değişim süreci tetiklenmiş olur. Bu aşamda yine istemci devreye girer ve güvensiz önkabul edilen bu iletişim sırasında belirledikleri algoritma ile anahtar değiştirmek istediğini söyler. Taraflar Diffie-Hellman veya ECDHE ile bir önanahtar oluşturmaya başlarlar. Bunun için istemci ve sunucu tarafından ön-sırlar paylaşılır. Bir takım matematiksel işlemler yapılarak bulunan cevaplar karşıya gönderilir ve tekrar matematiksel işlemler yapılarak aynı sonuca ulaşılır. İşte ulaşılan sonuç aralarında güvenli bir şekilde oluşturdukları ilk ön-anahtar oluyor. Bundan sonra belirledikleri şifreleme algoritması ile
+iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulur ve süreç oradan devam eder.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_850x0_resize_q50_h2_linear_3.webp 850w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_712x0_resize_q50_h2_linear_3.webp 712w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Fotoğraflarda da görülebileceği üzere süreç bir web sayfasına bağlanılırken yaşanan süreçle neredeyse aynı. Sadece ihtiyaçlara göre belirli aşamalar ekleniyor, çıkarılıyor veya değiştiriliyor. Örneğin İleri Seviye Gizlilik anlamına gelen PFS gereğince taraflar ön-anahtarı sunucunun asimetrik anahtarı ile iletmiyor. Çünkü bu durumda her oturum için aynı anahtar kullanılacağı için verilerin depolanıp daha sonra anahtar açığa çıktığı bir gün beklenerek veriler geçmişe dönük okunabilir bir hale gelecektir. Bu yüzden bu değişiklik yapıldı. Yine sıfır güven tehdit modeli gereğince her bir katmanın ve sürecin bir diğerinin işini doğru yapacağına güvenmeden süreci ilerletmesini istiyorum. Bu yüzden TLS katmanındaki o ilk iletişim anında dahi paketlerin <code>tls-auth</code> özelliği gereğince şifrelenmesini ve gelen-giden verilerin bütünlüğünün doğrulanmasını istiyoruz. Daha ilk merhaba dediğiniz andan itibaren üçüncü kişiler sizin ne konuştuğunuzu hangi aşamada olduğunuzu anlayamayacaklardır. Bunun için önceden belirlenmiş bir anahtar/anahtarlar ile ilk iletişim başlatılır ve gerekirse belirli aralıklarla bu anahtarlar yenilenir. Böylece TLS katmanında ilk ön-anahtar oluşturulana kadar dahi gizlilikten ödün verilmemiş ve yetkisiz kişilerce boşuna tarafik yaratılmamış olur.</p>
+<h3 id="veri-katmanında-işleyen-süreç">Veri katmanında işleyen süreç</h3>
+<p>Eğer tüm bu süreç başarılı bir şekilde tamamlanmış ve veri kanalına geçilebildiyse eğer artık işin en güzel kısmına gelmiş bulunuyorsunuz. Veriler AES şifreleme methodu ile şifrelenecek. Şifreleme sırasında seçiminize göre CBC-GCM counter moduna göre tablolar karıştırılacak ve bu süreçte seçiminize göre 128 veya 256 bit uzunluğunda şifreleme anahtarı kullanılacak. Tabi ne hangisini seçerseniz seçin şifreleme blok uzunluğu 128 bit olucak. Değişen sadece şifreleme anahtarı uzunluğu. Benim bu anlatımım için seçmiş olduğum AES-256-GCM bir AEAD şifreleme türüdür. Diğer kanallardan ve süreçlerden bağımsız olarak gönderdiği verileri belirli bir aşamada özetini çıkartır ve özeti ile birlikte gönderir. Böylece &lsquo;Authentication Encryption with associated data&rsquo; anlamına gelen AEAD&rsquo;de doğrulama ve şifreleme işlevleri yerine getirilmiş oluyor. Burada bir ayrıma gidilmesini gerektirecek şöyle bir sorun mevcuttur. Şifreleme ve Özet alma algoritmalarını hangi aşamada ve sırayla kullanacağız.</p>
+<table>
+<thead>
+<tr>
+<th>Encrypt-then-MAC (EtM)</th>
+<th>Encrypt-and-MAC (E&amp;M)</th>
+<th>MAC-then-Encrypt (MtE)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/EtM_hud65c113a516a1b62e4fe8858ed9ec486_23252_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/EtM_hud65c113a516a1b62e4fe8858ed9ec486_23252_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/EtM_hud65c113a516a1b62e4fe8858ed9ec486_23252_330x0_resize_q50_h2_linear_3.webp 330w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/EtM.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/EaM_hube37f114dbb3921bcee6e141d846fe73_17342_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/EaM_hube37f114dbb3921bcee6e141d846fe73_17342_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/EaM_hube37f114dbb3921bcee6e141d846fe73_17342_330x0_resize_q50_h2_linear_3.webp 330w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/EaM.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/MtE_hu0e87705e5c72f609d1e7f72a494fc1ac_5729_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/MtE_hu0e87705e5c72f609d1e7f72a494fc1ac_5729_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/MtE_hu0e87705e5c72f609d1e7f72a494fc1ac_5729_324x0_resize_q50_h2_linear_3.webp 324w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/MtE.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Birinci yaklaşım olan EtM&rsquo;ye göre veri önce şifrelenir ardından başka bir anahtar ile özeti sonucu şifrelenir ve ortaya çıkan sonuç bloklar halinde birlikte gönderilir. Bunu kullanan gerçek dünya çözümlerine bakacak olursak IPSec protokolü ilk akla gelen olacaktır. Bu, AE&rsquo;de en yüksek güvenlik tanımına ulaşabilen tek yöntemdir, ancak bu ancak kullanılan MAC algoritmasının bozulma içermediği veya henüz kırılmadığı takdirde elde edilebilir. SSHv2 için de çeşitli EtM şifre takımları mevcuttur. Ancak veri ve özet için anahtar ayrımının zorunlu olduğunu unutmayın (şifreleme ve anahtarlı karma için farklı anahtarlar kullanılmalıdır), aksi takdirde kullanılan belirli şifreleme yöntemine ve karma işlevine bağlı olarak potansiyel olarak güvensiz bir sonuç elde edebilirsiniz.</p>
+</li>
+<li>
+<p>İkinci yaklaşım olan E&amp;M&rsquo;ye göre düz metin olan veri şifrelenir ve yanına düz metin verinin şifrelenmemiz halinin özeti eklenir. Burada sadece bir anahtar kullanılmış olmasına rağmen aynı veriye ait iki farklı sonucun (şifreleme sonucu ve özet sonucu) olması güvenliğin yeterince iyi olmadığını açıkca gözler önüne sermektedir. Bu sistemi kullanan gerçek dünya çözümü olarak SSH&rsquo;ın ilk versiyonlarını örnek gösterebiliriz. Bunu geliştirmek için ayrıca gönderilen özet dosyasını da aynı anahtar ile şifreleme gibi yöntemler denenmiştir.</p>
+</li>
+<li>
+<p>Üçüncü ve bildiğim son yaklaşım olan MtE&rsquo;ye göre düz metine dayalı olarak bir özet dosyası üretilir. Ardından düz metin ve özet dosyası birlikteyken anahtar ile şifrelenir.  Şifreli metin ve şifreli özet dosyası birlikte gönderilir. Bunu kullanan gerçek dünya çözümlerine bakacak olursak ilk ve en önemlisi SSL/TLS uygulamalarıdır. SSL/TLS uygulamalarının kendi içlerinde ne kadar güvenilir ve sürdürülebilir olduklarını hepimiz biliyoruz. Bunun ötesinde de güvenliği artırmak adına yıllar içersinde <code>MAC-then-pad-then-encrypt</code> gibi geliştirmeler yapıldı. Bu geliştirmeye göre önce düz metinin özeti alınır ardından blok boyutuna kadar doldurulur ve ardından şifreleme işlemi yapılır. Böylece daha da güvenilir bir şifreleme sonucu oluşur. Ama doldurma mekanizmasının belirli hatalar yapması durumunda Padding Oracle gibi saldırılara neden olduğu durumlar mevcuttur.</p>
+</li>
+</ul>
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_879x0_resize_q50_h2_linear_3.webp 879w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+
+<p>Kullanılacak AEAD yaklaşımı da seçildikten sonra TAP veya TUN kullanımına göre yukarıdaki grafikte görülen yol izlenir. Bu yola göre kullanıcı alanında yapılan/yapılmak istenen eylem çekirdek (kernel) seviyesinde TAP/TUN adaptörlerine gider. Bu adaptörler çekirdek seviyesinde bulunmaları nedeniyle çok hızlı bir şekilde işlem yaparlar. Ardından sanal adaptörler ilgili kütüphane ile gerekli şifrelemeyi yapar, gerekirse özeti ekler ve paket boyutu ayarı yapar. Ardından sunucu Ethernet arayüzü üzerinden istemcinin Ethernet arayüzüne paketleri sırayla gönderir. Bunu alan istemci ise paketleri yeniden ayarlar, düzenler gerekirse birleştirir ve gerekli kütüphaneler ile şifresini çözer. Şifresini çözdükten sonra bunu sanal adaptör aracılığı ile istemcini son kullanıcısına iletir. Böylece tüm bu matematiksel işlemler, uğraşlar sonucunda birkaç çevrim neticesinde kullanıcı istediği içeriğe ulaşmış oldu. Anlatması oldukça uzun ama kullanması çok kolay sevgili okuyucular. Sadece GitHub sayfama girik ilgili <a href="https://github.com/wiseweb-works/openvpn-most-secure-install/">script sayfasını</a> ziyaret etmeniz yeterlidir. İlgili script tüm bu ayarlamaları interaktif olarak sizin yerinize yapmaktadır. Size de arkanıza yaslanıp keyfini çıkarmak kalıyor.</p>
+<h1 id="sss-ve-son">SSS ve Son</h1>
+<p>Bana <a href="mailto:wisewebworks@outlook.com">mail</a> yoluyla, <a href="https://fosstodon.org/@wise">Fosstodon</a> üzerinden veya <a href="https://github.com/wiseweb-works">GitHub</a> üzerinden gelen soruları zaman zaman buraya eklemeye çalışacağım. Böylece tarihsel olarak da hangi tarihte ne gibi sorular olmuş veya çözümü mevcut mu gibi düşüncelere kapılmadan direk sonuca ulaşabileceksiniz. Bunun haricinde de teknik dökümanı değiştirmeden ekstra açıklama gerektiren sorular gelirse onları da bu kısma almayı düşünüyorum.</p>
+]]></content:encoded></item></channel></rss>

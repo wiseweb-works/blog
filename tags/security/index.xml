@@ -1,3 +1,1931 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>security on Wise</title><link>https://wiseweb-works.github.io/blog/tags/security/</link><description>Recent content in security on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 27 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/security/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenVPN Derinlemesine Anlatım</title><link>https://wiseweb-works.github.io/blog/post/openvpn-full-anlat%C4%B1m/</link><pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/openvpn-full-anlat%C4%B1m/</guid><description>Giriş ve Özet Bugün sizlerle kendi bence son zamanların en önemli yazılımlarından olan OpenVPN ile ilgili derinlemesine bir inceleme yapacağız. Bu incelememizde öncelikle OpenVPN&amp;rsquo;in ne için kullanıldığından bahsedeceğiz. Ardından programı çalıştırmak için nelere ihtiyaç duyduğumuzu ve ilk çalıştırma öncesi yapılması gerekenleri inceleyeceğiz. Son olarak da bağlantının başlatıldığı ilk andan verinin çözüldüğü son adıma kadar nelerin arka planda döndüğünü anlatmaya çalışacağım. Dolayısıyla yazımız tahminimce 3 bölüm ve gerekirse bir de soru-cevap bölümünden oluşacak.</description></item><item><title>Linux Sunucuda ECC SSL Sertifikası Üretme</title><link>https://wiseweb-works.github.io/blog/post/ecc-ssl-sertifikas%C4%B1/</link><pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ecc-ssl-sertifikas%C4%B1/</guid><description>Giriş ve Özet Bugün sizlerle yönettiğiniz bir web sitesi veya uygulama sunucusu ile ziyaretçileriniz arasındaki trafiğin gizli/güvenilir ve doğrulanabilir olmasını sağlamak için SSL sertifikası üretmeyi öğreneceğiz. Ürettiğiniz sertifikayı nasıl ve hangi konfigürasyon ile deploy edeceğinizi önceki yazılarımda anlatmıştım. Bu yazıda ise az ekmek çok köfte denklemini nasıl kurabileceğimizi yani daha hızlı ve daha güvenli bir SSL sertifikası üretmeyi göstereceğim. Normalde Let&amp;rsquo;s Encrypt&amp;rsquo;in ACME protokolüne aşina iseniz (yazının yazıldığı tarih itibariyle) RSA asimetrik anahtar yapısı ile 1024-4098 (çok zorlarsanız belki 8196) bitlik bir sertifika ürettirmeniz ve bunu görece olarak 90 gün kullanmanız mümkündür.</description></item><item><title>Linux Sunucularda SSL güvenliğini arttırma</title><link>https://wiseweb-works.github.io/blog/post/ssl-konfigurasyonu/</link><pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ssl-konfigurasyonu/</guid><description>Linux Sunucularda SSL güvenliğini artırma Bugün sizlere mevcut sunucunuzda eğer bir websitesi ve/veya App serve ediyorsanız mutlaka ihtiyacınız olan SSL bağlantısından ve bununla bağlantılı olarak openssl kütüphanesinden bahsedeceğim. SSL (Secure Socket Layer) ve TLS (Transport Layer Security) sunucunuza bağlanmak isteyen kişileri siteniz ile güvenli şekilde iletişim kurmasına imkan sağlayan bir bağlantı şeklidir. Eskiden SSL v1-v3 arasında değişen sürümler mevcut ve siteler genelde bu SSL sürümlerini kullanırken artık SSL siteler tarafından terk edilmiş ve yerini daha güvenli olan TLS&amp;rsquo;ye bırakmıştır.</description></item><item><title>Linux Sunucularda SSH Güvenliği Artırma</title><link>https://wiseweb-works.github.io/blog/post/ssh-guvenligi/</link><pubDate>Tue, 05 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ssh-guvenligi/</guid><description>Linux Sunucularda SSH güvenliğini artırma Bugün sizlerle bir sunucu kiraladığınız zaman güvenli bir şekilde bağlanmamızı sağlayan SSH hizmetini nasıl daha güvenli ve dışarıdan gelecek kötü niyetli isteklerden uzak tutabiliriz bundan bahsedeceğim. Öncelikle süreci basit, önerilen ve ileri-seviye olarak üç farklı başlık altında anlatacağım. Başlık içerikleri kişisel gerekliliklere göre aşamalı düşünülmüştür. Başlıklar bir biri ile bağlantılı olmasına rağmen istenilen bir aşamada bırakılması sorun oluşturmayacaktır.
-Basit Güvenlik Önlemleri Öncelikle içinde bulunduğumuz Linux sürümünün paket yöneticisi ile güncellemeleri konsol üzerinden yüklememiz gerekmektedir.</description></item><item><title>PGP nedir ve gerçekten de oldukça iyi bir gizlilik sağlıyor mu?</title><link>https://wiseweb-works.github.io/blog/post/pgp-ve-gizlilik/</link><pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/pgp-ve-gizlilik/</guid><description>PGP Türkçede oldukça iyi gizlilik anlamına gelen Pretty Good Privacy kelimesinin baş harflerinde oluşturulmuş bir veri şifreleme, şifre çözme ve verileri elektronik olarak imzalama programıdır. Phil Zimmermann tarafından 90&amp;rsquo;lı yılların başında akademik bir makale olarak ortaya çıkmış ve yayımlandığı dönemden çok sonra gerçekten kullanılmaya ve getirilerinden yararlanılmaya başlanmıştır. Söz konusu program ilk ortaya çıktığı zamanlarda bir ihtiyacın kendisini ortaya çıkmaya zorlamasından ziyade daha çok bir düşünce deneyi olarak iletişimin her iki tarafı arasındaki verilerin şifrelenebileceği ve bunun nasıl yapılması gerektiği sorusu üzerine ortaya çıkmıştır.</description></item><item><title>Modern kriptografi yöntemlerinin Star Wars filmi ile ilişkisi</title><link>https://wiseweb-works.github.io/blog/post/modern-kriptografi-star-wars/</link><pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/modern-kriptografi-star-wars/</guid><description>Uzun uzun bir zaman önce (!) pek de uzak olmayan bir galakside yaşayan insanlar internet üzerinden yapmış oldukları işlemlerin daha güvenli bir temele oturması ve bu iletişimin tarafları dışındaki üçüncü kişilerin bu iletişimi dinleyememesi ve hakkında bilgi sahibi olamaması için bir takım şifreleme yöntemleri geliştirmeye karar verirler. INTRO
-Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölümlerinde yapılmış akademik çalışmaların ötesine geçememiş olan şifreleme (cryptography) alanı artık bireylerin iyiliği için kullanılacaktı.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>security on Wise</title><link>https://wiseweb-works.github.io/blog/tags/security/</link><description>Recent content in security on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 27 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/security/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenVPN Derinlemesine Anlatım</title><link>https://wiseweb-works.github.io/blog/post/openvpn-full-anlatim/</link><pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/openvpn-full-anlatim/</guid><description>Giriş ve Özet Bugün sizlerle kendi bence son zamanların en önemli yazılımlarından olan OpenVPN ile ilgili derinlemesine bir inceleme yapacağız. Bu incelememizde öncelikle OpenVPN&amp;rsquo;in ne için kullanıldığından bahsedeceğiz. Ardından programı çalıştırmak için nelere ihtiyaç duyduğumuzu ve ilk çalıştırma öncesi yapılması gerekenleri inceleyeceğiz. Son olarak da bağlantının başlatıldığı ilk andan verinin çözüldüğü son adıma kadar nelerin arka planda döndüğünü anlatmaya çalışacağım. Dolayısıyla yazımız tahminimce 3 bölüm ve gerekirse bir de soru-cevap bölümünden oluşacak.</description><content:encoded><![CDATA[<h1 id="giriş-ve-özet">Giriş ve Özet</h1>
+<p>Bugün sizlerle kendi bence son zamanların en önemli yazılımlarından olan OpenVPN ile ilgili derinlemesine bir inceleme yapacağız. Bu incelememizde öncelikle OpenVPN&rsquo;in ne için kullanıldığından bahsedeceğiz. Ardından programı çalıştırmak için nelere ihtiyaç duyduğumuzu ve ilk çalıştırma öncesi yapılması gerekenleri inceleyeceğiz. Son olarak da bağlantının başlatıldığı ilk andan verinin çözüldüğü son adıma kadar nelerin arka planda döndüğünü anlatmaya çalışacağım. Dolayısıyla yazımız tahminimce 3 bölüm ve gerekirse bir de soru-cevap bölümünden oluşacak. Şimdi kemerlerimizi bağlayalım ve internetin derin ve kasvetli dünyasında bir geziye çıkalım.</p>
+<h2 id="openvpn-nedir-ve-ne-için-kullanılıyor-">OpenVPN nedir ve ne için kullanılıyor ?</h2>
+<p>Günümüzde artık internet üzerinden yapılmayan bir iş neredeyse kalmadı. Hatta normalde internet üzerinden olmayan çalışma eylemimiz bile pandemi ve yeni normal nedeniyle evden çalışmaya doğru evrildi. Fakat hem alışık olmadığımız bir çalışma yöntemi olması nedeniyle hem de insanlarımızın teknoloji ile arasının pek iyi olmaması nedeniyle büyük sorunlar yaşandı. İnsanların evlerindeki bilgisayarlardan ofisteki bilgisayarlarına bağlanması gerektiği anlaşılmadan önce bazı firmalar çalışanların evlerine ofis bilgisayarlarını gönderme gibi uçuk fikirler buldu. Bunun ne kadar hatalı bir gidiş yolu olduğunu kısa süre içinde aldıkları geri dönüşlerden çok iyi anladılar. Kısaca elektronik cihazların ofiste kalması ve bir şekilde uzaktan güvenli ve sürdürülebilir bir bağlantı yapılması gerektiği sonunda kabullenildi. Kurumlar daha önceleri de kendilerini böyle ihtiyaçlar içinde buluyordu elbette ama bu derece büyük ölçekli bir durum söz konusu değildi o zamanlar. Pandemi öncesinde PPTP, L2TP, IPSec, IKev2, SSTP ve nihayet OpenVPN gibi çeşitli protokoller kullanıyordu. Bunlar genelde belirli uzun ve havalı kelimelerin kısaltması olup temel mantıkları iki veya daha fazla cihazı birbirine bağlamak ve aynı ağdaymış gibi hareket etmelerini sağlamak üzerinedir. OpenVPN&rsquo;den önceki protokoller belirli zayıflıkları, yavaşlıkları ve uygulanmasıyla ilgili teknik zorlukları da beraberlerinde getirdikleri için çok bahsetmeyeceğim. OpenVPN sunucu ve istemci rolündeki en az 2 cihazın birbirlerine bağlanması ve  bunu endüstiri standartlarını karşılayacak şekilde yapmasına yarayan protokol ve programın adıdır. Ben uzak masaüstü programı kullanıyorum buna ne gerek var dediğinizi duyar gibiyim. Maalesef o ve onun gibi diğer tüm programlar temelde bu protokolü kullanmak durumunda kalıyorlar. En meşhurlarından olan TeamViewer programında kalkan simgesine veya bağlantı ayrıntılarına bastığınız takdirde OpenVPN protokolünü görebilirsiniz.</p>
+<h2 id="openvpn-bağlantısı-kurmak-için-nelere-ihtiyaç-duyarız-">OpenVPN bağlantısı kurmak için nelere ihtiyaç duyarız ?</h2>
+<p>Öncelikle hem sunucu hem de istemci (bağlanacak cihaz) tarafında OpenVPN&rsquo;in kurulu olması gerekiyor. Ardından cihazların hangi şartlar altında iletişim kuracaklarını gösterir bir ayar (config) dosyasının düzenlenmesi gerekmektedir. Asıl olay zaten bu config dosyasının üretilmesi ve istemci tarafından kullanılmasıdır. Bu config dosyası sunucu tarafından kullanılan server_config ve istemci tarafından kullanılan client_config olarak ikiye ayrılır.</p>
+<h3 id="server-tarafında-tutulan-ayar-dosyası-şu-girdileri-içermektedir">Server tarafında tutulan ayar dosyası şu girdileri içermektedir</h3>
+<ul>
+<li><code>port 1194</code> OpenVPN bağlantısını yapmak için kendisine hangi port üzerinden bağlantı talebi geleceğini belirtir.</li>
+<li><code>proto tcp</code> Bağlantının TCP veya UDP üzerinden yapılması mümkün. Seçim için girilen ayar girdisi.</li>
+<li><code>dev tun</code> TAP veya TUN arabirimi kullanılabilir. Bunlar sanal arabirimlerdir. TAP layer 2 bir bağlantı kurarken TUN layer 3 bir bağlantı kurar.</li>
+<li><code>user nobody</code> Bağlanan kullanıcıların sunucu üzerinde yetkisiz bir kullanıcıya linklenmesini sağlıyor.</li>
+<li><code>group $NOGROUP</code> Bağlanan kullanıcıların sunucu üzerinde grup olarak da yetkisiz bir gruba linklenmesini sağlıyor.</li>
+<li><code>persist-key</code> Sanal arabirimin oluşturulması ve yeniden başlatılması ile ilgili bir yetkilendirme ayarı</li>
+<li><code>persist-tun</code> Yine aynı şekilde sanal arabirimin oluşturulması ve yeniden başlatılması ile ilgili bir yetkilendirme ayarı</li>
+<li><code>keepalive 10 120</code> Kaç adet bağlantının aktif tutulacağını ve ne kadar süre iletişim kurulmaz ise aktif bağlantının sonlandırılacağı ile ilgili bir ayar</li>
+<li><code>ifconfig-pool-persist ipp.txt</code> OpenVPN tarafından istemcilere sanal ağda verilen IP adreslerinin tutulması ve tekrar bağlandıkları takdirde aynı adreslerin verilmesi için bir ayar</li>
+<li><code>push &quot;dhcp-option DNS 1.1.1.1&quot;</code> Sunucunun ağa çıkarken kullanması için bir DNS ayarı</li>
+<li><code>compress</code> Sıkıştırma seçeneklerinin ayarlandığı kısım</li>
+<li><code>dh none</code> Diffie-Hellman&rsquo;ın açılıp kapatılması ile ilgili bir ayar</li>
+<li><code>ecdh-curve</code> Eğer Elliptik Eğri Diffie-Hellman kullanıyor iseniz yanında seçmeniz gereken eğrinin ayarlandığı ayar</li>
+<li><code>dh dh.pem</code> Diffie-Hellman kullanıyor iseniz önceden oluşturmanız gereken PEM dosyasının konumunu belirten ayar</li>
+<li><code>tls-crypt tls-crypt.key</code> TLS katmanının pre-shared master öncesinde dahi şifrelenmesi için gerekli ayar</li>
+<li><code>tls-auth tls-auth.key 0</code> TLS katmanının pre-handshake aşamasında şifrelenmesinin de ötesinde tarafların da doğrulanmasını sağlayan ayar</li>
+<li><code>crl-verify crl.pem</code> Üretilen sertifikaların revoke edilip edilmediğinin CRL listesi üzerinden kontrol edilmesine yarayan ayar</li>
+<li><code>ca ca.crt</code> Üretilen sertifikaya ait sertifika otoritesinin sertifikasının konumunu bildiren bir ayar</li>
+<li><code>cert $SERVER_NAME.crt</code> Sunucunun sertifikasının konumunu bildiren bir ayar</li>
+<li><code>key $SERVER_NAME.key</code> Sunucunun sertifikasının yanında yine gerekli olan asimetrik secret keyinin konumunu bildiren bir ayar</li>
+<li><code>auth $HMAC_ALG</code> Veri kanalı ve gerekirse <code>tls-auth</code> için hangi özet algoritmasının kullanılacağını bildiren bir ayar</li>
+<li><code>cipher $CIPHER</code> Veri kanalı için hangi şifreleme algoritmasının kullanılacağını bildiren bir ayar</li>
+<li><code>ncp-ciphers $CIPHER</code> Sunucunun kullanabileceği şifreleme algoritmalarını bildiren bir ayar</li>
+<li><code>tls-server</code> Sunucunun TLS kanalını kullanmasını söyleyen bir ayar</li>
+<li><code>tls-version-min 1.2</code> TLS kanalında kullanılması için en düşük versiyonu bildiren bir ayar</li>
+<li><code>tls-cipher $CC_CIPHER</code> Veri kanalından hariç TLS katmanında da şifreleme kullanılıyor bu da kontrol kanalı şifrelemesini bildiren ayar</li>
+<li><code>client-config-dir /etc/openvpn/ccd</code> İstemci ayar dosyalarının tutulduğu konumu bildiren ayar</li>
+<li><code>status /var/log/openvpn/status.log</code> Durum raporlarının yazılacağı konumu ve log dosyalarının tutulduğu konumu bildiren ayar</li>
+<li><code>verb 3</code> Verbose kelimesinin kısaltılmışı olan bu ayar ne kadar detaylı durum raporu verileceğinin ayarıdır.</li>
+</ul>
+<h3 id="istemci-tarafında-tutulan-ayar-dosyası-şu-girdileri-içermektedir">İstemci tarafında tutulan ayar dosyası şu girdileri içermektedir</h3>
+<ul>
+<li><code>client</code> İlgili cihazın istemci rolünde olduğunu belirtiyor</li>
+<li><code>proto tcp-client</code> Protokol olarak TCP&rsquo;nin kullanılacağını bildiriyor</li>
+<li><code>remote $IP $PORT</code> Bağlanılacak sunucu(ların) IP adresinin ve Port numarasının ayarladığı kısım</li>
+<li><code>dev tun</code> TUN/TAP arabirimlerinden hangisinin kullanılacağını ayarlıyor</li>
+<li><code>resolv-retry infinite</code> Eğer IP veya DNS nedeniyle adres çözümlemesi gecikir ise ne kadar süre ile bekleyeceğini söylüyoruz</li>
+<li><code>nobind</code> Lokaldeki herhangi bir adrese bağlanılmamasını bildiren ayar</li>
+<li><code>persist-key</code> Yeniden başlatma durumunda anahtar dosyalarının ek bir yetkiye gerek kalmadan okunabilmesini yarar</li>
+<li><code>persist-tun</code> Aynı şekilde yeniden başlatma durumunda TUN/TAP arabiriminin yetkiye gerek kalmadan uyandırılabilmesine yarar</li>
+<li><code>remote-cert-tls server</code> Bağlanılan sunucunun sertifikasını TLS katmanında doğrulanmasını sağlar</li>
+<li><code>verify-x509-name $SERVER_NAME name</code> Sunucunun geri döneceği sertifikasındaki ismi ve sunucunun isminin ne olması gerektiğini bildiren komut</li>
+<li><code>auth $HMAC_ALG</code> Doğrulama için hangi algoritmanın kullanılacağını bildiren komut</li>
+<li><code>auth-nocache</code> Oturum açmak için gerekli parolayı önbelleğe almaz</li>
+<li><code>cipher $CIPHER</code> Şifreleme için kullanılacak algoritmayı seçmeye yarayan komut</li>
+<li><code>tls-client</code> TLS iletişimi sırasında TLS&rsquo;yi etkinleştirir ve istemci rolünü üstlenir</li>
+<li><code>tls-version-min 1.2</code> En düşük TLS versiyonunu ayarlar</li>
+<li><code>tls-cipher $CC_CIPHER</code> TLS kontrol kanalında kullanılacak şifreleme algoritmasını seçer</li>
+<li><code>ignore-unknown-option block-outside-dns</code> Bilinmeyen DNS adreslerinin kullanılmasını engeller</li>
+<li><code>setenv opt block-outside-dns</code> Windows 10 için DNS sızıntılarını engeller</li>
+<li><code>verb 3</code> Rapor verme derecesini belirler</li>
+<li><code>compress</code> Sıkıştırma algoritması ayarları burada bildirilir</li>
+<li><code>&quot;&lt;ca&gt;/etc/openvpn/easy-rsa/pki/ca.crt&lt;/ca&gt;&quot;</code> Beklenilen sunucu sertifika otoritesi dosyasının Hard-Coded gömülmesi</li>
+<li><code>&quot;&lt;cert&gt;/etc/openvpn/easy-rsa/pki/issued/$CLIENT.crt&lt;/cert&gt;&quot;</code> İstemci sertifika dosyasının Hard-Coded gömülmesi</li>
+<li><code>&quot;&lt;key&gt;/etc/openvpn/easy-rsa/pki/private/$CLIENT.key&lt;/key&gt;&quot;</code> İstemci asimetrik secret keyinin Hard-Coded gömülmesi</li>
+<li><code>&quot;&lt;tls-crypt&gt;/etc/openvpn/tls-crypt.key&lt;/tls-crypt&gt;&quot;</code> TLS crypt için key dosyasının belirtilmesi</li>
+<li><code>&quot;&lt;tls-auth&gt;/etc/openvpn/tls-auth.key&lt;/tls-auth&gt;&quot;</code> TLS auth için key dosyasının belirtilmesi</li>
+<li><code>key-direction 1</code> TLS katmanı şifrelenmesi için istemci ve sunucuya rol atıyor (0 ve 1 şeklinde)</li>
+</ul>
+<p>Bu ayarları ve daha bir çoğunun ayrıntılı dökümantasyonunu <a href="https://openvpn.net/community-resources/reference-manual-for-openvpn-2-4/">OpenVPN</a> web sayfasında bulabilirsiniz.</p>
+<h2 id="openvpn-bağlantısı-kurulurken-neler-oluyor-">OpenVPN bağlantısı kurulurken neler oluyor ?</h2>
+<p>OpenVPN ile bağlantı kurduğum her zaman kendimi Yıldız Filosu planlarını kaçıran R2-D2 gibi hissediyorum. İnsanlar kendilerini her zaman için derinlemesine bir inceleme içerisinde bulmak istemiyorlar ve birilerinin onlara neyin nasıl döndüğünü açıklamalarını isteyebiliyorlar. Benim bu yazıyı kaleme alma amacımda aslında bu soruyu kendime sormuş olmam ve cevabını almak için çok çaba sarfetmiş olmam. Sizin de bu kadar uğraşmanızı istemem fakat size hemencecik bunu yükle gerisini düşünme o iş bende de diyemem. Başta söz verdiğim gibi derinlemesine bir şekilde bu süreci sizlere anlatacağım ve kararı size bırakacağım. Bir OpenVPN bağlantısında artısıyla eksisiyle (benim şu ana kadar çözebildiğim şekliyle) süreç şöyle işliyor. Önce bir TCP/UDP bağlantısı kuruyorsunuz. TCP kullanan her uygulama gibi bir süreç yürütüyorsunuz ve ardından TLS katmanına geçiyorsunuz. TLS katmanında el sıkışma (handshake) ve bazı kimlik doğrulama işlemleri yapıyorsunuz. Bu katmana aynı zamanda kontrol kanalı da deniliyor. Ardından belirli bir iletişim tutturulmuş oluyor ve veri kanalına geçiliyor. Veri veya data kanalında bu sefer gönderilecek veri paketlerinin şifrelenmesi ve çözülmesi süreci başlıyor. Bunun için yine cihazlar birbirleri ile konuşuyor ve belirli ortak şartlar altında veriler gönderilmeye başlanıyor. Kısaca bu şekilde anlattığım sürecin sonunda 0&rsquo;dan başlattığımız iletişim bize güvenli ve istediğimiz şekilde verilerin ulaşması ile son buluyor veya açık tutulan bağlantı üzerinden bu sefer tersine bir yolla yeniden istekler iletiliyor. Böylece iç içe borular gibi bir sistem ortaya çıkıyor. Yazı için gerekli olan tek önemli şeyi buraya yazmak gerekirse eğer:</p>
+<ul>
+<li><code>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P512</code> şeklinde olacaktır.
+<ul>
+<li>Burada <code>TLS</code> girdisi kontrol kanalının TLS katmanı üzerinden yürütüleceğini belirtir. Diğer alternatifler <code>SSL</code> veya <code>NULL</code>&lsquo;dur.</li>
+<li><code>ECDHE</code> girdisi Elliptik Diffie-Hellman algoritması kullanılarak ilk ön-anahtarın üretileceğini belirtir. Diğer alternatifler <code>DHE</code>, <code>DH</code> veya kullanmamaktır.</li>
+<li><code>ECDSA</code> verisi karşılıklı kimlik doğrulama ve asimetrik anahtar için Elliptik Dijital İmza Sertifikası Algoritmasının kullanılacağını belirtir. Diğer kullanılabilir alternatif <code>RSA</code>&lsquo;dır. Diğerlerini saymaya gerek bile yok.</li>
+<li><code>AES_256_GCM</code> veri kanalında kullanılacak şifreleme algoritmasının belirtir. Diğer alternatifler <code>AES-128-CBC</code>, <code>AES-128-GCM</code> ve <code>AES-256-CBC</code>&lsquo;dir</li>
+<li><code>SHA384</code> kullanılacak özet algoritmasını belirtir. Diğer alternatif <code>SHA256</code>&lsquo;dır.</li>
+<li><code>P512</code> ise kullanılacak elliptik eğrinin Prime-512 adlı eğri olarak seçilmesini sağlar. Diğer alternatifler <code>P-256</code> ve <code>P-384</code>&lsquo;dür.</li>
+</ul>
+</li>
+</ul>
+<h3 id="tcp-bağlantısının-kurulması-süreci">TCP bağlantısının kurulması süreci</h3>
+<p>Şimdi kafanızda sürecin yaklaşık bir resmi oluştu ise başlangıcı TCP sürecinin anlatımıyla yapıyorum. Olayımızda bir istemci ve bir sunucunun olduğunu ve bağlantının sadece bu ikisinden ibaret olduğunu düşünelim. İstemci bağlanmak istediği sunucuya bir SYN (m) paketi gönderir. Sunucu ise buna cevap olarak aynı port üzerinden bir SYN (n) paketi ve ACK (m+1) paket gönderir. Bunu alan istemci de cevap olarak ACK (n+1) şeklinde dönüş yapar ve 3&rsquo;lü TCP el sıkışması veya 3 Way TCP handshake gerçekleşmiş olur. Böylece belirtilen port üzerinden istemci ve sunucu arasında açık bir kanalımız oluştu.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_240x0_resize_q50_h2_linear.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_300x0_resize_q50_h2_linear.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_360x0_resize_q50_h2_linear.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_420x0_resize_q50_h2_linear.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_480x0_resize_q50_h2_linear.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_600x0_resize_q50_h2_linear.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_768x0_resize_q50_h2_linear.webp 768w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_800x0_resize_q50_h2_linear.webp 800w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_960x0_resize_q50_h2_linear.webp 960w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake.jpg" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_666x0_resize_q50_h2_linear_3.webp 666w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Fotoğraflarda da görüleceği üzere eğer süreç sorunsuz işler ise 3 adımda iletişim kurulabiliyor. Fakat neden 3 adımda bu işi yapıyoruz daha kısa şekilde olmaz mı derseniz size (şimdilik) hayır olmaz full-duplex bir iletişim için her iki tarafın da SYN ve ACK paketlerini göndermesi gerekiyor derim. İleride belki farklı yollarını da anlatırım ama şimdilik böyle. Zaten işin TCP/UDP kısmı her zaman için kısa ve basittir.</p>
+<h3 id="tls-katmanındaki-işletilen-süreç">TLS katmanındaki işletilen süreç</h3>
+<p>TCP üzerinden bir iletişim kurulmasının ardından yine muhabbeti başka bir aşamaya taşıyan kişi istemci oluyor. Her zaman için istemciler sunucudan bir şeyler talep eder veya bir cevap ister. Sunucular genel olarak kendilerine gelmeyen bir isteği cevapladığı çok görülmemiştir. Önce talep sonra arz ilkesine göre süreç ilerler. Evet, taraflar TLS katmanındalar şimdi. İstemci sunucuya önce bir merhaba diyor. Şaka değil gerçek. İstemci tarafından gönderilen ilk pakete <code>Client-Hello</code> paketi denir. Bu paketin yanında (süreci hızlandırmak adına) desteklediği şifreleme algoritmalarını belirten <code>Supported-Chipers</code> paketi, istemci tarafından rastgele üretilmiş bir sayı, aynı IP adresinde birden fazla hizmet çalıştırılıyor ise bir <code>SNI</code> sunucu adı indikatörü ve yine gerekiyor ise oturum ID&rsquo;si gönderilir. Sunucunun buna cevabı ise öncelikle kibar bir merhaba demek oluyor. Çünkü sunucunun cevaben gönderdiği ilk pakete de <code>Server-Hello</code> paketi denir. Bu paketin yanında sunucu sertifikasını, kendi desteklediği şifreleme algoritmalarını ve seçtiği algoritmayı belirten <code>Selected-Chiper</code> paketi, kendisinin ürettiği rastgele bir sayıyı, gerekirse Oturum ID&rsquo;sini ve aynı IP üzerinden birden fazla istemci bağlanıyor ise buna ilişkin SNI benzeri bir ID&rsquo;yi gönderir. İstemci öncelikle iletişime başladığı tarafından gerçekten beklediği kişi olup olmadığını sunucu sertifikası ile doğrular. Ayrıca bazı durumlarda da sunucu istemcinin beklediği istemcilerden biri olup olmadığını yine sertifika ile doğrular. Eğer bu karşılıklı doğrulama (mutual-authentication) süreci olumlu sonuçlanır ise bir sonraki aşamaya geçilir. Anahtar üretim ve değişim süreci tetiklenmiş olur. Bu aşamda yine istemci devreye girer ve güvensiz önkabul edilen bu iletişim sırasında belirledikleri algoritma ile anahtar değiştirmek istediğini söyler. Taraflar Diffie-Hellman veya ECDHE ile bir önanahtar oluşturmaya başlarlar. Bunun için istemci ve sunucu tarafından ön-sırlar paylaşılır. Bir takım matematiksel işlemler yapılarak bulunan cevaplar karşıya gönderilir ve tekrar matematiksel işlemler yapılarak aynı sonuca ulaşılır. İşte ulaşılan sonuç aralarında güvenli bir şekilde oluşturdukları ilk ön-anahtar oluyor. Bundan sonra belirledikleri şifreleme algoritması ile
+iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulur ve süreç oradan devam eder.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_850x0_resize_q50_h2_linear_3.webp 850w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_712x0_resize_q50_h2_linear_3.webp 712w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Fotoğraflarda da görülebileceği üzere süreç bir web sayfasına bağlanılırken yaşanan süreçle neredeyse aynı. Sadece ihtiyaçlara göre belirli aşamalar ekleniyor, çıkarılıyor veya değiştiriliyor. Örneğin İleri Seviye Gizlilik anlamına gelen PFS gereğince taraflar ön-anahtarı sunucunun asimetrik anahtarı ile iletmiyor. Çünkü bu durumda her oturum için aynı anahtar kullanılacağı için verilerin depolanıp daha sonra anahtar açığa çıktığı bir gün beklenerek veriler geçmişe dönük okunabilir bir hale gelecektir. Bu yüzden bu değişiklik yapıldı. Yine sıfır güven tehdit modeli gereğince her bir katmanın ve sürecin bir diğerinin işini doğru yapacağına güvenmeden süreci ilerletmesini istiyorum. Bu yüzden TLS katmanındaki o ilk iletişim anında dahi paketlerin <code>tls-auth</code> özelliği gereğince şifrelenmesini ve gelen-giden verilerin bütünlüğünün doğrulanmasını istiyoruz. Daha ilk merhaba dediğiniz andan itibaren üçüncü kişiler sizin ne konuştuğunuzu hangi aşamada olduğunuzu anlayamayacaklardır. Bunun için önceden belirlenmiş bir anahtar/anahtarlar ile ilk iletişim başlatılır ve gerekirse belirli aralıklarla bu anahtarlar yenilenir. Böylece TLS katmanında ilk ön-anahtar oluşturulana kadar dahi gizlilikten ödün verilmemiş ve yetkisiz kişilerce boşuna tarafik yaratılmamış olur.</p>
+<h3 id="veri-katmanında-işleyen-süreç">Veri katmanında işleyen süreç</h3>
+<p>Eğer tüm bu süreç başarılı bir şekilde tamamlanmış ve veri kanalına geçilebildiyse eğer artık işin en güzel kısmına gelmiş bulunuyorsunuz. Veriler AES şifreleme methodu ile şifrelenecek. Şifreleme sırasında seçiminize göre CBC-GCM counter moduna göre tablolar karıştırılacak ve bu süreçte seçiminize göre 128 veya 256 bit uzunluğunda şifreleme anahtarı kullanılacak. Tabi ne hangisini seçerseniz seçin şifreleme blok uzunluğu 128 bit olucak. Değişen sadece şifreleme anahtarı uzunluğu. Benim bu anlatımım için seçmiş olduğum AES-256-GCM bir AEAD şifreleme türüdür. Diğer kanallardan ve süreçlerden bağımsız olarak gönderdiği verileri belirli bir aşamada özetini çıkartır ve özeti ile birlikte gönderir. Böylece &lsquo;Authentication Encryption with associated data&rsquo; anlamına gelen AEAD&rsquo;de doğrulama ve şifreleme işlevleri yerine getirilmiş oluyor. Burada bir ayrıma gidilmesini gerektirecek şöyle bir sorun mevcuttur. Şifreleme ve Özet alma algoritmalarını hangi aşamada ve sırayla kullanacağız.</p>
+<table>
+<thead>
+<tr>
+<th>Encrypt-then-MAC (EtM)</th>
+<th>Encrypt-and-MAC (E&amp;M)</th>
+<th>MAC-then-Encrypt (MtE)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/EtM_hud65c113a516a1b62e4fe8858ed9ec486_23252_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/EtM_hud65c113a516a1b62e4fe8858ed9ec486_23252_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/EtM_hud65c113a516a1b62e4fe8858ed9ec486_23252_330x0_resize_q50_h2_linear_3.webp 330w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/EtM.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/EaM_hube37f114dbb3921bcee6e141d846fe73_17342_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/EaM_hube37f114dbb3921bcee6e141d846fe73_17342_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/EaM_hube37f114dbb3921bcee6e141d846fe73_17342_330x0_resize_q50_h2_linear_3.webp 330w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/EaM.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/MtE_hu0e87705e5c72f609d1e7f72a494fc1ac_5729_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/MtE_hu0e87705e5c72f609d1e7f72a494fc1ac_5729_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/MtE_hu0e87705e5c72f609d1e7f72a494fc1ac_5729_324x0_resize_q50_h2_linear_3.webp 324w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/MtE.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Birinci yaklaşım olan EtM&rsquo;ye göre veri önce şifrelenir ardından başka bir anahtar ile özeti sonucu şifrelenir ve ortaya çıkan sonuç bloklar halinde birlikte gönderilir. Bunu kullanan gerçek dünya çözümlerine bakacak olursak IPSec protokolü ilk akla gelen olacaktır. Bu, AE&rsquo;de en yüksek güvenlik tanımına ulaşabilen tek yöntemdir, ancak bu ancak kullanılan MAC algoritmasının bozulma içermediği veya henüz kırılmadığı takdirde elde edilebilir. SSHv2 için de çeşitli EtM şifre takımları mevcuttur. Ancak veri ve özet için anahtar ayrımının zorunlu olduğunu unutmayın (şifreleme ve anahtarlı karma için farklı anahtarlar kullanılmalıdır), aksi takdirde kullanılan belirli şifreleme yöntemine ve karma işlevine bağlı olarak potansiyel olarak güvensiz bir sonuç elde edebilirsiniz.</p>
+</li>
+<li>
+<p>İkinci yaklaşım olan E&amp;M&rsquo;ye göre düz metin olan veri şifrelenir ve yanına düz metin verinin şifrelenmemiz halinin özeti eklenir. Burada sadece bir anahtar kullanılmış olmasına rağmen aynı veriye ait iki farklı sonucun (şifreleme sonucu ve özet sonucu) olması güvenliğin yeterince iyi olmadığını açıkca gözler önüne sermektedir. Bu sistemi kullanan gerçek dünya çözümü olarak SSH&rsquo;ın ilk versiyonlarını örnek gösterebiliriz. Bunu geliştirmek için ayrıca gönderilen özet dosyasını da aynı anahtar ile şifreleme gibi yöntemler denenmiştir.</p>
+</li>
+<li>
+<p>Üçüncü ve bildiğim son yaklaşım olan MtE&rsquo;ye göre düz metine dayalı olarak bir özet dosyası üretilir. Ardından düz metin ve özet dosyası birlikteyken anahtar ile şifrelenir.  Şifreli metin ve şifreli özet dosyası birlikte gönderilir. Bunu kullanan gerçek dünya çözümlerine bakacak olursak ilk ve en önemlisi SSL/TLS uygulamalarıdır. SSL/TLS uygulamalarının kendi içlerinde ne kadar güvenilir ve sürdürülebilir olduklarını hepimiz biliyoruz. Bunun ötesinde de güvenliği artırmak adına yıllar içersinde <code>MAC-then-pad-then-encrypt</code> gibi geliştirmeler yapıldı. Bu geliştirmeye göre önce düz metinin özeti alınır ardından blok boyutuna kadar doldurulur ve ardından şifreleme işlemi yapılır. Böylece daha da güvenilir bir şifreleme sonucu oluşur. Ama doldurma mekanizmasının belirli hatalar yapması durumunda Padding Oracle gibi saldırılara neden olduğu durumlar mevcuttur.</p>
+</li>
+</ul>
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_879x0_resize_q50_h2_linear_3.webp 879w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+
+<p>Kullanılacak AEAD yaklaşımı da seçildikten sonra TAP veya TUN kullanımına göre yukarıdaki grafikte görülen yol izlenir. Bu yola göre kullanıcı alanında yapılan/yapılmak istenen eylem çekirdek (kernel) seviyesinde TAP/TUN adaptörlerine gider. Bu adaptörler çekirdek seviyesinde bulunmaları nedeniyle çok hızlı bir şekilde işlem yaparlar. Ardından sanal adaptörler ilgili kütüphane ile gerekli şifrelemeyi yapar, gerekirse özeti ekler ve paket boyutu ayarı yapar. Ardından sunucu Ethernet arayüzü üzerinden istemcinin Ethernet arayüzüne paketleri sırayla gönderir. Bunu alan istemci ise paketleri yeniden ayarlar, düzenler gerekirse birleştirir ve gerekli kütüphaneler ile şifresini çözer. Şifresini çözdükten sonra bunu sanal adaptör aracılığı ile istemcini son kullanıcısına iletir. Böylece tüm bu matematiksel işlemler, uğraşlar sonucunda birkaç çevrim neticesinde kullanıcı istediği içeriğe ulaşmış oldu. Anlatması oldukça uzun ama kullanması çok kolay sevgili okuyucular. Sadece GitHub sayfama girik ilgili <a href="https://github.com/wiseweb-works/openvpn-most-secure-install/">script sayfasını</a> ziyaret etmeniz yeterlidir. İlgili script tüm bu ayarlamaları interaktif olarak sizin yerinize yapmaktadır. Size de arkanıza yaslanıp keyfini çıkarmak kalıyor.</p>
+<h1 id="sss-ve-son">SSS ve Son</h1>
+<p>Bana <a href="mailto:wisewebworks@outlook.com">mail</a> yoluyla, <a href="https://fosstodon.org/@wise">Fosstodon</a> üzerinden veya <a href="https://github.com/wiseweb-works">GitHub</a> üzerinden gelen soruları zaman zaman buraya eklemeye çalışacağım. Böylece tarihsel olarak da hangi tarihte ne gibi sorular olmuş veya çözümü mevcut mu gibi düşüncelere kapılmadan direk sonuca ulaşabileceksiniz. Bunun haricinde de teknik dökümanı değiştirmeden ekstra açıklama gerektiren sorular gelirse onları da bu kısma almayı düşünüyorum.</p>
+]]></content:encoded></item><item><title>Linux Sunucuda ECC SSL Sertifikası Üretme</title><link>https://wiseweb-works.github.io/blog/post/ecc-ssl-sertifikasi/</link><pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ecc-ssl-sertifikasi/</guid><description>Giriş ve Özet Bugün sizlerle yönettiğiniz bir web sitesi veya uygulama sunucusu ile ziyaretçileriniz arasındaki trafiğin gizli/güvenilir ve doğrulanabilir olmasını sağlamak için SSL sertifikası üretmeyi öğreneceğiz. Ürettiğiniz sertifikayı nasıl ve hangi konfigürasyon ile deploy edeceğinizi önceki yazılarımda anlatmıştım. Bu yazıda ise az ekmek çok köfte denklemini nasıl kurabileceğimizi yani daha hızlı ve daha güvenli bir SSL sertifikası üretmeyi göstereceğim. Normalde Let&amp;rsquo;s Encrypt&amp;rsquo;in ACME protokolüne aşina iseniz (yazının yazıldığı tarih itibariyle) RSA asimetrik anahtar yapısı ile 1024-4098 (çok zorlarsanız belki 8196) bitlik bir sertifika ürettirmeniz ve bunu görece olarak 90 gün kullanmanız mümkündür.</description><content:encoded><![CDATA[<h1 id="giriş-ve-özet">Giriş ve Özet</h1>
+<p>Bugün sizlerle yönettiğiniz bir web sitesi veya uygulama sunucusu ile ziyaretçileriniz arasındaki trafiğin gizli/güvenilir ve doğrulanabilir olmasını sağlamak için SSL sertifikası üretmeyi öğreneceğiz. Ürettiğiniz sertifikayı nasıl ve hangi konfigürasyon ile deploy edeceğinizi önceki yazılarımda anlatmıştım. Bu yazıda ise az ekmek çok köfte denklemini nasıl kurabileceğimizi yani daha hızlı ve daha güvenli bir SSL sertifikası üretmeyi göstereceğim. Normalde Let&rsquo;s Encrypt&rsquo;in ACME protokolüne aşina iseniz (yazının yazıldığı tarih itibariyle) RSA asimetrik anahtar yapısı ile 1024-4098 (çok zorlarsanız belki 8196) bitlik bir sertifika ürettirmeniz ve bunu görece olarak 90 gün kullanmanız mümkündür. Fakat bu kadar büyük bir anahtarın üretilmesi, ürettikten sonra TLS handshake sırasında kullanılması ve ziyaretçilerin kullandığı cihazlar ile uyumlu olması çoğu senaryoda sorun çıkarmaktadır. Örneğin 2048 bit yerine 4096 bit kullanıldığı zaman bazı denemelerimde 0.4-0.8 sn daha uzun handshake süreleri ile karşı karşıya kalıyorum. Sadece handshake in bu kadar uzaması sorun değilmiş gibi sunucuya da ekstra bir yük bindiriyor. Fakat 4096 bit RSA yerine 384 bit ECC sertifikası ürettiğiniz zaman çok daha hızlı bir sertifikaya sahip olduğunuz gibi aynı zamanda da 7680 bit RSA&rsquo;ya (öyle bir boyut olsaydı) eşit bir güvenlik elde ediyorsunuz.</p>
+<p>Peki iyi güzel anlattın da bu işin aması nerede dediğinizi duyar gibiyim. Sizi üzeceğim fakat bu işin aması yok. Olmamasının sebebi ise işin arka plandaki matematikte saklı. Kısaca her iki sertifika üretim ve kullanımındaki ufak farklardan bahsedip, bunların nasıl ve neden büyük farklara neden olduğunu açıklayıp son kısımda da bonus olarak başlıkta yazmayan bir şeyden bahsedeceğim. (Sonuna kadar okumanız gerekecek bonus için :D)</p>
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_240x0_resize_q50_h2_linear.webp 240w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_300x0_resize_q50_h2_linear.webp 300w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_360x0_resize_q50_h2_linear.webp 360w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_420x0_resize_q50_h2_linear.webp 420w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_480x0_resize_q50_h2_linear.webp 480w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_600x0_resize_q50_h2_linear.webp 600w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_711x0_resize_q50_h2_linear.webp 711w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison.jpg" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+
+<h2 id="ecc-sertifikasının-üretim-süreci">ECC Sertifikasının üretim süreci</h2>
+<p>Öncelikle (her zaman olduğu gibi) içinde bulunduğumuz Linux sürümünün paket yöneticisi ile son güncellemeleri konsol üzerinden yüklememiz gerekmektedir.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Ubuntu için: sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt upgrade -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Fedora için: sudo yum update -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Arch Linux için: sudo pacman -Syyu
+</span></span></code></pre></div><p>Güncellemeler yüklendikten sonra ise sunucunuzdaki (Benim olayımda Ubuntu) nginx servisini (ki bu servis dışarıdan HTTP/HTTPS bağlantıları almanıza yarayan servistir) yapılandırmaya başlıyoruz. Öncelikle çok karıştırılması nedeniyle belirtmek gerekir ki apache, nginx ve litespeed servisleri aynı işi yapan farklı servislerdir. Ben yönetimi daha kolay ve topluluk desteği daha çok diye NGINX&rsquo;i terchi ettim.</p>
+<h2 id="özel-anahtarı-oluşturalım">Özel anahtarı oluşturalım</h2>
+<p>İlk olarak, OpenSSL ile özel anahtarı oluşturuyoruz. Kullanacağımız OpenSSL komutu <code>ecparam</code> (EC parametre manipülasyonu) ve konfigürasyon parametrelerini bu komuta geçirmek için:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>openssl ecparam -genkey -name secp384r1 -out privkey.pem
+</span></span></code></pre></div><ul>
+<li><code>-genkey</code> seçeneği, OpenSSL&rsquo;ye bir EC anahtarı oluşturmasını söyler.</li>
+<li><code>-name</code> parametresi OpenSSL&rsquo;ye hangi eğrinin kullanılacağını söyler.</li>
+<li><code>-out</code> parametresi OpenSSL&rsquo;ye çıktıyı bir dosyaya yazmasını söyler.</li>
+</ul>
+<p>OpenSSL&rsquo;nin çıktısını varsayılan olarak PEM biçiminde yazdığını unutmayın. EC anahtarlarını işleyen <code>ec</code> komutuyla OpenSSL&rsquo;nin doğru şeyi yaptığını kontrol edebiliriz:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>openssl ec -in privkey.pem -noout -text
+</span></span></code></pre></div><ul>
+<li><code>-in</code> girdi dosyasıdır</li>
+<li><code>-noout</code>, OpenSSL&rsquo;ye anahtarı çıkarmamasını söyler, bu da privkey.pem&rsquo;i stdout&rsquo;a anlamsızca yazdırır.</li>
+<li><code>-text</code>, OpenSSL&rsquo;ye anahtar hakkındaki bilgileri düz metin biçiminde yazmasını söyler</li>
+</ul>
+<p>Her şey yolunda giderse ve anahtar doğru şekilde oluşturulduysa, OpenSSL aşağıdakine benzer bir şey gösterecektir:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>read EC key
+</span></span><span style="display:flex;"><span>Private-Key: (384 bit)
+</span></span><span style="display:flex;"><span>priv:
+</span></span><span style="display:flex;"><span>    [gizli]
+</span></span><span style="display:flex;"><span>pub:
+</span></span><span style="display:flex;"><span>    [gizli]
+</span></span><span style="display:flex;"><span>ASN1 OID: secp384r1
+</span></span><span style="display:flex;"><span>NIST CURVE: P-384
+</span></span></code></pre></div><p>Bu, anahtarın P-384 eğrisi ile oluşturulduğunu doğrular. Neden P-384 yerine P-512 kullanmıyoruz derseniz Let&rsquo;s Encrypt ekliptik eğrilerde 384 bitten daha yüksek olursa imzalamıyor ve Google Chrome gibi modern tarayıcılar 512 bitlik ekliptik eğrileri kullanan internet sitelerini geçersiz olarak işaretliyor. Kısa cevap bu.</p>
+<h2 id="sertifika-için-openssl-yapılandırması-oluşturalım">Sertifika için OpenSSL yapılandırması oluşturalım</h2>
+<p>Şimdi TLS sertifikası almak istediğimiz etki alanına özgü parametreleri içeren bir OpenSSL yapılandırma dosyası oluşturmalıyız. Bu örnekte, bir <code>openssl.cnf</code> dosyasına aşağıdaki konfigürasyonu gireceğiz:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[ req ]
+</span></span><span style="display:flex;"><span>prompt = no
+</span></span><span style="display:flex;"><span>encrypt_key = no
+</span></span><span style="display:flex;"><span>default_md = sha512
+</span></span><span style="display:flex;"><span>distinguished_name = dname
+</span></span><span style="display:flex;"><span>req_extensions = reqext
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[ dname ]
+</span></span><span style="display:flex;"><span>CN = example.com
+</span></span><span style="display:flex;"><span>emailAddress = admin@example.com
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[ reqext ]
+</span></span><span style="display:flex;"><span>subjectAltName = DNS:example.com, DNS:www.example.com
+</span></span></code></pre></div><p>Bu yapılandırma seçeneklerinin kısa bir açıklaması:</p>
+<p>Gerekli <code>[ req ]</code> bölümünde:</p>
+<ul>
+<li><code>prompt = no</code>, OpenSSL&rsquo;ye yapılandırma dosyasından olabildiğince fazla yapılandırma almasını söyler</li>
+<li><code>encrypt_key = no</code>, OpenSSL&rsquo;ye özel anahtarı bir parola ile şifrelememesini söyler. (Şifreli özel anahtarlar Nginx tarafından desteklenir, ancak ben onları kullanmıyorum.)</li>
+<li><code>default_md = sha512</code>, OpenSSL&rsquo;ye CSR&rsquo;yi SHA512 ile imzalamasını söyler. (Bildiğim kadarıyla, Let&rsquo;s Encrypt, imzaları için yalnızca SHA256&rsquo;lı RSA&rsquo;yı destekler, ancak bu, CSR&rsquo;de daha güçlü şifreleme kullanamayacağımız anlamına gelmez.)</li>
+<li><code>distinguished_name = dname</code>, OpenSSL&rsquo;ye Ayırt Edici Ad yapılandırma seçenekleri için bir <code>[ dname ]</code> bölümü aramasını söyler.</li>
+<li><code>req_extensions = reqext</code>, OpenSSL&rsquo;ye, Konu Alternatif Adlarının (SAN&rsquo;lar) yapılandırılmak istenen uzantılar için yapılandırma seçeneklerinde bir <code>[ reqext ]</code> bölümü aramasını söyler.</li>
+</ul>
+<p>Ayırt Edici Ad <code>[ dname ]</code> bölümünde:</p>
+<ul>
+<li><code>CN = example.com</code>, sertifikanın Ortak Adını belirtir.</li>
+<li><code>emailAddress = admin@example.com</code> e-posta adresiniz belirgin olmalıdır.
+İstenen Uzantılar <code>[ reqext ]</code> bölümünde, konuAltName, sertifika için SAN&rsquo;ların listesini sağlar. (Chrome, v58&rsquo;den itibaren, Ortak Adın SAN&rsquo;lar listesine dahil edilmesini gerektirir).</li>
+</ul>
+<p>Let&rsquo;s Encrypt v2, joker alan adlarını destekler, bu nedenle bu örnekte, apeks dışındaki ana bilgisayarlar için tek düzeyli bir joker karakter kullanabilirsiniz (*.example.com).</p>
+<h2 id="sertifika-imzalama-isteği-oluşturalım">Sertifika İmzalama İsteği Oluşturalım</h2>
+<p>İstemci tarafındaki son adım, OpenSSL kullanarak Sertifika İmzalama Talebi oluşturmaktır, ardından bunu imzalamak için Let&rsquo;s Encrypt&rsquo;e ileteceğiz ve imzalı sertifikayı geri alacağız.</p>
+<p>Bir CSR oluşturmak için gereken OpenSSL komutu <code>req</code> &lsquo;dir.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>openssl req -new -config openssl.cnf -key privkey.pem -out csr.pem
+</span></span></code></pre></div><ul>
+<li><code>-new</code>, OpenSSL&rsquo;ye bir CSR oluşturduğumuzu söyler (ve mevcut bir CSR&rsquo;yi incelemeyiz)</li>
+<li><code>-config</code> openssl.cnf, yukarıda oluşturduğumuz yapılandırma dosyasını belirtir</li>
+<li><code>-key privkey.pem</code>, yukarıda oluşturduğumuz özel anahtarı belirtir</li>
+<li><code>-out csr.pem</code> OpenSSL&rsquo;ye CSR&rsquo;yi bir çıktı dosyasına yazmasını söyler (stdout yerine)</li>
+</ul>
+<p>CSR&rsquo;yi doğru şekilde oluşturduğumuzu doğrulayabiliriz:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>openssl req -in csr.pem -noout -text -verify
+</span></span></code></pre></div><ul>
+<li><code>-verify</code> OpenSSL&rsquo;nin CSR&rsquo;deki imzayı doğrulamasını ister</li>
+</ul>
+<p>Bu, çıktıda beklenen şu sonuçları üretmelidir:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>verify OK
+</span></span><span style="display:flex;"><span>Certificate Request:
+</span></span><span style="display:flex;"><span>    Data:
+</span></span><span style="display:flex;"><span>        Version: 1 (0x0)
+</span></span><span style="display:flex;"><span>        Subject: CN = example.com, emailAddress = admin@example.com
+</span></span><span style="display:flex;"><span>        Subject Public Key Info:
+</span></span><span style="display:flex;"><span>            Public Key Algorithm: id-ecPublicKey
+</span></span><span style="display:flex;"><span>                Public-Key: (384 bit)
+</span></span><span style="display:flex;"><span>                pub:
+</span></span><span style="display:flex;"><span>                    [gizli]
+</span></span><span style="display:flex;"><span>                ASN1 OID: secp384r1
+</span></span><span style="display:flex;"><span>                NIST CURVE: P-384
+</span></span><span style="display:flex;"><span>        Attributes:
+</span></span><span style="display:flex;"><span>        Requested Extensions:
+</span></span><span style="display:flex;"><span>            X509v3 Subject Alternative Name:
+</span></span><span style="display:flex;"><span>                DNS:example.com, DNS:www.example.com
+</span></span><span style="display:flex;"><span>    Signature Algorithm: ecdsa-with-SHA512
+</span></span><span style="display:flex;"><span>         [gizli]
+</span></span></code></pre></div><h2 id="lets-encryptten-sertifikamızı-imzalamasını-isteyin">Let&rsquo;s Encrypt&rsquo;ten sertifikamızı imzalamasını isteyin</h2>
+<p>Son adım, CSR&rsquo;yi bir ACME istemcisiyle Let&rsquo;s Encrypt&rsquo;e imzalaması için göndermektir, bu iş için <code>certbot</code> en yaygın istemcidir.</p>
+<p><code>Certbot</code> istemcisine iletilen komut satırı seçenekleri, kurulumumuza, alan adımızın kayıtlı olduğu kişiye vb. bağlı olarak değişir. Genellikle <code>certonly</code> komutunu kullanmamız gerekir ve asterisks (*) kullandıysanız certbot DNS eklentilerinden birini kullanmanız gerekir.</p>
+<p>Örneğin, <code>example.com</code> alan adı Cloudflare&rsquo;de kayıtlıysa, son derece uygun olan ve sürece manuel müdahale gerektirmeyen doğrulamayı işlemek için ilgili eklentiyi kullanabiliriz. (Cloudflare eklentisini gizli token bilgileriyle yapılandırmak bu makalenin kapsamı dışındadır.)</p>
+<p>Her şeyin yolunda olduğundan emin olmak için önce <code>--dry-run</code> ile düzgün sonuç alınacağından emin olunması genellikle tavsiye edilir.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>certbot nginx certonly --dry-run --domain <span style="color:#e6db74">&#34;example.com&#34;</span> --domain <span style="color:#e6db74">&#34;www.example.com&#34;</span> --csr csr.pem
+</span></span></code></pre></div><ul>
+<li>Hatalı işlemeleri önlemek için karakterlerin etrafında tırnak işaretleri gereklidir ve genel olarak bunlar iyi bir fikirdir.</li>
+<li><code>--csr csr.pem</code> certbot&rsquo;a zaten bir sertifikamız olduğunu ve bizim için imzalaması için Let&rsquo;s Encrypt&rsquo;e ihtiyacımız olduğunu söyler.</li>
+</ul>
+<p>Certbot istemcisi, komut satırında istenen alan adları listesinin sertifikada listelenen alan adlarıyla eşleşip eşleşmediğini kontrol edecek ve alan adının bize ait olduğunu doğrulamak için Certbot NGINX eklentisini kullanacak ve herhangi bir sorun olup olmadığını bize bildirecektir.</p>
+<p>Hiçbir şey yanlış değilse, size şunu söyleyecektir:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>IMPORTANT NOTES:
+</span></span><span style="display:flex;"><span> - The dry run was successful.
+</span></span></code></pre></div><p>Gerçek komut hemen aşağıdaki gibidir:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>certbot nginx certonly --domain <span style="color:#e6db74">&#34;example.com&#34;</span> --domain <span style="color:#e6db74">&#34;www.example.com&#34;</span> --csr csr.pem
+</span></span></code></pre></div><p>(Uzun) bir gecikmeden sonra, istemci çıktı olarak şunları üretecektir:</p>
+<ol>
+<li>İmzalı sertifika: <code>0000_cert.pem</code></li>
+<li>Kök ve ara sertifikalar: <code>0000_chain.pem</code></li>
+<li>Sertifika + ara ürünler: <code>0001_chain.pem</code>
+Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
+</ol>
+<p>Merak ediyorsak, <code>x509</code> komutunu kullanarak istemci tarafından OpenSSL ile döndürülen sertifikaları inceleyebiliriz:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>openssl x509 -in 0001_chain.pem -noout -text
+</span></span></code></pre></div><p>Ne yazık ki, yukarıda açıklandığı gibi Let&rsquo;s Encrypt&rsquo;in sertifikamızı bir SHA256 imzasıyla imzaladığını keşfedeceğiz. (Daha güvenli olmasının yanı sıra, SHA512, modern 64-bit CPU&rsquo;larda SHA256&rsquo;dan daha iyi performans gösterir.) Ancak açık anahtarımız yine de ECDSA kullanmalıdır.</p>
+<p>Bu dosyalar sıradan değildir, bu yüzden onları daha bilgilendirici bir şekilde taşımalı ve düzenlemeliyiz.</p>
+<p>Debian Linux&rsquo;ta, özel anahtarımı <code>/home/KULLANICI_ADI/SSL/private/example.com/privkey.pem</code> içinde tutarak etki alanlarım için alt dizinler oluşturmayı seviyorum ve sertifikalar:</p>
+<ul>
+<li><code>/home/KULLANICI_ADI/SSL/certs/example.com/cert.pem</code></li>
+<li><code>/home/KULLANICI_ADI/SSL/certs/example.com/chain.pem</code></li>
+<li><code>/home/KULLANICI_ADI/SSL/certs/example.com/fullchain.pem</code></li>
+</ul>
+<h1 id="son">SON</h1>
+<p>Her şeyi doğru yaptıysak, sertifikayı Chrome gibi bir web tarayıcısı ile incelediğimizde, bunun bir EC sertifikası olduğunu onaylayacaktır:</p>
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_854x0_resize_q50_h2_linear_3.webp 854w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+
+<p>Mozilla Gözlemevi de bize A+ notu verecek!</p>
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_880x0_resize_q50_h2_linear_3.webp 880w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+
+<p>Ayrıca SSL Labs&rsquo;ın rapor sonucunda 384 Bitlik bir ECC sertifikası&rsquo;nın kullanıldığını görebiliyoruz.</p>
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_960x0_resize_q50_h2_linear_3.webp 960w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1024x0_resize_q50_h2_linear_3.webp 1024w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1080x0_resize_q50_h2_linear_3.webp 1080w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1200x0_resize_q50_h2_linear_3.webp 1200w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1366x0_resize_q50_h2_linear_3.webp 1366w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1440x0_resize_q50_h2_linear_3.webp 1440w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1920x0_resize_q50_h2_linear_3.webp 1920w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1994x0_resize_q50_h2_linear_3.webp 1994w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+
+<p>NOT: Bu yazıda <a href="https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc">Benjamin Black</a>&lsquo;in aynı konulu yazısından faydalanılmıştır.</p>
+]]></content:encoded></item><item><title>Linux Sunucularda SSL güvenliğini arttırma</title><link>https://wiseweb-works.github.io/blog/post/ssl-konfigurasyonu/</link><pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ssl-konfigurasyonu/</guid><description>Linux Sunucularda SSL güvenliğini artırma Bugün sizlere mevcut sunucunuzda eğer bir websitesi ve/veya App serve ediyorsanız mutlaka ihtiyacınız olan SSL bağlantısından ve bununla bağlantılı olarak openssl kütüphanesinden bahsedeceğim. SSL (Secure Socket Layer) ve TLS (Transport Layer Security) sunucunuza bağlanmak isteyen kişileri siteniz ile güvenli şekilde iletişim kurmasına imkan sağlayan bir bağlantı şeklidir. Eskiden SSL v1-v3 arasında değişen sürümler mevcut ve siteler genelde bu SSL sürümlerini kullanırken artık SSL siteler tarafından terk edilmiş ve yerini daha güvenli olan TLS&amp;rsquo;ye bırakmıştır.</description><content:encoded><![CDATA[<h1 id="linux-sunucularda-ssl-güvenliğini-artırma">Linux Sunucularda SSL güvenliğini artırma</h1>
+<p>Bugün sizlere mevcut sunucunuzda eğer bir websitesi ve/veya App serve ediyorsanız mutlaka ihtiyacınız olan SSL bağlantısından ve bununla bağlantılı olarak openssl kütüphanesinden bahsedeceğim. SSL (Secure Socket Layer) ve TLS (Transport Layer Security) sunucunuza bağlanmak isteyen kişileri siteniz ile güvenli şekilde iletişim kurmasına imkan sağlayan bir bağlantı şeklidir. Eskiden SSL v1-v3 arasında değişen sürümler mevcut ve siteler genelde bu SSL sürümlerini kullanırken artık SSL siteler tarafından terk edilmiş ve yerini daha güvenli olan TLS&rsquo;ye bırakmıştır. Fakat yine de işin anlatımı kısmında ve config dosyalarını düzenlerken halen &ldquo;ssl&rdquo; kelimesini kullanmamız gerekecektir. Bunu ufak bir espiri ile de anlatmak gerekirse eğer bir uygulamanın 64 bit versiyonunu indirmek istediğiniz aman &ldquo;amd_64&rdquo; olarak neden geçtiğini hiç düşündünüz mü? Çünkü 64 bit&rsquo;e ilk geçen AMD olduğu için buna bir saygı göstergesi ve/veya alışkanlık olarak amd_64 olarak kaldı bu isimlendirme. Aynı şekilde de şu an TLS kullanıyor olmamıza rağmen isimlendirme ve konfigürasyon parametreleri &ldquo;SSL&rdquo; olarak kaldı.</p>
+<p>Daha önceki yazımızda olduğu gibi süreci yine basit, önerilen ve ileri-seviye olarak üç farklı başlık altında anlatacağım. Başlık içerikleri kişisel gerekliliklere göre aşamalı düşünülmüştür. Başlıklar bir biri ile bağlantılı olmasına rağmen istenilen bir aşamada bırakılması sorun oluşturmayacaktır.</p>
+<h2 id="basit-konfigürasyon">Basit konfigürasyon</h2>
+<p>Öncelikle içinde bulunduğumuz Linux sürümünün paket yöneticisi ile güncellemeleri konsol üzerinden yüklememiz gerekmektedir.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Ubuntu için: sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt upgrade -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Fedora için: sudo yum update -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Arch Linux için: sudo pacman -Syyu
+</span></span></code></pre></div><p>Güncellemeler yüklendikten sonra ise sunucunuzdaki (Benim olayımda Ubuntu) nginx/apache servisini (ki bu servis dışarıdan gelen web bağlantılarını almanıza yarayan servistir) yapılandırmaya başlıyoruz. Nginx servisinin ayarlarının tutulduğu dosya genel itibariyle &ldquo;/etc/nginx/nginx.conf&rdquo; konumunda bulunur. Bunu kendi kullandığımız metin editörlerinden istediğimiz biriyle ama sudo (yani yönetici) yetkilerine sahip bir kullanıcı ile açmamız gerekmektedir.</p>
+<p>Ubuntu üzerinden devam edecek olursak (Tek Ip Tek Sunucu Yapılandırması)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/nginx/nginx.config <span style="color:#75715e"># Ayar dosyasını açmaya yarayan komut</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Eklenecek (varsa değiştirilecek) başlıklar
+</span></span><span style="display:flex;"><span>listen 443 ssl http2; &gt;&gt; ipv4 üzerinden 443 portuna gelen istekleri http2 protokolü ile karşılayıp ssl bağlantısı kurmaya yarıyor.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>listen [::]:443 ssl http2; &gt;&gt; ipv6 üzerinden 443 portuna gelen istekleri http2 protokolü ile karşılayıp ssl bağlantısı kurmaya yarıyor. (Eğer ipv6 desteğiniz yok ise veya native olarak desteklemek istemiyorsanız kaldırabilirsiniz)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>server_name SUNUCU_ADINIZ; &gt;&gt; Eğer sunucu adınızı default olarak belirlemek istemiyorsanız bir Server Name Indicator belirleyebilirsiniz. Bu gelen tüm istekleri karşılamak yerine sadece sunucu adınıza gelen istekleri karşılamaya yarar.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_certificate /etc/letsencrypt/live/SUNUCU_ADINIZ/fullchain.pem; &gt;&gt; Eğer free ssl için Let&#39;s Encrypt kullanıyor iseniz default sertifika konumu burasıdır. Aksi halde kendi sertifika dosyanız ile değiştirin.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_certificate_key /etc/letsencrypt/live/SUNUCU_ADINIZ/privkey.pem; &gt;&gt; Eğer free ssl için Let&#39;s Encrypt kullanıyor iseniz default private key konumu burasıdır. Aksi halde kendi private key dosya konumunuz ile değiştirin.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_protocols TLSv1.3 TLSv1.2;  &gt;&gt; Sadece en güncel ve en güvenilir TLS protokollerini kabul etmek için gerekli komut.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_prefer_server_ciphers on; &gt;&gt; Sunucu ile istemcinin konuşması sırasında &#34;tamam nelerimiz var bakalım&#34; diye konuştuklarını tahmin ettiğim :D kısımda sunucunun sadece kendi seçtiği şifreleme algoritmaları ile bu görüşmeyi devam ettireceğini söylemesine yarayan komut. Kısacası işine gelirse böyle işine gelmezse konuşmuyorum.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_ecdh_curve secp521r1:secp384r1; &gt;&gt; Ekliptik eğrileri kullanmamız gereken durumlarda hangi eğrileri tercih ettiğimizi bildiren komuttur.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_ciphers DH-RSA-AES256-SHA:DH-RSA-AES256-SHA256:DHE-RSA-AES256-GCM-SHA384:DH-RSA-AES256-GCM-SHA384:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:ECDH-ECDSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:ECDH-RSA-AES256-SHA:AECDH-AES256-SHA:ECDHE-ECDSA-AES256-SHA384:ECDH-ECDSA-AES256-SHA384:ECDH-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:ECDH-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDH-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-CCM:DHE-RSA-AES256-CCM8:ECDHE-ECDSA-AES256-CCM:ECDHE-ECDSA-AES256-CCM8:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-CHACHA20-POLY1305:DHE-RSA-CHACHA20-POLY1305; &gt;&gt; En güvenilir bulduğum SSL algoritmalarının bir araya getirilerek sadece bunları kullanmasını sunucuya söyleyen kod.
+</span></span></code></pre></div><p>Tek tek araştırmak isteyenler için tüm cipherlar: &ldquo;<a href="https://testssl.sh/openssl-iana.mapping.html%22">https://testssl.sh/openssl-iana.mapping.html&quot;</a></p>
+<p>Ayarları yaptıktan sonra kontrol etmek isterseniz: &ldquo;sudo nginx -t&rdquo; komutunu kullanabilirsiniz. Eğer bir hata mesajı görmez iseniz &ldquo;sudo systemctl restart nginx&rdquo; veya &ldquo;sudo service nginx restart&rdquo; komutu ile ayarları uygulayıp servisi baştan başlatabilirsiniz</p>
+<h2 id="önerilen-ayarlar">Önerilen ayarlar</h2>
+<p>Bir önceki ayarlara ek olarak performans özelinde bazı iyileştirmeler ve bunun yanı sıra sitenizin SSL test sitelerinde üst sıralara çıkmasını sağlayacak bazı ek konfigürasyonlar yapacağız. Bunun ardından ise sitenizin kullanıcı ile erişiminde faydalı olarak bazı başlıkları (header) ve sitenizin kaynaklarının üçüncü kişi siteler tarafından sömürülmemesi için bir takım iyileştirmeler yapacağız.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Eklenecek (varsa değiştirilecek) başlıklar
+</span></span><span style="display:flex;"><span>ssl_session_cache shared:TLS:2m; &gt;&gt; TLS bağlantılarının işçiler (nginx workers) arasında nasıl dağıtılacağını ve ne kadar süre ile bağlantıların ortak kullanılacağını belirten kod
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_buffer_size 4k; &gt;&gt; SSL isteklerine cevap verirken ve handshake sonrası paket gönderimi yaparken paketlerin kaçlık konteynırlara bölüneceğini belirten kod. Daha düşük bir değer daha çok paket gönderilmesi ama daha az taşma (overhead) anlamına gelir.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_stapling on; &gt;&gt; OCSP zımbalama özelliğini aktif hale getirir
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_stapling_verify on; OCSP zımbalamanın üst ve kök sunucularda dahil olmak üzere doğrulanması özelliğini açar.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>resolver 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001; &gt;&gt; Cloudlfare ile OCSP zımbalama doğrulamasının yapılmasını sağlar. Eğer IPV6 kullanmıyor veya native olarak desteklemek istemiyorsanız ipv6 adreslerini silebilirsiniz.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header X-Content-Type-Options &#34;nosniff&#34; always; &gt;&gt; Tarayıcıların MIME içeriklerini anlamak için koklama (sniff) yapmasını engeleyen başlık değeridir.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header X-Xss-Protection &#34;1; mode=block&#34; always; &gt;&gt; Olası bir XSS açığında kullanıcıların beyaz ekran görmesini sağlayarak açığı bir nebze de olsa engelleyen bir başlıktır.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header X-Frame-Options &#34;SAMEORIGIN&#34; always; &gt;&gt; Herhangi bir şekilde i-frame vb bir kod ile sunucunuzun bir sayfasının başka bir sayfada gösterilmesini ve/veya alt-alta üst-üste yayımlanmasını engeller. Sadece siz kendi siteniz içerisinde kendi sitenizden bir pencere yayımlayabilirsiniz.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header Referrer-Policy &#34;no-referrer-when-downgrade&#34; always; &gt;&gt; Daha alt güvenlik önlemine sahip bir siteye yönlendirme veya link verdiğinizde otomatik olarak referrer başlığı eklemez ve sitenizden trafik geldiği belli olmaz.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header Content-Security-Policy &#34;default-src &#39;self&#39; https: data: &#39;unsafe-inline&#39; &#39;unsafe-eval&#39;;&#34; always; &gt;&gt; Sizin ve diğer kullanıcıların dışarıdan çağırabilecekleri isteklerin hangi koşullar altında çağrılabileceğini düzenleyen başlık. Ben default olarak https üzerinden gelen bazı kaynaklara güveniyorum.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header Permissions-Policy &#34;camera=(), fullscreen=(self), geolocation=(), microphone=(), payment=()&#34; always; &gt;&gt; Tarayıcıya hangi izinleri isteyeceğinizi veya hangilerine hiç ihtiyacınız olmayacağını belirterek çeşitli zehirleme türleri (cache-poisoning veya js-poisoning) ile sizin siteniz üzerinden bilgi toplanmasını engeller.
+</span></span></code></pre></div><p>Ayarları yaptıktan sonra kontrol etmek isterseniz: &ldquo;sudo nginx -t&rdquo; komutunu kullanabilirsiniz. Eğer bir hata mesajı görmez iseniz &ldquo;sudo systemctl restart nginx&rdquo; veya &ldquo;sudo service nginx restart&rdquo; komutu ile ayarları uygulayıp servisi baştan başlatabilirsiniz.</p>
+<h2 id="ileri-seviye-ayarlar">İleri Seviye Ayarlar</h2>
+<p>Öncelikle sitenize sadece ssl üzerinden bağlanması gerektiğini gösterecek bir başlık ekleyeceğiz. Bu sayede sizin sitenize daha önce girmiş olanlar ve hali hazırda bu başlığı tarayıcısında mevcut olanlar istese bile sizin sitenize Non-SSL şekilde erişemeyecekler. Ardından ise HTTP oturumlarına kullanılması gereken SSL sertifikalarını zımbalayacağız ve önceki yöntemin yanından hangi sertifikalar ile bağlanması gerekeceğini de önceden belirtmiş olacağız. Bu sayede yetkili bir üst sertifika yöneticisi veya kök yöneticisi olsanız dahi sizin adınıza imzaladığı sertifika ile sizin sitenize bağlanamayacaklar. Zamaında Türkiyede yerleşik E-Tuğra Kök Sertifika sağlayıcısı *.google.com adresine bir sertifika imzaladı. Biraz araştırırsanız hangi dönemde meydana geldiğini ve nedenini (ne kadar kötü sonuçlara neden olabileceğini) fardekersiniz. Şimdi başlayalım son konfigürasyon kısmına.</p>
+<p>Öncelikle sitenizin SSL üzerinden hiçbir soruna neden olmaksızın erişilebiliyor olduğundan emin olun. Ardından nginx konfig dosyasına aşağıdaki başlıklardan isteğinize göre birini ekleyin. Ama dikkat edin sadece bir tanesini.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>add_header Strict-Transport-Security &#34;max-age=2592000;&#34; always; &gt;&gt; Sitenize 30 gün boyunca sadece HTTPS üzerinden erişilebileceğini belirten başlık. (Alt alan adları dahil değil)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header Strict-Transport-Security &#34;max-age=2592000; includeSubDomains;&#34; always; &gt;&gt; Sitenize alt alan adları da dahil olmak üzere 30 gün boyunca sadece HTTPS üzerinden erişilebileceğini belirten başlık.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header Strict-Transport-Security &#34;max-age=31536000; includeSubDomains;&#34; always; &gt;&gt; Sitenize alt alan adları da dahil olmak üzere 1 yıl boyunca sadece HTTPS üzerinden erişilebileceğini belirten başlık.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header Strict-Transport-Security &#34;max-age=31536000; includeSubDomains; preload&#34; always; &gt;&gt; Sitenize alt alan adları da dahil olmak üzere 1 yıl boyunca sadece HTTPS üzerinden erişilebileceğini ve bu başlığın tarayıcıların önbelleğine alınması talimatını veren başlık. Ayrıca yeni çıkan tarayıcılar sitenize daha önce hiç girmese dahi bu başlıktan haberdar olacaktır.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header Strict-Transport-Security &#34;max-age=0; includeSubDomains&#34;; &gt;&gt; HSTS özelliğini ve preload listesi üyeliğini tamamen kaldırmaya yarayan başlık.
+</span></span></code></pre></div><p>Yukarıda belirtilen başlığı ekledikten sonra şimdi kullanmış olduğunuz ssl sertifikasının özetinin HTTP oturumuna zımbalanmasına geldi. Bu aşamada mevcut sertifikanızın bir özetini çıkarmamız, üst imzalayan yetkilinin sertifikasının özetini çıkarmamız ve en üst kök sertifika yetkilisi de dahil olmak üzere tüm zinciri tamamlayana kadar bu özet çıkarma sürecini devam ettirmemiz gerekiyor. Bu nedenle root kullanıcısı veya sudo yetkisine sahip bir kullanıcı ile aşağıdaki komutları sırasıyla çalıştırıyoruz. (Anlatım Let&rsquo;s Encrypt özelinde yapılmıştır.)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>1<span style="color:#f92672">]</span> cat /etc/letsencrypt/live/SUNUCU_ADINIZ/cert.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | base64 &gt;&gt; Bu komut sizin sitenize ait sertifikanın özetini çıkaracaktır. Sonuç değerini bir yere kopyalayın.
+</span></span><span style="display:flex;"><span>2<span style="color:#f92672">]</span> curl -s https://letsencrypt.org/certs/lets-encrypt-x4-cross-signed.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | base64 &gt;&gt; Bu komut letsencrypt<span style="color:#e6db74">&#39;e ait çoklu imzalı sertifikalardan bir tanesinin özetini çıkaracaktır.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">3] curl -s https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | base64 &gt;&gt; Bu komut letsencrypt&#39;</span>e ait çoklu imzalı sertifikalardan bir tanesinin özetini çıkaracaktır.
+</span></span><span style="display:flex;"><span>4<span style="color:#f92672">]</span> curl -s https://letsencrypt.org/certs/isrgrootx1.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | base64 &gt;&gt; Bu komut letsencrypt<span style="color:#e6db74">&#39;e ait kök (en üst) sertifikasının özetini çıkaracaktır.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Nginx config dosyasına aşağıdaki değer eklenir
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">5] add_header Public-Key-Pins &#39;</span>pin-sha256<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ILK_SONUC&#34;</span>; pin-sha256<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IKINCI_SONUC&#34;</span>; pin-sha256<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UCUNCU_SONUC&#34;</span>; pin-sha256<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;DORDUNCU_SONUC&#34;</span>; max-age<span style="color:#f92672">=</span>2592000; includeSubDomains<span style="color:#960050;background-color:#1e0010">&#39;</span> always; &gt;&gt; Sitenize <span style="color:#ae81ff">30</span> gün boyunca sadece belirtilen sertifika ile bağlanılmasına izin verir. Max-age değerini isteğe bağlı olarak artırabilirsiniz. Sertifika geçerlilik süreniz <span style="color:#ae81ff">30</span> günden daha az kalmadan başlığı devredışı bırakmanız veya yeni sertifika edinmeniz ve beşinci değer olarak onu eklemeniz gerekmektedir.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Bonus olarak sunucunuzun yapmasının çok uzun süreceği ama faydası çok olan bir komut daha göstermek istiyorum.
+</span></span><span style="display:flex;"><span>6<span style="color:#f92672">]</span> openssl dhparam -out /etc/nginx/dhparams.pem <span style="color:#ae81ff">4096</span> &gt;&gt; Bu komutu uygulaması 15dk ile <span style="color:#ae81ff">1</span> saat arasında sürebilir.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>İşlem bittikten sonra nginx konfig dosyasına aşağıdaki komutu eklemeniz gerekmektedir.
+</span></span><span style="display:flex;"><span>ssl_dhparam /etc/nginx/dhparam.pem; &gt;&gt; Diffie-Hellman anahtar değişim algoritması sırasında kullanılacak değerleri default değerler dışında az önce oluşturduğumuz gizli değerler ile değiştirmeye yarayan komut.
+</span></span></code></pre></div><p>Ayarları yaptıktan sonra &ldquo;sudo nginx -t&rdquo; ve ardından eğer bir hata mesajı görmez iseniz &ldquo;sudo service nginx restart&rdquo; komutu ile ayarları uygulayıp servisi baştan başlatın. Artık sizin belirlediğiniz konfigürasyon ve şartlar ile bağlantı sağlanacaktır. Eğer öncesi/sonrası puanlama farkını görmek isterseniz aşağıdaki görsellere bakabilirsiniz veya kendi sitenizi &ldquo;<a href="https://www.ssllabs.com/ssltest/index.html%22">https://www.ssllabs.com/ssltest/index.html&quot;</a> adresinden test edebilirsiniz.</p>
+<p>İLK HALİ
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_640x0_resize_q50_h2_linear_3.webp 640w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</p>
+<p>SON DURUM
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_640x0_resize_q50_h2_linear_3.webp 640w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</p>
+<p>Neden Cipher Strength %100 değil derseniz TLS 1.3 ile otomatik gelen ve biz istemesek de eklenen &ldquo;TLS_AES_128_GCM_SHA256 (0x1301)&rdquo; yüzünden şu an %100 yapmak mümkün değil. TLS 1.3&rsquo;ü kapatırım o zaman gelmez diye düşünürseniz o zaman da başka yerden puanınız gidiyor maalesef.</p>
+<h1 id="son">Son</h1>
+<p>Bu yazı daha önce <a href="https://teknolojirehberleri.xyz">https://teknolojirehberleri.xyz</a> adresinde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
+]]></content:encoded></item><item><title>Linux Sunucularda SSH Güvenliği Artırma</title><link>https://wiseweb-works.github.io/blog/post/ssh-guvenligi/</link><pubDate>Tue, 05 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ssh-guvenligi/</guid><description>Linux Sunucularda SSH güvenliğini artırma Bugün sizlerle bir sunucu kiraladığınız zaman güvenli bir şekilde bağlanmamızı sağlayan SSH hizmetini nasıl daha güvenli ve dışarıdan gelecek kötü niyetli isteklerden uzak tutabiliriz bundan bahsedeceğim. Öncelikle süreci basit, önerilen ve ileri-seviye olarak üç farklı başlık altında anlatacağım. Başlık içerikleri kişisel gerekliliklere göre aşamalı düşünülmüştür. Başlıklar bir biri ile bağlantılı olmasına rağmen istenilen bir aşamada bırakılması sorun oluşturmayacaktır.
+Basit Güvenlik Önlemleri Öncelikle içinde bulunduğumuz Linux sürümünün paket yöneticisi ile güncellemeleri konsol üzerinden yüklememiz gerekmektedir.</description><content:encoded><![CDATA[<h1 id="linux-sunucularda-ssh-güvenliğini-artırma">Linux Sunucularda SSH güvenliğini artırma</h1>
+<p>Bugün sizlerle bir sunucu kiraladığınız zaman güvenli bir şekilde bağlanmamızı sağlayan SSH hizmetini nasıl daha güvenli ve dışarıdan gelecek kötü niyetli isteklerden uzak tutabiliriz bundan bahsedeceğim. Öncelikle süreci basit, önerilen ve ileri-seviye olarak üç farklı başlık altında anlatacağım. Başlık içerikleri kişisel gerekliliklere göre aşamalı düşünülmüştür. Başlıklar bir biri ile bağlantılı olmasına rağmen istenilen bir aşamada bırakılması sorun oluşturmayacaktır.</p>
+<h2 id="basit-güvenlik-önlemleri">Basit Güvenlik Önlemleri</h2>
+<p>Öncelikle içinde bulunduğumuz Linux sürümünün paket yöneticisi ile güncellemeleri konsol üzerinden yüklememiz gerekmektedir.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Ubuntu için: sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt upgrade -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Fedora için: sudo yum update -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Arch Linux için: sudo pacman -Syyu
+</span></span></code></pre></div><p>Güncellemeler yüklendikten sonra ise sunucunuzdaki (Benim olayımda Ubuntu) sshd servisini (ki bu servis dışarıdan ssh bağlantıları almanıza yarayan servistir) yapılandırmaya başlıyoruz. Öncelikle çok karıştırılması nedeniyle belirtmek gerekir ki ssh servisi ile sshd servisi farklı servislerdir. SSH servisi sunucunun başkaca bilgisayar veya sunuculara bağlanmasını yarayan servisken SSHD servisi başka bilgisayarların sizin sunucunuza bağlanmasını yani gelen bağlantıları karşılayan servistir.</p>
+<p>SSHD servisinin ayarlarının tutulduğu dosya genel itibariyle &ldquo;/etc/ssh/sshd_config&rdquo; konumunda bulunur. Bunu kendi kullandığımız metin editörlerinden istediğimiz biriyle ama sudo (yani yönetici) yetkilerine sahip bir kullanıcı ile açmamız gerekmektedir.</p>
+<p>Ubuntu üzerinden devam edecek olursak</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/ssh/sshd_config <span style="color:#75715e"># Ayar dosyasını açmaya yarayan komut</span>
+</span></span></code></pre></div><p>Bulup değiştireceğimiz başlıklar</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>#ClientAliveInterval 0  &gt;&gt; Başındaki hashtag işaretini kaldırıyoruz ve &#34;0&#34; olan değeri 300 yapıyoruz. Bu komut bağlantı kullanılmadığı (idle konumunda kaldığı) zaman kaç sn sonra bağlantının otomatik kapatılacağını düzenler
+</span></span><span style="display:flex;"><span>#PermitEmptyPasswords no &gt;&gt; Başındaki hashtag işaretini kaldırıyoruz ve &#34;no&#34; olan değeri değiştirmiyoruz. Bu komut boş veya şifresiz kullanıcıların bağlanmasını engeller. Yani boş şifrelere izin vermez.
+</span></span><span style="display:flex;"><span>X11Forwarding yes &gt;&gt; Eğer başında hastag var ise kaldırıyoruz yok ise &#34;yes&#34; olan değeri no olarak değiştiriyoruz. Bu komut sunucu üzerinde GUI arayüzüne sahip uygulamaları çalıştırma kolaylığı sağlamasına rağmen suistimal edilmesi mümkün bir durum olduğundan kapatıyoruz.
+</span></span><span style="display:flex;"><span>#MaxAuthTries 6 &gt;&gt; Başındaki hashtag işaretini kaldırıyoruz ve &#34;6&#34; olan değeri 3 yapıyoruz. Bu komut şifrenizi kaç kez deneyebileceklerini düzenler. 6 sayısı gereksiz derece yüksek bir değer olup genel kabul 3 ve veya 4 olması yönündedir.
+</span></span><span style="display:flex;"><span>#Protocol 2 &gt;&gt; Eğer başında hastag var ise kaldırıyoruz, böyle bir kayıt hiç yok ise &#34;Protocol 2&#34; şeklindeki değeri ilk bulduğumuz boşluğa ekliyoruz. Bu komut SSH&#39;ın sadece en yeni protokolü ile bağlantıların yapılmasını sağlayarak eski protokolün açıklıklarından sizi korur.
+</span></span></code></pre></div><p>Ayarları yaptıktan sonra kontrol etmek isterseniz: &ldquo;sudo sshd -t&rdquo; komutunu kullanabilirsiniz. Eğer bir hata mesajı görmez iseniz &ldquo;sudo systemctl restart sshd&rdquo; veya &ldquo;sudo service sshd restart&rdquo; komutu ile ayarları uygulayıp servisi baştan başlatabilirsiniz</p>
+<h2 id="önerilen-ayarlar">Önerilen ayarlar</h2>
+<p>Bir önceki ayarlara ek olarak kullanıcı bazlı oturum açma, sadece güvenli anahtar kullanarak oturum açma ve Root kullanıcısı ile oturum açmayı kısıtlama gibi ek ayarlamalar yapacağız. Öncelikle yerel bilgisayarınızdaki kullanıcınız için bir gizli anahtar üretmeniz gerekiyor. Bunun için eğer linux tabanlı bir işletim sistemi kullanıyor iseniz</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ssh-keygen -t rsa -b 4096 # yazdıktan sonra aşağıdaki sorulara cevap olarak istediğiniz şifreyi giriniz
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;&gt; Enter passphrase (empty for no passphrase): [Press enter key]
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;&gt; Enter same passphrase again: [Press enter key]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>veya
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssh-keygen -t ecdsa -b 521 # Daha güvenli ve daha hızlı olan ekliptik anahtar üretir. Aşağıdaki sorulara cevap olarak istediğiniz şifreyi giriniz
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;&gt; Enter passphrase (empty for no passphrase): [Press enter key]
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;&gt; Enter same passphrase again: [Press enter key]
+</span></span></code></pre></div><p>Diğer sorulara Enter&rsquo;a basarak cevap vermiş ve anahtar için belirli bir konum yazmamış iseniz anahtar çiftiniz (.pub= halka açık anahtar) / uzantısız olan gizli anahtar) /home/KULLANICI_ADINIZ/.ssh klasörüne kaydedilmiştir. Ürettiğiniz anahtarı sunucunuza tanıtmak için aşağıdaki kodu kullanabilirsiniz.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ssh-copy-id -i ~/.ssh/ANAHTAR_ISMINIZ.pub SUNUCUDAKI_KULLANICI_ADINIZ@SUNUCU_IP_ADRESI # yazdıktan sonra kullanıcınızın şifresini sorucak ve doğru girdiğiniz takdirde onay mesajı ile karşılaşacaksınız.
+</span></span></code></pre></div><p>Kendi anahtarınızı ürettikten sonra sunucuya sadece anahtar ile erişmek için;
+Bulup değiştireceğimiz başlıklar</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>#PasswordAuthentication no &gt;&gt; Başındaki hashtag işaretini kaldırıyoruz ve &#34;no&#34; olan değeri no olarak bırakıyoruz. Bu komut sunucuya şifre ile bağlanmayı engeller. Kullanıcılar sadece ssh_keyleri ile bağlanabilirler.
+</span></span><span style="display:flex;"><span>PubkeyAuthentication yes &gt;&gt; Eğer var ise başındaki hastag işaretini kaldırıyoruz ve değeri yes olarak belirliyoruz. Bu komut az önce oluşturduğunuz gizli key ile oturum açmanıza izin veren komuttur.
+</span></span><span style="display:flex;"><span>#PermitRootLogin no &gt;&gt; Başındaki hashtag işaretini kaldırıyoruz ve &#34;no&#34; olan değeri no olarak bırakıyoruz. Bu komut ROOT kullanıcısının ki en yetkili kullanıcıdır sunucuya erişmesini engelliyor. Ancak başka bir kullanıcı ile erişip sonra ROOT kullancısına geçiş yapabilirsiniz.
+</span></span><span style="display:flex;"><span>AllowUsers KULLANICI_ADINIZ &gt;&gt; Eğer yok ise böyle bir kayıt ekliyoruz. Başka kullanıcıların sunucuya bağlanmasını ve/veya kullanıcı adı denemesi yapmasını engelliyor.
+</span></span><span style="display:flex;"><span>LoginGraceTime 20 &gt;&gt; Eğer yok ise böyle bir kayıt ekliyoruz ve değeri 20 olarak ayarlıyoruz. Oturum açmak için gereken süreyi saniye cinsinden belirliyor. Uzun süre oturum açma isteği ile sunucuyu meşgul etmelerini engelliyoruz.
+</span></span><span style="display:flex;"><span>ChallengeResponseAuthentication no &gt;&gt; Var ise başındaki hastag işaretini kaldırıyoruz ve değeri no olarak belirliyoruz. Bu komut diğer oturum açma yöntemlerini devre dışı bırakıyor.
+</span></span><span style="display:flex;"><span>KerberosAuthentication no &gt;&gt; Var ise başındaki hastag işaretini kaldırıyoruz ve değeri no olarak belirliyoruz. Bu komut diğer oturum açma yöntemlerini devre dışı bırakıyor.
+</span></span><span style="display:flex;"><span>GSSAPIAuthentication no &gt;&gt; Var ise başındaki hastag işaretini kaldırıyoruz ve değeri no olarak belirliyoruz. Bu komut diğer oturum açma yöntemlerini devre dışı bırakıyor.
+</span></span></code></pre></div><p>Ayarları yaptıktan sonra kontrol etmek isterseniz: &ldquo;sudo sshd -t&rdquo; komutunu kullanabilirsiniz. Eğer bir hata mesajı görmez iseniz &ldquo;sudo systemctl restart sshd&rdquo; veya &ldquo;sudo service sshd restart&rdquo; komutu ile ayarları uygulayıp servisi baştan başlatabilirsiniz</p>
+<h2 id="ileri-seviye-ayarlar">İleri Seviye Ayarlar</h2>
+<p>Öncelikle standart SSH bağlantı portu olan 22 yi değiştirip ardından SSH bağlantısı sırasında kullanılan şifreleme araçlarını daha da güçlü hale getireceğiz. Ardından sunucunu SSH hizmetinin loglarının (kayıt defteri kayıtlarının) nasıl tutulacağını belirleyeceğiz.</p>
+<p>Bulup değiştireceğimiz başlıklar</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>#Port 22 &gt;&gt; Bunu bulup başındaki hastag işaretini kaldırıyoruz ve oraya başka hizmet tarafından kullanılmayan ve açık olan bir port numarasını yazıyoruz. Örneğin 2992 olabilir.
+</span></span><span style="display:flex;"><span>LogLevel INFO &gt;&gt; Bu ayarı bulup değiştiriyoruz yok ise ekliyoruz. Kayıt seviyesini belirlememize yarıyor.
+</span></span><span style="display:flex;"><span>AllowAgentForwarding no &gt;&gt; Bu ayarı bulup değiştiriyoruz yok ise ekliyoruz. Alternatif yönlendirme yöntemlerini devredışı bırakıyor.
+</span></span><span style="display:flex;"><span>AllowTcpForwarding no &gt;&gt; Bu ayarı bulup değiştiriyoruz yok ise ekliyoruz. Alternatif yönlendirme yöntemlerini devredışı bırakıyor.
+</span></span><span style="display:flex;"><span>PrintMotd no &gt;&gt; Bu ayarı bulup değiştiriyoruz yok ise ekliyoruz. Bağlantı kurulmadan önce sunucu ile ilgili bilgi sahibi olmalarını engellemek için.
+</span></span><span style="display:flex;"><span>PermitUserEnvironment no &gt;&gt; Bu ayarı bulup değiştiriyoruz yok ise ekliyoruz.
+</span></span><span style="display:flex;"><span>PermitTunnel no &gt;&gt; Bu ayarı bulup değiştiriyoruz yok ise ekliyoruz.
+</span></span></code></pre></div><p>Daha da ileri giderek SSH bağlantısı sırasında kullanılan şifreleme algoritmalarını, doğrulama algoritmalarını, anahtar değişim algoritmalarını ve diğer algoritmaların hangilerinin öntanımlı olacağını belirliyoruz.</p>
+<p>Root kullanıcısı veya sudo yetkisine sahip bir kullanıcı ile aşağıdaki komutları sırasıyla çalıştırıyoruz.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>1<span style="color:#f92672">]</span> rm /etc/ssh/ssh_host_*
+</span></span><span style="display:flex;"><span>2<span style="color:#f92672">]</span> ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -f /etc/ssh/ssh_host_rsa_key -N <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>3<span style="color:#f92672">]</span> ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>4<span style="color:#f92672">]</span> awk <span style="color:#e6db74">&#39;$5 &gt;= 3072&#39;</span> /etc/ssh/moduli &gt; /etc/ssh/moduli.tmp
+</span></span><span style="display:flex;"><span>5<span style="color:#f92672">]</span> mv /etc/ssh/moduli.tmp /etc/ssh/moduli
+</span></span><span style="display:flex;"><span>6<span style="color:#f92672">]</span> sed -i <span style="color:#e6db74">&#39;s/^\#HostKey \/etc\/ssh\/ssh_host_\(rsa\|ed25519\)_key$/HostKey \/etc\/ssh\/ssh_host_\1_key/g&#39;</span> /etc/ssh/sshd_config
+</span></span><span style="display:flex;"><span>7<span style="color:#f92672">]</span> echo -e <span style="color:#e6db74">&#34;KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256\nCiphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr\nMACs hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,umac-128-etm@openssh.com\nHostKeyAlgorithms ssh-ed25519,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,rsa-sha2-256,rsa-sha2-512,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com&#34;</span> &gt; /etc/ssh/sshd_config.d/ssh-hardening.conf
+</span></span></code></pre></div><p>Ayarları yaptıktan sonra &ldquo;sudo sshd -t&rdquo; ve ardından eğer bir hata mesajı görmez iseniz &ldquo;sudo service sshd restart&rdquo; komutu ile ayarları uygulayıp servisi baştan başlatın. Artık yeni belirlediğiniz port üzerinden ve sadece sizin gizli anahtarınız ile sunucuya bağlanabileceksiniz. Bağlanmak için ise;</p>
+<pre tabindex="0"><code class="language-texte" data-lang="texte">ssh -i ~/.ssh/ANAHTAR_ISMINIZ SUNUCUDAKI_KULLANICI_ADINIZ@SUNUCU_IP_ADRESI -p PORT_NUMARASI # komutunu kullanabilirsiniz. Gelen bildirimlere Enter deyip devam edebilirsiniz.
+</code></pre><h1 id="son">Son</h1>
+<p>Bu yazı daha önce <a href="https://teknolojirehberleri.xyz">https://teknolojirehberleri.xyz</a> adresinde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
+]]></content:encoded></item><item><title>PGP nedir ve gerçekten de oldukça iyi bir gizlilik sağlıyor mu?</title><link>https://wiseweb-works.github.io/blog/post/pgp-ve-gizlilik/</link><pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/pgp-ve-gizlilik/</guid><description>PGP Türkçede oldukça iyi gizlilik anlamına gelen Pretty Good Privacy kelimesinin baş harflerinde oluşturulmuş bir veri şifreleme, şifre çözme ve verileri elektronik olarak imzalama programıdır. Phil Zimmermann tarafından 90&amp;rsquo;lı yılların başında akademik bir makale olarak ortaya çıkmış ve yayımlandığı dönemden çok sonra gerçekten kullanılmaya ve getirilerinden yararlanılmaya başlanmıştır. Söz konusu program ilk ortaya çıktığı zamanlarda bir ihtiyacın kendisini ortaya çıkmaya zorlamasından ziyade daha çok bir düşünce deneyi olarak iletişimin her iki tarafı arasındaki verilerin şifrelenebileceği ve bunun nasıl yapılması gerektiği sorusu üzerine ortaya çıkmıştır.</description><content:encoded><![CDATA[
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/VGz1dZ4Sg-g" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>PGP Türkçede oldukça iyi gizlilik anlamına gelen Pretty Good Privacy kelimesinin baş harflerinde oluşturulmuş bir veri şifreleme, şifre çözme ve verileri elektronik olarak imzalama programıdır. <a href="https://tr.wikipedia.org/w/index.php?title=Phil_Zimmermann&amp;action=edit&amp;redlink=1">Phil Zimmermann</a> tarafından 90&rsquo;lı yılların başında akademik bir makale olarak ortaya çıkmış ve yayımlandığı dönemden çok sonra gerçekten kullanılmaya ve getirilerinden yararlanılmaya başlanmıştır. Söz konusu program ilk ortaya çıktığı zamanlarda bir ihtiyacın kendisini ortaya çıkmaya zorlamasından ziyade daha çok bir düşünce deneyi olarak iletişimin her iki tarafı arasındaki verilerin şifrelenebileceği ve bunun nasıl yapılması gerektiği sorusu üzerine ortaya çıkmıştır. Ortaya çıkışının ardından gönderilen verilen şifrelenmesinin ve şifresinin taraflarca çözülmesinin yanına bir de verinin bütünlüğünün korunmasını sağlayan özet fonksiyonu ve mesajı gönderen kişinin kimliğinin doğrulanması sağlayan (ve kimi zaman inkar edilemezlik olarak da anılan) imzalama özelliği eklenmiştir. Ortaya çıktığı dönemde ve sonrasında açık kaynak kodlu olarak yayımlanmaya devam etmiş ve günümüzde OpenPGP adı altında gelişerek faaliyetlerine devam etmektedir. PGP’nin ortaya çıktığı 1991 yılından 6 sene sonra yani 1997 yılında kendilerine Internet Engineering Task Force (görev gücü biraz abartı olmadı :D) adını veren bir çalışma grubu PGP programının sağlamış olduğu şifreleme özelliklerinin piyasa standartı haline gelmesi ve kullanımının kolaylaştırılması için yazılar yayımlamaya başladılar.</p>
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption_hu3677818776f4d535166a33810de689ab_17383_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption_hu3677818776f4d535166a33810de689ab_17383_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption_hu3677818776f4d535166a33810de689ab_17383_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption_hu3677818776f4d535166a33810de689ab_17383_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption_hu3677818776f4d535166a33810de689ab_17383_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption_hu3677818776f4d535166a33810de689ab_17383_500x0_resize_q50_h2_linear_3.webp 500w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+
+<p>PGP’nin şifreleme ve şifre çözme özelliklerinin nasıl çalıştığını ve internet alemi için neden bu kadar büyük bir atılım anlamına geldiğini insanlara anlatmaya başladılar. PGP asimetrik şifreleme denilen ve günümüzde internet tarayıcılarından elektronik imza ile girişi destekleyen tüm internet sitelerinde ve özellikle bankalarda kullanılan bir şifreleme/şifre çözme şeklidir. Asimetrik şifrelemeden kısaca bahsedersek eğer (sadece asimetrik şifrelemeyi tüm detaylarıyla anlatan bir yazı da gelecek) şifrelemeyi yapan anahtar ile şifrelenmiş veriyi açacak olan anahtarın farklı olduğu ve birbirlerinden üretildiği bir şifreleme türüdür. Bu şifreleme türünde sizin public (genel) anahtarınız ve private (gizli) anahtarınız mevcuttur. Bu anahtarlardan birisi ile yapılan şifrelemeyi aynı anahtar açamayıp sadece diğer anahtar ile açılması/çözülmesi mümkündür. Daha kolay anlaşılması için bir örnek üzerinden gidelim. Eskiden çelik kapılarda ve kepenklerde bolca kullanılan asma kilitleri gözümüzün önüne getirelim. Şimdi bu kilitler üretildiği zaman bu kilidi açabilecek anahtar da yanında üretilip son kullanıcıya yanında veriliyor. Bana şifreli bir şekilde bir yazı veya bir dosya göndermek istediğinizi düşünelim. Görece olarak güvenli bulduğunuz bir kutuya bana göndermek istediğiniz dosyaları koyup daha sonra da benden almış olduğunuz şahsi asma kilidimi üzerine takıyorsunuz. Bu aşamada benim size vermiş olduğum tek şey bir asma kilit ve anahtarlar hala bende. Kutu kapatıldıktan ve asma kilit üzerine takıldıktan sonra asma kilidin demirlerini ittirerek içine geçirip kutuyu tamamen kilitli bir hale getiriyorsunuz. Bu aşamadan sonra size vermiş olduğum asma kilidi kullanarak kutuyu açma imkanınız yok hatta içine koyduğunuz şeyleri de artık kapattıktan sonra tekrar değiştirmeniz mümkün değil. Benim aynı asma kilitten yüzlercesine sahip olduğumu ve hepsinin aynı ve sadece bende olan bir anahtar ile açıldığını düşündüğünüzde etrafımdaki insanlara anahtarsız bir asma kilit vermenin çok da sorun olmayacağından emin olabilirsiniz. Asimetrik anahtar ile şifreleme yapılırken de gizli (private) anahtarınız ile yüzlerce genel (public) anahtar üretebilirsiniz fakat private keyiniz her zaman için tekdir. Artık benim kilidim ile kilitlenmiş kutuyu bana göndermeniz ve benim de onu kendime ait gizli anahtar ile açmam sonucunda güvenli bir şekilde bir iletişim sağlamış olduk.</p>
+<p>PGP’nin bize sağlamış olduğu bir anahtar ile şifreleyip sadece diğer anahtar ile o verinin açılabilmesi özelliği dönemi için çok üst düzey bir şifreleme ve güvenlik işleviydi. Şifreleme için kullanılan anahtarların uzunluğu 2048 Bit, 3072 Bit ve 4096 Bit boyutundaydı. 1 Bitin 8 Bayt olduğunu düşünürseniz bu sayıların hem bir insan için hem de o dönemin bilgisayarları için oldukça büyük sayılar olduğunu anlamışsınızdır. O dönem daha hızlı olması (düşündüğünüz kadar hızlı değil) için en düşük anahtar boyutu olan 2048 Bit kullanılmış olup genel olarak gönderilen maillerin içeriğinin (sadece içerik kısmı) ve ekte gönderilen dosyaların şifrelenmesi şeklinde kullanılmıştır. 2048 Bit yerine en yüksek anahtar boyutu olan 4096 Bit kullanıldığı zaman her ne kadar anahtar boyutu 2 kat artmış olsa da hız yerine göre 4 ile 10 kat arasında azalmaktaydı. Ortalama 200–400 karakterden oluşan bir salt yazının şifrelenmesi sırasında en düşük anahtar boyutu ile şifrelenmesi bilgisayarınızın gücüne bağlı olarak 1 ila 10 sn arasında değişebiliyordu. Bu nedenle daha uzun anahtar boyutuna sahip 4069 Bit’in şifreleme süreci çok uzun sürmekteydi. Şimdi bakıldığında 1–2 dk gibi süreler çok kısa gibi gelse de sadece bir metni göndermek için bu kadar beklemenizin gerekiyor olması o dönem için gerçekten can sıkıcıydı. Üstelik sizin şifreleme sürecinde beklediğiniz kadar da şifrelemeyi çözecek anahtara sahip kişiyi de çözüm sırasında bekletiyordunuz.</p>
+<p>PGP ile veri gönderilmesi ile ilgili bir örnek ile devam edelim. Mesela sizin için çok önemli olan bir veriyi göndermek istiyorsunuz. Önce farazi olarak (umarım nükleer fırlatma kodları değildir) bir yazılı metin seçelim. Benim seçtiğim veri:</p>
+<blockquote>
+<p>“u, iki u daha, birincisi küçük u, ikincisi büyük u, 1 j, 3 3 3( üç tane 3 rakamı ama üçüncüsü küçük 3), yumuşak g, 6 a, k, küçük hığıı, 6 milyon. iki milyar. ama iki milyar yazıyla” ALINTI</p>
+</blockquote>
+<p>Önce bu veriyi… arkadaşlar yazıyı yazarken sıkıldım. Kusura bakmayın bunu da bu kadar anlatmış olayım. Ben keyfime düşkün bir adamım sıkılınca yapamıyorum.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/Z8aqzdARZns" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>NOT: Bu yazı daha önce şahsi medium.com adresimde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
+]]></content:encoded></item><item><title>Modern kriptografi yöntemlerinin Star Wars filmi ile ilişkisi</title><link>https://wiseweb-works.github.io/blog/post/modern-kriptografi-star-wars/</link><pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/modern-kriptografi-star-wars/</guid><description>Uzun uzun bir zaman önce (!) pek de uzak olmayan bir galakside yaşayan insanlar internet üzerinden yapmış oldukları işlemlerin daha güvenli bir temele oturması ve bu iletişimin tarafları dışındaki üçüncü kişilerin bu iletişimi dinleyememesi ve hakkında bilgi sahibi olamaması için bir takım şifreleme yöntemleri geliştirmeye karar verirler. INTRO
+Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölümlerinde yapılmış akademik çalışmaların ötesine geçememiş olan şifreleme (cryptography) alanı artık bireylerin iyiliği için kullanılacaktı.</description><content:encoded><![CDATA[<blockquote>
+<p>Uzun uzun bir zaman önce (!) pek de uzak olmayan bir galakside yaşayan insanlar internet üzerinden yapmış oldukları işlemlerin daha güvenli bir temele oturması ve bu iletişimin tarafları dışındaki üçüncü kişilerin bu iletişimi dinleyememesi ve hakkında bilgi sahibi olamaması için bir takım şifreleme yöntemleri geliştirmeye karar verirler. <a href="https://starwarsintrocreator.kassellabs.io/#!/BM5xzF-d7ZTSDYuCtJC9">INTRO</a></p>
+</blockquote>
+<p>Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölümlerinde yapılmış akademik çalışmaların ötesine geçememiş olan şifreleme (cryptography) alanı artık bireylerin iyiliği için kullanılacaktı. Bu ilke imza atacak ilk kişilerin arkadaş olmasının dışında onları birleştiren asıl şey Star Wars’ın orijinal üçlemesini çocuklukları döneminde birlikte izlemiş ve etkinlenmiş olmalarıdır. 1977 Yılında orijinal üçlemenin ilk, tarihsel sıralamaya göre ise dördüncü film olan <a href="https://en.wikipedia.org/wiki/Star_Wars_(film)">Star Wars A New Hope</a> vizyona girmiş ve tüm çevreler tarafından beğeniyle izlenmişti. İlk filmin vizyona girişinden sonraki 3. ve 6. senelerde serinin beşinci ve altıncı filmleri olan <a href="https://en.wikipedia.org/wiki/The_Empire_Strikes_Back">The Empire Strikes Back</a> ve <a href="https://en.wikipedia.org/wiki/Return_of_the_Jedi">Return of the Jedi</a> de peş peşe vizyona girmiş ve seyircisinin filmden beklentisini ve serinin devamına olan isteğini artırmıştır. Serinin o dönemki yönetmeni George Lucas izleyenleri daha iyi bir üçlemeye hazırlamak adına orijinal üçlemenin üçüncü filminin vizyona girdiği tarih olan 1983 yılından 1999 yılına kadar seriye yeni film çıkarmamış ve teknolojik imkanların gelişmesini beklemiştir. Yani tarihsel üçleme efsanesinin ve de modern kriptografinin bence başladığı yıl olan 1999 yılına gelinene kadar. 90&rsquo;lı yıllar kendilerini Cypherpunks olarak adlandıran ve açık kaynak kodunu yücelten, gizlilik ve bireyin anonimlik hakkı üzerinde bir manifesto yayımlayan, bilgisayar ve teknoloji ile birlikte büyümüş bir neslin dönemiydi. İnternetin ülkemize gelişi ve tüm dünyadaki internet ağının gelişmesi ile birlikte 2000&rsquo;li yıllara girmeye yaklaştığımız dönemlerde kişi başına düşen bilgisayar sayısı oranı artmış ve her eve olmasa da birçok haneye geniş bant internet hizmeti ulaşmış bulunmaktaydı. İşte ülkemizde internet yeni yeni kabul görmeye ve kullanılmaya başlandığı dönemlerde yurt dışında bir arkadaş topluluğu World Wide Web (WWW)’in eksik taraflarından biri olan şifreleme ve gizlilik üzerine odaklanmaya başlamıştı bile.</p>
+<p>Basit anlatımıyla internet üzerinde bir websitesi barındırmamıza ve dünya üzerindeki herhangi bir bilgisayarın bu web sayfasına erişebilmesine imkan tanıyan bu servis temelde güzel olmasına rağmen çok büyük bir dezavantajı vardı. Bu dezavantaj bağlanmış olduğunuz internet sitesi ile aranızdaki bağlantının herhangi bir şekilde şifrelenmemesi, güvenli olmaması ve dahili/harici üçüncü kişiler tarafından bu iletişimin izlenebilir, değiştirilebilir ve dahi engellenebilir olmasıdır. Eskiden bir internet sitesine girdiğiniz zaman adres çubuğunda bir kilit simgesi ve aşağıda gördüğünüz gibi “Connection is secure” veya “Connection is not private” gibi bir bağlantının güvenli /güvensiz olduğunu düşündürecek bir bildirim yoktu. Çünkü o yıllarda bir internet sitesine üye olurken veya mail gönderirken iletişimin izlenebileceği veya bunu kötü amaçlar için kullanılabileceği henüz düşünülmemişti.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/starwars-kriptografi/connection-is-secure_hu16a1bfea5dafa2c9c45ddfa1c0488629_8198_240x0_resize_q50_h2_linear.webp 240w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/connection-is-secure_hu16a1bfea5dafa2c9c45ddfa1c0488629_8198_300x0_resize_q50_h2_linear.webp 300w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/connection-is-secure_hu16a1bfea5dafa2c9c45ddfa1c0488629_8198_315x0_resize_q50_h2_linear.webp 315w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/starwars-kriptografi/connection-is-secure.jpeg" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+<td>
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_960x0_resize_q50_h2_linear_3.webp 960w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_1014x0_resize_q50_h2_linear_3.webp 1014w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Konunun girişine eklenmiş olan videoda 1977 yapımı Star Wars New Hope filminde (bunca yıldan sonra spoiler denemez artık) Galaktik İmparatorluk tarafından bütün galaksiyi yok edebilecek güçte ve devasa ölçekte bir ölüm yıldızı yapıldığının haberi alınır. Bu haberin alınması üzerine kendilerine Rebellion (isyancı) diyen bir grup bu ölçekte ve güçte bir geminin normal gemi savaşları ile yok edilemeyeceğini anlamış ve bu planları çalıp geminin zayıf noktalarını incelemeye karar vermişlerdir. Orijinal üçlemenin ilk filmi olmasına rağmen tarihsel olarak 4&rsquo;ncü film olması nedeniyle filmin başlangıcında bu planların çalındığını fakat henüz inceleme imkanı bulunamadan planları çalan uzay gemisinin imparatorluk kuvvetleri ve meşhur Dart Vader tarafından kovalandığını görüyoruz. Kovalamacanın sonuna doğru ellerindeki planları güvenli bir şekilde isyan kuvvetlerinin ana karargahına göndermeleri gerektiğini fakat imparatorluk kuvvetleri tarafından takip edilirken bunun çok zor olacağını anlayan Prenses Leia kendisince en güvenli gördüğü yöntemi kullanarak R2-D2 sınıfı bir robotun belleğine planları yükler ve filmimiz burada başlar. Videonun başlangıcında Dart Vader ve imparatorluk kuvvetleri tarafından geminin tamamı aranmasına rağmen Ölüm Yıldızının çalınmış planları bir türlü bulunamaz. Her ne kadar asilerden biri olduğu bilinse de (henüz Dart Vader tarafından ispatlanamamış) Prenses Leia diplomatik bir resmi görevde olduğunu söylemiş ve kendilerine böyle bir verinin gelmediğini iddia etmiştir. Yapılan incelemede gemiden böyle bir verinin aktarıldığını gösteren bir bilgiye de rastlanamamış olması sevgili Vader’ımızı çokça kızdırmıştır.</p>
+<p>Günümüzden 21 sene önce vizyona girmiş olan <a href="https://en.wikipedia.org/wiki/Star_Wars:_Episode_I_%E2%80%93_The_Phantom_Menace">The Phantom Menace</a> filmi her ne kadar modern şifrelemeyi doğrudan etkilememiş olsa da bu bir grup kişiye yıllar önce izlemiş ve beğenmiş oldukları orijinal üçlemenin ilk filmini ve bence ilk sahnesini hatırlamalarına neden oldu. O dönem gelişmekte olan gizlilik, anonimlik ve güvenlik düşünceleri neticesinde filmi izledikten sonra eski günleri yad etmek ve düşüncelerini paylaşmak için bir kafede bir araya geldiler. Genel arkadaş muhabbetinden ve havadan sudan konuşulduktan sonra aralarından biri konuşmanın ve bence tarihin de seyrini değiştiren şu soruyu sordu:</p>
+<blockquote>
+<p>How can I keep communication private and secure when sending Death Star’s stolen blueprints ?</p>
+</blockquote>
+<p>Arkadaş grubu önce bir sessizliğe büründü ve soruyu soran kişi aynı ses tonuyla soruyu tekrarladı ve bu sefer sonuna <strong>“But without using R2-D2 or any kind of Droid :D”</strong> ekledi. Grupta yükselen gülüşmelerin ve filmle ilgili ardı ardına söylenen repliklerin ardından gruptaki kişiler birbirlerine bakarak bu soruna nasıl bir çözüm bulabileceklerini veya bunu kimin yapabileceğini düşünmeye koyuldular. Çok geçmeden bu soruya cevap bulabilecek kişilerin aslında bu sorunu ilk farkeden kişiler yani grup arkadaşları olduğunu anladılar. Hepsi ülkelerinde önemli üniversitelerden mezun olmuş ve alanlarında uzmanlaşmak, kendilerini geliştirmek için akademik kariyerlerine devam etmişlerdi. O dönem için böyle bir projenin yapılması için gerekli tüm matematiksel sorunların çözümü ile bilgisayarda yapılması gereken kodlamanın altından grup olarak kalkabileceklerini düşündüler. Grup olarak önce kullanıcıdan kaynaklı çözüm yöntemleri ile başlayıp ardından sunucular ve genele inen bir proje planı yaptılar. İlk olarak PGP (Pretty Good Privacy) adı ile anılan ve ilk dökümanlarının yayımlanmasının üzerinden neredeyse 8 sene geçmiş bir veri şifreleme-çözme yöntemi üzerinde durdular. Bu yöntemin (günümüzde nispeten daha güvenli olan) mail alışverişi sırasında kullanılmasının taraflar arasındaki gizliliği artıracağını düşündüler. Böylece kendilerine sormuş oldukları sorunun “güvenlik” kısmını irdelemeye başladılar ve bu başlangıç onları hiç tahmin edemeyecekleri yerlere ve kişilere götürdü. Onlar seçimini kırmızı hapı almaktan yana kullandılar. Böylece bilgisayardaki harikalar diyarının ve tavşan deliğinin ne kadar derin olduğunu tüm insanlara gösterme imkanı buldular. Yazı her ne kadar Star Wars filmi ile ilişkisi üzerinden devam etmiş olsa da Matrix filminin de aynı dönemde vizyona girdiği düşünüldüğünde böyle bir baş yapıttan etkilenilmediğini düşünmek yanlış olur.</p>
+<p>Eğer yazının bu kısmına kadar gelmeyi başardıysanız merakınızın sizi bir yerlere sürüklediğini, siz istediğiniz ve ben kendimde yazma kuvveti bulduğum sürece bu tavşan deliğinin ne kadar derin olabileceğini birlikte keşfedeceğimizi anlamışsınızdır. Eğer her yerde anlatılan alışılmış hikayelerin ve kalıplaşmış kabullerin ötesinde bilgisayar ve insan arasındaki ilişkinin nasıl işlediğini, arka planda neler olduğunu öğrenmek istiyorsanız beni Twitter&rsquo;dan ve şu an bulunduğunuz medium sitesinden takip edebilirsiniz. Sizlere şimdilik “her x günde veya x haftada bir yazı” şeklinde bir söz veremiyorum. Sizlere karşı verebileceğim tek söz benden bir şey beklemezseniz sizi bu konuda hayal kırıklığına da uğratamayacağım olacaktır. Yazı bitti. After credit sahnesini izlemek isteyenler için videomuza geçiyoruz.</p>
+<p>NOT: Bu yazı daha önce şahsi medium.com adresimde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
+]]></content:encoded></item></channel></rss>

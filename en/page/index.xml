@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Pages on Wise</title><link>https://wiseweb-works.github.io/blog/en/page/</link><description>Recent content in Pages on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 01 Dec 2021 23:58:00 +0100</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/en/page/index.xml" rel="self" type="application/rss+xml"/><item><title>Contact</title><link>https://wiseweb-works.github.io/blog/en/page/iletisim/</link><pubDate>Wed, 01 Dec 2021 23:58:00 +0100</pubDate><guid>https://wiseweb-works.github.io/blog/en/page/iletisim/</guid><description>Welcome to my web page where I write some of my projects with my concerns about privacy, security and internet in today&amp;rsquo;s world. This web page has been created for the purpose of both creating my personal portfolio and sharing information. ​ ​ If there is a topic that interests you in what I have written, I welcome your ideas and of course your Github pull requests.
-If you want to contact me:</description></item></channel></rss>
+If you want to contact me:</description><content:encoded><![CDATA[<p>Welcome to my web page where I write some of my projects with my concerns about privacy, security and internet in today&rsquo;s world. This web page has been created for the purpose of both creating my personal portfolio and sharing information.
+​ ​
+If there is a topic that interests you in what I have written, I welcome your ideas and of course your Github pull requests.</p>
+<p>If you want to contact me:</p>
+<p><strong>email</strong> wisewebworks[at]outlook.com<br>
+<strong>mastodon</strong> fosstodon.org/@wise<br>
+<strong>xmpp</strong> wise[at]yax.im</p>
+<p><em>My Blog supports <a href="https://wiseweb-works.github.io/blog/index.xml">RSS</a>. If you wish, you can register via the RSS reader you are using.</em></p>
+<hr>
+<p>Thank you dear Ged <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> for inspiring me to create a web page that is not unnecessarily large, does not bother users with additional components and a long load time. This club supports the internet and protecting users from unnecessarily large sites.</p>
+<p>This site was created using <a href="https://gohugo.io/">Hugo</a> and with the theme <a href="https://github.com/adityatelange/hugo-PaperMod/">PaperMod</a>. Also, this site is a Green Member of <a href="https://512kb.club/">512kbClub</a> with its size below 100kb.</p>
+<p><img loading="lazy" src="https://512kb.club/assets/images/green-team.svg" alt="512kbClub"  />
+</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://yunbere.hayalmasal.org/">https://yunbere.hayalmasal.org/</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+]]></content:encoded></item></channel></rss>

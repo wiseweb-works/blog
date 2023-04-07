@@ -1,1 +1,100 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>gizlilik on Wise</title><link>https://wiseweb-works.github.io/blog/tags/gizlilik/</link><description>Recent content in gizlilik on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 10 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/gizlilik/index.xml" rel="self" type="application/rss+xml"/><item><title>PGP nedir ve gerçekten de oldukça iyi bir gizlilik sağlıyor mu?</title><link>https://wiseweb-works.github.io/blog/post/pgp-ve-gizlilik/</link><pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/pgp-ve-gizlilik/</guid><description>PGP Türkçede oldukça iyi gizlilik anlamına gelen Pretty Good Privacy kelimesinin baş harflerinde oluşturulmuş bir veri şifreleme, şifre çözme ve verileri elektronik olarak imzalama programıdır. Phil Zimmermann tarafından 90&amp;rsquo;lı yılların başında akademik bir makale olarak ortaya çıkmış ve yayımlandığı dönemden çok sonra gerçekten kullanılmaya ve getirilerinden yararlanılmaya başlanmıştır. Söz konusu program ilk ortaya çıktığı zamanlarda bir ihtiyacın kendisini ortaya çıkmaya zorlamasından ziyade daha çok bir düşünce deneyi olarak iletişimin her iki tarafı arasındaki verilerin şifrelenebileceği ve bunun nasıl yapılması gerektiği sorusu üzerine ortaya çıkmıştır.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>gizlilik on Wise</title><link>https://wiseweb-works.github.io/blog/tags/gizlilik/</link><description>Recent content in gizlilik on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 10 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/gizlilik/index.xml" rel="self" type="application/rss+xml"/><item><title>PGP nedir ve gerçekten de oldukça iyi bir gizlilik sağlıyor mu?</title><link>https://wiseweb-works.github.io/blog/post/pgp-ve-gizlilik/</link><pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/pgp-ve-gizlilik/</guid><description>PGP Türkçede oldukça iyi gizlilik anlamına gelen Pretty Good Privacy kelimesinin baş harflerinde oluşturulmuş bir veri şifreleme, şifre çözme ve verileri elektronik olarak imzalama programıdır. Phil Zimmermann tarafından 90&amp;rsquo;lı yılların başında akademik bir makale olarak ortaya çıkmış ve yayımlandığı dönemden çok sonra gerçekten kullanılmaya ve getirilerinden yararlanılmaya başlanmıştır. Söz konusu program ilk ortaya çıktığı zamanlarda bir ihtiyacın kendisini ortaya çıkmaya zorlamasından ziyade daha çok bir düşünce deneyi olarak iletişimin her iki tarafı arasındaki verilerin şifrelenebileceği ve bunun nasıl yapılması gerektiği sorusu üzerine ortaya çıkmıştır.</description><content:encoded><![CDATA[
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/VGz1dZ4Sg-g" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>PGP Türkçede oldukça iyi gizlilik anlamına gelen Pretty Good Privacy kelimesinin baş harflerinde oluşturulmuş bir veri şifreleme, şifre çözme ve verileri elektronik olarak imzalama programıdır. <a href="https://tr.wikipedia.org/w/index.php?title=Phil_Zimmermann&amp;action=edit&amp;redlink=1">Phil Zimmermann</a> tarafından 90&rsquo;lı yılların başında akademik bir makale olarak ortaya çıkmış ve yayımlandığı dönemden çok sonra gerçekten kullanılmaya ve getirilerinden yararlanılmaya başlanmıştır. Söz konusu program ilk ortaya çıktığı zamanlarda bir ihtiyacın kendisini ortaya çıkmaya zorlamasından ziyade daha çok bir düşünce deneyi olarak iletişimin her iki tarafı arasındaki verilerin şifrelenebileceği ve bunun nasıl yapılması gerektiği sorusu üzerine ortaya çıkmıştır. Ortaya çıkışının ardından gönderilen verilen şifrelenmesinin ve şifresinin taraflarca çözülmesinin yanına bir de verinin bütünlüğünün korunmasını sağlayan özet fonksiyonu ve mesajı gönderen kişinin kimliğinin doğrulanması sağlayan (ve kimi zaman inkar edilemezlik olarak da anılan) imzalama özelliği eklenmiştir. Ortaya çıktığı dönemde ve sonrasında açık kaynak kodlu olarak yayımlanmaya devam etmiş ve günümüzde OpenPGP adı altında gelişerek faaliyetlerine devam etmektedir. PGP’nin ortaya çıktığı 1991 yılından 6 sene sonra yani 1997 yılında kendilerine Internet Engineering Task Force (görev gücü biraz abartı olmadı :D) adını veren bir çalışma grubu PGP programının sağlamış olduğu şifreleme özelliklerinin piyasa standartı haline gelmesi ve kullanımının kolaylaştırılması için yazılar yayımlamaya başladılar.</p>
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption_hu3677818776f4d535166a33810de689ab_17383_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption_hu3677818776f4d535166a33810de689ab_17383_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption_hu3677818776f4d535166a33810de689ab_17383_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption_hu3677818776f4d535166a33810de689ab_17383_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption_hu3677818776f4d535166a33810de689ab_17383_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption_hu3677818776f4d535166a33810de689ab_17383_500x0_resize_q50_h2_linear_3.webp 500w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+
+<p>PGP’nin şifreleme ve şifre çözme özelliklerinin nasıl çalıştığını ve internet alemi için neden bu kadar büyük bir atılım anlamına geldiğini insanlara anlatmaya başladılar. PGP asimetrik şifreleme denilen ve günümüzde internet tarayıcılarından elektronik imza ile girişi destekleyen tüm internet sitelerinde ve özellikle bankalarda kullanılan bir şifreleme/şifre çözme şeklidir. Asimetrik şifrelemeden kısaca bahsedersek eğer (sadece asimetrik şifrelemeyi tüm detaylarıyla anlatan bir yazı da gelecek) şifrelemeyi yapan anahtar ile şifrelenmiş veriyi açacak olan anahtarın farklı olduğu ve birbirlerinden üretildiği bir şifreleme türüdür. Bu şifreleme türünde sizin public (genel) anahtarınız ve private (gizli) anahtarınız mevcuttur. Bu anahtarlardan birisi ile yapılan şifrelemeyi aynı anahtar açamayıp sadece diğer anahtar ile açılması/çözülmesi mümkündür. Daha kolay anlaşılması için bir örnek üzerinden gidelim. Eskiden çelik kapılarda ve kepenklerde bolca kullanılan asma kilitleri gözümüzün önüne getirelim. Şimdi bu kilitler üretildiği zaman bu kilidi açabilecek anahtar da yanında üretilip son kullanıcıya yanında veriliyor. Bana şifreli bir şekilde bir yazı veya bir dosya göndermek istediğinizi düşünelim. Görece olarak güvenli bulduğunuz bir kutuya bana göndermek istediğiniz dosyaları koyup daha sonra da benden almış olduğunuz şahsi asma kilidimi üzerine takıyorsunuz. Bu aşamada benim size vermiş olduğum tek şey bir asma kilit ve anahtarlar hala bende. Kutu kapatıldıktan ve asma kilit üzerine takıldıktan sonra asma kilidin demirlerini ittirerek içine geçirip kutuyu tamamen kilitli bir hale getiriyorsunuz. Bu aşamadan sonra size vermiş olduğum asma kilidi kullanarak kutuyu açma imkanınız yok hatta içine koyduğunuz şeyleri de artık kapattıktan sonra tekrar değiştirmeniz mümkün değil. Benim aynı asma kilitten yüzlercesine sahip olduğumu ve hepsinin aynı ve sadece bende olan bir anahtar ile açıldığını düşündüğünüzde etrafımdaki insanlara anahtarsız bir asma kilit vermenin çok da sorun olmayacağından emin olabilirsiniz. Asimetrik anahtar ile şifreleme yapılırken de gizli (private) anahtarınız ile yüzlerce genel (public) anahtar üretebilirsiniz fakat private keyiniz her zaman için tekdir. Artık benim kilidim ile kilitlenmiş kutuyu bana göndermeniz ve benim de onu kendime ait gizli anahtar ile açmam sonucunda güvenli bir şekilde bir iletişim sağlamış olduk.</p>
+<p>PGP’nin bize sağlamış olduğu bir anahtar ile şifreleyip sadece diğer anahtar ile o verinin açılabilmesi özelliği dönemi için çok üst düzey bir şifreleme ve güvenlik işleviydi. Şifreleme için kullanılan anahtarların uzunluğu 2048 Bit, 3072 Bit ve 4096 Bit boyutundaydı. 1 Bitin 8 Bayt olduğunu düşünürseniz bu sayıların hem bir insan için hem de o dönemin bilgisayarları için oldukça büyük sayılar olduğunu anlamışsınızdır. O dönem daha hızlı olması (düşündüğünüz kadar hızlı değil) için en düşük anahtar boyutu olan 2048 Bit kullanılmış olup genel olarak gönderilen maillerin içeriğinin (sadece içerik kısmı) ve ekte gönderilen dosyaların şifrelenmesi şeklinde kullanılmıştır. 2048 Bit yerine en yüksek anahtar boyutu olan 4096 Bit kullanıldığı zaman her ne kadar anahtar boyutu 2 kat artmış olsa da hız yerine göre 4 ile 10 kat arasında azalmaktaydı. Ortalama 200–400 karakterden oluşan bir salt yazının şifrelenmesi sırasında en düşük anahtar boyutu ile şifrelenmesi bilgisayarınızın gücüne bağlı olarak 1 ila 10 sn arasında değişebiliyordu. Bu nedenle daha uzun anahtar boyutuna sahip 4069 Bit’in şifreleme süreci çok uzun sürmekteydi. Şimdi bakıldığında 1–2 dk gibi süreler çok kısa gibi gelse de sadece bir metni göndermek için bu kadar beklemenizin gerekiyor olması o dönem için gerçekten can sıkıcıydı. Üstelik sizin şifreleme sürecinde beklediğiniz kadar da şifrelemeyi çözecek anahtara sahip kişiyi de çözüm sırasında bekletiyordunuz.</p>
+<p>PGP ile veri gönderilmesi ile ilgili bir örnek ile devam edelim. Mesela sizin için çok önemli olan bir veriyi göndermek istiyorsunuz. Önce farazi olarak (umarım nükleer fırlatma kodları değildir) bir yazılı metin seçelim. Benim seçtiğim veri:</p>
+<blockquote>
+<p>“u, iki u daha, birincisi küçük u, ikincisi büyük u, 1 j, 3 3 3( üç tane 3 rakamı ama üçüncüsü küçük 3), yumuşak g, 6 a, k, küçük hığıı, 6 milyon. iki milyar. ama iki milyar yazıyla” ALINTI</p>
+</blockquote>
+<p>Önce bu veriyi… arkadaşlar yazıyı yazarken sıkıldım. Kusura bakmayın bunu da bu kadar anlatmış olayım. Ben keyfime düşkün bir adamım sıkılınca yapamıyorum.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/Z8aqzdARZns" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>NOT: Bu yazı daha önce şahsi medium.com adresimde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
+]]></content:encoded></item></channel></rss>

@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Pages on Wise</title><link>https://wiseweb-works.github.io/blog/de/page/</link><description>Recent content in Pages on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 01 Dec 2021 23:58:00 +0100</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/de/page/index.xml" rel="self" type="application/rss+xml"/><item><title>Kontakt</title><link>https://wiseweb-works.github.io/blog/de/page/iletisim/</link><pubDate>Wed, 01 Dec 2021 23:58:00 +0100</pubDate><guid>https://wiseweb-works.github.io/blog/de/page/iletisim/</guid><description>Willkommen auf meiner Webseite, auf der ich einige meiner Projekte mit meinen Bedenken zu Datenschutz, Sicherheit und Internet in der heutigen Welt schreibe. Diese Webseite wurde erstellt, um sowohl mein persönliches Portfolio zu erstellen als auch Informationen zu teilen. ​ ​ Wenn es ein Thema gibt, das Sie in dem, was ich geschrieben habe, interessiert, freue ich mich über Ihre Ideen und natürlich über Ihre Github-Pull-Requests.
-Wenn Sie mich kontaktieren möchten:</description></item></channel></rss>
+Wenn Sie mich kontaktieren möchten:</description><content:encoded><![CDATA[<p>Willkommen auf meiner Webseite, auf der ich einige meiner Projekte mit meinen Bedenken zu Datenschutz, Sicherheit und Internet in der heutigen Welt schreibe. Diese Webseite wurde erstellt, um sowohl mein persönliches Portfolio zu erstellen als auch Informationen zu teilen.
+​ ​
+Wenn es ein Thema gibt, das Sie in dem, was ich geschrieben habe, interessiert, freue ich mich über Ihre Ideen und natürlich über Ihre Github-Pull-Requests.</p>
+<p>Wenn Sie mich kontaktieren möchten:</p>
+<p><strong>E-Mail</strong> wisewebworks[at]outlook.com<br>
+<strong>Mastodon</strong> fosstodon.org/@wise<br>
+<strong>xmpp</strong> wise[at]yax.im</p>
+<p><em>Mein Blog unterstützt <a href="https://wiseweb-works.github.io/blog/index.xml">RSS</a>. Wenn Sie möchten, können Sie sich über den von Ihnen verwendeten RSS-Reader anmelden.</em></p>
+<hr>
+<p>Danke, lieber Ged <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, dass du mich dazu inspiriert hast, eine Webseite zu erstellen, die nicht unnötig groß ist, die Benutzer nicht mit zusätzlichen Komponenten und einer langen Ladezeit nervt. Dieser Club unterstützt das Internet und schützt Benutzer vor unnötig großen Seiten.</p>
+<p>Diese Seite wurde mit <a href="https://gohugo.io/">Hugo</a> und mit dem Theme <a href="https://github.com/adityatelange/hugo-PaperMod/">PaperMod</a> erstellt. Außerdem ist diese Website ein grünes Mitglied von <a href="https://512kb.club/">512kbClub</a> mit einer Größe von weniger als 100 KB.</p>
+<p><img loading="lazy" src="https://512kb.club/assets/images/green-team.svg" alt="512kbClub"  />
+</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://yunbere.hayalmasal.org/">https://yunbere.hayalmasal.org/</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+]]></content:encoded></item></channel></rss>

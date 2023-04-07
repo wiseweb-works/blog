@@ -1,1 +1,326 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>audit on Wise</title><link>https://wiseweb-works.github.io/blog/de/tags/audit/</link><description>Recent content in audit on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 12 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/de/tags/audit/index.xml" rel="self" type="application/rss+xml"/><item><title>Erhöhung der SSL-Sicherheit auf Linux-Servern</title><link>https://wiseweb-works.github.io/blog/de/post/ssl-konfigurasyonu/</link><pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/de/post/ssl-konfigurasyonu/</guid><description>Erhöhung der SSL-Sicherheit auf Linux-Servern Wenn Sie heute eine Website und/oder App auf Ihrem aktuellen Server betreiben, werde ich über die benötigte SSL-Verbindung und die damit verbundene openssl-Bibliothek sprechen. SSL (Secure Socket Layer) und TLS (Transport Layer Security) sind eine Form der Verbindung, die es Personen, die sich mit Ihrem Server verbinden möchten, ermöglicht, sicher mit Ihrer Website zu kommunizieren. In der Vergangenheit gab es Versionen von SSL v1 bis v3, und während Websites im Allgemeinen diese SSL-Versionen verwenden, wurde SSL jetzt von den Websites aufgegeben und durch das sicherere TLS ersetzt.</description></item><item><title>Erhöhung der SSH-Sicherheit auf Linux-Servern</title><link>https://wiseweb-works.github.io/blog/de/post/ssh-guvenligi/</link><pubDate>Tue, 05 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/de/post/ssh-guvenligi/</guid><description>Erhöhung der SSH-Sicherheit auf Linux-Servern Heute werde ich darüber sprechen, wie wir den SSH-Dienst, der es uns ermöglicht, eine sichere Verbindung herzustellen, wenn Sie einen Server mieten, sicherer und fern von böswilligen Anfragen von außen halten können. In erster Linie werde ich den Prozess unter drei verschiedenen Überschriften beschreiben: einfach, empfohlen und fortgeschritten. Titelinhalte werden sukzessive nach persönlichen Anforderungen berücksichtigt. Obwohl die Titel miteinander verknüpft sind, ist es kein Problem, sie in einem gewünschten Stadium zu belassen.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>audit on Wise</title><link>https://wiseweb-works.github.io/blog/de/tags/audit/</link><description>Recent content in audit on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 12 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/de/tags/audit/index.xml" rel="self" type="application/rss+xml"/><item><title>Erhöhung der SSL-Sicherheit auf Linux-Servern</title><link>https://wiseweb-works.github.io/blog/de/post/ssl-konfigurasyonu/</link><pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/de/post/ssl-konfigurasyonu/</guid><description>Erhöhung der SSL-Sicherheit auf Linux-Servern Wenn Sie heute eine Website und/oder App auf Ihrem aktuellen Server betreiben, werde ich über die benötigte SSL-Verbindung und die damit verbundene openssl-Bibliothek sprechen. SSL (Secure Socket Layer) und TLS (Transport Layer Security) sind eine Form der Verbindung, die es Personen, die sich mit Ihrem Server verbinden möchten, ermöglicht, sicher mit Ihrer Website zu kommunizieren. In der Vergangenheit gab es Versionen von SSL v1 bis v3, und während Websites im Allgemeinen diese SSL-Versionen verwenden, wurde SSL jetzt von den Websites aufgegeben und durch das sicherere TLS ersetzt.</description><content:encoded><![CDATA[<h1 id="erhöhung-der-ssl-sicherheit-auf-linux-servern">Erhöhung der SSL-Sicherheit auf Linux-Servern</h1>
+<p>Wenn Sie heute eine Website und/oder App auf Ihrem aktuellen Server betreiben, werde ich über die benötigte SSL-Verbindung und die damit verbundene openssl-Bibliothek sprechen. SSL (Secure Socket Layer) und TLS (Transport Layer Security) sind eine Form der Verbindung, die es Personen, die sich mit Ihrem Server verbinden möchten, ermöglicht, sicher mit Ihrer Website zu kommunizieren. In der Vergangenheit gab es Versionen von SSL v1 bis v3, und während Websites im Allgemeinen diese SSL-Versionen verwenden, wurde SSL jetzt von den Websites aufgegeben und durch das sicherere TLS ersetzt. Wir müssen jedoch weiterhin das Wort &ldquo;ssl&rdquo; im erläuternden Teil und beim Bearbeiten der Konfigurationsdateien verwenden. Um Ihnen das mit ein wenig Humor zu sagen, haben Sie jemals darüber nachgedacht, warum, wenn Sie die 64-Bit-Version einer Anwendung herunterladen möchten, warum sie &ldquo;amd_64&rdquo; heißt? Da AMD als erster auf 64 Bit umgestiegen ist, blieb diese Namensgebung als Zeichen des Respekts und/oder der Gewohnheit bei amd_64. Auch wenn wir derzeit TLS verwenden, bleiben die Benennungs- und Konfigurationsparameter „SSL“.</p>
+<p>Wie in unserem vorherigen Artikel werde ich den Prozess noch einmal unter drei verschiedenen Überschriften als einfach, empfohlen und fortgeschritten erklären. Titelinhalte werden sukzessive nach persönlichen Anforderungen berücksichtigt. Obwohl die Titel miteinander verknüpft sind, ist es kein Problem, sie in einem gewünschten Stadium zu belassen.</p>
+<h2 id="einfache-konfiguration">Einfache Konfiguration</h2>
+<p>Zuerst müssen wir die Updates über die Konsole mit dem Paketmanager der Linux-Version installieren, in der wir uns befinden.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Ubuntu: sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt upgrade -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Fedora: sudo yum update -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Arch Linux: sudo pacman -Syyu
+</span></span></code></pre></div><p>Nachdem die Updates installiert sind, beginnen wir mit der Konfiguration des nginx/Apache-Dienstes (das ist der Dienst, der es Ihnen ermöglicht, externe Webverbindungen zu empfangen) auf Ihrem Server (in meinem Fall Ubuntu). Die Datei, in der die Nginx-Diensteinstellungen gespeichert sind, befindet sich im Allgemeinen unter „/etc/nginx/nginx.conf“. Wir müssen es mit einem der von uns verwendeten Texteditoren öffnen, jedoch mit einem Benutzer mit sudo-Rechten (dh Administratorrechten).</p>
+<p>Wenn wir mit Ubuntu fortfahren (Single IP for Single Server Configuration)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/nginx/nginx.config <span style="color:#75715e"># Befehl zum Öffnen der Einstellungsdatei</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Zu ergänzende Titel (gegebenenfalls geändert)
+</span></span><span style="display:flex;"><span>hören 443 ssl http2; &gt;&gt; Es dient dazu, die Anfragen zu erfüllen, die über IPv4 mit dem http2-Protokoll an Port 443 kommen, und eine SSL-Verbindung aufzubauen.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hören [::]:443 ssl http2; &gt;&gt; Es dient dazu, die an Port 443 eingehenden Anfragen über IPv6 mit http2-Protokoll zu erfüllen und eine SSL-Verbindung herzustellen. (Wenn Sie keine IPv6-Unterstützung haben oder sie nicht nativ unterstützen möchten, können Sie sie entfernen.)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>server_name IHR SERVER_NAME; &gt;&gt; Wenn Sie Ihren Servernamen nicht als Standard festlegen möchten, können Sie einen Servernamensindikator angeben. Dies dient nur dazu, die an Ihren Servernamen eingehenden Anforderungen zu erfüllen, anstatt alle eingehenden Anforderungen zu erfüllen.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_certificate /etc/letsencrypt/live/YOURSERVER_NAME/fullchain.pem; &gt;&gt; Wenn Sie Let&#39;s Encrypt für kostenloses SSL verwenden, ist dies der Standardspeicherort für das Zertifikat. Andernfalls ersetzen Sie es durch Ihre eigene Zertifikatsdatei.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_certificate_key /etc/letsencrypt/live/YOURSERVER_NAME/privkey.pem; &gt;&gt; Wenn Sie Let&#39;s Encrypt für kostenloses SSL verwenden, ist dies der Standardspeicherort für private Schlüssel. Ersetzen Sie es andernfalls durch Ihren eigenen Speicherort der privaten Schlüsseldatei.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_protocols TLSv1.3 TLSv1.2; &gt;&gt; Erforderlicher Befehl, um nur die neuesten und zuverlässigsten TLS-Protokolle zu akzeptieren.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_prefer_server_ciphers on; &gt;&gt; Während des Gesprächs zwischen dem Server und dem Client, schätze ich, dass sie über &#34;ok, mal sehen, was wir haben&#34; gesprochen haben. Kurz gesagt, wenn es für Sie funktioniert, wenn es für Sie nicht funktioniert, rede ich nicht.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_ecdh_curve secp521r1:secp384r1; &gt;&gt; Es ist der Befehl, der uns sagt, welche Kurven wir bevorzugen, wenn wir Ekliptikkurven verwenden müssen.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_chiffren DH-RSA-AES256-SHA:DH-RSA-AES256-SHA256:DHE-RSA-AES256-GCM-SHA384:DH-RSA-AES256-GCM-SHA384:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_PODSADHESA:25_SHA256 -ECDSA-AES256 -RSA-AES256-SHA:AECDH-AES256-SHA:ECDHE-ECDSA-AES256-SHA384:ECDH-ECDSA-AES256-SHA384:ECDH-RSA-AES256-SHA384:ECDHE-ECDSA-AES256 -GCM-SHA384:ECDH-ECDSA -AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDH-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-CCM:DHE-RSA-AES256-CCM8 :ECDHE-ECDSA-AES256-CCM :ECDHE-ECDSA-AES256-CCM8:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-CHACHA20-POLY1305:DHE-RSA-CHACHA20-POLY1305; &gt;&gt; Der Code, der den Server anweist, nur die SSL-Algorithmen zu verwenden, die ich am zuverlässigsten finde.
+</span></span></code></pre></div><p>Alle Chiffren für diejenigen, die einzeln recherchieren wollen: &ldquo;<a href="https://testssl.sh/openssl-iana.mapping.html%22">https://testssl.sh/openssl-iana.mapping.html&quot;</a></p>
+<p>Wenn Sie nach dem Vornehmen der Einstellungen überprüfen möchten: Sie können den Befehl „sudo nginx -t“ verwenden. Wenn Sie keine Fehlermeldung sehen, können Sie die Einstellungen übernehmen und den Dienst mit dem Befehl &ldquo;sudo systemctl restart nginx&rdquo; oder &ldquo;sudo service nginx restart&rdquo; neu starten.</p>
+<h2 id="empfohlene-einstellungen">Empfohlene Einstellungen</h2>
+<p>Zusätzlich zu den vorherigen Einstellungen werden wir einige Leistungsverbesserungen sowie einige zusätzliche Konfigurationen vornehmen, die es Ihrer Website ermöglichen, auf SSL-Testseiten einen höheren Rang einzunehmen. Danach werden wir einige Verbesserungen vornehmen, um sicherzustellen, dass einige Header und Ressourcen Ihrer Website nicht von Websites Dritter ausgenutzt werden, was für den Benutzerzugriff Ihrer Website von Vorteil ist.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Zu ergänzende Titel (gegebenenfalls geändert)
+</span></span><span style="display:flex;"><span>ssl_session_cache freigegeben:TLS:2m; &gt;&gt; Code, der angibt, wie TLS-Verbindungen auf Worker (nginx-Worker) verteilt werden und wie lange die Verbindungen geteilt werden
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_buffer_size 4k; &gt;&gt; Der Code, der angibt, in wie viele Container die Pakete aufgeteilt werden, wenn auf SSL-Anfragen geantwortet und Pakete nach dem Handshake gesendet werden. Ein niedrigerer Wert bedeutet, dass mehr Pakete gesendet werden, aber weniger Overhead.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_stapling an; &gt;&gt; Aktiviert die OCSP-Heftfunktion
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssl_stapling_verify an; Aktiviert die Möglichkeit, das OCSP-Heften zu überprüfen, einschließlich auf übergeordneten und Stammservern.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Resolver 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001; &gt;&gt; Aktiviert die OCSP-Stapling-Überprüfung mit Cloudlfare. Wenn Sie IPv6 nicht verwenden oder es nicht nativ unterstützen möchten, können Sie die IPv6-Adressen löschen.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header X-Content-Type-Options &#34;nosniff&#34; immer; &gt;&gt; Es ist der Header-Wert, der Browser daran hindert, MIME-Inhalte zu verstehen.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header X-Xss-Protection &#34;1; mode=block&#34; immer; &gt;&gt; Es handelt sich um einen Titel, der die Schwachstelle bis zu einem gewissen Grad verhindert, indem er Benutzern ermöglicht, einen weißen Bildschirm in einer möglichen XSS-Schwachstelle zu sehen.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header X-Frame-Optionen &#34;SAMEORIGIN&#34; immer; &gt;&gt; Es verhindert in irgendeiner Weise, dass eine Seite Ihres Servers auf einer anderen Seite angezeigt und/oder nacheinander mit einem i-Frame-Code usw. veröffentlicht wird. Nur Sie können ein Fenster von Ihrer eigenen Site innerhalb Ihrer eigenen Site veröffentlichen.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header Referrer-Policy &#34;no-referrer-when-downgrade&#34; immer; &gt;&gt; Wenn Sie auf eine Website mit geringeren Sicherheitsmaßnahmen umleiten oder verlinken, wird nicht automatisch ein Referrer-Header hinzugefügt und es ist nicht klar, dass der Datenverkehr von Ihrer Website kommt.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header Content-Security-Policy &#34;default-src &#39;self&#39; https: data: &#39;unsafe-inline&#39; &#39;unsafe-eval&#39;;&#34; immer; &gt;&gt; Der Titel, der die Bedingungen regelt, unter denen Anfragen, die Sie und andere Benutzer von außen anrufen können, aufgerufen werden können. Standardmäßig vertraue ich einigen Quellen, die über https kommen.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header Berechtigungsrichtlinie &#34;Kamera=(), Vollbild=(self), Geolocation=(), Mikrofon=(), Zahlung=()&#34; immer; &gt;&gt; Es verhindert das Sammeln von Informationen auf Ihrer Website mit verschiedenen Arten von Vergiftung (Cache-Vergiftung oder js-Vergiftung), indem es angibt, welche Berechtigungen Sie für den Browser wünschen oder welche Sie überhaupt nicht benötigen.
+</span></span></code></pre></div><p>Wenn Sie nach dem Vornehmen der Einstellungen überprüfen möchten: Sie können den Befehl „sudo nginx -t“ verwenden. Wenn Sie keine Fehlermeldung sehen, können Sie die Einstellungen übernehmen und den Dienst mit dem Befehl „sudo systemctl restart nginx“ oder „sudo service nginx restart“ neu starten.</p>
+<h2 id="erweiterte-einstellungen">Erweiterte Einstellungen</h2>
+<p>Zunächst fügen wir Ihrer Website einen Header hinzu, um anzuzeigen, dass sie nur über SSL verbunden werden soll. Auf diese Weise können diejenigen, die Ihre Website zuvor aufgerufen haben, und diejenigen, die diesen Titel bereits in ihrem Browser haben, nicht ohne SSL auf Ihre Website zugreifen, selbst wenn sie dies wünschen. Dann werden wir die SSL-Zertifikate heften, die in HTTP-Sitzungen verwendet werden sollen, und wir werden im Voraus angeben, welche Zertifikate neben der vorherigen Methode verbunden werden müssen. Selbst wenn Sie ein autorisierter Top-Zertifikatsmanager oder Root-Manager sind, können diese auf diese Weise keine Verbindung zu Ihrer Site mit dem in Ihrem Namen signierten Zertifikat herstellen. E-Tugra-Stammzertifikatanbieter mit Wohnsitz in der Türkei zu diesem Zeitpunkt unterzeichnete ein Zertifikat für *.google.com. Wenn Sie ein wenig recherchieren, werden Sie herausfinden, wann es passiert ist und warum (wie schlimm es sein könnte). Beginnen wir nun mit dem letzten Konfigurationsteil.</p>
+<p>Stellen Sie zunächst sicher, dass Ihre Website problemlos über SSL aufgerufen werden kann. Fügen Sie dann gemäß Ihrer Anfrage einen der folgenden Header zur nginx-Konfigurationsdatei hinzu. Aber Achtung, nur einer.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>add_header Strict-Transport-Security &#34;max-age=2592000;&#34; immer; &gt;&gt; Header, der besagt, dass auf Ihre Website 30 Tage lang nur über HTTPS zugegriffen werden kann. (ohne Subdomains)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header Strict-Transport-Security &#34;max-age=2592000; includeSubDomains;&#34; immer; &gt;&gt; Header, der besagt, dass Ihre Website 30 Tage lang nur über HTTPS aufgerufen werden kann, einschließlich Subdomains.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header Strict-Transport-Security &#34;max-age=31536000; includeSubDomains;&#34; immer; &gt;&gt; Header, der besagt, dass auf Ihre Website 1 Jahr lang nur über HTTPS zugegriffen werden kann, einschließlich Subdomains.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header Strict-Transport-Security &#34;max-age=31536000; includeSubDomains; preload&#34; immer; &gt;&gt; Der Header, der angibt, dass auf Ihre Website 1 Jahr lang nur über HTTPS zugegriffen werden kann, einschließlich Subdomains, und dass dieser Header von Browsern zwischengespeichert wird. Darüber hinaus werden neue Browser diesen Titel erkennen, auch wenn sie Ihre Website noch nie zuvor besucht haben.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>add_header Strict-Transport-Security &#34;max-age=0; includeSubDomains&#34;; &gt;&gt; Titel für das vollständige Entfernen der HSTS-Funktion und der Mitgliedschaft in der Preload-Liste.
+</span></span></code></pre></div><p>Nachdem Sie den oben erwähnten Header hinzugefügt haben, ist es jetzt an der Zeit, den Hash des verwendeten SSL-Zertifikats an die HTTP-Sitzung anzuheften. In diesem Stadium müssen wir einen Hash Ihres aktuellen Zertifikats extrahieren, das Zertifikat der obersten Unterzeichnungsstelle hashen und diesen Hash-Prozess fortsetzen, bis wir die gesamte Kette einschließlich der obersten Stammzertifizierungsstelle abgeschlossen haben. Aus diesem Grund führen wir die folgenden Befehle jeweils mit einem Root-Benutzer oder einem Benutzer mit sudo-Berechtigung aus. (Der Vortrag wurde speziell für Let&rsquo;s Encrypt gemacht.)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>1<span style="color:#f92672">]</span> cat /etc/letsencrypt/live/IHR SERVERNAME/cert.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binär | base64 &gt;&gt; Dieser Befehl extrahiert den Hash des Zertifikats Ihrer Website. Kopieren Sie den Ergebniswert irgendwo hin.
+</span></span><span style="display:flex;"><span>2<span style="color:#f92672">]</span> curl -s https://letsencrypt.org/certs/lets-encrypt-x4-cross-signed.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binär | base64 &gt;&gt; Dieser Befehl extrahiert eines der mehrfach signierten Zertifikate von letsencrypt.
+</span></span><span style="display:flex;"><span>3<span style="color:#f92672">]</span> curl -s https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binär | base64 &gt;&gt; Dieser Befehl extrahiert eines der mehrfach signierten Zertifikate von letsencrypt.
+</span></span><span style="display:flex;"><span>4<span style="color:#f92672">]</span> curl -s https://letsencrypt.org/certs/isrgrootx1.pem | openssl x509 -pubkey | openssl pkey -pubin -outform der | openssl dgst -sha256 -binär | base64 &gt;&gt; Dieser Befehl extrahiert das Stammzertifikat <span style="color:#f92672">(</span>oberstes Zertifikat<span style="color:#f92672">)</span> von letsencrypt.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Der folgende Wert wird der Nginx-Konfigurationsdatei hinzugefügt
+</span></span><span style="display:flex;"><span>5<span style="color:#f92672">]</span> add_header Public-Key-Pins <span style="color:#e6db74">&#39;pin-sha256=&#34;ERSTE_ERGEBNIS&#34;; Pin-sha256 = &#34;ZWEITES_ERGEBNIS&#34;; pin-sha256=&#34;TIP_END&#34;; pin-sha256=&#34;FINISH_RESULT&#34;; Maximalalter = 2592000; includeSubDomains&#39;</span> immer; &gt;&gt; Sie können sich nur mit dem angegebenen Zertifikat <span style="color:#ae81ff">30</span> Tage lang mit Ihrer Website verbinden. Sie können den max-age-Wert optional erhöhen. Bevor die Gültigkeitsdauer Ihres Zertifikats weniger als <span style="color:#ae81ff">30</span> Tage beträgt, müssen Sie die Kopfzeile deaktivieren oder ein neues Zertifikat anfordern und es als fünften Wert hinzufügen.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Als Bonus möchte ich Ihnen einen weiteren Befehl zeigen, dessen Ausführung lange dauert, aber sehr nützlich ist.
+</span></span><span style="display:flex;"><span>6<span style="color:#f92672">]</span> openssl dhparam -out /etc/nginx/dhparams.pem <span style="color:#ae81ff">4096</span> &gt;&gt; Die Ausführung dieses Befehls kann zwischen <span style="color:#ae81ff">15</span> Minuten und <span style="color:#ae81ff">1</span> Stunde dauern.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Nachdem der Vorgang abgeschlossen ist, müssen Sie den folgenden Befehl zur nginx-Konfigurationsdatei hinzufügen.
+</span></span><span style="display:flex;"><span>ssl_dhparam /etc/nginx/dhparam.pem; &gt;&gt; Der Befehl zum Ändern der während des Diffie-Hellman-Schlüsselaustauschalgorithmus zu verwendenden Werte mit den gerade erstellten geheimen Werten, abgesehen von den Standardwerten.
+</span></span></code></pre></div><p>Nachdem Sie die Einstellungen vorgenommen haben, übernehmen Sie die Einstellungen mit dem Befehl „sudo nginx -t“ und dann, wenn Sie keine Fehlermeldung sehen, „sudo service nginx restart“ und starten Sie den Dienst neu. Nun wird die Verbindung mit der von Ihnen festgelegten Konfiguration und Bedingungen bereitgestellt. Wenn Sie den Vorher/Nachher-Bewertungsunterschied sehen möchten, können Sie sich die Bilder unten ansehen oder Ihre eigene Website unter „<a href="https://www.ssllabs.com/ssltest/index.html%E2%80%9C">https://www.ssllabs.com/ssltest/index.html“</a> testen.</p>
+<p>VOR
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_640x0_resize_q50_h2_linear_3.webp 640w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</p>
+<p>NACH
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+    
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+<figure>
+  <div class="img-box">
+    <img
+      srcset="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_640x0_resize_q50_h2_linear_3.webp 640w"
+      sizes="(max-width: 200px) 240px 300px 360px 420px,
+      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
+      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
+      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
+      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
+
+      src="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs.png" alt="" title=""/>
+  </div>
+  <figcaption></figcaption>
+</figure>
+</p>
+<p>Wenn Sie fragen, warum die Cipher-Stärke nicht 100 % beträgt, ist es derzeit nicht möglich, 100 % zu erreichen, da „TLS_AES_128_GCM_SHA256 (0x1301)“ automatisch mit TLS 1.3 geliefert wird und hinzugefügt wird, auch wenn wir es nicht möchten. Wenn Sie denken, dass ich TLS 1.3 abschalte, dann wird es nicht kommen, dann sind Ihre Punkte leider woanders weg.</p>
+<h1 id="ende">Ende</h1>
+<p>Dieser Artikel wurde zuvor unter <a href="https://teknolojirehberleri.xyz">https://teknolojirehberleri.xyz</a> veröffentlicht. Um ein persönliches Portfolio zu erstellen, hatte ich das Bedürfnis, es auf meiner persönlichen Website erneut zu veröffentlichen.</p>
+]]></content:encoded></item><item><title>Erhöhung der SSH-Sicherheit auf Linux-Servern</title><link>https://wiseweb-works.github.io/blog/de/post/ssh-guvenligi/</link><pubDate>Tue, 05 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/de/post/ssh-guvenligi/</guid><description>Erhöhung der SSH-Sicherheit auf Linux-Servern Heute werde ich darüber sprechen, wie wir den SSH-Dienst, der es uns ermöglicht, eine sichere Verbindung herzustellen, wenn Sie einen Server mieten, sicherer und fern von böswilligen Anfragen von außen halten können. In erster Linie werde ich den Prozess unter drei verschiedenen Überschriften beschreiben: einfach, empfohlen und fortgeschritten. Titelinhalte werden sukzessive nach persönlichen Anforderungen berücksichtigt. Obwohl die Titel miteinander verknüpft sind, ist es kein Problem, sie in einem gewünschten Stadium zu belassen.</description><content:encoded><![CDATA[<h1 id="erhöhung-der-ssh-sicherheit-auf-linux-servern">Erhöhung der SSH-Sicherheit auf Linux-Servern</h1>
+<p>Heute werde ich darüber sprechen, wie wir den SSH-Dienst, der es uns ermöglicht, eine sichere Verbindung herzustellen, wenn Sie einen Server mieten, sicherer und fern von böswilligen Anfragen von außen halten können. In erster Linie werde ich den Prozess unter drei verschiedenen Überschriften beschreiben: einfach, empfohlen und fortgeschritten. Titelinhalte werden sukzessive nach persönlichen Anforderungen berücksichtigt. Obwohl die Titel miteinander verknüpft sind, ist es kein Problem, sie in einem gewünschten Stadium zu belassen.</p>
+<h2 id="einfache-sicherheitsvorkehrungen">Einfache Sicherheitsvorkehrungen</h2>
+<p>Zuerst müssen wir die Updates über die Konsole mit dem Paketmanager der Linux-Version installieren, in der wir uns befinden.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Ubuntu: sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt upgrade -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Fedora: sudo yum update -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Arch-Linux: sudo pacman -Syyu
+</span></span></code></pre></div><p>Nachdem die Updates installiert sind, beginnen wir mit der Konfiguration des SSHD-Dienstes (das ist der Dienst, der es Ihnen ermöglicht, SSH-Verbindungen von außen zu empfangen) auf Ihrem Server (in meinem Fall Ubuntu). Vor allem sei aufgrund der Verwirrung angemerkt, dass es sich bei dem ssh-Dienst und dem SSHD-Dienst um unterschiedliche Dienste handelt. Während der SSH-Dienst der Dienst ist, der den Server mit anderen Computern oder Servern verbindet, ist der SSHD-Dienst der Dienst, der es anderen Computern ermöglicht, sich mit Ihrem Server zu verbinden, d. h. eingehende Verbindungen.</p>
+<p>Die Datei, die die Einstellungen des SSHD-Dienstes enthält, befindet sich im Allgemeinen unter „/etc/ssh/sshd_config“. Wir müssen es mit einem der von uns verwendeten Texteditoren öffnen, jedoch mit einem Benutzer mit sudo-Rechten (dh Administratorrechten).</p>
+<p>Wenn wir weitermachen, Ubuntu</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/ssh/sshd_config <span style="color:#75715e"># Befehl zum Öffnen der Einstellungsdatei</span>
+</span></span></code></pre></div><p>Titel werden wir finden und ersetzen</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>#ClientAliveInterval 0 &gt;&gt; Wir entfernen den Hashtag am Anfang und ändern den Wert von „0“ auf 300. Dieser Befehl regelt das automatische Schließen der Verbindung nach wie vielen Sekunden, wenn die Verbindung nicht genutzt wird (sie bleibt im Ruhezustand) .
+</span></span><span style="display:flex;"><span>#PermitEmptyPasswords nein &gt;&gt; Wir entfernen das Hashtag am Anfang und ändern den &#34;nein&#34;-Wert nicht. Dieser Befehl verhindert, dass leere oder unverschlüsselte Benutzer eine Verbindung herstellen. Es erlaubt also keine leeren Passwörter.
+</span></span><span style="display:flex;"><span>X11Forwarding yes &gt;&gt; Wenn am Anfang ein Hashtag steht, entfernen wir es, andernfalls ändern wir den „yes“-Wert auf no. Obwohl dieser Befehl das Ausführen von Anwendungen mit GUI-Schnittstelle auf dem Server erleichtert, schließen wir ihn, da er missbraucht werden kann.
+</span></span><span style="display:flex;"><span>#MaxAuthTries 6 &gt;&gt; Wir entfernen den Hashtag am Anfang und ändern den Wert von „6“ auf 3. Dieser Befehl regelt, wie oft sie Ihr Passwort versuchen dürfen. Die Zahl 6 ist ein unnötig hoher Wert und die allgemeine Akzeptanz liegt bei 3 oder 4.
+</span></span><span style="display:flex;"><span>#Protokol 2 &gt;&gt; Wenn am Anfang ein Hashtag steht, entfernen wir es, wenn es keinen solchen Eintrag gibt, fügen wir den Wert in Form von „Protokol 2“ an das erste Leerzeichen an, das wir finden. Dieser Befehl stellt sicher, dass Verbindungen nur mit dem neuesten SSH-Protokoll hergestellt werden, und schützt Sie so vor Schwachstellen des alten Protokolls.
+</span></span></code></pre></div><p>Wenn Sie nach dem Vornehmen der Einstellungen überprüfen möchten: Sie können den Befehl „sudo sshd -t“ verwenden. Wenn Sie keine Fehlermeldung sehen, können Sie die Einstellungen übernehmen und den Dienst mit dem Befehl &ldquo;sudo systemctl restart sshd&rdquo; oder &ldquo;sudo service sshd restart&rdquo; neu starten.</p>
+<h2 id="empfohlene-einstellungen">Empfohlene Einstellungen</h2>
+<p>Zusätzlich zu den vorherigen Einstellungen werden wir zusätzliche Einstellungen vornehmen, wie z. B. benutzerbasierte Anmeldung, Anmeldung nur mit sicherem Schlüssel und Einschränkung der Anmeldung mit Root-Benutzer. Zuerst müssen Sie einen geheimen Schlüssel für Ihren Benutzer auf Ihrem lokalen Computer generieren. Dazu, wenn Sie ein Linux-basiertes Betriebssystem verwenden</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Nachdem Sie ssh-keygen -t rsa -b 4096 # eingegeben haben, geben Sie das gewünschte Passwort als Antwort auf die folgenden Fragen ein
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;&gt; Passphrase eingeben (leer für keine Passphrase): [Entertaste drücken]
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;&gt; Gleiche Passphrase erneut eingeben: [Entertaste drücken]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>oder
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ssh-keygen -t ecdsa -b 521 # Erzeugt einen sichereren und schnelleren Ekliptikschlüssel. Geben Sie das gewünschte Passwort als Antwort auf die folgenden Fragen ein
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;&gt; Passphrase eingeben (leer für keine Passphrase): [Entertaste drücken]
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;&gt; Gleiche Passphrase erneut eingeben: [Entertaste drücken]
+</span></span></code></pre></div><p>Wenn Sie andere Fragen mit der Eingabetaste beantwortet und keinen bestimmten Speicherort für den Schlüssel eingegeben haben, wird Ihr Schlüsselpaar (.pub=öffentlicher Schlüssel) / privater Schlüssel ohne Erweiterung) im Ordner /home/USER_NAME/.ssh gespeichert. Sie können den folgenden Code verwenden, um den von Ihnen generierten Schlüssel auf Ihrem Server einzuführen.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ssh-copy-id -i ~/.ssh/KEY_NAME.pub Nachdem Sie USER_NAME@SERVER_IP_ADRESS # auf dem SERVER eingegeben haben, werden Sie nach dem Passwort Ihres Benutzers gefragt und wenn Sie es richtig eingeben, sehen Sie eine Bestätigungsnachricht.
+</span></span></code></pre></div><p>Nachdem Sie Ihren eigenen Schlüssel generiert haben, greifen Sie nur mit dem Schlüssel auf den Server zu;
+Titel werden wir finden und ersetzen</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>#PasswordAuthentication no &gt;&gt; Wir entfernen den Hashtag am Anfang und belassen den „no“-Wert auf no. Dieser Befehl verhindert, dass eine Verbindung zum Server mit einem Kennwort hergestellt wird. Benutzer können sich nur mit ssh_keys verbinden.
+</span></span><span style="display:flex;"><span>PubkeyAuthentication yes &gt;&gt; Falls ja, entfernen wir das Rautezeichen am Anfang und setzen den Wert auf yes. Dieser Befehl ist der Befehl, mit dem Sie sich mit dem gerade erstellten geheimen Schlüssel anmelden können.
+</span></span><span style="display:flex;"><span>#PermitRootLogin no &gt;&gt; Wir entfernen den Hashtag am Anfang und belassen den „no“-Wert auf no. Dieser Befehl verhindert, dass der ROOT-Benutzer, der am stärksten autorisierte Benutzer ist, auf den Server zugreift. Sie können jedoch mit einem anderen Benutzer darauf zugreifen und dann zum ROOT-Benutzer wechseln.
+</span></span><span style="display:flex;"><span>AllowUsers IHR BENUTZERNAME &gt;&gt; Falls noch nicht vorhanden, fügen wir einen solchen Eintrag hinzu. Es hindert andere Benutzer daran, sich mit dem Server zu verbinden und/oder einen Benutzernamen zu versuchen.
+</span></span><span style="display:flex;"><span>LoginGraceTime 20 &gt;&gt; Wenn nicht, fügen wir einen solchen Datensatz hinzu und setzen den Wert auf 20. Bestimmt die für die Anmeldung erforderliche Zeit in Sekunden. Wir verhindern, dass sie den Server mit einer langen Anmeldeanfrage beschäftigen.
+</span></span><span style="display:flex;"><span>ChallengeResponseAuthentication no &gt;&gt; Falls ja, entfernen wir das Rautezeichen am Anfang und setzen den Wert auf no. Dieser Befehl deaktiviert andere Anmeldemethoden.
+</span></span><span style="display:flex;"><span>KerberosAuthentication no &gt;&gt; Falls ja, entfernen wir das Rautezeichen am Anfang und setzen den Wert auf no. Dieser Befehl deaktiviert andere Anmeldemethoden.
+</span></span><span style="display:flex;"><span>GSSAPIAuthentication no &gt;&gt; Falls ja, entfernen wir das Rautezeichen am Anfang und setzen den Wert auf no. Dieser Befehl deaktiviert andere Anmeldemethoden.
+</span></span></code></pre></div><p>Wenn Sie nach dem Vornehmen der Einstellungen überprüfen möchten: Sie können den Befehl „sudo sshd -t“ verwenden. Wenn Sie keine Fehlermeldung sehen, können Sie die Einstellungen übernehmen und den Dienst mit dem Befehl &ldquo;sudo systemctl restart sshd&rdquo; oder &ldquo;sudo service sshd restart&rdquo; neu starten.</p>
+<h2 id="erweiterte-einstellungen">Erweiterte Einstellungen</h2>
+<p>Zunächst werden wir den Standard-SSH-Verbindungsport 22 ändern und dann die während der SSH-Verbindung verwendeten Verschlüsselungstools noch stärker machen. Anschließend legen wir fest, wie die Protokolle (Registrierungsdatensätze) des Server-SSH-Dienstes geführt werden.</p>
+<p>Titel werden wir finden und ersetzen</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>#Port 22 &gt;&gt; Wir finden das und entfernen das Rautezeichen am Anfang und schreiben dort eine Portnummer, die von keinem anderen Dienst verwendet wird und offen ist. Zum Beispiel könnte es 2992 sein.
+</span></span><span style="display:flex;"><span>LogLevel INFO &gt;&gt; Wir finden diese Einstellung und ändern sie, wenn nicht, fügen wir sie hinzu. Es hilft uns, den Aufnahmepegel einzustellen.
+</span></span><span style="display:flex;"><span>AllowAgentForwarding no &gt;&gt; Wir finden diese Einstellung und ändern sie, wenn nicht, fügen wir sie hinzu. Deaktiviert alternative Routing-Methoden.
+</span></span><span style="display:flex;"><span>AllowTcpForwarding no &gt;&gt; Wir finden diese Einstellung und ändern sie, wenn nicht, fügen wir sie hinzu. Deaktiviert alternative Routing-Methoden.
+</span></span><span style="display:flex;"><span>PrintMotd nein &gt;&gt; Wir finden diese Einstellung und ändern sie, wenn nicht, fügen wir sie hinzu. Um zu verhindern, dass sie etwas über den Server erfahren, bevor die Verbindung hergestellt wird.
+</span></span><span style="display:flex;"><span>PermitUserEnvironment nein &gt;&gt; Wir finden diese Einstellung und ändern sie, wenn nicht, fügen wir sie hinzu.
+</span></span><span style="display:flex;"><span>PermitTunnel no &gt;&gt; Wir finden diese Einstellung und ändern sie, wenn nicht, fügen wir sie hinzu.
+</span></span></code></pre></div><p>Wir gehen noch weiter und bestimmen, welcher der Verschlüsselungsalgorithmen, Authentifizierungsalgorithmen, Schlüsselaustauschalgorithmen und anderen Algorithmen, die während der SSH-Verbindung verwendet werden, der Standard sein sollte.</p>
+<p>Wir führen die folgenden Befehle jeweils mit einem Root-Benutzer oder einem Benutzer mit sudo-Berechtigung aus.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>1<span style="color:#f92672">]</span> rm /etc/ssh/ssh_host_*
+</span></span><span style="display:flex;"><span>2<span style="color:#f92672">]</span> ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -f /etc/ssh/ssh_host_rsa_key -N <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>3<span style="color:#f92672">]</span> ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>4<span style="color:#f92672">]</span> awk <span style="color:#e6db74">&#39;$5 &gt;= 3072&#39;</span> /etc/ssh/moduli &gt; /etc/ssh/moduli.tmp
+</span></span><span style="display:flex;"><span>5<span style="color:#f92672">]</span> mv /etc/ssh/moduli.tmp /etc/ssh/moduli
+</span></span><span style="display:flex;"><span>6<span style="color:#f92672">]</span> sed -i <span style="color:#e6db74">&#39;s/^\#HostKey \/etc\/ssh\/ssh_host_\(rsa\|ed25519\)_key$/HostKey \/etc\/ssh\/ssh_host_\1_key/g&#39;</span> /etc/ ssh/sshd_config
+</span></span><span style="display:flex;"><span>7<span style="color:#f92672">]</span> echo -e <span style="color:#e6db74">&#34;KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256\nCiphers chacha20-poly1305@ openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr\nMACs hmac-sha2-256-etm@openssh.com,hmac-sha2-512 -etm@openssh.com,umac-128-etm@openssh.com\nHostKeyAlgorithms ssh-ed25519,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,sk-ssh-ed25519- cert-v01@openssh.com,rsa-sha2-256,rsa-sha2-512,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com&#34;</span> &gt; / etc/ssh/sshd_config.d/ssh-hardening.conf
+</span></span></code></pre></div><p>Nachdem Sie die Einstellungen vorgenommen haben, übernehmen Sie die Einstellungen mit dem Befehl „sudo sshd -t“ und dann, wenn Sie keine Fehlermeldung sehen, „sudo service sshd restart“ und starten Sie den Dienst neu. Jetzt können Sie sich über den gerade definierten Port und nur mit Ihrem privaten Schlüssel mit dem Server verbinden. Verbinden;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Sie können den Befehl ssh -i ~/.ssh/KEY_NAME USER_NAME@SERVER_IP_ADRESS -p PORT_NUMBER # verwenden. Sie können fortfahren, indem Sie bei den eingehenden Benachrichtigungen die Eingabetaste sagen.
+</span></span></code></pre></div><h1 id="ende">Ende</h1>
+<p>Dieser Artikel wurde zuvor unter <a href="https://teknolojirehberleri.xyz">https://teknolojirehberleri.xyz</a> veröffentlicht. Um ein persönliches Portfolio zu erstellen, hatte ich das Bedürfnis, es auf meiner persönlichen Website erneut zu veröffentlichen.</p>
+]]></content:encoded></item></channel></rss>
