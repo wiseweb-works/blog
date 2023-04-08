@@ -5,7 +5,8 @@
 </div>
 
 <p>Öncelikle reklamın tümünde geçen replikler veya arka planların hepsi büyük özenle seçilmiş yerler. Hani bir savaş sahnesi canlandıralım diye yapılmış şeyler değil. Reklamın başladığı yer o dönem Galyalılara ait olan ve Vercingetorix tarafından yönetilen 80.000 kişi ile en büyük Galya şehri olan Alesia’dır. Yapılan savaş da şehirden ismini alan Alesia savaşıdır. Savaş M.Ö 52 yılında Sezar komutasındaki 12 lejyonla (30,000–60,000 kişi)’nin günümüzdeki Paris sınırları içerisinde kalan Alesia şehrini kuşatması sonucunda çıkıyor. Tüm Avrupayı neredeyse fetheden Roma İmparatorluğu bir türlü bu Galyalıları (Fransa civarlarında) yenemiyor. En sonunda direkt saldırmaya karar veriyorlar ama bilmiyorlar ki Galyalılar savunmada acayip iyiler. Gerçekten de beklenilen oluyor ve Galyalılar kaleye çekiliyor. Sezar ne yaptıysa kaleye yaklaşamıyor ve surları aşamıyor. Adamları açlık ile karşı karşıya bırakmış olmasına rağmen Galyalılar teslim olmuyor bir türlü.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -13,17 +14,17 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/maximumkart/maximum-kart-afis.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/maximumkart/maximum-kart-afis.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/maximumkart/maximum-kart-afis.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/maximumkart/maximum-kart-afis.webp" type="image/webp">
 
   
 
   <img
-    src="https://wiseweb-works.github.io/images/maximumkart/maximum-kart-afis.jpg"
+    src="https://wiseweb-works.github.io/blog/images/maximumkart/maximum-kart-afis.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)

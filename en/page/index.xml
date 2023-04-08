@@ -10,7 +10,8 @@ If there is a topic that interests you in what I have written, I welcome your id
 <hr>
 <p>Thank you dear Ged <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> for inspiring me to create a web page that is not unnecessarily large, does not bother users with additional components and a long load time. This club supports the internet and protecting users from unnecessarily large sites.</p>
 <p>This site was created using <a href="https://gohugo.io/">Hugo</a> and with the theme <a href="https://github.com/adityatelange/hugo-PaperMod/">PaperMod</a>. Also, this site is a Green Member of <a href="https://512kb.club/">512kbClub</a> with its size below 100kb.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -18,17 +19,17 @@ If there is a topic that interests you in what I have written, I welcome your id
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/green-team.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/green-team.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/green-team.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/green-team.webp" type="image/webp">
 
   
 
   <img
-    src="https://wiseweb-works.github.io/images/green-team.jpg"
+    src="https://wiseweb-works.github.io/blog/images/green-team.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)

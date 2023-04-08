@@ -4,7 +4,8 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
 </blockquote>
 <p>Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölümlerinde yapılmış akademik çalışmaların ötesine geçememiş olan şifreleme (cryptography) alanı artık bireylerin iyiliği için kullanılacaktı. Bu ilke imza atacak ilk kişilerin arkadaş olmasının dışında onları birleştiren asıl şey Star Wars’ın orijinal üçlemesini çocuklukları döneminde birlikte izlemiş ve etkinlenmiş olmalarıdır. 1977 Yılında orijinal üçlemenin ilk, tarihsel sıralamaya göre ise dördüncü film olan <a href="https://en.wikipedia.org/wiki/Star_Wars_(film)">Star Wars A New Hope</a> vizyona girmiş ve tüm çevreler tarafından beğeniyle izlenmişti. İlk filmin vizyona girişinden sonraki 3. ve 6. senelerde serinin beşinci ve altıncı filmleri olan <a href="https://en.wikipedia.org/wiki/The_Empire_Strikes_Back">The Empire Strikes Back</a> ve <a href="https://en.wikipedia.org/wiki/Return_of_the_Jedi">Return of the Jedi</a> de peş peşe vizyona girmiş ve seyircisinin filmden beklentisini ve serinin devamına olan isteğini artırmıştır. Serinin o dönemki yönetmeni George Lucas izleyenleri daha iyi bir üçlemeye hazırlamak adına orijinal üçlemenin üçüncü filminin vizyona girdiği tarih olan 1983 yılından 1999 yılına kadar seriye yeni film çıkarmamış ve teknolojik imkanların gelişmesini beklemiştir. Yani tarihsel üçleme efsanesinin ve de modern kriptografinin bence başladığı yıl olan 1999 yılına gelinene kadar. 90&rsquo;lı yıllar kendilerini Cypherpunks olarak adlandıran ve açık kaynak kodunu yücelten, gizlilik ve bireyin anonimlik hakkı üzerinde bir manifesto yayımlayan, bilgisayar ve teknoloji ile birlikte büyümüş bir neslin dönemiydi. İnternetin ülkemize gelişi ve tüm dünyadaki internet ağının gelişmesi ile birlikte 2000&rsquo;li yıllara girmeye yaklaştığımız dönemlerde kişi başına düşen bilgisayar sayısı oranı artmış ve her eve olmasa da birçok haneye geniş bant internet hizmeti ulaşmış bulunmaktaydı. İşte ülkemizde internet yeni yeni kabul görmeye ve kullanılmaya başlandığı dönemlerde yurt dışında bir arkadaş topluluğu World Wide Web (WWW)’in eksik taraflarından biri olan şifreleme ve gizlilik üzerine odaklanmaya başlamıştı bile.</p>
 <p>Basit anlatımıyla internet üzerinde bir websitesi barındırmamıza ve dünya üzerindeki herhangi bir bilgisayarın bu web sayfasına erişebilmesine imkan tanıyan bu servis temelde güzel olmasına rağmen çok büyük bir dezavantajı vardı. Bu dezavantaj bağlanmış olduğunuz internet sitesi ile aranızdaki bağlantının herhangi bir şekilde şifrelenmemesi, güvenli olmaması ve dahili/harici üçüncü kişiler tarafından bu iletişimin izlenebilir, değiştirilebilir ve dahi engellenebilir olmasıdır. Eskiden bir internet sitesine girdiğiniz zaman adres çubuğunda bir kilit simgesi ve aşağıda gördüğünüz gibi “Connection is secure” veya “Connection is not private” gibi bir bağlantının güvenli /güvensiz olduğunu düşündürecek bir bildirim yoktu. Çünkü o yıllarda bir internet sitesine üye olurken veya mail gönderirken iletişimin izlenebileceği veya bunu kötü amaçlar için kullanılabileceği henüz düşünülmemişti.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -12,17 +13,17 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/starwars-kriptografi/connection-is-secure.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/starwars-kriptografi/connection-is-secure.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/starwars-kriptografi/connection-is-secure.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/starwars-kriptografi/connection-is-secure.webp" type="image/webp">
 
   
 
   <img
-    src="https://wiseweb-works.github.io/images/starwars-kriptografi/connection-is-secure.jpg"
+    src="https://wiseweb-works.github.io/blog/images/starwars-kriptografi/connection-is-secure.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -31,7 +32,8 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
   <caption><center><b><small>Bağlantı Güvenli Bildirimi Chrome</small></b></center></caption>
 </picture></p>
 <hr>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -41,15 +43,15 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/starwars-kriptografi/not-private-notification.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/starwars-kriptografi/not-private-notification.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification.webp" type="image/webp">
 
   <img
-    src="https://wiseweb-works.github.io/images/starwars-kriptografi/not-private-notification.png"
+    src="https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)

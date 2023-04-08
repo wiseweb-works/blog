@@ -62,7 +62,8 @@
 <h2 id="21-adım-adım-kılavuz">2.1 Adım Adım Kılavuz</h2>
 <h3 id="211-adguard-yükleyiciyi-indirin">2.1.1 AdGuard Yükleyiciyi İndirin</h3>
 <p>AdGuard&rsquo;ı Windows PC&rsquo;nize kurmanın ilk adımı, AdGuard yükleyicisini resmi web sitesinden indirmektir. AdGuard web sitesindeki &ldquo;İndir&rdquo; düğmesine tıklayarak yükleyiciyi indirebilirsiniz.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -70,17 +71,17 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/1.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/1.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/1.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/1.webp" type="image/webp">
 
   
 
   <img
-    src="https://wiseweb-works.github.io/images/adguard/1.jpg"
+    src="https://wiseweb-works.github.io/blog/images/adguard/1.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -90,7 +91,8 @@
 </picture></p>
 <h3 id="212-yükleyiciyi-çalıştırın">2.1.2 Yükleyiciyi Çalıştırın</h3>
 <p>AdGuard yükleyicisini indirdikten sonra, PC&rsquo;nizde dosyayı bulun ve yükleyiciyi çalıştırmak için üzerine çift tıklayın. Kullanıcı Hesabı Denetimi (UAC) tarafından istenirse, yükleyiciye PC&rsquo;nizde değişiklik yapması için izin vermeniz gerekebilir.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -100,15 +102,15 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/2.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/2.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/2.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/2.webp" type="image/webp">
 
   <img
-    src="https://wiseweb-works.github.io/images/adguard/2.png"
+    src="https://wiseweb-works.github.io/blog/images/adguard/2.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -118,7 +120,8 @@
 </picture></p>
 <h3 id="213-kurulum-seçeneklerini-seçin">2.1.3 Kurulum Seçeneklerini Seçin</h3>
 <p>Bir sonraki adım, AdGuard için kurulum seçeneklerini seçmektir. AdGuard&rsquo;ı tüm kullanıcılar için veya yalnızca mevcut kullanıcı için yüklemeyi seçebilirsiniz. Ayrıca kurulum klasörünü seçebilir ve bir masaüstü kısayolu oluşturabilirsiniz.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -128,15 +131,15 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/3.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/3.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/3.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/3.webp" type="image/webp">
 
   <img
-    src="https://wiseweb-works.github.io/images/adguard/3.png"
+    src="https://wiseweb-works.github.io/blog/images/adguard/3.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -146,7 +149,8 @@
 </picture></p>
 <h3 id="214-adguardı-yükleyin">2.1.4 AdGuard&rsquo;ı yükleyin</h3>
 <p>Kurulum seçeneklerini seçtikten sonra, kurulum sürecini başlatmak için &ldquo;Yükle&rdquo; düğmesine tıklayın. Yükleme işlemi bilgisayarınızın hızına bağlı olarak birkaç dakika sürebilir.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -156,15 +160,15 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/4.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/4.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/4.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/4.webp" type="image/webp">
 
   <img
-    src="https://wiseweb-works.github.io/images/adguard/4.png"
+    src="https://wiseweb-works.github.io/blog/images/adguard/4.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -174,7 +178,8 @@
 </picture></p>
 <h3 id="215-adguardı-başlatın">2.1.5 AdGuard&rsquo;ı başlatın</h3>
 <p>Yükleme tamamlandıktan sonra, AdGuard&rsquo;ı masaüstü kısayolundan veya Başlat menüsünden başlatabilirsiniz. AdGuard&rsquo;ı ilk kez başlattığınızda, ayarları tercihlerinize göre yapılandırmanızı isteyecektir.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -182,17 +187,17 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/5.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/5.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/5.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/5.webp" type="image/webp">
 
   
 
   <img
-    src="https://wiseweb-works.github.io/images/adguard/5.jpg"
+    src="https://wiseweb-works.github.io/blog/images/adguard/5.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -202,7 +207,8 @@
 </picture></p>
 <h3 id="216-reklamsız-taramanın-keyfini-çıkarın">2.1.6 Reklamsız Taramanın Keyfini Çıkarın</h3>
 <p>AdGuard&rsquo;ın ayarlarını yapılandırdıktan sonra, reklamsız bir göz atma deneyiminin keyfini çıkarabilirsiniz. AdGuard, web sayfalarından her türlü reklamı<sup id="fnref3:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> otomatik olarak kaldırarak gezinmenizi daha hızlı ve sorunsuz hale getirir.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -210,17 +216,17 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/6.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/6.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/6.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/6.webp" type="image/webp">
 
   
 
   <img
-    src="https://wiseweb-works.github.io/images/adguard/6.jpg"
+    src="https://wiseweb-works.github.io/blog/images/adguard/6.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -247,7 +253,8 @@
 <p>İçerik filtresi, tüm etki alanlarını veya IP adreslerini engellemek yerine bir web sitesindeki belirli öğeleri hedef aldığı için oldukça etkilidir. Bu, kullanıcıların istenmeyen içerikle bombardımana tutulmadan daha akıcı bir tarama deneyiminin keyfini çıkarmasına olanak tanır. AdGuard&rsquo;ın İçerik filtresi de son derece özelleştirilebilir ve kullanıcıların belirli web sitelerini veya etki alanlarını beyaz veya kara listeye almasına olanak tanır.</p>
 <h2 id="-34-kısa-özet">&gt; 3.4 Kısa Özet</h2>
 <blockquote>
-<p>(TL;DR) <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> <picture>
+<p>(TL;DR) <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> 
+<picture>
   
   
   
@@ -255,17 +262,17 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/adguard-nasil-calisir.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/adguard-nasil-calisir.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir.webp" type="image/webp">
 
   
 
   <img
-    src="https://wiseweb-works.github.io/images/adguard/adguard-nasil-calisir.jpg"
+    src="https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -277,7 +284,8 @@
 <hr>
 <h1 id="4-dns-ile-ilgili-gelişmiş-ayalar">4. DNS ile ilgili Gelişmiş Ayalar</h1>
 <p>DNS (Alan Adı Sistemi), insanlar tarafından okunabilen alan adlarını bilgisayarların anlayabileceği IP adreslerine çevirmek için kullanılan bir protokoldür. Ancak, DNS sorguları normal olarak 53 numaralı port üzerinden gönderilir ve herhangi bir şifreleme yapılmaz. Dolayısıyla varsayılan olarak güvenli değildir ve DNS sorguları saldırganlar tarafından ele geçirilebilir veya manipüle edilebilir.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -287,15 +295,15 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/Unsecured-DNS.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/Unsecured-DNS.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/Unsecured-DNS.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/Unsecured-DNS.webp" type="image/webp">
 
   <img
-    src="https://wiseweb-works.github.io/images/adguard/Unsecured-DNS.png"
+    src="https://wiseweb-works.github.io/blog/images/adguard/Unsecured-DNS.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -307,7 +315,8 @@
 <h2 id="41-https-üzerinden-dns-doh">4.1 HTTPS üzerinden DNS (DoH)</h2>
 <p>DNS-over-HTTPS (DoH), HTTPS protokolünü kullanarak DNS sorgularını şifreleyen bir protokoldür. DoH, üçüncü tarafların DNS sorgularına müdahale etmesini ve kurcalamasını önleyerek gizliliği ve güvenliği artırmak için tasarlanmıştır. DoH ile, DNS sorguları şifrelenmiş bir kanal üzerinden gönderilerek saldırganların bunları yakalamasını ve manipüle etmesini zorlaştırır.</p>
 <p>DoH, Firefox, Chrome ve Edge dahil olmak üzere birçok büyük web tarayıcısı tarafından desteklenir. Bir DoH uygulaması yükleyerek veya cihazınızı bir DoH sunucusu kullanacak şekilde yapılandırarak mobil cihazlarda da kullanılabilir.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -317,15 +326,15 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-HTTPS.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/DNS-over-HTTPS.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-HTTPS.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/DNS-over-HTTPS.webp" type="image/webp">
 
   <img
-    src="https://wiseweb-works.github.io/images/adguard/DNS-over-HTTPS.png"
+    src="https://wiseweb-works.github.io/blog/images/adguard/DNS-over-HTTPS.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -349,7 +358,8 @@
 <h2 id="42-tls-üzerinden-dns-dot">4.2 TLS üzerinden DNS (DoT)</h2>
 <p>DNS-over-TLS (DoT), DNS sorgularını şifreleyen başka bir protokoldür, ancak HTTPS yerine Aktarım Katmanı Güvenliği (TLS) protokolünü kullanır. DoT, DoH ile benzer güvenlik avantajları sağlar, ancak yaygın olarak desteklenmez.</p>
 <p>DoT&rsquo;yi kullanmak için cihazınızı bir DoT sunucusu kullanacak şekilde yapılandırmanız gerekir. DoT, Cloudflare, Quad9 ve Google dahil olmak üzere birkaç DNS sunucusu tarafından desteklenir.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -357,17 +367,17 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-TLS.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLS.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-TLS.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLS.webp" type="image/webp">
 
   
 
   <img
-    src="https://wiseweb-works.github.io/images/adguard/DNS-over-TLS.jpg"
+    src="https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLS.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -408,7 +418,8 @@
 <p>DNSCrypt, DNS sorgularını ve yanıtlarını açık anahtarlı şifreleme kullanarak şifreleyen bir protokoldür. DNSCrypt, DNS sahtekarlığını ve ortadaki adam saldırılarını önlemek için tasarlanmıştır.</p>
 <p>DNSCrypt ile, DNS sorguları bir ortak anahtar kullanılarak şifrelenir ve sunucu, ortak anahtar kullanılarak doğrulanabilen imzalı bir yanıtla yanıt verir. Bu, saldırganların DNS sorgularını ve yanıtlarını yakalamasını ve manipüle etmesini önler.</p>
 <p>DNSCrypt, OpenDNS ve Cloudflare dahil olmak üzere birkaç DNS sunucusu tarafından desteklenir. Ayrıca, dnscrypt-proxy ve Simple DNSCrypt dahil olmak üzere birkaç DNS istemcisiyle birlikte kullanılabilir.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -418,15 +429,15 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-crypt.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/DNS-crypt.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-crypt.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/DNS-crypt.webp" type="image/webp">
 
   <img
-    src="https://wiseweb-works.github.io/images/adguard/DNS-crypt.png"
+    src="https://wiseweb-works.github.io/blog/images/adguard/DNS-crypt.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -449,7 +460,8 @@
 </ul>
 <h2 id="-45-kısa-özet">&gt; 4.5 Kısa Özet</h2>
 <blockquote>
-<p>(TL;DR) <sup id="fnref3:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> DNS-over-HTTPS, DNS-over-TLS, DNS-over-QUIC ve DNSCrypt birçok avantaj sağlarken, dikkate alınması gereken potansiyel dezavantajları da vardır. Bu protokoller, güvenlik duvarları veya internet servis sağlayıcıları tarafından engellenebilir ve gecikmeyi artırabilir veya DNS sorgularını yavaşlatabilir. Bu protokollerden herhangi birini kullanmadan önce, olası dezavantajları göz önünde bulundurmak ve ek güvenlik ve gizlilik avantajlarına değip değmeyeceğini belirlemek önemlidir. Ek olarak, tüm sunucular tüm protokolleri desteklemediğinden, kullandığınız DNS sunucusunun kullanmak istediğiniz protokolü desteklediğinden emin olmanız önemlidir. Seçtiğiniz protokol ne olursa olsun, güvenli bir DNS sunucusu kullanmak çevrimiçi gizliliğinizi ve güvenliğinizi korumada önemli bir adımdır. DNS sorgularınızın şifreli ve güvenli olduğundan emin olmak için bu protokollerden birini kullanmayı düşünün. <picture>
+<p>(TL;DR) <sup id="fnref3:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> DNS-over-HTTPS, DNS-over-TLS, DNS-over-QUIC ve DNSCrypt birçok avantaj sağlarken, dikkate alınması gereken potansiyel dezavantajları da vardır. Bu protokoller, güvenlik duvarları veya internet servis sağlayıcıları tarafından engellenebilir ve gecikmeyi artırabilir veya DNS sorgularını yavaşlatabilir. Bu protokollerden herhangi birini kullanmadan önce, olası dezavantajları göz önünde bulundurmak ve ek güvenlik ve gizlilik avantajlarına değip değmeyeceğini belirlemek önemlidir. Ek olarak, tüm sunucular tüm protokolleri desteklemediğinden, kullandığınız DNS sunucusunun kullanmak istediğiniz protokolü desteklediğinden emin olmanız önemlidir. Seçtiğiniz protokol ne olursa olsun, güvenli bir DNS sunucusu kullanmak çevrimiçi gizliliğinizi ve güvenliğinizi korumada önemli bir adımdır. DNS sorgularınızın şifreli ve güvenli olduğundan emin olmak için bu protokollerden birini kullanmayı düşünün. 
+<picture>
   
   
   
@@ -459,15 +471,15 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-TLDR.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLDR.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-TLDR.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLDR.webp" type="image/webp">
 
   <img
-    src="https://wiseweb-works.github.io/images/adguard/DNS-over-TLDR.png"
+    src="https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLDR.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -482,7 +494,8 @@
 <h2 id="51-dnssec">5.1 DNSSEC</h2>
 <p>DNSSEC, DNS sızdırma saldırılarını önlemek için tasarlanmış bir güvenlik protokolüdür. DNS sahtekarlığı, bir bilgisayar korsanı bir DNS sorgusunu yakaladığında ve istenen etki alanının IP adresini kötü amaçlı bir IP adresiyle değiştirdiğinde gerçekleşir. DNSSEC, DNS yanıtlarının gerçekliğini doğrulamak ve kullanıcıların doğru web sitesine yönlendirilmesini sağlamak için kriptografik imzalar kullanır.</p>
 <p>DNSSEC, her DNS kaydına, yanıta güvenmeden önce istekte bulunan cihaz tarafından doğrulanan bir dijital imza ekleyerek çalışır. DNSSEC ayrıca, orijinalliklerini doğrulamak için kullanılabilecek DNS kayıtları için ortak anahtarları dağıtmak için bir mekanizma sağlar.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -492,15 +505,15 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/DNSSEC.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/DNSSEC.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/DNSSEC.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/DNSSEC.webp" type="image/webp">
 
   <img
-    src="https://wiseweb-works.github.io/images/adguard/DNSSEC.png"
+    src="https://wiseweb-works.github.io/blog/images/adguard/DNSSEC.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -514,7 +527,8 @@
 <h2 id="53-şifreli-sni-encrypted-sni">5.3 Şifreli SNI (Encrypted SNI)</h2>
 <p>Şifreli SNI (Server Name Indicator), TLS el sıkışma işleminde SNI alanını şifreleyen bir teknolojidir. SNI alanı, istemcinin bağlanmak istediği sunucunun ana bilgisayar adını belirlemek için kullanılır. Şifreli SNI, bu alanı şifreleyerek gizli dinleme ve ortadaki adam saldırılarını önlemeye yardımcı olur.</p>
 <p>Şifreli SNI, önemli bir gizlilik özelliğidir çünkü SNI alanı bir kullanıcının çevrimiçi etkinliğini izlemek için kullanılabilir. Şifreleme olmadan, ISP&rsquo;ler, hükümetler ve diğer üçüncü tarafların SNI bilgilerine müdahale etmesi ve kullanıcı gizliliğini tehlikeye atarak izlemesi mümkündür.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -524,15 +538,15 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/ESNI.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/ESNI.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/ESNI.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/ESNI.webp" type="image/webp">
 
   <img
-    src="https://wiseweb-works.github.io/images/adguard/ESNI.png"
+    src="https://wiseweb-works.github.io/blog/images/adguard/ESNI.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -543,7 +557,8 @@
 <h2 id="54-şifreli-istemci-merhaba-encrypted-client-hello">5.4 Şifreli İstemci Merhaba (Encrypted Client Hello)</h2>
 <p>Encrypted Client Hello, TLS anlaşma sürecinin gizliliğini ve güvenliğini artırmaya yardımcı olan başka bir teknolojidir. İstemci Merhaba mesajı, TLS bağlantısını başlatmak için istemci tarafından gönderilir ve istemcinin desteklediği TLS sürümleri ve şifre paketleri hakkında bilgi içerir.</p>
 <p>Encrypted Client Hello, İstemci Merhaba mesajını şifreleyerek, gizli dinleme ve ortadaki adam saldırılarını önlemeye yardımcı olur. Ayrıca, üçüncü tarafların Müşteri Merhaba mesajını ele geçirmesini ve analiz etmesini önleyerek kullanıcı gizliliğinin korunmasına yardımcı olur.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -553,15 +568,15 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/ECH.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/ECH.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/adguard/ECH.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/adguard/ECH.webp" type="image/webp">
 
   <img
-    src="https://wiseweb-works.github.io/images/adguard/ECH.png"
+    src="https://wiseweb-works.github.io/blog/images/adguard/ECH.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)

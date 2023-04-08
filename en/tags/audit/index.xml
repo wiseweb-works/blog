@@ -84,6 +84,7 @@
 </span></span><span style="display:flex;"><span>ssl_dhparam /etc/nginx/dhparam.pem; &gt;&gt; The command to change the values ​​to be used during the Diffie-Hellman key exchange algorithm with the secret values ​​we just created, apart from the default values.
 </span></span></code></pre></div><p>After making the settings, apply the settings with the command &ldquo;sudo nginx -t&rdquo; and then, if you do not see an error message, &ldquo;sudo service nginx restart&rdquo; and restart the service. Now the connection will be provided with the configuration and conditions you have specified. If you want to see the before/after scoring difference, you can look at the images below or test your own site at &ldquo;<a href="https://www.ssllabs.com/ssltest/index.html%22">https://www.ssllabs.com/ssltest/index.html&quot;</a>.</p>
 <p>BEFORE
+
 <picture>
   
   
@@ -94,15 +95,15 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-ilk-hali-ssllabs.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-ilk-hali-ssllabs.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs.webp" type="image/webp">
 
   <img
-    src="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png"
+    src="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -111,6 +112,7 @@
   <caption><center><b><small>SSL Labs test result</small></b></center></caption>
 </picture></p>
 <p>AFTER
+
 <picture>
   
   
@@ -121,15 +123,15 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-son-hali-ssllabs.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-son-hali-ssllabs.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs.webp" type="image/webp">
 
   <img
-    src="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-son-hali-ssllabs.png"
+    src="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)

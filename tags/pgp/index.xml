@@ -4,7 +4,8 @@
 </div>
 
 <p>PGP Türkçede oldukça iyi gizlilik anlamına gelen Pretty Good Privacy kelimesinin baş harflerinde oluşturulmuş bir veri şifreleme, şifre çözme ve verileri elektronik olarak imzalama programıdır. <a href="https://tr.wikipedia.org/w/index.php?title=Phil_Zimmermann&amp;action=edit&amp;redlink=1">Phil Zimmermann</a> tarafından 90&rsquo;lı yılların başında akademik bir makale olarak ortaya çıkmış ve yayımlandığı dönemden çok sonra gerçekten kullanılmaya ve getirilerinden yararlanılmaya başlanmıştır. Söz konusu program ilk ortaya çıktığı zamanlarda bir ihtiyacın kendisini ortaya çıkmaya zorlamasından ziyade daha çok bir düşünce deneyi olarak iletişimin her iki tarafı arasındaki verilerin şifrelenebileceği ve bunun nasıl yapılması gerektiği sorusu üzerine ortaya çıkmıştır. Ortaya çıkışının ardından gönderilen verilen şifrelenmesinin ve şifresinin taraflarca çözülmesinin yanına bir de verinin bütünlüğünün korunmasını sağlayan özet fonksiyonu ve mesajı gönderen kişinin kimliğinin doğrulanması sağlayan (ve kimi zaman inkar edilemezlik olarak da anılan) imzalama özelliği eklenmiştir. Ortaya çıktığı dönemde ve sonrasında açık kaynak kodlu olarak yayımlanmaya devam etmiş ve günümüzde OpenPGP adı altında gelişerek faaliyetlerine devam etmektedir. PGP’nin ortaya çıktığı 1991 yılından 6 sene sonra yani 1997 yılında kendilerine Internet Engineering Task Force (görev gücü biraz abartı olmadı :D) adını veren bir çalışma grubu PGP programının sağlamış olduğu şifreleme özelliklerinin piyasa standartı haline gelmesi ve kullanımının kolaylaştırılması için yazılar yayımlamaya başladılar.</p>
-<p><picture>
+<p>
+<picture>
   
   
   
@@ -14,15 +15,15 @@
   
     
 
-    <source srcset="https://wiseweb-works.github.io/images/pgp-anlatim/pgp-encryption.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption.avif" type="image/avif">
 
     
     
 
-    <source srcset="https://wiseweb-works.github.io/images/pgp-anlatim/pgp-encryption.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption.webp" type="image/webp">
 
   <img
-    src="https://wiseweb-works.github.io/images/pgp-anlatim/pgp-encryption.png"
+    src="https://wiseweb-works.github.io/blog/images/pgp-anlatim/pgp-encryption.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
