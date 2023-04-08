@@ -10,8 +10,32 @@ If there is a topic that interests you in what I have written, I welcome your id
 <hr>
 <p>Thank you dear Ged <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> for inspiring me to create a web page that is not unnecessarily large, does not bother users with additional components and a long load time. This club supports the internet and protecting users from unnecessarily large sites.</p>
 <p>This site was created using <a href="https://gohugo.io/">Hugo</a> and with the theme <a href="https://github.com/adityatelange/hugo-PaperMod/">PaperMod</a>. Also, this site is a Green Member of <a href="https://512kb.club/">512kbClub</a> with its size below 100kb.</p>
-<p><img loading="lazy" src="https://512kb.club/assets/images/green-team.svg" alt="512kbClub"  />
-</p>
+<p><picture>
+  
+  
+  
+
+  
+    
+
+    <source srcset="/images/green-team.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="/images/green-team.webp" type="image/webp">
+
+  
+
+  <img
+    src="/images/green-team.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>512kbClub</small></b></center></caption>
+</picture></p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>

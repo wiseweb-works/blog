@@ -82,604 +82,199 @@
 </ul>
 <h3 id="tcp-bağlantısının-kurulması-süreci">TCP bağlantısının kurulması süreci</h3>
 <p>Şimdi kafanızda sürecin yaklaşık bir resmi oluştu ise başlangıcı TCP sürecinin anlatımıyla yapıyorum. Olayımızda bir istemci ve bir sunucunun olduğunu ve bağlantının sadece bu ikisinden ibaret olduğunu düşünelim. İstemci bağlanmak istediği sunucuya bir SYN (m) paketi gönderir. Sunucu ise buna cevap olarak aynı port üzerinden bir SYN (n) paketi ve ACK (m+1) paket gönderir. Bunu alan istemci de cevap olarak ACK (n+1) şeklinde dönüş yapar ve 3&rsquo;lü TCP el sıkışması veya 3 Way TCP handshake gerçekleşmiş olur. Böylece belirtilen port üzerinden istemci ve sunucu arasında açık bir kanalımız oluştu.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
+<p><picture>
   
-    
-    
-    
+  
   
 
   
     
+
+    <source srcset="/images/openvpn-full/TCP-Handshake.avif" type="image/avif">
+
     
     
-  
+
+    <source srcset="/images/openvpn-full/TCP-Handshake.webp" type="image/webp">
 
   
-    
-    
-    
-  
 
+  <img
+    src="/images/openvpn-full/TCP-Handshake.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://blog.shiftasia.com/what-happen-when-access-website (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+</picture></p>
+<hr>
+<p><picture>
   
-    
-    
-    
   
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
   
 
   
 
   
+    
 
-  
+    <source srcset="/images/openvpn-full/TCP-Handshake-2.avif" type="image/avif">
 
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_240x0_resize_q50_h2_linear.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_300x0_resize_q50_h2_linear.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_360x0_resize_q50_h2_linear.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_420x0_resize_q50_h2_linear.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_480x0_resize_q50_h2_linear.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_600x0_resize_q50_h2_linear.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_768x0_resize_q50_h2_linear.webp 768w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_800x0_resize_q50_h2_linear.webp 800w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake_huea66d60510cca81db0690f4a6e280014_48398_960x0_resize_q50_h2_linear.webp 960w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake.jpg" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</td>
-<td>
-  
     
     
-    
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/openvpn-full/TCP-Handshake-2.webp" type="image/webp">
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2_hu35392e68f0e02f6563d8a4a8209f1a48_24120_666x0_resize_q50_h2_linear_3.webp 666w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TCP-Handshake-2.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</td>
-</tr>
-</tbody>
-</table>
+  <img
+    src="/images/openvpn-full/TCP-Handshake-2.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://www.netscout.com/blog/asert/ddos-attacks-ssl-something-old-something-new (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+</picture></p>
 <p>Fotoğraflarda da görüleceği üzere eğer süreç sorunsuz işler ise 3 adımda iletişim kurulabiliyor. Fakat neden 3 adımda bu işi yapıyoruz daha kısa şekilde olmaz mı derseniz size (şimdilik) hayır olmaz full-duplex bir iletişim için her iki tarafın da SYN ve ACK paketlerini göndermesi gerekiyor derim. İleride belki farklı yollarını da anlatırım ama şimdilik böyle. Zaten işin TCP/UDP kısmı her zaman için kısa ve basittir.</p>
 <h3 id="tls-katmanındaki-işletilen-süreç">TLS katmanındaki işletilen süreç</h3>
 <p>TCP üzerinden bir iletişim kurulmasının ardından yine muhabbeti başka bir aşamaya taşıyan kişi istemci oluyor. Her zaman için istemciler sunucudan bir şeyler talep eder veya bir cevap ister. Sunucular genel olarak kendilerine gelmeyen bir isteği cevapladığı çok görülmemiştir. Önce talep sonra arz ilkesine göre süreç ilerler. Evet, taraflar TLS katmanındalar şimdi. İstemci sunucuya önce bir merhaba diyor. Şaka değil gerçek. İstemci tarafından gönderilen ilk pakete <code>Client-Hello</code> paketi denir. Bu paketin yanında (süreci hızlandırmak adına) desteklediği şifreleme algoritmalarını belirten <code>Supported-Chipers</code> paketi, istemci tarafından rastgele üretilmiş bir sayı, aynı IP adresinde birden fazla hizmet çalıştırılıyor ise bir <code>SNI</code> sunucu adı indikatörü ve yine gerekiyor ise oturum ID&rsquo;si gönderilir. Sunucunun buna cevabı ise öncelikle kibar bir merhaba demek oluyor. Çünkü sunucunun cevaben gönderdiği ilk pakete de <code>Server-Hello</code> paketi denir. Bu paketin yanında sunucu sertifikasını, kendi desteklediği şifreleme algoritmalarını ve seçtiği algoritmayı belirten <code>Selected-Chiper</code> paketi, kendisinin ürettiği rastgele bir sayıyı, gerekirse Oturum ID&rsquo;sini ve aynı IP üzerinden birden fazla istemci bağlanıyor ise buna ilişkin SNI benzeri bir ID&rsquo;yi gönderir. İstemci öncelikle iletişime başladığı tarafından gerçekten beklediği kişi olup olmadığını sunucu sertifikası ile doğrular. Ayrıca bazı durumlarda da sunucu istemcinin beklediği istemcilerden biri olup olmadığını yine sertifika ile doğrular. Eğer bu karşılıklı doğrulama (mutual-authentication) süreci olumlu sonuçlanır ise bir sonraki aşamaya geçilir. Anahtar üretim ve değişim süreci tetiklenmiş olur. Bu aşamda yine istemci devreye girer ve güvensiz önkabul edilen bu iletişim sırasında belirledikleri algoritma ile anahtar değiştirmek istediğini söyler. Taraflar Diffie-Hellman veya ECDHE ile bir önanahtar oluşturmaya başlarlar. Bunun için istemci ve sunucu tarafından ön-sırlar paylaşılır. Bir takım matematiksel işlemler yapılarak bulunan cevaplar karşıya gönderilir ve tekrar matematiksel işlemler yapılarak aynı sonuca ulaşılır. İşte ulaşılan sonuç aralarında güvenli bir şekilde oluşturdukları ilk ön-anahtar oluyor. Bundan sonra belirledikleri şifreleme algoritması ile
 iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulur ve süreç oradan devam eder.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
+<p><picture>
   
-    
-    
-    
   
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
   
 
   
 
   
+    
 
-  
+    <source srcset="/images/openvpn-full/TLS-Handshake.avif" type="image/avif">
 
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake_hu53922192c67b80cb5f067ee93a21cdcc_68982_850x0_resize_q50_h2_linear_3.webp 850w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</td>
-<td>
-  
     
     
-    
+
+    <source srcset="/images/openvpn-full/TLS-Handshake.webp" type="image/webp">
+
+  <img
+    src="/images/openvpn-full/TLS-Handshake.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://www.researchgate.net/publication/298065605_A_multi-level_framework_to_identify_HTTPS_services (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+</picture></p>
+<hr>
+<p><picture>
+  
+  
+  
+
   
 
   
     
+
+    <source srcset="/images/openvpn-full/TLS-Handshake-2.avif" type="image/avif">
+
     
     
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/openvpn-full/TLS-Handshake-2.webp" type="image/webp">
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2_hu07d34a2563241d2feddc32c25cb0e27c_33523_712x0_resize_q50_h2_linear_3.webp 712w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TLS-Handshake-2.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</td>
-</tr>
-</tbody>
-</table>
+  <img
+    src="/images/openvpn-full/TLS-Handshake-2.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small></small></b></center></caption>
+</picture></p>
 <p>Fotoğraflarda da görülebileceği üzere süreç bir web sayfasına bağlanılırken yaşanan süreçle neredeyse aynı. Sadece ihtiyaçlara göre belirli aşamalar ekleniyor, çıkarılıyor veya değiştiriliyor. Örneğin İleri Seviye Gizlilik anlamına gelen PFS gereğince taraflar ön-anahtarı sunucunun asimetrik anahtarı ile iletmiyor. Çünkü bu durumda her oturum için aynı anahtar kullanılacağı için verilerin depolanıp daha sonra anahtar açığa çıktığı bir gün beklenerek veriler geçmişe dönük okunabilir bir hale gelecektir. Bu yüzden bu değişiklik yapıldı. Yine sıfır güven tehdit modeli gereğince her bir katmanın ve sürecin bir diğerinin işini doğru yapacağına güvenmeden süreci ilerletmesini istiyorum. Bu yüzden TLS katmanındaki o ilk iletişim anında dahi paketlerin <code>tls-auth</code> özelliği gereğince şifrelenmesini ve gelen-giden verilerin bütünlüğünün doğrulanmasını istiyoruz. Daha ilk merhaba dediğiniz andan itibaren üçüncü kişiler sizin ne konuştuğunuzu hangi aşamada olduğunuzu anlayamayacaklardır. Bunun için önceden belirlenmiş bir anahtar/anahtarlar ile ilk iletişim başlatılır ve gerekirse belirli aralıklarla bu anahtarlar yenilenir. Böylece TLS katmanında ilk ön-anahtar oluşturulana kadar dahi gizlilikten ödün verilmemiş ve yetkisiz kişilerce boşuna tarafik yaratılmamış olur.</p>
 <h3 id="veri-katmanında-işleyen-süreç">Veri katmanında işleyen süreç</h3>
 <p>Eğer tüm bu süreç başarılı bir şekilde tamamlanmış ve veri kanalına geçilebildiyse eğer artık işin en güzel kısmına gelmiş bulunuyorsunuz. Veriler AES şifreleme methodu ile şifrelenecek. Şifreleme sırasında seçiminize göre CBC-GCM counter moduna göre tablolar karıştırılacak ve bu süreçte seçiminize göre 128 veya 256 bit uzunluğunda şifreleme anahtarı kullanılacak. Tabi ne hangisini seçerseniz seçin şifreleme blok uzunluğu 128 bit olucak. Değişen sadece şifreleme anahtarı uzunluğu. Benim bu anlatımım için seçmiş olduğum AES-256-GCM bir AEAD şifreleme türüdür. Diğer kanallardan ve süreçlerden bağımsız olarak gönderdiği verileri belirli bir aşamada özetini çıkartır ve özeti ile birlikte gönderir. Böylece &lsquo;Authentication Encryption with associated data&rsquo; anlamına gelen AEAD&rsquo;de doğrulama ve şifreleme işlevleri yerine getirilmiş oluyor. Burada bir ayrıma gidilmesini gerektirecek şöyle bir sorun mevcuttur. Şifreleme ve Özet alma algoritmalarını hangi aşamada ve sırayla kullanacağız.</p>
-<table>
-<thead>
-<tr>
-<th>Encrypt-then-MAC (EtM)</th>
-<th>Encrypt-and-MAC (E&amp;M)</th>
-<th>MAC-then-Encrypt (MtE)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
+<p><picture>
   
-    
-    
-    
+  
+  
+
   
 
   
     
+
+    <source srcset="/images/openvpn-full/EtM.avif" type="image/avif">
+
     
     
+
+    <source srcset="/images/openvpn-full/EtM.webp" type="image/webp">
+
+  <img
+    src="/images/openvpn-full/EtM.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>Encrypt-then-MAC (EtM) https://en.wikipedia.org/wiki/Authenticated_encryption (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+</picture></p>
+<hr>
+<p><picture>
+  
+  
   
 
-  
-    
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/EtM_hud65c113a516a1b62e4fe8858ed9ec486_23252_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/EtM_hud65c113a516a1b62e4fe8858ed9ec486_23252_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/EtM_hud65c113a516a1b62e4fe8858ed9ec486_23252_330x0_resize_q50_h2_linear_3.webp 330w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/openvpn-full/EtM.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</td>
-<td>
-  
-    
-    
-    
   
 
   
     
+
+    <source srcset="/images/openvpn-full/EaM.avif" type="image/avif">
+
     
     
+
+    <source srcset="/images/openvpn-full/EaM.webp" type="image/webp">
+
+  <img
+    src="/images/openvpn-full/EaM.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>Encrypt-and-MAC (E-and-M) https://en.wikipedia.org/wiki/Authenticated_encryption (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+</picture></p>
+<hr>
+<p><picture>
+  
+  
   
 
-  
-    
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/EaM_hube37f114dbb3921bcee6e141d846fe73_17342_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/EaM_hube37f114dbb3921bcee6e141d846fe73_17342_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/EaM_hube37f114dbb3921bcee6e141d846fe73_17342_330x0_resize_q50_h2_linear_3.webp 330w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/openvpn-full/EaM.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</td>
-<td>
-  
-    
-    
-    
   
 
   
     
+
+    <source srcset="/images/openvpn-full/MtE.avif" type="image/avif">
+
     
     
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/openvpn-full/MtE.webp" type="image/webp">
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/MtE_hu0e87705e5c72f609d1e7f72a494fc1ac_5729_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/MtE_hu0e87705e5c72f609d1e7f72a494fc1ac_5729_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/MtE_hu0e87705e5c72f609d1e7f72a494fc1ac_5729_324x0_resize_q50_h2_linear_3.webp 324w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/openvpn-full/MtE.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</td>
-</tr>
-</tbody>
-</table>
+  <img
+    src="/images/openvpn-full/MtE.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>MAC-then-Encrypt (MtE) https://en.wikipedia.org/wiki/Authenticated_encryption (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+</picture></p>
 <ul>
 <li>
 <p>Birinci yaklaşım olan EtM&rsquo;ye göre veri önce şifrelenir ardından başka bir anahtar ile özeti sonucu şifrelenir ve ortaya çıkan sonuç bloklar halinde birlikte gönderilir. Bunu kullanan gerçek dünya çözümlerine bakacak olursak IPSec protokolü ilk akla gelen olacaktır. Bu, AE&rsquo;de en yüksek güvenlik tanımına ulaşabilen tek yöntemdir, ancak bu ancak kullanılan MAC algoritmasının bozulma içermediği veya henüz kırılmadığı takdirde elde edilebilir. SSHv2 için de çeşitli EtM şifre takımları mevcuttur. Ancak veri ve özet için anahtar ayrımının zorunlu olduğunu unutmayın (şifreleme ve anahtarlı karma için farklı anahtarlar kullanılmalıdır), aksi takdirde kullanılan belirli şifreleme yöntemine ve karma işlevine bağlı olarak potansiyel olarak güvensiz bir sonuç elde edebilirsiniz.</p>
@@ -691,188 +286,64 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
 <p>Üçüncü ve bildiğim son yaklaşım olan MtE&rsquo;ye göre düz metine dayalı olarak bir özet dosyası üretilir. Ardından düz metin ve özet dosyası birlikteyken anahtar ile şifrelenir.  Şifreli metin ve şifreli özet dosyası birlikte gönderilir. Bunu kullanan gerçek dünya çözümlerine bakacak olursak ilk ve en önemlisi SSL/TLS uygulamalarıdır. SSL/TLS uygulamalarının kendi içlerinde ne kadar güvenilir ve sürdürülebilir olduklarını hepimiz biliyoruz. Bunun ötesinde de güvenliği artırmak adına yıllar içersinde <code>MAC-then-pad-then-encrypt</code> gibi geliştirmeler yapıldı. Bu geliştirmeye göre önce düz metinin özeti alınır ardından blok boyutuna kadar doldurulur ve ardından şifreleme işlemi yapılır. Böylece daha da güvenilir bir şifreleme sonucu oluşur. Ama doldurma mekanizmasının belirli hatalar yapması durumunda Padding Oracle gibi saldırılara neden olduğu durumlar mevcuttur.</p>
 </li>
 </ul>
-
+<p><picture>
   
-    
-    
-    
   
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
   
 
   
 
   
+    
 
-  
+    <source srcset="/images/openvpn-full/TAP-TUN.avif" type="image/avif">
 
-  
+    
+    
 
-  
+    <source srcset="/images/openvpn-full/TAP-TUN.webp" type="image/webp">
 
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN_hu019165beee2523b510cb2f38b6d2c5c0_139916_879x0_resize_q50_h2_linear_3.webp 879w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/openvpn-full/TAP-TUN.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/openvpn-full/TAP-TUN.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://community.openvpn.net/openvpn/wiki/Gigabit_Networks_Linux (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+</picture></p>
 <p>Kullanılacak AEAD yaklaşımı da seçildikten sonra TAP veya TUN kullanımına göre yukarıdaki grafikte görülen yol izlenir. Bu yola göre kullanıcı alanında yapılan/yapılmak istenen eylem çekirdek (kernel) seviyesinde TAP/TUN adaptörlerine gider. Bu adaptörler çekirdek seviyesinde bulunmaları nedeniyle çok hızlı bir şekilde işlem yaparlar. Ardından sanal adaptörler ilgili kütüphane ile gerekli şifrelemeyi yapar, gerekirse özeti ekler ve paket boyutu ayarı yapar. Ardından sunucu Ethernet arayüzü üzerinden istemcinin Ethernet arayüzüne paketleri sırayla gönderir. Bunu alan istemci ise paketleri yeniden ayarlar, düzenler gerekirse birleştirir ve gerekli kütüphaneler ile şifresini çözer. Şifresini çözdükten sonra bunu sanal adaptör aracılığı ile istemcini son kullanıcısına iletir. Böylece tüm bu matematiksel işlemler, uğraşlar sonucunda birkaç çevrim neticesinde kullanıcı istediği içeriğe ulaşmış oldu. Anlatması oldukça uzun ama kullanması çok kolay sevgili okuyucular. Sadece GitHub sayfama girik ilgili <a href="https://github.com/wiseweb-works/openvpn-most-secure-install/">script sayfasını</a> ziyaret etmeniz yeterlidir. İlgili script tüm bu ayarlamaları interaktif olarak sizin yerinize yapmaktadır. Size de arkanıza yaslanıp keyfini çıkarmak kalıyor.</p>
 <h1 id="sss-ve-son">SSS ve Son</h1>
 <p>Bana <a href="mailto:wisewebworks@outlook.com">mail</a> yoluyla, <a href="https://fosstodon.org/@wise">Fosstodon</a> üzerinden veya <a href="https://github.com/wiseweb-works">GitHub</a> üzerinden gelen soruları zaman zaman buraya eklemeye çalışacağım. Böylece tarihsel olarak da hangi tarihte ne gibi sorular olmuş veya çözümü mevcut mu gibi düşüncelere kapılmadan direk sonuca ulaşabileceksiniz. Bunun haricinde de teknik dökümanı değiştirmeden ekstra açıklama gerektiren sorular gelirse onları da bu kısma almayı düşünüyorum.</p>
 ]]></content:encoded></item><item><title>Linux Sunucuda ECC SSL Sertifikası Üretme</title><link>https://wiseweb-works.github.io/blog/post/ecc-ssl-sertifikasi/</link><pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ecc-ssl-sertifikasi/</guid><description>Giriş ve Özet Bugün sizlerle yönettiğiniz bir web sitesi veya uygulama sunucusu ile ziyaretçileriniz arasındaki trafiğin gizli/güvenilir ve doğrulanabilir olmasını sağlamak için SSL sertifikası üretmeyi öğreneceğiz. Ürettiğiniz sertifikayı nasıl ve hangi konfigürasyon ile deploy edeceğinizi önceki yazılarımda anlatmıştım. Bu yazıda ise az ekmek çok köfte denklemini nasıl kurabileceğimizi yani daha hızlı ve daha güvenli bir SSL sertifikası üretmeyi göstereceğim. Normalde Let&amp;rsquo;s Encrypt&amp;rsquo;in ACME protokolüne aşina iseniz (yazının yazıldığı tarih itibariyle) RSA asimetrik anahtar yapısı ile 1024-4098 (çok zorlarsanız belki 8196) bitlik bir sertifika ürettirmeniz ve bunu görece olarak 90 gün kullanmanız mümkündür.</description><content:encoded><![CDATA[<h1 id="giriş-ve-özet">Giriş ve Özet</h1>
 <p>Bugün sizlerle yönettiğiniz bir web sitesi veya uygulama sunucusu ile ziyaretçileriniz arasındaki trafiğin gizli/güvenilir ve doğrulanabilir olmasını sağlamak için SSL sertifikası üretmeyi öğreneceğiz. Ürettiğiniz sertifikayı nasıl ve hangi konfigürasyon ile deploy edeceğinizi önceki yazılarımda anlatmıştım. Bu yazıda ise az ekmek çok köfte denklemini nasıl kurabileceğimizi yani daha hızlı ve daha güvenli bir SSL sertifikası üretmeyi göstereceğim. Normalde Let&rsquo;s Encrypt&rsquo;in ACME protokolüne aşina iseniz (yazının yazıldığı tarih itibariyle) RSA asimetrik anahtar yapısı ile 1024-4098 (çok zorlarsanız belki 8196) bitlik bir sertifika ürettirmeniz ve bunu görece olarak 90 gün kullanmanız mümkündür. Fakat bu kadar büyük bir anahtarın üretilmesi, ürettikten sonra TLS handshake sırasında kullanılması ve ziyaretçilerin kullandığı cihazlar ile uyumlu olması çoğu senaryoda sorun çıkarmaktadır. Örneğin 2048 bit yerine 4096 bit kullanıldığı zaman bazı denemelerimde 0.4-0.8 sn daha uzun handshake süreleri ile karşı karşıya kalıyorum. Sadece handshake in bu kadar uzaması sorun değilmiş gibi sunucuya da ekstra bir yük bindiriyor. Fakat 4096 bit RSA yerine 384 bit ECC sertifikası ürettiğiniz zaman çok daha hızlı bir sertifikaya sahip olduğunuz gibi aynı zamanda da 7680 bit RSA&rsquo;ya (öyle bir boyut olsaydı) eşit bir güvenlik elde ediyorsunuz.</p>
 <p>Peki iyi güzel anlattın da bu işin aması nerede dediğinizi duyar gibiyim. Sizi üzeceğim fakat bu işin aması yok. Olmamasının sebebi ise işin arka plandaki matematikte saklı. Kısaca her iki sertifika üretim ve kullanımındaki ufak farklardan bahsedip, bunların nasıl ve neden büyük farklara neden olduğunu açıklayıp son kısımda da bonus olarak başlıkta yazmayan bir şeyden bahsedeceğim. (Sonuna kadar okumanız gerekecek bonus için :D)</p>
-
+<p><picture>
   
-    
-    
-    
+  
   
 
   
     
+
+    <source srcset="/images/ecc-ssl/key-size-comparison.avif" type="image/avif">
+
     
     
-  
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
+    <source srcset="/images/ecc-ssl/key-size-comparison.webp" type="image/webp">
 
   
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_240x0_resize_q50_h2_linear.webp 240w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_300x0_resize_q50_h2_linear.webp 300w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_360x0_resize_q50_h2_linear.webp 360w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_420x0_resize_q50_h2_linear.webp 420w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_480x0_resize_q50_h2_linear.webp 480w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_600x0_resize_q50_h2_linear.webp 600w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_711x0_resize_q50_h2_linear.webp 711w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison.jpg" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/ecc-ssl/key-size-comparison.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://www.globalsign.com/en/blog/elliptic-curve-cryptography (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+</picture></p>
 <h2 id="ecc-sertifikasının-üretim-süreci">ECC Sertifikasının üretim süreci</h2>
 <p>Öncelikle (her zaman olduğu gibi) içinde bulunduğumuz Linux sürümünün paket yöneticisi ile son güncellemeleri konsol üzerinden yüklememiz gerekmektedir.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Ubuntu için: sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt upgrade -y
@@ -1006,312 +477,86 @@ Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
 </ul>
 <h1 id="son">SON</h1>
 <p>Her şeyi doğru yaptıysak, sertifikayı Chrome gibi bir web tarayıcısı ile incelediğimizde, bunun bir EC sertifikası olduğunu onaylayacaktır:</p>
-
+<p><picture>
   
-    
-    
-    
   
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
   
 
   
 
   
+    
 
-  
+    <source srcset="/images/ecc-ssl/ecc-sll-key-chrome.avif" type="image/avif">
 
-  
+    
+    
 
-  
+    <source srcset="/images/ecc-ssl/ecc-sll-key-chrome.webp" type="image/webp">
 
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_854x0_resize_q50_h2_linear_3.webp 854w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/ecc-ssl/ecc-sll-key-chrome.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+</picture></p>
 <p>Mozilla Gözlemevi de bize A+ notu verecek!</p>
-
+<p><picture>
   
-    
-    
-    
   
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
   
 
   
 
   
+    
 
-  
+    <source srcset="/images/ecc-ssl/ecc-ssl-key-mozilla.avif" type="image/avif">
 
-  
+    
+    
 
-  
+    <source srcset="/images/ecc-ssl/ecc-ssl-key-mozilla.webp" type="image/webp">
 
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_880x0_resize_q50_h2_linear_3.webp 880w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/ecc-ssl/ecc-ssl-key-mozilla.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+</picture></p>
 <p>Ayrıca SSL Labs&rsquo;ın rapor sonucunda 384 Bitlik bir ECC sertifikası&rsquo;nın kullanıldığını görebiliyoruz.</p>
-
+<p><picture>
   
-    
-    
-    
+  
   
 
-  
-    
-    
-    
   
 
   
     
-    
-    
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/ecc-ssl/ecc-ssl-key-ssllabs.avif" type="image/avif">
 
-  
     
     
-    
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/ecc-ssl/ecc-ssl-key-ssllabs.webp" type="image/webp">
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_960x0_resize_q50_h2_linear_3.webp 960w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1024x0_resize_q50_h2_linear_3.webp 1024w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1080x0_resize_q50_h2_linear_3.webp 1080w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1200x0_resize_q50_h2_linear_3.webp 1200w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1366x0_resize_q50_h2_linear_3.webp 1366w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1440x0_resize_q50_h2_linear_3.webp 1440w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1920x0_resize_q50_h2_linear_3.webp 1920w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1994x0_resize_q50_h2_linear_3.webp 1994w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/ecc-ssl/ecc-ssl-key-ssllabs.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>SSL Labs Test Sonucu</small></b></center></caption>
+</picture></p>
 <p>NOT: Bu yazıda <a href="https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc">Benjamin Black</a>&lsquo;in aynı konulu yazısından faydalanılmıştır.</p>
 ]]></content:encoded></item><item><title>Linux Sunucularda SSL güvenliğini arttırma</title><link>https://wiseweb-works.github.io/blog/post/ssl-konfigurasyonu/</link><pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ssl-konfigurasyonu/</guid><description>Linux Sunucularda SSL güvenliğini artırma Bugün sizlere mevcut sunucunuzda eğer bir websitesi ve/veya App serve ediyorsanız mutlaka ihtiyacınız olan SSL bağlantısından ve bununla bağlantılı olarak openssl kütüphanesinden bahsedeceğim. SSL (Secure Socket Layer) ve TLS (Transport Layer Security) sunucunuza bağlanmak isteyen kişileri siteniz ile güvenli şekilde iletişim kurmasına imkan sağlayan bir bağlantı şeklidir. Eskiden SSL v1-v3 arasında değişen sürümler mevcut ve siteler genelde bu SSL sürümlerini kullanırken artık SSL siteler tarafından terk edilmiş ve yerini daha güvenli olan TLS&amp;rsquo;ye bırakmıştır.</description><content:encoded><![CDATA[<h1 id="linux-sunucularda-ssl-güvenliğini-artırma">Linux Sunucularda SSL güvenliğini artırma</h1>
 <p>Bugün sizlere mevcut sunucunuzda eğer bir websitesi ve/veya App serve ediyorsanız mutlaka ihtiyacınız olan SSL bağlantısından ve bununla bağlantılı olarak openssl kütüphanesinden bahsedeceğim. SSL (Secure Socket Layer) ve TLS (Transport Layer Security) sunucunuza bağlanmak isteyen kişileri siteniz ile güvenli şekilde iletişim kurmasına imkan sağlayan bir bağlantı şeklidir. Eskiden SSL v1-v3 arasında değişen sürümler mevcut ve siteler genelde bu SSL sürümlerini kullanırken artık SSL siteler tarafından terk edilmiş ve yerini daha güvenli olan TLS&rsquo;ye bırakmıştır. Fakat yine de işin anlatımı kısmında ve config dosyalarını düzenlerken halen &ldquo;ssl&rdquo; kelimesini kullanmamız gerekecektir. Bunu ufak bir espiri ile de anlatmak gerekirse eğer bir uygulamanın 64 bit versiyonunu indirmek istediğiniz aman &ldquo;amd_64&rdquo; olarak neden geçtiğini hiç düşündünüz mü? Çünkü 64 bit&rsquo;e ilk geçen AMD olduğu için buna bir saygı göstergesi ve/veya alışkanlık olarak amd_64 olarak kaldı bu isimlendirme. Aynı şekilde de şu an TLS kullanıyor olmamıza rağmen isimlendirme ve konfigürasyon parametreleri &ldquo;SSL&rdquo; olarak kaldı.</p>
@@ -1399,175 +644,59 @@ Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
 </span></span><span style="display:flex;"><span>ssl_dhparam /etc/nginx/dhparam.pem; &gt;&gt; Diffie-Hellman anahtar değişim algoritması sırasında kullanılacak değerleri default değerler dışında az önce oluşturduğumuz gizli değerler ile değiştirmeye yarayan komut.
 </span></span></code></pre></div><p>Ayarları yaptıktan sonra &ldquo;sudo nginx -t&rdquo; ve ardından eğer bir hata mesajı görmez iseniz &ldquo;sudo service nginx restart&rdquo; komutu ile ayarları uygulayıp servisi baştan başlatın. Artık sizin belirlediğiniz konfigürasyon ve şartlar ile bağlantı sağlanacaktır. Eğer öncesi/sonrası puanlama farkını görmek isterseniz aşağıdaki görsellere bakabilirsiniz veya kendi sitenizi &ldquo;<a href="https://www.ssllabs.com/ssltest/index.html%22">https://www.ssllabs.com/ssltest/index.html&quot;</a> adresinden test edebilirsiniz.</p>
 <p>İLK HALİ
-
+<picture>
   
-    
-    
-    
+  
   
 
-  
-    
-    
-    
   
 
   
     
+
+    <source srcset="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.avif" type="image/avif">
+
     
     
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.webp" type="image/webp">
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_640x0_resize_q50_h2_linear_3.webp 640w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</p>
+  <img
+    src="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>SSL Labs test sonucu</small></b></center></caption>
+</picture></p>
 <p>SON DURUM
-
+<picture>
   
-    
-    
-    
+  
   
 
-  
-    
-    
-    
   
 
   
     
+
+    <source srcset="/images/ssl-anlatim/ssl-son-hali-ssllabs.avif" type="image/avif">
+
     
     
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/ssl-anlatim/ssl-son-hali-ssllabs.webp" type="image/webp">
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_640x0_resize_q50_h2_linear_3.webp 640w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</p>
+  <img
+    src="/images/ssl-anlatim/ssl-son-hali-ssllabs.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>SSL Labs test sonucu</small></b></center></caption>
+</picture></p>
 <p>Neden Cipher Strength %100 değil derseniz TLS 1.3 ile otomatik gelen ve biz istemesek de eklenen &ldquo;TLS_AES_128_GCM_SHA256 (0x1301)&rdquo; yüzünden şu an %100 yapmak mümkün değil. TLS 1.3&rsquo;ü kapatırım o zaman gelmez diye düşünürseniz o zaman da başka yerden puanınız gidiyor maalesef.</p>
 <h1 id="son">Son</h1>
 <p>Bu yazı daha önce <a href="https://teknolojirehberleri.xyz">https://teknolojirehberleri.xyz</a> adresinde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
@@ -1577,182 +706,59 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
 </blockquote>
 <p>Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölümlerinde yapılmış akademik çalışmaların ötesine geçememiş olan şifreleme (cryptography) alanı artık bireylerin iyiliği için kullanılacaktı. Bu ilke imza atacak ilk kişilerin arkadaş olmasının dışında onları birleştiren asıl şey Star Wars’ın orijinal üçlemesini çocuklukları döneminde birlikte izlemiş ve etkinlenmiş olmalarıdır. 1977 Yılında orijinal üçlemenin ilk, tarihsel sıralamaya göre ise dördüncü film olan <a href="https://en.wikipedia.org/wiki/Star_Wars_(film)">Star Wars A New Hope</a> vizyona girmiş ve tüm çevreler tarafından beğeniyle izlenmişti. İlk filmin vizyona girişinden sonraki 3. ve 6. senelerde serinin beşinci ve altıncı filmleri olan <a href="https://en.wikipedia.org/wiki/The_Empire_Strikes_Back">The Empire Strikes Back</a> ve <a href="https://en.wikipedia.org/wiki/Return_of_the_Jedi">Return of the Jedi</a> de peş peşe vizyona girmiş ve seyircisinin filmden beklentisini ve serinin devamına olan isteğini artırmıştır. Serinin o dönemki yönetmeni George Lucas izleyenleri daha iyi bir üçlemeye hazırlamak adına orijinal üçlemenin üçüncü filminin vizyona girdiği tarih olan 1983 yılından 1999 yılına kadar seriye yeni film çıkarmamış ve teknolojik imkanların gelişmesini beklemiştir. Yani tarihsel üçleme efsanesinin ve de modern kriptografinin bence başladığı yıl olan 1999 yılına gelinene kadar. 90&rsquo;lı yıllar kendilerini Cypherpunks olarak adlandıran ve açık kaynak kodunu yücelten, gizlilik ve bireyin anonimlik hakkı üzerinde bir manifesto yayımlayan, bilgisayar ve teknoloji ile birlikte büyümüş bir neslin dönemiydi. İnternetin ülkemize gelişi ve tüm dünyadaki internet ağının gelişmesi ile birlikte 2000&rsquo;li yıllara girmeye yaklaştığımız dönemlerde kişi başına düşen bilgisayar sayısı oranı artmış ve her eve olmasa da birçok haneye geniş bant internet hizmeti ulaşmış bulunmaktaydı. İşte ülkemizde internet yeni yeni kabul görmeye ve kullanılmaya başlandığı dönemlerde yurt dışında bir arkadaş topluluğu World Wide Web (WWW)’in eksik taraflarından biri olan şifreleme ve gizlilik üzerine odaklanmaya başlamıştı bile.</p>
 <p>Basit anlatımıyla internet üzerinde bir websitesi barındırmamıza ve dünya üzerindeki herhangi bir bilgisayarın bu web sayfasına erişebilmesine imkan tanıyan bu servis temelde güzel olmasına rağmen çok büyük bir dezavantajı vardı. Bu dezavantaj bağlanmış olduğunuz internet sitesi ile aranızdaki bağlantının herhangi bir şekilde şifrelenmemesi, güvenli olmaması ve dahili/harici üçüncü kişiler tarafından bu iletişimin izlenebilir, değiştirilebilir ve dahi engellenebilir olmasıdır. Eskiden bir internet sitesine girdiğiniz zaman adres çubuğunda bir kilit simgesi ve aşağıda gördüğünüz gibi “Connection is secure” veya “Connection is not private” gibi bir bağlantının güvenli /güvensiz olduğunu düşündürecek bir bildirim yoktu. Çünkü o yıllarda bir internet sitesine üye olurken veya mail gönderirken iletişimin izlenebileceği veya bunu kötü amaçlar için kullanılabileceği henüz düşünülmemişti.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
+<p><picture>
   
-    
-    
-    
+  
   
 
   
     
+
+    <source srcset="/images/starwars-kriptografi/connection-is-secure.avif" type="image/avif">
+
     
     
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/starwars-kriptografi/connection-is-secure.webp" type="image/webp">
 
   
 
+  <img
+    src="/images/starwars-kriptografi/connection-is-secure.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>Bağlantı Güvenli Bildirimi Chrome</small></b></center></caption>
+</picture></p>
+<hr>
+<p><picture>
+  
+  
   
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/starwars-kriptografi/connection-is-secure_hu16a1bfea5dafa2c9c45ddfa1c0488629_8198_240x0_resize_q50_h2_linear.webp 240w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/connection-is-secure_hu16a1bfea5dafa2c9c45ddfa1c0488629_8198_300x0_resize_q50_h2_linear.webp 300w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/connection-is-secure_hu16a1bfea5dafa2c9c45ddfa1c0488629_8198_315x0_resize_q50_h2_linear.webp 315w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/starwars-kriptografi/connection-is-secure.jpeg" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</td>
-<td>
-  
-    
-    
-    
   
 
   
     
-    
-    
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/starwars-kriptografi/not-private-notification.avif" type="image/avif">
 
-  
     
     
-    
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/starwars-kriptografi/not-private-notification.webp" type="image/webp">
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_960x0_resize_q50_h2_linear_3.webp 960w,https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification_hu6603b5ee6c1f5c83fcfd7ce6b63585ed_13197_1014x0_resize_q50_h2_linear_3.webp 1014w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/starwars-kriptografi/not-private-notification.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</td>
-</tr>
-</tbody>
-</table>
+  <img
+    src="/images/starwars-kriptografi/not-private-notification.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>Bağlantı Güvenli Değil Bildirimi Chrome</small></b></center></caption>
+</picture></p>
 <p>Konunun girişine eklenmiş olan videoda 1977 yapımı Star Wars New Hope filminde (bunca yıldan sonra spoiler denemez artık) Galaktik İmparatorluk tarafından bütün galaksiyi yok edebilecek güçte ve devasa ölçekte bir ölüm yıldızı yapıldığının haberi alınır. Bu haberin alınması üzerine kendilerine Rebellion (isyancı) diyen bir grup bu ölçekte ve güçte bir geminin normal gemi savaşları ile yok edilemeyeceğini anlamış ve bu planları çalıp geminin zayıf noktalarını incelemeye karar vermişlerdir. Orijinal üçlemenin ilk filmi olmasına rağmen tarihsel olarak 4&rsquo;ncü film olması nedeniyle filmin başlangıcında bu planların çalındığını fakat henüz inceleme imkanı bulunamadan planları çalan uzay gemisinin imparatorluk kuvvetleri ve meşhur Dart Vader tarafından kovalandığını görüyoruz. Kovalamacanın sonuna doğru ellerindeki planları güvenli bir şekilde isyan kuvvetlerinin ana karargahına göndermeleri gerektiğini fakat imparatorluk kuvvetleri tarafından takip edilirken bunun çok zor olacağını anlayan Prenses Leia kendisince en güvenli gördüğü yöntemi kullanarak R2-D2 sınıfı bir robotun belleğine planları yükler ve filmimiz burada başlar. Videonun başlangıcında Dart Vader ve imparatorluk kuvvetleri tarafından geminin tamamı aranmasına rağmen Ölüm Yıldızının çalınmış planları bir türlü bulunamaz. Her ne kadar asilerden biri olduğu bilinse de (henüz Dart Vader tarafından ispatlanamamış) Prenses Leia diplomatik bir resmi görevde olduğunu söylemiş ve kendilerine böyle bir verinin gelmediğini iddia etmiştir. Yapılan incelemede gemiden böyle bir verinin aktarıldığını gösteren bir bilgiye de rastlanamamış olması sevgili Vader’ımızı çokça kızdırmıştır.</p>
 <p>Günümüzden 21 sene önce vizyona girmiş olan <a href="https://en.wikipedia.org/wiki/Star_Wars:_Episode_I_%E2%80%93_The_Phantom_Menace">The Phantom Menace</a> filmi her ne kadar modern şifrelemeyi doğrudan etkilememiş olsa da bu bir grup kişiye yıllar önce izlemiş ve beğenmiş oldukları orijinal üçlemenin ilk filmini ve bence ilk sahnesini hatırlamalarına neden oldu. O dönem gelişmekte olan gizlilik, anonimlik ve güvenlik düşünceleri neticesinde filmi izledikten sonra eski günleri yad etmek ve düşüncelerini paylaşmak için bir kafede bir araya geldiler. Genel arkadaş muhabbetinden ve havadan sudan konuşulduktan sonra aralarından biri konuşmanın ve bence tarihin de seyrini değiştiren şu soruyu sordu:</p>
 <blockquote>

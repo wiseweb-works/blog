@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Encryted SNI on Wise</title><link>https://wiseweb-works.github.io/blog/tags/encryted-sni/</link><description>Recent content in Encryted SNI on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 06 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/encryted-sni/index.xml" rel="self" type="application/rss+xml"/><item><title>AdGuard ile Reklam Engelleme</title><link>https://wiseweb-works.github.io/blog/post/adblock-guard-home/</link><pubDate>Thu, 06 Apr 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/adblock-guard-home/</guid><description>1. AdGuard: Reklamsız Gezinti İçin Nihai Çözümünüz İnternette gezinirken sürekli karşınıza çıkan reklam ve açılır pencerelerinden sıkıldıysanız, AdGuard Windows uygulamasını kullanmayı düşünebilirsiniz. AdGuard, yalnızca reklamları kaldırmakla kalmayıp aynı zamanda bilgisayarınızı kötü amaçlı yazılımlardan ve kimlik avı saldırılarından koruyan güçlü bir reklam engelleyicidir. Tanıdığınız ve bildiğiniz tüm reklamlara son kez sarılın artık onları bir daha göremeyeceksiniz. Çünkü bu blog gönderisinde, AdGuard&amp;rsquo;ın özelliklerini ve göz atma deneyiminizi nasıl geliştirebileceğini keşfedeceğiz.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Encryted SNI on Wise</title><link>https://wiseweb-works.github.io/blog/tags/encryted-sni/</link><description>Recent content in Encryted SNI on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 06 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/encryted-sni/index.xml" rel="self" type="application/rss+xml"/><item><title>AdGuard ile Reklam Engelleme</title><link>https://wiseweb-works.github.io/blog/post/adguard-reklam-engelleme/</link><pubDate>Thu, 06 Apr 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/adguard-reklam-engelleme/</guid><description>1. AdGuard: Reklamsız Gezinti İçin Nihai Çözümünüz İnternette gezinirken sürekli karşınıza çıkan reklam ve açılır pencerelerinden sıkıldıysanız, AdGuard Windows uygulamasını kullanmayı düşünebilirsiniz. AdGuard, yalnızca reklamları kaldırmakla kalmayıp aynı zamanda bilgisayarınızı kötü amaçlı yazılımlardan ve kimlik avı saldırılarından koruyan güçlü bir reklam engelleyicidir. Tanıdığınız ve bildiğiniz tüm reklamlara son kez sarılın artık onları bir daha göremeyeceksiniz. Çünkü bu blog gönderisinde, AdGuard&amp;rsquo;ın özelliklerini ve göz atma deneyiminizi nasıl geliştirebileceğini keşfedeceğiz.
 1.1 AdGuard Uygulamasının Özellikleri 1.</description><content:encoded><![CDATA[<h1 id="1-adguard-reklamsız-gezinti-için-nihai-çözümünüz">1. AdGuard: Reklamsız Gezinti İçin Nihai Çözümünüz</h1>
 <p>İnternette gezinirken sürekli karşınıza çıkan reklam ve açılır pencerelerinden sıkıldıysanız, <a href="https://adguard.com/tr/adguard-windows/overview.html">AdGuard Windows uygulamasını</a> kullanmayı düşünebilirsiniz. AdGuard, yalnızca reklamları kaldırmakla kalmayıp aynı zamanda bilgisayarınızı kötü amaçlı yazılımlardan ve kimlik avı saldırılarından koruyan güçlü bir reklam engelleyicidir. Tanıdığınız ve bildiğiniz tüm reklamlara son kez sarılın artık onları bir daha göremeyeceksiniz. Çünkü bu blog gönderisinde, AdGuard&rsquo;ın özelliklerini ve göz atma deneyiminizi nasıl geliştirebileceğini keşfedeceğiz.</p>
 <h2 id="11-adguard-uygulamasının-özellikleri">1.1 AdGuard Uygulamasının Özellikleri</h2>
@@ -62,684 +62,172 @@
 <h2 id="21-adım-adım-kılavuz">2.1 Adım Adım Kılavuz</h2>
 <h3 id="211-adguard-yükleyiciyi-indirin">2.1.1 AdGuard Yükleyiciyi İndirin</h3>
 <p>AdGuard&rsquo;ı Windows PC&rsquo;nize kurmanın ilk adımı, AdGuard yükleyicisini resmi web sitesinden indirmektir. AdGuard web sitesindeki &ldquo;İndir&rdquo; düğmesine tıklayarak yükleyiciyi indirebilirsiniz.</p>
-
+<p><picture>
   
-    
-    
-    
+  
   
 
   
     
-    
-    
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/adguard/1.avif" type="image/avif">
 
-  
     
     
-    
-  
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
+    <source srcset="/images/adguard/1.webp" type="image/webp">
 
   
 
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/adguard/1_hubdc096bd4c9825f75aee14bb3a9a2bf6_111790_240x0_resize_q50_h2_linear.webp 240w,https://wiseweb-works.github.io/blog/images/adguard/1_hubdc096bd4c9825f75aee14bb3a9a2bf6_111790_300x0_resize_q50_h2_linear.webp 300w,https://wiseweb-works.github.io/blog/images/adguard/1_hubdc096bd4c9825f75aee14bb3a9a2bf6_111790_360x0_resize_q50_h2_linear.webp 360w,https://wiseweb-works.github.io/blog/images/adguard/1_hubdc096bd4c9825f75aee14bb3a9a2bf6_111790_420x0_resize_q50_h2_linear.webp 420w,https://wiseweb-works.github.io/blog/images/adguard/1_hubdc096bd4c9825f75aee14bb3a9a2bf6_111790_480x0_resize_q50_h2_linear.webp 480w,https://wiseweb-works.github.io/blog/images/adguard/1_hubdc096bd4c9825f75aee14bb3a9a2bf6_111790_600x0_resize_q50_h2_linear.webp 600w,https://wiseweb-works.github.io/blog/images/adguard/1_hubdc096bd4c9825f75aee14bb3a9a2bf6_111790_768x0_resize_q50_h2_linear.webp 768w,https://wiseweb-works.github.io/blog/images/adguard/1_hubdc096bd4c9825f75aee14bb3a9a2bf6_111790_800x0_resize_q50_h2_linear.webp 800w,https://wiseweb-works.github.io/blog/images/adguard/1_hubdc096bd4c9825f75aee14bb3a9a2bf6_111790_960x0_resize_q50_h2_linear.webp 960w,https://wiseweb-works.github.io/blog/images/adguard/1_hubdc096bd4c9825f75aee14bb3a9a2bf6_111790_1024x0_resize_q50_h2_linear.webp 1024w,https://wiseweb-works.github.io/blog/images/adguard/1_hubdc096bd4c9825f75aee14bb3a9a2bf6_111790_1080x0_resize_q50_h2_linear.webp 1080w,https://wiseweb-works.github.io/blog/images/adguard/1_hubdc096bd4c9825f75aee14bb3a9a2bf6_111790_1200x0_resize_q50_h2_linear.webp 1200w,https://wiseweb-works.github.io/blog/images/adguard/1_hubdc096bd4c9825f75aee14bb3a9a2bf6_111790_1366x0_resize_q50_h2_linear.webp 1366w,https://wiseweb-works.github.io/blog/images/adguard/1_hubdc096bd4c9825f75aee14bb3a9a2bf6_111790_1440x0_resize_q50_h2_linear.webp 1440w,https://wiseweb-works.github.io/blog/images/adguard/1_hubdc096bd4c9825f75aee14bb3a9a2bf6_111790_1472x0_resize_q50_h2_linear.webp 1472w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/adguard/1.jpg" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/adguard/1.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://adguard.com/tr/adguard-windows/overview.html (Erişim Tarihi 07.04.2023)</small></b></center></caption>
+</picture></p>
 <h3 id="212-yükleyiciyi-çalıştırın">2.1.2 Yükleyiciyi Çalıştırın</h3>
 <p>AdGuard yükleyicisini indirdikten sonra, PC&rsquo;nizde dosyayı bulun ve yükleyiciyi çalıştırmak için üzerine çift tıklayın. Kullanıcı Hesabı Denetimi (UAC) tarafından istenirse, yükleyiciye PC&rsquo;nizde değişiklik yapması için izin vermeniz gerekebilir.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
+<p><picture>
   
-    
-    
-    
+  
+  
+
   
 
   
     
+
+    <source srcset="/images/adguard/2.avif" type="image/avif">
+
     
     
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/adguard/2.webp" type="image/webp">
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/adguard/2_hu54261c8d736d6ffa7f44e629c58b8a9e_11302_240x0_resize_q50_h2_linear_2.webp 240w,https://wiseweb-works.github.io/blog/images/adguard/2_hu54261c8d736d6ffa7f44e629c58b8a9e_11302_300x0_resize_q50_h2_linear_2.webp 300w,https://wiseweb-works.github.io/blog/images/adguard/2_hu54261c8d736d6ffa7f44e629c58b8a9e_11302_360x0_resize_q50_h2_linear_2.webp 360w,https://wiseweb-works.github.io/blog/images/adguard/2_hu54261c8d736d6ffa7f44e629c58b8a9e_11302_420x0_resize_q50_h2_linear_2.webp 420w,https://wiseweb-works.github.io/blog/images/adguard/2_hu54261c8d736d6ffa7f44e629c58b8a9e_11302_456x0_resize_q50_h2_linear_2.webp 456w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/adguard/2.webp" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</td>
-<td>
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/adguard/2-2_hu99ba6aee8a6f46dc93624704de251ab3_9980_240x0_resize_q50_h2_linear_2.webp 240w,https://wiseweb-works.github.io/blog/images/adguard/2-2_hu99ba6aee8a6f46dc93624704de251ab3_9980_300x0_resize_q50_h2_linear_2.webp 300w,https://wiseweb-works.github.io/blog/images/adguard/2-2_hu99ba6aee8a6f46dc93624704de251ab3_9980_360x0_resize_q50_h2_linear_2.webp 360w,https://wiseweb-works.github.io/blog/images/adguard/2-2_hu99ba6aee8a6f46dc93624704de251ab3_9980_420x0_resize_q50_h2_linear_2.webp 420w,https://wiseweb-works.github.io/blog/images/adguard/2-2_hu99ba6aee8a6f46dc93624704de251ab3_9980_480x0_resize_q50_h2_linear_2.webp 480w,https://wiseweb-works.github.io/blog/images/adguard/2-2_hu99ba6aee8a6f46dc93624704de251ab3_9980_600x0_resize_q50_h2_linear_2.webp 600w,https://wiseweb-works.github.io/blog/images/adguard/2-2_hu99ba6aee8a6f46dc93624704de251ab3_9980_750x0_resize_q50_h2_linear_2.webp 750w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/adguard/2-2.webp" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</td>
-</tr>
-</tbody>
-</table>
+  <img
+    src="/images/adguard/2.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>Adguard Windows uygulaması yükleyici görüntüleri</small></b></center></caption>
+</picture></p>
 <h3 id="213-kurulum-seçeneklerini-seçin">2.1.3 Kurulum Seçeneklerini Seçin</h3>
 <p>Bir sonraki adım, AdGuard için kurulum seçeneklerini seçmektir. AdGuard&rsquo;ı tüm kullanıcılar için veya yalnızca mevcut kullanıcı için yüklemeyi seçebilirsiniz. Ayrıca kurulum klasörünü seçebilir ve bir masaüstü kısayolu oluşturabilirsiniz.</p>
-
+<p><picture>
   
-    
-    
-    
+  
   
 
-  
-    
-    
-    
   
 
   
     
+
+    <source srcset="/images/adguard/3.avif" type="image/avif">
+
     
     
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/adguard/3.webp" type="image/webp">
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/adguard/3_hu5fc62ce942b4e0d9a4860168f1f7e222_16268_240x0_resize_q50_h2_linear_2.webp 240w,https://wiseweb-works.github.io/blog/images/adguard/3_hu5fc62ce942b4e0d9a4860168f1f7e222_16268_300x0_resize_q50_h2_linear_2.webp 300w,https://wiseweb-works.github.io/blog/images/adguard/3_hu5fc62ce942b4e0d9a4860168f1f7e222_16268_360x0_resize_q50_h2_linear_2.webp 360w,https://wiseweb-works.github.io/blog/images/adguard/3_hu5fc62ce942b4e0d9a4860168f1f7e222_16268_420x0_resize_q50_h2_linear_2.webp 420w,https://wiseweb-works.github.io/blog/images/adguard/3_hu5fc62ce942b4e0d9a4860168f1f7e222_16268_480x0_resize_q50_h2_linear_2.webp 480w,https://wiseweb-works.github.io/blog/images/adguard/3_hu5fc62ce942b4e0d9a4860168f1f7e222_16268_600x0_resize_q50_h2_linear_2.webp 600w,https://wiseweb-works.github.io/blog/images/adguard/3_hu5fc62ce942b4e0d9a4860168f1f7e222_16268_750x0_resize_q50_h2_linear_2.webp 750w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/adguard/3.webp" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/adguard/3.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>Adguard Windows uygulaması kurulum seçenekleri</small></b></center></caption>
+</picture></p>
 <h3 id="214-adguardı-yükleyin">2.1.4 AdGuard&rsquo;ı yükleyin</h3>
 <p>Kurulum seçeneklerini seçtikten sonra, kurulum sürecini başlatmak için &ldquo;Yükle&rdquo; düğmesine tıklayın. Yükleme işlemi bilgisayarınızın hızına bağlı olarak birkaç dakika sürebilir.</p>
-
+<p><picture>
   
-    
-    
-    
+  
   
 
-  
-    
-    
-    
   
 
   
     
+
+    <source srcset="/images/adguard/4.avif" type="image/avif">
+
     
     
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/adguard/4.webp" type="image/webp">
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/adguard/4_hu99ba6aee8a6f46dc93624704de251ab3_9980_240x0_resize_q50_h2_linear_2.webp 240w,https://wiseweb-works.github.io/blog/images/adguard/4_hu99ba6aee8a6f46dc93624704de251ab3_9980_300x0_resize_q50_h2_linear_2.webp 300w,https://wiseweb-works.github.io/blog/images/adguard/4_hu99ba6aee8a6f46dc93624704de251ab3_9980_360x0_resize_q50_h2_linear_2.webp 360w,https://wiseweb-works.github.io/blog/images/adguard/4_hu99ba6aee8a6f46dc93624704de251ab3_9980_420x0_resize_q50_h2_linear_2.webp 420w,https://wiseweb-works.github.io/blog/images/adguard/4_hu99ba6aee8a6f46dc93624704de251ab3_9980_480x0_resize_q50_h2_linear_2.webp 480w,https://wiseweb-works.github.io/blog/images/adguard/4_hu99ba6aee8a6f46dc93624704de251ab3_9980_600x0_resize_q50_h2_linear_2.webp 600w,https://wiseweb-works.github.io/blog/images/adguard/4_hu99ba6aee8a6f46dc93624704de251ab3_9980_750x0_resize_q50_h2_linear_2.webp 750w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/adguard/4.webp" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/adguard/4.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>Adguard Windows uygulaması kurulum görüntüleri</small></b></center></caption>
+</picture></p>
 <h3 id="215-adguardı-başlatın">2.1.5 AdGuard&rsquo;ı başlatın</h3>
 <p>Yükleme tamamlandıktan sonra, AdGuard&rsquo;ı masaüstü kısayolundan veya Başlat menüsünden başlatabilirsiniz. AdGuard&rsquo;ı ilk kez başlattığınızda, ayarları tercihlerinize göre yapılandırmanızı isteyecektir.</p>
-
+<p><picture>
   
-    
-    
-    
+  
   
 
   
     
-    
-    
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/adguard/5.avif" type="image/avif">
 
-  
     
     
-    
-  
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
+    <source srcset="/images/adguard/5.webp" type="image/webp">
 
   
 
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/adguard/5_hu91635b7b3bd68ff6865a7e957a51cf0a_90377_240x0_resize_q50_h2_linear.webp 240w,https://wiseweb-works.github.io/blog/images/adguard/5_hu91635b7b3bd68ff6865a7e957a51cf0a_90377_300x0_resize_q50_h2_linear.webp 300w,https://wiseweb-works.github.io/blog/images/adguard/5_hu91635b7b3bd68ff6865a7e957a51cf0a_90377_360x0_resize_q50_h2_linear.webp 360w,https://wiseweb-works.github.io/blog/images/adguard/5_hu91635b7b3bd68ff6865a7e957a51cf0a_90377_420x0_resize_q50_h2_linear.webp 420w,https://wiseweb-works.github.io/blog/images/adguard/5_hu91635b7b3bd68ff6865a7e957a51cf0a_90377_480x0_resize_q50_h2_linear.webp 480w,https://wiseweb-works.github.io/blog/images/adguard/5_hu91635b7b3bd68ff6865a7e957a51cf0a_90377_600x0_resize_q50_h2_linear.webp 600w,https://wiseweb-works.github.io/blog/images/adguard/5_hu91635b7b3bd68ff6865a7e957a51cf0a_90377_768x0_resize_q50_h2_linear.webp 768w,https://wiseweb-works.github.io/blog/images/adguard/5_hu91635b7b3bd68ff6865a7e957a51cf0a_90377_800x0_resize_q50_h2_linear.webp 800w,https://wiseweb-works.github.io/blog/images/adguard/5_hu91635b7b3bd68ff6865a7e957a51cf0a_90377_960x0_resize_q50_h2_linear.webp 960w,https://wiseweb-works.github.io/blog/images/adguard/5_hu91635b7b3bd68ff6865a7e957a51cf0a_90377_1007x0_resize_q50_h2_linear.webp 1007w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/adguard/5.jpg" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/adguard/5.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>Adguard Windows uygulaması genel ayarları</small></b></center></caption>
+</picture></p>
 <h3 id="216-reklamsız-taramanın-keyfini-çıkarın">2.1.6 Reklamsız Taramanın Keyfini Çıkarın</h3>
 <p>AdGuard&rsquo;ın ayarlarını yapılandırdıktan sonra, reklamsız bir göz atma deneyiminin keyfini çıkarabilirsiniz. AdGuard, web sayfalarından her türlü reklamı<sup id="fnref3:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> otomatik olarak kaldırarak gezinmenizi daha hızlı ve sorunsuz hale getirir.</p>
-
+<p><picture>
   
-    
-    
-    
+  
   
 
   
     
-    
-    
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/adguard/6.avif" type="image/avif">
 
-  
     
     
-    
-  
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
+    <source srcset="/images/adguard/6.webp" type="image/webp">
 
   
 
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/adguard/6_hu958e84f5b0d618224d80c5186d26e52a_172911_240x0_resize_q50_h2_linear.webp 240w,https://wiseweb-works.github.io/blog/images/adguard/6_hu958e84f5b0d618224d80c5186d26e52a_172911_300x0_resize_q50_h2_linear.webp 300w,https://wiseweb-works.github.io/blog/images/adguard/6_hu958e84f5b0d618224d80c5186d26e52a_172911_360x0_resize_q50_h2_linear.webp 360w,https://wiseweb-works.github.io/blog/images/adguard/6_hu958e84f5b0d618224d80c5186d26e52a_172911_420x0_resize_q50_h2_linear.webp 420w,https://wiseweb-works.github.io/blog/images/adguard/6_hu958e84f5b0d618224d80c5186d26e52a_172911_480x0_resize_q50_h2_linear.webp 480w,https://wiseweb-works.github.io/blog/images/adguard/6_hu958e84f5b0d618224d80c5186d26e52a_172911_600x0_resize_q50_h2_linear.webp 600w,https://wiseweb-works.github.io/blog/images/adguard/6_hu958e84f5b0d618224d80c5186d26e52a_172911_768x0_resize_q50_h2_linear.webp 768w,https://wiseweb-works.github.io/blog/images/adguard/6_hu958e84f5b0d618224d80c5186d26e52a_172911_800x0_resize_q50_h2_linear.webp 800w,https://wiseweb-works.github.io/blog/images/adguard/6_hu958e84f5b0d618224d80c5186d26e52a_172911_960x0_resize_q50_h2_linear.webp 960w,https://wiseweb-works.github.io/blog/images/adguard/6_hu958e84f5b0d618224d80c5186d26e52a_172911_1024x0_resize_q50_h2_linear.webp 1024w,https://wiseweb-works.github.io/blog/images/adguard/6_hu958e84f5b0d618224d80c5186d26e52a_172911_1080x0_resize_q50_h2_linear.webp 1080w,https://wiseweb-works.github.io/blog/images/adguard/6_hu958e84f5b0d618224d80c5186d26e52a_172911_1200x0_resize_q50_h2_linear.webp 1200w,https://wiseweb-works.github.io/blog/images/adguard/6_hu958e84f5b0d618224d80c5186d26e52a_172911_1366x0_resize_q50_h2_linear.webp 1366w,https://wiseweb-works.github.io/blog/images/adguard/6_hu958e84f5b0d618224d80c5186d26e52a_172911_1440x0_resize_q50_h2_linear.webp 1440w,https://wiseweb-works.github.io/blog/images/adguard/6_hu958e84f5b0d618224d80c5186d26e52a_172911_1797x0_resize_q50_h2_linear.webp 1797w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/adguard/6.jpg" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/adguard/6.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://www.youtube.com/watch?v=YW9Ojcm1Gkg (Erişim Tarihi 07.04.2023)</small></b></center></caption>
+</picture></p>
 <h3 id="-217-kısa-özet">&gt; 2.1.7 Kısa Özet</h3>
 <blockquote>
 <p>Sistem admini iseniz veya herhangi bir ayar ile uğraşmaadan direk kurmak istiyorsanız <code>Msiexec /q /i AdGuard.msi</code> komutunu kullanabilirsiniz.</p>
@@ -759,290 +247,92 @@
 <p>İçerik filtresi, tüm etki alanlarını veya IP adreslerini engellemek yerine bir web sitesindeki belirli öğeleri hedef aldığı için oldukça etkilidir. Bu, kullanıcıların istenmeyen içerikle bombardımana tutulmadan daha akıcı bir tarama deneyiminin keyfini çıkarmasına olanak tanır. AdGuard&rsquo;ın İçerik filtresi de son derece özelleştirilebilir ve kullanıcıların belirli web sitelerini veya etki alanlarını beyaz veya kara listeye almasına olanak tanır.</p>
 <h2 id="-34-kısa-özet">&gt; 3.4 Kısa Özet</h2>
 <blockquote>
-<p>(TL;DR) <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> 
+<p>(TL;DR) <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> <picture>
   
-    
-    
-    
+  
   
 
   
     
-    
-    
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/adguard/adguard-nasil-calisir.avif" type="image/avif">
 
-  
     
     
-    
-  
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
+    <source srcset="/images/adguard/adguard-nasil-calisir.webp" type="image/webp">
 
   
 
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir_huf0ad1ee08d4c3be2180fe61e82934595_68199_240x0_resize_q50_h2_linear.webp 240w,https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir_huf0ad1ee08d4c3be2180fe61e82934595_68199_300x0_resize_q50_h2_linear.webp 300w,https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir_huf0ad1ee08d4c3be2180fe61e82934595_68199_360x0_resize_q50_h2_linear.webp 360w,https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir_huf0ad1ee08d4c3be2180fe61e82934595_68199_420x0_resize_q50_h2_linear.webp 420w,https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir_huf0ad1ee08d4c3be2180fe61e82934595_68199_480x0_resize_q50_h2_linear.webp 480w,https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir_huf0ad1ee08d4c3be2180fe61e82934595_68199_600x0_resize_q50_h2_linear.webp 600w,https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir_huf0ad1ee08d4c3be2180fe61e82934595_68199_768x0_resize_q50_h2_linear.webp 768w,https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir_huf0ad1ee08d4c3be2180fe61e82934595_68199_800x0_resize_q50_h2_linear.webp 800w,https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir_huf0ad1ee08d4c3be2180fe61e82934595_68199_960x0_resize_q50_h2_linear.webp 960w,https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir_huf0ad1ee08d4c3be2180fe61e82934595_68199_1024x0_resize_q50_h2_linear.webp 1024w,https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir_huf0ad1ee08d4c3be2180fe61e82934595_68199_1080x0_resize_q50_h2_linear.webp 1080w,https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir_huf0ad1ee08d4c3be2180fe61e82934595_68199_1200x0_resize_q50_h2_linear.webp 1200w,https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir_huf0ad1ee08d4c3be2180fe61e82934595_68199_1217x0_resize_q50_h2_linear.webp 1217w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/adguard/adguard-nasil-calisir.jpg" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</p>
+  <img
+    src="/images/adguard/adguard-nasil-calisir.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://adguard.com/tr/adguard-windows/overview.html (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+</picture></p>
 </blockquote>
 <hr>
 <h1 id="4-dns-ile-ilgili-gelişmiş-ayalar">4. DNS ile ilgili Gelişmiş Ayalar</h1>
 <p>DNS (Alan Adı Sistemi), insanlar tarafından okunabilen alan adlarını bilgisayarların anlayabileceği IP adreslerine çevirmek için kullanılan bir protokoldür. Ancak, DNS sorguları normal olarak 53 numaralı port üzerinden gönderilir ve herhangi bir şifreleme yapılmaz. Dolayısıyla varsayılan olarak güvenli değildir ve DNS sorguları saldırganlar tarafından ele geçirilebilir veya manipüle edilebilir.</p>
-
+<p><picture>
   
-    
-    
-    
+  
   
 
-  
-    
-    
-    
   
 
   
     
+
+    <source srcset="/images/adguard/Unsecured-DNS.avif" type="image/avif">
+
     
     
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/adguard/Unsecured-DNS.webp" type="image/webp">
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/adguard/Unsecured-DNS_huda5ac88aee6044b580a897fb3ff98754_37604_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/adguard/Unsecured-DNS_huda5ac88aee6044b580a897fb3ff98754_37604_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/adguard/Unsecured-DNS_huda5ac88aee6044b580a897fb3ff98754_37604_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/adguard/Unsecured-DNS_huda5ac88aee6044b580a897fb3ff98754_37604_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/adguard/Unsecured-DNS_huda5ac88aee6044b580a897fb3ff98754_37604_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/adguard/Unsecured-DNS_huda5ac88aee6044b580a897fb3ff98754_37604_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/adguard/Unsecured-DNS_huda5ac88aee6044b580a897fb3ff98754_37604_640x0_resize_q50_h2_linear_3.webp 640w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/adguard/Unsecured-DNS.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/adguard/Unsecured-DNS.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://blog.chromium.org/2020/05/a-safer-and-more-private-browsing-DoH.html (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+</picture></p>
 <p>Bu sorunu çözmek için HTTPS üzerinden DNS (DoH), TLS üzerinden DNS (DoT), QUIC üzerinden DNS (DoQ) ve DNSCrypt dahil olmak üzere birkaç yeni protokol geliştirilmiştir. Blog gönderisinin bu kısmında, bu protokoller arasındaki farkları ve DNS sorgularınızı korumaya nasıl yardımcı olabileceklerini tartışacağız. DNS-over-HTTPS (DoH), DNS-over-TLS (DoT), DNS-over-QUIC (DoQ) ve DNSCrypt birçok avantaj sağlarken, dikkate alınması gereken bazı potansiyel dezavantajlar da vardır. <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
 <h2 id="41-https-üzerinden-dns-doh">4.1 HTTPS üzerinden DNS (DoH)</h2>
 <p>DNS-over-HTTPS (DoH), HTTPS protokolünü kullanarak DNS sorgularını şifreleyen bir protokoldür. DoH, üçüncü tarafların DNS sorgularına müdahale etmesini ve kurcalamasını önleyerek gizliliği ve güvenliği artırmak için tasarlanmıştır. DoH ile, DNS sorguları şifrelenmiş bir kanal üzerinden gönderilerek saldırganların bunları yakalamasını ve manipüle etmesini zorlaştırır.</p>
 <p>DoH, Firefox, Chrome ve Edge dahil olmak üzere birçok büyük web tarayıcısı tarafından desteklenir. Bir DoH uygulaması yükleyerek veya cihazınızı bir DoH sunucusu kullanacak şekilde yapılandırarak mobil cihazlarda da kullanılabilir.</p>
-
+<p><picture>
   
-    
-    
-    
+  
   
 
-  
-    
-    
-    
   
 
   
     
+
+    <source srcset="/images/adguard/DNS-over-HTTPS.avif" type="image/avif">
+
     
     
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/adguard/DNS-over-HTTPS.webp" type="image/webp">
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/adguard/DNS-over-HTTPS_hu3616142aacee1383b08c9bf81a0d9390_36506_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-HTTPS_hu3616142aacee1383b08c9bf81a0d9390_36506_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-HTTPS_hu3616142aacee1383b08c9bf81a0d9390_36506_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-HTTPS_hu3616142aacee1383b08c9bf81a0d9390_36506_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-HTTPS_hu3616142aacee1383b08c9bf81a0d9390_36506_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-HTTPS_hu3616142aacee1383b08c9bf81a0d9390_36506_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-HTTPS_hu3616142aacee1383b08c9bf81a0d9390_36506_640x0_resize_q50_h2_linear_3.webp 640w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/adguard/DNS-over-HTTPS.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/adguard/DNS-over-HTTPS.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://blog.chromium.org/2020/05/a-safer-and-more-private-browsing-DoH.html (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+</picture></p>
 <ul>
 <li>
 <h3 id="411-dezavantajları">4.1.1 Dezavantajları</h3>
@@ -1059,86 +349,32 @@
 <h2 id="42-tls-üzerinden-dns-dot">4.2 TLS üzerinden DNS (DoT)</h2>
 <p>DNS-over-TLS (DoT), DNS sorgularını şifreleyen başka bir protokoldür, ancak HTTPS yerine Aktarım Katmanı Güvenliği (TLS) protokolünü kullanır. DoT, DoH ile benzer güvenlik avantajları sağlar, ancak yaygın olarak desteklenmez.</p>
 <p>DoT&rsquo;yi kullanmak için cihazınızı bir DoT sunucusu kullanacak şekilde yapılandırmanız gerekir. DoT, Cloudflare, Quad9 ve Google dahil olmak üzere birkaç DNS sunucusu tarafından desteklenir.</p>
-
+<p><picture>
   
-    
-    
-    
+  
   
 
   
     
+
+    <source srcset="/images/adguard/DNS-over-TLS.avif" type="image/avif">
+
     
     
-  
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
+    <source srcset="/images/adguard/DNS-over-TLS.webp" type="image/webp">
 
   
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLS_hu557d487e17f916cfa5541b3615c74f70_47816_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLS_hu557d487e17f916cfa5541b3615c74f70_47816_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLS_hu557d487e17f916cfa5541b3615c74f70_47816_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLS_hu557d487e17f916cfa5541b3615c74f70_47816_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLS_hu557d487e17f916cfa5541b3615c74f70_47816_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLS_hu557d487e17f916cfa5541b3615c74f70_47816_531x0_resize_q50_h2_linear_3.webp 531w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLS.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/adguard/DNS-over-TLS.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://www.myrasecurity.com/de/knowledge-hub/dns-over-tls (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+</picture></p>
 <ul>
 <li>
 <h3 id="421-dezavantajları">4.2.1 Dezavantajları</h3>
@@ -1172,92 +408,32 @@
 <p>DNSCrypt, DNS sorgularını ve yanıtlarını açık anahtarlı şifreleme kullanarak şifreleyen bir protokoldür. DNSCrypt, DNS sahtekarlığını ve ortadaki adam saldırılarını önlemek için tasarlanmıştır.</p>
 <p>DNSCrypt ile, DNS sorguları bir ortak anahtar kullanılarak şifrelenir ve sunucu, ortak anahtar kullanılarak doğrulanabilen imzalı bir yanıtla yanıt verir. Bu, saldırganların DNS sorgularını ve yanıtlarını yakalamasını ve manipüle etmesini önler.</p>
 <p>DNSCrypt, OpenDNS ve Cloudflare dahil olmak üzere birkaç DNS sunucusu tarafından desteklenir. Ayrıca, dnscrypt-proxy ve Simple DNSCrypt dahil olmak üzere birkaç DNS istemcisiyle birlikte kullanılabilir.</p>
-
+<p><picture>
   
-    
-    
-    
   
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
   
 
   
 
   
+    
 
-  
+    <source srcset="/images/adguard/DNS-crypt.avif" type="image/avif">
 
-  
+    
+    
 
-  
+    <source srcset="/images/adguard/DNS-crypt.webp" type="image/webp">
 
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/adguard/DNS-crypt_hu547db820e5e24578b369f55e6f85d8fe_33959_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/adguard/DNS-crypt_hu547db820e5e24578b369f55e6f85d8fe_33959_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/adguard/DNS-crypt_hu547db820e5e24578b369f55e6f85d8fe_33959_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/adguard/DNS-crypt_hu547db820e5e24578b369f55e6f85d8fe_33959_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/adguard/DNS-crypt_hu547db820e5e24578b369f55e6f85d8fe_33959_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/adguard/DNS-crypt_hu547db820e5e24578b369f55e6f85d8fe_33959_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/adguard/DNS-crypt_hu547db820e5e24578b369f55e6f85d8fe_33959_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/adguard/DNS-crypt_hu547db820e5e24578b369f55e6f85d8fe_33959_800x0_resize_q50_h2_linear_3.webp 800w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/adguard/DNS-crypt.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/adguard/DNS-crypt.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://dev.to/cipherops/using-dnscrypt-with-adguard-home-pi-hole-7j6 (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+</picture></p>
 <ul>
 <li>
 <h3 id="441-dezavantajları">4.4.1 Dezavantajları</h3>
@@ -1273,98 +449,32 @@
 </ul>
 <h2 id="-45-kısa-özet">&gt; 4.5 Kısa Özet</h2>
 <blockquote>
-<p>(TL;DR) <sup id="fnref3:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> DNS-over-HTTPS, DNS-over-TLS, DNS-over-QUIC ve DNSCrypt birçok avantaj sağlarken, dikkate alınması gereken potansiyel dezavantajları da vardır. Bu protokoller, güvenlik duvarları veya internet servis sağlayıcıları tarafından engellenebilir ve gecikmeyi artırabilir veya DNS sorgularını yavaşlatabilir. Bu protokollerden herhangi birini kullanmadan önce, olası dezavantajları göz önünde bulundurmak ve ek güvenlik ve gizlilik avantajlarına değip değmeyeceğini belirlemek önemlidir. Ek olarak, tüm sunucular tüm protokolleri desteklemediğinden, kullandığınız DNS sunucusunun kullanmak istediğiniz protokolü desteklediğinden emin olmanız önemlidir. Seçtiğiniz protokol ne olursa olsun, güvenli bir DNS sunucusu kullanmak çevrimiçi gizliliğinizi ve güvenliğinizi korumada önemli bir adımdır. DNS sorgularınızın şifreli ve güvenli olduğundan emin olmak için bu protokollerden birini kullanmayı düşünün. 
+<p>(TL;DR) <sup id="fnref3:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> DNS-over-HTTPS, DNS-over-TLS, DNS-over-QUIC ve DNSCrypt birçok avantaj sağlarken, dikkate alınması gereken potansiyel dezavantajları da vardır. Bu protokoller, güvenlik duvarları veya internet servis sağlayıcıları tarafından engellenebilir ve gecikmeyi artırabilir veya DNS sorgularını yavaşlatabilir. Bu protokollerden herhangi birini kullanmadan önce, olası dezavantajları göz önünde bulundurmak ve ek güvenlik ve gizlilik avantajlarına değip değmeyeceğini belirlemek önemlidir. Ek olarak, tüm sunucular tüm protokolleri desteklemediğinden, kullandığınız DNS sunucusunun kullanmak istediğiniz protokolü desteklediğinden emin olmanız önemlidir. Seçtiğiniz protokol ne olursa olsun, güvenli bir DNS sunucusu kullanmak çevrimiçi gizliliğinizi ve güvenliğinizi korumada önemli bir adımdır. DNS sorgularınızın şifreli ve güvenli olduğundan emin olmak için bu protokollerden birini kullanmayı düşünün. <picture>
   
-    
-    
-    
   
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
   
 
   
 
   
+    
 
-  
+    <source srcset="/images/adguard/DNS-over-TLDR.avif" type="image/avif">
 
-  
+    
+    
 
-  
+    <source srcset="/images/adguard/DNS-over-TLDR.webp" type="image/webp">
 
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLDR_hue65264e93ff218df366dfcb6e111b13a_104014_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLDR_hue65264e93ff218df366dfcb6e111b13a_104014_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLDR_hue65264e93ff218df366dfcb6e111b13a_104014_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLDR_hue65264e93ff218df366dfcb6e111b13a_104014_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLDR_hue65264e93ff218df366dfcb6e111b13a_104014_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLDR_hue65264e93ff218df366dfcb6e111b13a_104014_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLDR_hue65264e93ff218df366dfcb6e111b13a_104014_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLDR_hue65264e93ff218df366dfcb6e111b13a_104014_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLDR_hue65264e93ff218df366dfcb6e111b13a_104014_850x0_resize_q50_h2_linear_3.webp 850w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/adguard/DNS-over-TLDR.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</p>
+  <img
+    src="/images/adguard/DNS-over-TLDR.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://www.researchgate.net/profile/Minzhao-Lyu/publication/357587121 (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+</picture></p>
 </blockquote>
 <hr>
 <h1 id="5-daha-ileri-gizlilik-için">5. Daha İleri Gizlilik İçin</h1>
@@ -1372,349 +482,93 @@
 <h2 id="51-dnssec">5.1 DNSSEC</h2>
 <p>DNSSEC, DNS sızdırma saldırılarını önlemek için tasarlanmış bir güvenlik protokolüdür. DNS sahtekarlığı, bir bilgisayar korsanı bir DNS sorgusunu yakaladığında ve istenen etki alanının IP adresini kötü amaçlı bir IP adresiyle değiştirdiğinde gerçekleşir. DNSSEC, DNS yanıtlarının gerçekliğini doğrulamak ve kullanıcıların doğru web sitesine yönlendirilmesini sağlamak için kriptografik imzalar kullanır.</p>
 <p>DNSSEC, her DNS kaydına, yanıta güvenmeden önce istekte bulunan cihaz tarafından doğrulanan bir dijital imza ekleyerek çalışır. DNSSEC ayrıca, orijinalliklerini doğrulamak için kullanılabilecek DNS kayıtları için ortak anahtarları dağıtmak için bir mekanizma sağlar.</p>
-
+<p><picture>
   
-    
-    
-    
   
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
   
 
   
 
   
+    
 
-  
+    <source srcset="/images/adguard/DNSSEC.avif" type="image/avif">
 
+    
+    
 
+    <source srcset="/images/adguard/DNSSEC.webp" type="image/webp">
 
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/adguard/DNSSEC_hu602f65aeb5218549aa3dfeda6d5e03a3_108356_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/adguard/DNSSEC_hu602f65aeb5218549aa3dfeda6d5e03a3_108356_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/adguard/DNSSEC_hu602f65aeb5218549aa3dfeda6d5e03a3_108356_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/adguard/DNSSEC_hu602f65aeb5218549aa3dfeda6d5e03a3_108356_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/adguard/DNSSEC_hu602f65aeb5218549aa3dfeda6d5e03a3_108356_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/adguard/DNSSEC_hu602f65aeb5218549aa3dfeda6d5e03a3_108356_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/adguard/DNSSEC_hu602f65aeb5218549aa3dfeda6d5e03a3_108356_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/adguard/DNSSEC_hu602f65aeb5218549aa3dfeda6d5e03a3_108356_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/adguard/DNSSEC_hu602f65aeb5218549aa3dfeda6d5e03a3_108356_960x0_resize_q50_h2_linear_3.webp 960w,https://wiseweb-works.github.io/blog/images/adguard/DNSSEC_hu602f65aeb5218549aa3dfeda6d5e03a3_108356_1024x0_resize_q50_h2_linear_3.webp 1024w,https://wiseweb-works.github.io/blog/images/adguard/DNSSEC_hu602f65aeb5218549aa3dfeda6d5e03a3_108356_1080x0_resize_q50_h2_linear_3.webp 1080w,https://wiseweb-works.github.io/blog/images/adguard/DNSSEC_hu602f65aeb5218549aa3dfeda6d5e03a3_108356_1200x0_resize_q50_h2_linear_3.webp 1200w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/adguard/DNSSEC.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/adguard/DNSSEC.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://www.dk-hostmaster.dk/en/dnssec (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+</picture></p>
 <h2 id="52-edns-istemci-alt-ağı-ecs">5.2 EDNS İstemci Alt Ağı (ECS)</h2>
 <p>EDNS İstemci Alt Ağı, DNS sunucularının istemcinin IP adresi hakkında bilgi almasına izin veren DNS protokolünün bir uzantısıdır. Bu bilgiler, DNS sorgularına daha doğru yanıtlar sağlamak için kullanılır ve DNS çözümleme sürecinin hızını ve güvenilirliğini artırmaya yardımcı olabilir.</p>
 <p>EDNS İstemci Alt Ağı ile DNS sunucuları, istekte bulunan cihazın coğrafi konumunu belirleyebilir ve bu konum için optimize edilmiş bir yanıt sağlayabilir. Bu, gecikmeyi azaltmaya ve internetin genel performansını iyileştirmeye yardımcı olabilir.</p>
 <h2 id="53-şifreli-sni-encrypted-sni">5.3 Şifreli SNI (Encrypted SNI)</h2>
 <p>Şifreli SNI (Server Name Indicator), TLS el sıkışma işleminde SNI alanını şifreleyen bir teknolojidir. SNI alanı, istemcinin bağlanmak istediği sunucunun ana bilgisayar adını belirlemek için kullanılır. Şifreli SNI, bu alanı şifreleyerek gizli dinleme ve ortadaki adam saldırılarını önlemeye yardımcı olur.</p>
 <p>Şifreli SNI, önemli bir gizlilik özelliğidir çünkü SNI alanı bir kullanıcının çevrimiçi etkinliğini izlemek için kullanılabilir. Şifreleme olmadan, ISP&rsquo;ler, hükümetler ve diğer üçüncü tarafların SNI bilgilerine müdahale etmesi ve kullanıcı gizliliğini tehlikeye atarak izlemesi mümkündür.</p>
-
+<p><picture>
   
-    
-    
-    
   
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
   
 
   
 
+  
+    
 
+    <source srcset="/images/adguard/ESNI.avif" type="image/avif">
 
+    
+    
 
+    <source srcset="/images/adguard/ESNI.webp" type="image/webp">
 
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/adguard/ESNI_hu1af620003a5780660c8422770dbed951_69493_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/adguard/ESNI_hu1af620003a5780660c8422770dbed951_69493_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/adguard/ESNI_hu1af620003a5780660c8422770dbed951_69493_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/adguard/ESNI_hu1af620003a5780660c8422770dbed951_69493_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/adguard/ESNI_hu1af620003a5780660c8422770dbed951_69493_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/adguard/ESNI_hu1af620003a5780660c8422770dbed951_69493_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/adguard/ESNI_hu1af620003a5780660c8422770dbed951_69493_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/adguard/ESNI_hu1af620003a5780660c8422770dbed951_69493_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/adguard/ESNI_hu1af620003a5780660c8422770dbed951_69493_960x0_resize_q50_h2_linear_3.webp 960w,https://wiseweb-works.github.io/blog/images/adguard/ESNI_hu1af620003a5780660c8422770dbed951_69493_1024x0_resize_q50_h2_linear_3.webp 1024w,https://wiseweb-works.github.io/blog/images/adguard/ESNI_hu1af620003a5780660c8422770dbed951_69493_1080x0_resize_q50_h2_linear_3.webp 1080w,https://wiseweb-works.github.io/blog/images/adguard/ESNI_hu1af620003a5780660c8422770dbed951_69493_1200x0_resize_q50_h2_linear_3.webp 1200w,https://wiseweb-works.github.io/blog/images/adguard/ESNI_hu1af620003a5780660c8422770dbed951_69493_1366x0_resize_q50_h2_linear_3.webp 1366w,https://wiseweb-works.github.io/blog/images/adguard/ESNI_hu1af620003a5780660c8422770dbed951_69493_1440x0_resize_q50_h2_linear_3.webp 1440w,https://wiseweb-works.github.io/blog/images/adguard/ESNI_hu1af620003a5780660c8422770dbed951_69493_1574x0_resize_q50_h2_linear_3.webp 1574w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/adguard/ESNI.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/adguard/ESNI.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://blog.cloudflare.com/encrypted-client-hello (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+</picture></p>
 <h2 id="54-şifreli-istemci-merhaba-encrypted-client-hello">5.4 Şifreli İstemci Merhaba (Encrypted Client Hello)</h2>
 <p>Encrypted Client Hello, TLS anlaşma sürecinin gizliliğini ve güvenliğini artırmaya yardımcı olan başka bir teknolojidir. İstemci Merhaba mesajı, TLS bağlantısını başlatmak için istemci tarafından gönderilir ve istemcinin desteklediği TLS sürümleri ve şifre paketleri hakkında bilgi içerir.</p>
 <p>Encrypted Client Hello, İstemci Merhaba mesajını şifreleyerek, gizli dinleme ve ortadaki adam saldırılarını önlemeye yardımcı olur. Ayrıca, üçüncü tarafların Müşteri Merhaba mesajını ele geçirmesini ve analiz etmesini önleyerek kullanıcı gizliliğinin korunmasına yardımcı olur.</p>
-
+<p><picture>
   
-    
-    
-    
   
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
   
 
   
 
+  
+    
 
+    <source srcset="/images/adguard/ECH.avif" type="image/avif">
 
+    
+    
 
+    <source srcset="/images/adguard/ECH.webp" type="image/webp">
 
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/adguard/ECH_huff222e78408d7b2c0383cbb76ed252a1_76173_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/adguard/ECH_huff222e78408d7b2c0383cbb76ed252a1_76173_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/adguard/ECH_huff222e78408d7b2c0383cbb76ed252a1_76173_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/adguard/ECH_huff222e78408d7b2c0383cbb76ed252a1_76173_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/adguard/ECH_huff222e78408d7b2c0383cbb76ed252a1_76173_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/adguard/ECH_huff222e78408d7b2c0383cbb76ed252a1_76173_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/adguard/ECH_huff222e78408d7b2c0383cbb76ed252a1_76173_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/adguard/ECH_huff222e78408d7b2c0383cbb76ed252a1_76173_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/adguard/ECH_huff222e78408d7b2c0383cbb76ed252a1_76173_960x0_resize_q50_h2_linear_3.webp 960w,https://wiseweb-works.github.io/blog/images/adguard/ECH_huff222e78408d7b2c0383cbb76ed252a1_76173_1024x0_resize_q50_h2_linear_3.webp 1024w,https://wiseweb-works.github.io/blog/images/adguard/ECH_huff222e78408d7b2c0383cbb76ed252a1_76173_1080x0_resize_q50_h2_linear_3.webp 1080w,https://wiseweb-works.github.io/blog/images/adguard/ECH_huff222e78408d7b2c0383cbb76ed252a1_76173_1200x0_resize_q50_h2_linear_3.webp 1200w,https://wiseweb-works.github.io/blog/images/adguard/ECH_huff222e78408d7b2c0383cbb76ed252a1_76173_1366x0_resize_q50_h2_linear_3.webp 1366w,https://wiseweb-works.github.io/blog/images/adguard/ECH_huff222e78408d7b2c0383cbb76ed252a1_76173_1440x0_resize_q50_h2_linear_3.webp 1440w,https://wiseweb-works.github.io/blog/images/adguard/ECH_huff222e78408d7b2c0383cbb76ed252a1_76173_1574x0_resize_q50_h2_linear_3.webp 1574w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/adguard/ECH.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/adguard/ECH.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://blog.cloudflare.com/encrypted-client-hello (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+</picture></p>
 <p>Çözüm
 DNSSEC, EDNS İstemci Alt Ağı, Şifreli SNI ve Şifreli İstemci Hello, internette güvenliği ve gizliliği geliştirmeye yardımcı olan önemli teknolojilerdir. Bu teknolojiler, DNS sahtekarlığı saldırılarını önlemek, daha doğru DNS yanıtları sağlamak ve TLS el sıkışma işlemi sırasında kullanıcı gizliliğini korumak için tasarlanmıştır. Bu teknolojileri uygulayarak herkes için daha güvenli ve güvenli bir internet oluşturmaya yardımcı olabiliriz.</p>
 <hr>

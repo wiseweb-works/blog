@@ -1,90 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>elliptische kurve on Wise</title><link>https://wiseweb-works.github.io/blog/de/tags/elliptische-kurve/</link><description>Recent content in elliptische kurve on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 20 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/de/tags/elliptische-kurve/index.xml" rel="self" type="application/rss+xml"/><item><title>Generieren eines ECC-SSL-Zertifikats auf einem Linux-Server</title><link>https://wiseweb-works.github.io/blog/de/post/ecc-ssl-sertifikasi/</link><pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/de/post/ecc-ssl-sertifikasi/</guid><description>Einführung und Zusammenfassung Heute lernen wir, wie man SSL-Zertifikate generiert, um sicherzustellen, dass der Datenverkehr zwischen einer von Ihnen verwalteten Website oder einem Anwendungsserver und Ihren Besuchern vertraulich / zuverlässig und überprüfbar ist. In meinen vorherigen Artikeln habe ich erklärt, wie und mit welcher Konfiguration Sie das von Ihnen erstellte Zertifikat bereitstellen würden. In diesem Artikel zeige ich Ihnen, wie Sie die Gleichung „weniger Brot, mehr Frikadellen“ aufstellen, also ein schnelleres und sichereres SSL-Zertifikat erstellen.</description><content:encoded><![CDATA[<h1 id="einführung-und-zusammenfassung">Einführung und Zusammenfassung</h1>
 <p>Heute lernen wir, wie man SSL-Zertifikate generiert, um sicherzustellen, dass der Datenverkehr zwischen einer von Ihnen verwalteten Website oder einem Anwendungsserver und Ihren Besuchern vertraulich / zuverlässig und überprüfbar ist. In meinen vorherigen Artikeln habe ich erklärt, wie und mit welcher Konfiguration Sie das von Ihnen erstellte Zertifikat bereitstellen würden. In diesem Artikel zeige ich Ihnen, wie Sie die Gleichung „weniger Brot, mehr Frikadellen“ aufstellen, also ein schnelleres und sichereres SSL-Zertifikat erstellen. Wenn Sie mit dem ACME-Protokoll von Let’s Encrypt vertraut sind (zum Zeitpunkt des Schreibens), ist es normalerweise möglich, ein 1024-4098 (wenn Sie sich zu sehr anstrengen, vielleicht 8196) Bit-Zertifikat mit einer asymmetrischen RSA-Schlüsselstruktur zu generieren und es für zu verwenden 90 Tage relativ. Das Generieren eines so großen Schlüssels, dessen Verwendung während des TLS-Handshakes nach der Generierung und die Kompatibilität mit den von den Besuchern verwendeten Geräten verursachen jedoch in den meisten Szenarien Probleme. Wenn beispielsweise 4096 Bit anstelle von 2048 Bit verwendet werden, bin ich bei einigen meiner Versuche mit 0,4-0,8 Sekunden längeren Handshake-Zeiten konfrontiert. Als ob es in Ordnung wäre, dass der Handshake so lange dauert, wird der Server dadurch zusätzlich belastet. Aber wenn Sie ein 384-Bit-ECC-Zertifikat anstelle von 4096-Bit-RSA generieren, erhalten Sie ein viel schnelleres Zertifikat und gleichzeitig eine Sicherheit, die 7680-Bit-RSA entspricht (wenn es diese Größe hätte).</p>
 <p>Nun, Sie haben es gut erklärt, aber wo ist der Sinn dieser Arbeit, scheine ich Sie sagen zu hören. Ich werde Sie verärgern, aber dieses Geschäft hat keinen Sinn. Der Grund, warum dies nicht der Fall ist, ist in der Hintergrundmathematik verborgen. Ich werde kurz auf die kleinen Unterschiede in der Herstellung und Verwendung beider Zertifikate eingehen, erklären, wie und warum sie große Unterschiede verursachen, und im letzten Teil werde ich über etwas sprechen, das nicht als Bonus im Titel steht. (Für den Bonus musst du bis zum Ende lesen :D)</p>
-
+<p><picture>
   
-    
-    
-    
+  
   
 
   
     
+
+    <source srcset="/images/ecc-ssl/key-size-comparison.avif" type="image/avif">
+
     
     
-  
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
+    <source srcset="/images/ecc-ssl/key-size-comparison.webp" type="image/webp">
 
   
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_240x0_resize_q50_h2_linear.webp 240w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_300x0_resize_q50_h2_linear.webp 300w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_360x0_resize_q50_h2_linear.webp 360w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_420x0_resize_q50_h2_linear.webp 420w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_480x0_resize_q50_h2_linear.webp 480w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_600x0_resize_q50_h2_linear.webp 600w,https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison_hu116862e17af7381ac5d24d7d5b0ba692_18192_711x0_resize_q50_h2_linear.webp 711w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/ecc-ssl/key-size-comparison.jpg" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/ecc-ssl/key-size-comparison.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://www.globalsign.com/en/blog/elliptic-curve-cryptography (Datum: 08.04.2023)</small></b></center></caption>
+</picture></p>
 <h2 id="produktionsprozess-des-ecc-zertifikats">Produktionsprozess des ECC-Zertifikats</h2>
 <p>Zuerst müssen wir (wie immer) die neuesten Updates über die Konsole mit dem Paketmanager der Linux-Version installieren, in der wir uns befinden.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Ubuntu: sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt upgrade -y
@@ -218,311 +160,85 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
 </ul>
 <h1 id="ende">ENDE</h1>
 <p>Wenn wir alles richtig gemacht haben, bestätigt die Überprüfung des Zertifikats mit einem Webbrowser wie Chrome, dass es sich um ein EC-Zertifikat handelt:</p>
-
+<p><picture>
   
-    
-    
-    
   
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
   
 
   
 
   
+    
 
-  
+    <source srcset="/images/ecc-ssl/ecc-sll-key-chrome.avif" type="image/avif">
 
-  
+    
+    
 
-  
+    <source srcset="/images/ecc-ssl/ecc-sll-key-chrome.webp" type="image/webp">
 
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome_hudc69a2051f83339f6a978d99b5875e0c_18051_854x0_resize_q50_h2_linear_3.webp 854w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-sll-key-chrome.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/ecc-ssl/ecc-sll-key-chrome.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Datum: 08.04.2023)</small></b></center></caption>
+</picture></p>
 <p>Mozilla Observatory wird uns auch eine A+ Bewertung geben!</p>
-
+<p><picture>
   
-    
-    
-    
   
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
   
 
   
 
   
+    
 
-  
+    <source srcset="/images/ecc-ssl/ecc-ssl-key-mozilla.avif" type="image/avif">
 
-  
+    
+    
 
-  
+    <source srcset="/images/ecc-ssl/ecc-ssl-key-mozilla.webp" type="image/webp">
 
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla_huf48d19e76be255dd9b8b8436e32b4e2a_24210_880x0_resize_q50_h2_linear_3.webp 880w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-mozilla.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/ecc-ssl/ecc-ssl-key-mozilla.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Datum: 08.04.2023)</small></b></center></caption>
+</picture></p>
 <p>Darüber hinaus können wir als Ergebnis des SSL Labs-Berichts sehen, dass ein 384-Bit-ECC-Zertifikat verwendet wurde.</p>
-
+<p><picture>
   
-    
-    
-    
+  
   
 
-  
-    
-    
-    
   
 
   
     
-    
-    
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/ecc-ssl/ecc-ssl-key-ssllabs.avif" type="image/avif">
 
-  
     
     
-    
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/ecc-ssl/ecc-ssl-key-ssllabs.webp" type="image/webp">
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_768x0_resize_q50_h2_linear_3.webp 768w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_800x0_resize_q50_h2_linear_3.webp 800w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_960x0_resize_q50_h2_linear_3.webp 960w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1024x0_resize_q50_h2_linear_3.webp 1024w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1080x0_resize_q50_h2_linear_3.webp 1080w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1200x0_resize_q50_h2_linear_3.webp 1200w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1366x0_resize_q50_h2_linear_3.webp 1366w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1440x0_resize_q50_h2_linear_3.webp 1440w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1920x0_resize_q50_h2_linear_3.webp 1920w,https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs_hue1dd864f2b55004f331c8404d9e3065d_77860_1994x0_resize_q50_h2_linear_3.webp 1994w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/ecc-ssl/ecc-ssl-key-ssllabs.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-
+  <img
+    src="/images/ecc-ssl/ecc-ssl-key-ssllabs.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>SSL Labs Test</small></b></center></caption>
+</picture></p>
 <p>HINWEIS: Dieser Artikel profitiert vom Artikel von <a href="https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc">Benjamin Black</a> zum gleichen Thema.</p>
 ]]></content:encoded></item></channel></rss>

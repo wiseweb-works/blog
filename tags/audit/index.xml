@@ -84,175 +84,59 @@
 </span></span><span style="display:flex;"><span>ssl_dhparam /etc/nginx/dhparam.pem; &gt;&gt; Diffie-Hellman anahtar değişim algoritması sırasında kullanılacak değerleri default değerler dışında az önce oluşturduğumuz gizli değerler ile değiştirmeye yarayan komut.
 </span></span></code></pre></div><p>Ayarları yaptıktan sonra &ldquo;sudo nginx -t&rdquo; ve ardından eğer bir hata mesajı görmez iseniz &ldquo;sudo service nginx restart&rdquo; komutu ile ayarları uygulayıp servisi baştan başlatın. Artık sizin belirlediğiniz konfigürasyon ve şartlar ile bağlantı sağlanacaktır. Eğer öncesi/sonrası puanlama farkını görmek isterseniz aşağıdaki görsellere bakabilirsiniz veya kendi sitenizi &ldquo;<a href="https://www.ssllabs.com/ssltest/index.html%22">https://www.ssllabs.com/ssltest/index.html&quot;</a> adresinden test edebilirsiniz.</p>
 <p>İLK HALİ
-
+<picture>
   
-    
-    
-    
+  
   
 
-  
-    
-    
-    
   
 
   
     
+
+    <source srcset="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.avif" type="image/avif">
+
     
     
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.webp" type="image/webp">
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs_hube3f812aa82c72223f5230de1e586122_40881_640x0_resize_q50_h2_linear_3.webp 640w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</p>
+  <img
+    src="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>SSL Labs test sonucu</small></b></center></caption>
+</picture></p>
 <p>SON DURUM
-
+<picture>
   
-    
-    
-    
+  
   
 
-  
-    
-    
-    
   
 
   
     
+
+    <source srcset="/images/ssl-anlatim/ssl-son-hali-ssllabs.avif" type="image/avif">
+
     
     
-  
 
-  
-    
-    
-    
-  
+    <source srcset="/images/ssl-anlatim/ssl-son-hali-ssllabs.webp" type="image/webp">
 
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-    
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-<figure>
-  <div class="img-box">
-    <img
-      srcset="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_240x0_resize_q50_h2_linear_3.webp 240w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_300x0_resize_q50_h2_linear_3.webp 300w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_360x0_resize_q50_h2_linear_3.webp 360w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_420x0_resize_q50_h2_linear_3.webp 420w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_480x0_resize_q50_h2_linear_3.webp 480w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_600x0_resize_q50_h2_linear_3.webp 600w,https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs_huaa6d1a39bacf17657b5f6c233cf01739_41684_640x0_resize_q50_h2_linear_3.webp 640w"
-      sizes="(max-width: 200px) 240px 300px 360px 420px,
-      (max-width: 400px) 200px 240px 300px 360px 420px 480px 600px 768px 800px,
-      (max-width: 600px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px,
-      (max-width: 800px) 200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      (max-width: 1000px)200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px,
-      200px 240px 300px 360px 420px 480px 600px 768px 800px 960px 1024px 1080px 1200px 1366px 1440px 1920px 100vw"
-
-      src="https://wiseweb-works.github.io/blog/images/ssl-anlatim/ssl-son-hali-ssllabs.png" alt="" title=""/>
-  </div>
-  <figcaption></figcaption>
-</figure>
-</p>
+  <img
+    src="/images/ssl-anlatim/ssl-son-hali-ssllabs.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>SSL Labs test sonucu</small></b></center></caption>
+</picture></p>
 <p>Neden Cipher Strength %100 değil derseniz TLS 1.3 ile otomatik gelen ve biz istemesek de eklenen &ldquo;TLS_AES_128_GCM_SHA256 (0x1301)&rdquo; yüzünden şu an %100 yapmak mümkün değil. TLS 1.3&rsquo;ü kapatırım o zaman gelmez diye düşünürseniz o zaman da başka yerden puanınız gidiyor maalesef.</p>
 <h1 id="son">Son</h1>
 <p>Bu yazı daha önce <a href="https://teknolojirehberleri.xyz">https://teknolojirehberleri.xyz</a> adresinde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>

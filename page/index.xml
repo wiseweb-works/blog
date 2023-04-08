@@ -14,8 +14,32 @@ Yazdıklarım içerisinde ilginizi çeken bir konu varsa sizin de fikirlerinizi 
 <hr>
 <p>Lüzumsuz büyük olmayan, ek bileşenler ve uzun yükleme süresi ile kullanıcıları rahatsız etmeyen bir web sayfası yapma konusunda bana ilham olan sevgili Ged&rsquo;e <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> teşekkür ederim. Bu kulüp interneti ve kullanıcıları lüzumsuz büyüklükteki sitelerden korumayı desteklemektedir.</p>
 <p>Bu site, <a href="https://gohugo.io/">Hugo</a> kullanılarak ve <a href="https://github.com/adityatelange/hugo-PaperMod/">PaperMod</a> temasıyla oluşturulmuştur. Ayrıca bu site, 100kb&rsquo;nin altındaki büyüklüğüyle <a href="https://512kb.club/">512kbClub</a>&lsquo;ın Yeşil Üyesidir.</p>
-<p><img loading="lazy" src="https://512kb.club/assets/images/green-team.svg" alt="512kbClub"  />
-</p>
+<p><picture>
+  
+  
+  
+
+  
+    
+
+    <source srcset="/images/green-team.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="/images/green-team.webp" type="image/webp">
+
+  
+
+  <img
+    src="/images/green-team.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small></small></b></center></caption>
+</picture></p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
