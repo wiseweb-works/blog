@@ -90,17 +90,17 @@
   
     
 
-    <source srcset="/images/openvpn-full/TCP-Handshake.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/TCP-Handshake.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake.webp" type="image/webp">
 
   
 
   <img
-    src="/images/openvpn-full/TCP-Handshake.jpg"
+    src="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -119,15 +119,15 @@
   
     
 
-    <source srcset="/images/openvpn-full/TCP-Handshake-2.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake-2.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/TCP-Handshake-2.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake-2.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/TCP-Handshake-2.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake-2.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -148,15 +148,15 @@
   
     
 
-    <source srcset="/images/openvpn-full/TLS-Handshake.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/TLS-Handshake.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/TLS-Handshake.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -175,15 +175,15 @@
   
     
 
-    <source srcset="/images/openvpn-full/TLS-Handshake-2.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake-2.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/TLS-Handshake-2.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake-2.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/TLS-Handshake-2.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake-2.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -204,15 +204,15 @@
   
     
 
-    <source srcset="/images/openvpn-full/EtM.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/EtM.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/EtM.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/EtM.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/EtM.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/EtM.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -231,15 +231,15 @@
   
     
 
-    <source srcset="/images/openvpn-full/EaM.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/EaM.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/EaM.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/EaM.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/EaM.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/EaM.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -258,15 +258,15 @@
   
     
 
-    <source srcset="/images/openvpn-full/MtE.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/MtE.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/MtE.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/MtE.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/MtE.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/MtE.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -295,15 +295,15 @@
   
     
 
-    <source srcset="/images/openvpn-full/TAP-TUN.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TAP-TUN.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/TAP-TUN.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TAP-TUN.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/TAP-TUN.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/TAP-TUN.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -325,17 +325,17 @@
   
     
 
-    <source srcset="/images/ecc-ssl/key-size-comparison.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/key-size-comparison.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ecc-ssl/key-size-comparison.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/key-size-comparison.webp" type="image/webp">
 
   
 
   <img
-    src="/images/ecc-ssl/key-size-comparison.jpg"
+    src="https://wiseweb-works.github.io/images/ecc-ssl/key-size-comparison.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -486,15 +486,15 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
   
     
 
-    <source srcset="/images/ecc-ssl/ecc-sll-key-chrome.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-sll-key-chrome.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ecc-ssl/ecc-sll-key-chrome.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-sll-key-chrome.webp" type="image/webp">
 
   <img
-    src="/images/ecc-ssl/ecc-sll-key-chrome.png"
+    src="https://wiseweb-works.github.io/images/ecc-ssl/ecc-sll-key-chrome.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -513,15 +513,15 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
   
     
 
-    <source srcset="/images/ecc-ssl/ecc-ssl-key-mozilla.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-mozilla.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ecc-ssl/ecc-ssl-key-mozilla.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-mozilla.webp" type="image/webp">
 
   <img
-    src="/images/ecc-ssl/ecc-ssl-key-mozilla.png"
+    src="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-mozilla.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -540,15 +540,15 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
   
     
 
-    <source srcset="/images/ecc-ssl/ecc-ssl-key-ssllabs.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-ssllabs.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ecc-ssl/ecc-ssl-key-ssllabs.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-ssllabs.webp" type="image/webp">
 
   <img
-    src="/images/ecc-ssl/ecc-ssl-key-ssllabs.png"
+    src="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-ssllabs.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -577,17 +577,17 @@ Wenn es ein Thema gibt, das Sie in dem, was ich geschrieben habe, interessiert, 
   
     
 
-    <source srcset="/images/green-team.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/green-team.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/green-team.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/green-team.webp" type="image/webp">
 
   
 
   <img
-    src="/images/green-team.jpg"
+    src="https://wiseweb-works.github.io/images/green-team.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -699,15 +699,15 @@ Wenn es ein Thema gibt, das Sie in dem, was ich geschrieben habe, interessiert, 
   
     
 
-    <source srcset="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-ilk-hali-ssllabs.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-ilk-hali-ssllabs.webp" type="image/webp">
 
   <img
-    src="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png"
+    src="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -726,15 +726,15 @@ Wenn es ein Thema gibt, das Sie in dem, was ich geschrieben habe, interessiert, 
   
     
 
-    <source srcset="/images/ssl-anlatim/ssl-son-hali-ssllabs.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-son-hali-ssllabs.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ssl-anlatim/ssl-son-hali-ssllabs.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-son-hali-ssllabs.webp" type="image/webp">
 
   <img
-    src="/images/ssl-anlatim/ssl-son-hali-ssllabs.png"
+    src="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-son-hali-ssllabs.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)

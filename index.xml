@@ -70,17 +70,17 @@
   
     
 
-    <source srcset="/images/adguard/1.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/1.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/1.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/1.webp" type="image/webp">
 
   
 
   <img
-    src="/images/adguard/1.jpg"
+    src="https://wiseweb-works.github.io/images/adguard/1.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -100,15 +100,15 @@
   
     
 
-    <source srcset="/images/adguard/2.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/2.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/2.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/2.webp" type="image/webp">
 
   <img
-    src="/images/adguard/2.png"
+    src="https://wiseweb-works.github.io/images/adguard/2.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -128,15 +128,15 @@
   
     
 
-    <source srcset="/images/adguard/3.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/3.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/3.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/3.webp" type="image/webp">
 
   <img
-    src="/images/adguard/3.png"
+    src="https://wiseweb-works.github.io/images/adguard/3.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -156,15 +156,15 @@
   
     
 
-    <source srcset="/images/adguard/4.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/4.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/4.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/4.webp" type="image/webp">
 
   <img
-    src="/images/adguard/4.png"
+    src="https://wiseweb-works.github.io/images/adguard/4.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -182,17 +182,17 @@
   
     
 
-    <source srcset="/images/adguard/5.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/5.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/5.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/5.webp" type="image/webp">
 
   
 
   <img
-    src="/images/adguard/5.jpg"
+    src="https://wiseweb-works.github.io/images/adguard/5.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -210,17 +210,17 @@
   
     
 
-    <source srcset="/images/adguard/6.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/6.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/6.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/6.webp" type="image/webp">
 
   
 
   <img
-    src="/images/adguard/6.jpg"
+    src="https://wiseweb-works.github.io/images/adguard/6.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -255,17 +255,17 @@
   
     
 
-    <source srcset="/images/adguard/adguard-nasil-calisir.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/adguard-nasil-calisir.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/adguard-nasil-calisir.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/adguard-nasil-calisir.webp" type="image/webp">
 
   
 
   <img
-    src="/images/adguard/adguard-nasil-calisir.jpg"
+    src="https://wiseweb-works.github.io/images/adguard/adguard-nasil-calisir.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -287,15 +287,15 @@
   
     
 
-    <source srcset="/images/adguard/Unsecured-DNS.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/Unsecured-DNS.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/Unsecured-DNS.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/Unsecured-DNS.webp" type="image/webp">
 
   <img
-    src="/images/adguard/Unsecured-DNS.png"
+    src="https://wiseweb-works.github.io/images/adguard/Unsecured-DNS.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -317,15 +317,15 @@
   
     
 
-    <source srcset="/images/adguard/DNS-over-HTTPS.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-HTTPS.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/DNS-over-HTTPS.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-HTTPS.webp" type="image/webp">
 
   <img
-    src="/images/adguard/DNS-over-HTTPS.png"
+    src="https://wiseweb-works.github.io/images/adguard/DNS-over-HTTPS.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -357,17 +357,17 @@
   
     
 
-    <source srcset="/images/adguard/DNS-over-TLS.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-TLS.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/DNS-over-TLS.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-TLS.webp" type="image/webp">
 
   
 
   <img
-    src="/images/adguard/DNS-over-TLS.jpg"
+    src="https://wiseweb-works.github.io/images/adguard/DNS-over-TLS.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -418,15 +418,15 @@
   
     
 
-    <source srcset="/images/adguard/DNS-crypt.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-crypt.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/DNS-crypt.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-crypt.webp" type="image/webp">
 
   <img
-    src="/images/adguard/DNS-crypt.png"
+    src="https://wiseweb-works.github.io/images/adguard/DNS-crypt.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -459,15 +459,15 @@
   
     
 
-    <source srcset="/images/adguard/DNS-over-TLDR.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-TLDR.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/DNS-over-TLDR.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-TLDR.webp" type="image/webp">
 
   <img
-    src="/images/adguard/DNS-over-TLDR.png"
+    src="https://wiseweb-works.github.io/images/adguard/DNS-over-TLDR.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -492,15 +492,15 @@
   
     
 
-    <source srcset="/images/adguard/DNSSEC.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNSSEC.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/DNSSEC.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNSSEC.webp" type="image/webp">
 
   <img
-    src="/images/adguard/DNSSEC.png"
+    src="https://wiseweb-works.github.io/images/adguard/DNSSEC.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -524,15 +524,15 @@
   
     
 
-    <source srcset="/images/adguard/ESNI.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/ESNI.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/ESNI.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/ESNI.webp" type="image/webp">
 
   <img
-    src="/images/adguard/ESNI.png"
+    src="https://wiseweb-works.github.io/images/adguard/ESNI.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -553,15 +553,15 @@
   
     
 
-    <source srcset="/images/adguard/ECH.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/ECH.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/ECH.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/ECH.webp" type="image/webp">
 
   <img
-    src="/images/adguard/ECH.png"
+    src="https://wiseweb-works.github.io/images/adguard/ECH.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -683,17 +683,17 @@ DNSSEC, EDNS İstemci Alt Ağı, Şifreli SNI ve Şifreli İstemci Hello, intern
   
     
 
-    <source srcset="/images/openvpn-full/TCP-Handshake.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/TCP-Handshake.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake.webp" type="image/webp">
 
   
 
   <img
-    src="/images/openvpn-full/TCP-Handshake.jpg"
+    src="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -712,15 +712,15 @@ DNSSEC, EDNS İstemci Alt Ağı, Şifreli SNI ve Şifreli İstemci Hello, intern
   
     
 
-    <source srcset="/images/openvpn-full/TCP-Handshake-2.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake-2.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/TCP-Handshake-2.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake-2.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/TCP-Handshake-2.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake-2.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -742,15 +742,15 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
   
     
 
-    <source srcset="/images/openvpn-full/TLS-Handshake.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/TLS-Handshake.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/TLS-Handshake.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -769,15 +769,15 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
   
     
 
-    <source srcset="/images/openvpn-full/TLS-Handshake-2.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake-2.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/TLS-Handshake-2.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake-2.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/TLS-Handshake-2.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake-2.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -798,15 +798,15 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
   
     
 
-    <source srcset="/images/openvpn-full/EtM.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/EtM.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/EtM.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/EtM.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/EtM.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/EtM.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -825,15 +825,15 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
   
     
 
-    <source srcset="/images/openvpn-full/EaM.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/EaM.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/EaM.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/EaM.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/EaM.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/EaM.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -852,15 +852,15 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
   
     
 
-    <source srcset="/images/openvpn-full/MtE.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/MtE.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/MtE.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/MtE.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/MtE.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/MtE.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -889,15 +889,15 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
   
     
 
-    <source srcset="/images/openvpn-full/TAP-TUN.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TAP-TUN.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/TAP-TUN.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TAP-TUN.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/TAP-TUN.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/TAP-TUN.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -919,17 +919,17 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
   
     
 
-    <source srcset="/images/ecc-ssl/key-size-comparison.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/key-size-comparison.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ecc-ssl/key-size-comparison.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/key-size-comparison.webp" type="image/webp">
 
   
 
   <img
-    src="/images/ecc-ssl/key-size-comparison.jpg"
+    src="https://wiseweb-works.github.io/images/ecc-ssl/key-size-comparison.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -1080,15 +1080,15 @@ Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
   
     
 
-    <source srcset="/images/ecc-ssl/ecc-sll-key-chrome.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-sll-key-chrome.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ecc-ssl/ecc-sll-key-chrome.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-sll-key-chrome.webp" type="image/webp">
 
   <img
-    src="/images/ecc-ssl/ecc-sll-key-chrome.png"
+    src="https://wiseweb-works.github.io/images/ecc-ssl/ecc-sll-key-chrome.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -1107,15 +1107,15 @@ Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
   
     
 
-    <source srcset="/images/ecc-ssl/ecc-ssl-key-mozilla.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-mozilla.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ecc-ssl/ecc-ssl-key-mozilla.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-mozilla.webp" type="image/webp">
 
   <img
-    src="/images/ecc-ssl/ecc-ssl-key-mozilla.png"
+    src="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-mozilla.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -1134,15 +1134,15 @@ Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
   
     
 
-    <source srcset="/images/ecc-ssl/ecc-ssl-key-ssllabs.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-ssllabs.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ecc-ssl/ecc-ssl-key-ssllabs.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-ssllabs.webp" type="image/webp">
 
   <img
-    src="/images/ecc-ssl/ecc-ssl-key-ssllabs.png"
+    src="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-ssllabs.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -1175,17 +1175,17 @@ Yazdıklarım içerisinde ilginizi çeken bir konu varsa sizin de fikirlerinizi 
   
     
 
-    <source srcset="/images/green-team.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/green-team.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/green-team.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/green-team.webp" type="image/webp">
 
   
 
   <img
-    src="/images/green-team.jpg"
+    src="https://wiseweb-works.github.io/images/green-team.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -1297,15 +1297,15 @@ Yazdıklarım içerisinde ilginizi çeken bir konu varsa sizin de fikirlerinizi 
   
     
 
-    <source srcset="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-ilk-hali-ssllabs.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-ilk-hali-ssllabs.webp" type="image/webp">
 
   <img
-    src="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png"
+    src="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -1324,15 +1324,15 @@ Yazdıklarım içerisinde ilginizi çeken bir konu varsa sizin de fikirlerinizi 
   
     
 
-    <source srcset="/images/ssl-anlatim/ssl-son-hali-ssllabs.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-son-hali-ssllabs.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ssl-anlatim/ssl-son-hali-ssllabs.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-son-hali-ssllabs.webp" type="image/webp">
 
   <img
-    src="/images/ssl-anlatim/ssl-son-hali-ssllabs.png"
+    src="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-son-hali-ssllabs.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -1426,17 +1426,17 @@ Bulup değiştireceğimiz başlıklar</p>
   
     
 
-    <source srcset="/images/maximumkart/maximum-kart-afis.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/maximumkart/maximum-kart-afis.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/maximumkart/maximum-kart-afis.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/maximumkart/maximum-kart-afis.webp" type="image/webp">
 
   
 
   <img
-    src="/images/maximumkart/maximum-kart-afis.jpg"
+    src="https://wiseweb-works.github.io/images/maximumkart/maximum-kart-afis.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -1469,15 +1469,15 @@ Bulup değiştireceğimiz başlıklar</p>
   
     
 
-    <source srcset="/images/pgp-anlatim/pgp-encryption.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/pgp-anlatim/pgp-encryption.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/pgp-anlatim/pgp-encryption.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/pgp-anlatim/pgp-encryption.webp" type="image/webp">
 
   <img
-    src="/images/pgp-anlatim/pgp-encryption.png"
+    src="https://wiseweb-works.github.io/images/pgp-anlatim/pgp-encryption.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -1519,17 +1519,17 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
   
     
 
-    <source srcset="/images/starwars-kriptografi/connection-is-secure.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/starwars-kriptografi/connection-is-secure.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/starwars-kriptografi/connection-is-secure.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/starwars-kriptografi/connection-is-secure.webp" type="image/webp">
 
   
 
   <img
-    src="/images/starwars-kriptografi/connection-is-secure.jpg"
+    src="https://wiseweb-works.github.io/images/starwars-kriptografi/connection-is-secure.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -1548,15 +1548,15 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
   
     
 
-    <source srcset="/images/starwars-kriptografi/not-private-notification.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/starwars-kriptografi/not-private-notification.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/starwars-kriptografi/not-private-notification.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/starwars-kriptografi/not-private-notification.webp" type="image/webp">
 
   <img
-    src="/images/starwars-kriptografi/not-private-notification.png"
+    src="https://wiseweb-works.github.io/images/starwars-kriptografi/not-private-notification.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)

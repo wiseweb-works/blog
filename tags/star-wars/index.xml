@@ -12,17 +12,17 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
   
     
 
-    <source srcset="/images/starwars-kriptografi/connection-is-secure.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/starwars-kriptografi/connection-is-secure.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/starwars-kriptografi/connection-is-secure.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/starwars-kriptografi/connection-is-secure.webp" type="image/webp">
 
   
 
   <img
-    src="/images/starwars-kriptografi/connection-is-secure.jpg"
+    src="https://wiseweb-works.github.io/images/starwars-kriptografi/connection-is-secure.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -41,15 +41,15 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
   
     
 
-    <source srcset="/images/starwars-kriptografi/not-private-notification.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/starwars-kriptografi/not-private-notification.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/starwars-kriptografi/not-private-notification.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/starwars-kriptografi/not-private-notification.webp" type="image/webp">
 
   <img
-    src="/images/starwars-kriptografi/not-private-notification.png"
+    src="https://wiseweb-works.github.io/images/starwars-kriptografi/not-private-notification.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)

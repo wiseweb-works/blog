@@ -9,17 +9,17 @@
   
     
 
-    <source srcset="/images/ecc-ssl/key-size-comparison.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/key-size-comparison.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ecc-ssl/key-size-comparison.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/key-size-comparison.webp" type="image/webp">
 
   
 
   <img
-    src="/images/ecc-ssl/key-size-comparison.jpg"
+    src="https://wiseweb-works.github.io/images/ecc-ssl/key-size-comparison.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -170,15 +170,15 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
   
     
 
-    <source srcset="/images/ecc-ssl/ecc-sll-key-chrome.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-sll-key-chrome.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ecc-ssl/ecc-sll-key-chrome.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-sll-key-chrome.webp" type="image/webp">
 
   <img
-    src="/images/ecc-ssl/ecc-sll-key-chrome.png"
+    src="https://wiseweb-works.github.io/images/ecc-ssl/ecc-sll-key-chrome.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -197,15 +197,15 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
   
     
 
-    <source srcset="/images/ecc-ssl/ecc-ssl-key-mozilla.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-mozilla.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ecc-ssl/ecc-ssl-key-mozilla.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-mozilla.webp" type="image/webp">
 
   <img
-    src="/images/ecc-ssl/ecc-ssl-key-mozilla.png"
+    src="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-mozilla.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -224,15 +224,15 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
   
     
 
-    <source srcset="/images/ecc-ssl/ecc-ssl-key-ssllabs.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-ssllabs.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ecc-ssl/ecc-ssl-key-ssllabs.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-ssllabs.webp" type="image/webp">
 
   <img
-    src="/images/ecc-ssl/ecc-ssl-key-ssllabs.png"
+    src="https://wiseweb-works.github.io/images/ecc-ssl/ecc-ssl-key-ssllabs.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -337,15 +337,15 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
   
     
 
-    <source srcset="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-ilk-hali-ssllabs.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-ilk-hali-ssllabs.webp" type="image/webp">
 
   <img
-    src="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png"
+    src="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -364,15 +364,15 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
   
     
 
-    <source srcset="/images/ssl-anlatim/ssl-son-hali-ssllabs.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-son-hali-ssllabs.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/ssl-anlatim/ssl-son-hali-ssllabs.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-son-hali-ssllabs.webp" type="image/webp">
 
   <img
-    src="/images/ssl-anlatim/ssl-son-hali-ssllabs.png"
+    src="https://wiseweb-works.github.io/images/ssl-anlatim/ssl-son-hali-ssllabs.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)

@@ -14,15 +14,15 @@
   
     
 
-    <source srcset="/images/pgp-anlatim/pgp-encryption.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/pgp-anlatim/pgp-encryption.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/pgp-anlatim/pgp-encryption.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/pgp-anlatim/pgp-encryption.webp" type="image/webp">
 
   <img
-    src="/images/pgp-anlatim/pgp-encryption.png"
+    src="https://wiseweb-works.github.io/images/pgp-anlatim/pgp-encryption.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)

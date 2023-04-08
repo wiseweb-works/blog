@@ -70,17 +70,17 @@
   
     
 
-    <source srcset="/images/adguard/1.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/1.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/1.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/1.webp" type="image/webp">
 
   
 
   <img
-    src="/images/adguard/1.jpg"
+    src="https://wiseweb-works.github.io/images/adguard/1.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -100,15 +100,15 @@
   
     
 
-    <source srcset="/images/adguard/2.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/2.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/2.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/2.webp" type="image/webp">
 
   <img
-    src="/images/adguard/2.png"
+    src="https://wiseweb-works.github.io/images/adguard/2.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -128,15 +128,15 @@
   
     
 
-    <source srcset="/images/adguard/3.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/3.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/3.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/3.webp" type="image/webp">
 
   <img
-    src="/images/adguard/3.png"
+    src="https://wiseweb-works.github.io/images/adguard/3.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -156,15 +156,15 @@
   
     
 
-    <source srcset="/images/adguard/4.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/4.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/4.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/4.webp" type="image/webp">
 
   <img
-    src="/images/adguard/4.png"
+    src="https://wiseweb-works.github.io/images/adguard/4.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -182,17 +182,17 @@
   
     
 
-    <source srcset="/images/adguard/5.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/5.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/5.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/5.webp" type="image/webp">
 
   
 
   <img
-    src="/images/adguard/5.jpg"
+    src="https://wiseweb-works.github.io/images/adguard/5.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -210,17 +210,17 @@
   
     
 
-    <source srcset="/images/adguard/6.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/6.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/6.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/6.webp" type="image/webp">
 
   
 
   <img
-    src="/images/adguard/6.jpg"
+    src="https://wiseweb-works.github.io/images/adguard/6.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -255,17 +255,17 @@
   
     
 
-    <source srcset="/images/adguard/adguard-nasil-calisir.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/adguard-nasil-calisir.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/adguard-nasil-calisir.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/adguard-nasil-calisir.webp" type="image/webp">
 
   
 
   <img
-    src="/images/adguard/adguard-nasil-calisir.jpg"
+    src="https://wiseweb-works.github.io/images/adguard/adguard-nasil-calisir.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -287,15 +287,15 @@
   
     
 
-    <source srcset="/images/adguard/Unsecured-DNS.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/Unsecured-DNS.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/Unsecured-DNS.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/Unsecured-DNS.webp" type="image/webp">
 
   <img
-    src="/images/adguard/Unsecured-DNS.png"
+    src="https://wiseweb-works.github.io/images/adguard/Unsecured-DNS.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -317,15 +317,15 @@
   
     
 
-    <source srcset="/images/adguard/DNS-over-HTTPS.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-HTTPS.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/DNS-over-HTTPS.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-HTTPS.webp" type="image/webp">
 
   <img
-    src="/images/adguard/DNS-over-HTTPS.png"
+    src="https://wiseweb-works.github.io/images/adguard/DNS-over-HTTPS.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -357,17 +357,17 @@
   
     
 
-    <source srcset="/images/adguard/DNS-over-TLS.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-TLS.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/DNS-over-TLS.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-TLS.webp" type="image/webp">
 
   
 
   <img
-    src="/images/adguard/DNS-over-TLS.jpg"
+    src="https://wiseweb-works.github.io/images/adguard/DNS-over-TLS.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -418,15 +418,15 @@
   
     
 
-    <source srcset="/images/adguard/DNS-crypt.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-crypt.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/DNS-crypt.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-crypt.webp" type="image/webp">
 
   <img
-    src="/images/adguard/DNS-crypt.png"
+    src="https://wiseweb-works.github.io/images/adguard/DNS-crypt.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -459,15 +459,15 @@
   
     
 
-    <source srcset="/images/adguard/DNS-over-TLDR.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-TLDR.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/DNS-over-TLDR.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNS-over-TLDR.webp" type="image/webp">
 
   <img
-    src="/images/adguard/DNS-over-TLDR.png"
+    src="https://wiseweb-works.github.io/images/adguard/DNS-over-TLDR.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -492,15 +492,15 @@
   
     
 
-    <source srcset="/images/adguard/DNSSEC.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNSSEC.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/DNSSEC.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/DNSSEC.webp" type="image/webp">
 
   <img
-    src="/images/adguard/DNSSEC.png"
+    src="https://wiseweb-works.github.io/images/adguard/DNSSEC.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -524,15 +524,15 @@
   
     
 
-    <source srcset="/images/adguard/ESNI.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/ESNI.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/ESNI.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/ESNI.webp" type="image/webp">
 
   <img
-    src="/images/adguard/ESNI.png"
+    src="https://wiseweb-works.github.io/images/adguard/ESNI.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -553,15 +553,15 @@
   
     
 
-    <source srcset="/images/adguard/ECH.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/ECH.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/adguard/ECH.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/adguard/ECH.webp" type="image/webp">
 
   <img
-    src="/images/adguard/ECH.png"
+    src="https://wiseweb-works.github.io/images/adguard/ECH.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)

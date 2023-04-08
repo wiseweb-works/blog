@@ -90,17 +90,17 @@
   
     
 
-    <source srcset="/images/openvpn-full/TCP-Handshake.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/TCP-Handshake.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake.webp" type="image/webp">
 
   
 
   <img
-    src="/images/openvpn-full/TCP-Handshake.jpg"
+    src="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake.jpg"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -119,15 +119,15 @@
   
     
 
-    <source srcset="/images/openvpn-full/TCP-Handshake-2.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake-2.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/TCP-Handshake-2.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake-2.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/TCP-Handshake-2.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/TCP-Handshake-2.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -149,15 +149,15 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
   
     
 
-    <source srcset="/images/openvpn-full/TLS-Handshake.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/TLS-Handshake.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/TLS-Handshake.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -176,15 +176,15 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
   
     
 
-    <source srcset="/images/openvpn-full/TLS-Handshake-2.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake-2.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/TLS-Handshake-2.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake-2.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/TLS-Handshake-2.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/TLS-Handshake-2.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -205,15 +205,15 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
   
     
 
-    <source srcset="/images/openvpn-full/EtM.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/EtM.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/EtM.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/EtM.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/EtM.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/EtM.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -232,15 +232,15 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
   
     
 
-    <source srcset="/images/openvpn-full/EaM.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/EaM.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/EaM.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/EaM.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/EaM.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/EaM.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -259,15 +259,15 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
   
     
 
-    <source srcset="/images/openvpn-full/MtE.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/MtE.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/MtE.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/MtE.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/MtE.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/MtE.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
@@ -296,15 +296,15 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
   
     
 
-    <source srcset="/images/openvpn-full/TAP-TUN.avif" type="image/avif">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TAP-TUN.avif" type="image/avif">
 
     
     
 
-    <source srcset="/images/openvpn-full/TAP-TUN.webp" type="image/webp">
+    <source srcset="https://wiseweb-works.github.io/images/openvpn-full/TAP-TUN.webp" type="image/webp">
 
   <img
-    src="/images/openvpn-full/TAP-TUN.png"
+    src="https://wiseweb-works.github.io/images/openvpn-full/TAP-TUN.png"
     loading="lazy"
     decoding="async"
     width= min(100%, 720px)
