@@ -27,6 +27,6 @@ Lüzumsuz büyük olmayan, ek bileşenler ve uzun yükleme süresi ile kullanıc
 
 Bu site, [Hugo](https://gohugo.io/) kullanılarak ve [PaperMod](https://github.com/adityatelange/hugo-PaperMod/) temasıyla oluşturulmuştur. Ayrıca bu site, 100kb'nin altındaki büyüklüğüyle [512kbClub](https://512kb.club/)'ın Yeşil Üyesidir.
 
-![512kbClub](https://512kb.club/assets/images/green-team.svg)
+![](/images/green-team.jpg)
 
 [^1]: https://yunbere.hayalmasal.org/

@@ -11,7 +11,7 @@ Heute lernen wir, wie man SSL-Zertifikate generiert, um sicherzustellen, dass de
 
 Nun, Sie haben es gut erklärt, aber wo ist der Sinn dieser Arbeit, scheine ich Sie sagen zu hören. Ich werde Sie verärgern, aber dieses Geschäft hat keinen Sinn. Der Grund, warum dies nicht der Fall ist, ist in der Hintergrundmathematik verborgen. Ich werde kurz auf die kleinen Unterschiede in der Herstellung und Verwendung beider Zertifikate eingehen, erklären, wie und warum sie große Unterschiede verursachen, und im letzten Teil werde ich über etwas sprechen, das nicht als Bonus im Titel steht. (Für den Bonus musst du bis zum Ende lesen :D)
 
-{{< img src="/images/ecc-ssl/key-size-comparison.jpg" >}}
+![https://www.globalsign.com/en/blog/elliptic-curve-cryptography (Datum: 08.04.2023)](/images/ecc-ssl/key-size-comparison.jpg)
 
 ## Produktionsprozess des ECC-Zertifikats
 
@@ -207,14 +207,14 @@ Unter Debian Linux erstelle ich gerne Unterverzeichnisse für meine Domains, ind
 
 Wenn wir alles richtig gemacht haben, bestätigt die Überprüfung des Zertifikats mit einem Webbrowser wie Chrome, dass es sich um ein EC-Zertifikat handelt:
 
-{{< img src="/images/ecc-ssl/ecc-sll-key-chrome.png" >}}
+![https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Datum: 08.04.2023)](/images/ecc-ssl/ecc-sll-key-chrome.png)
 
 Mozilla Observatory wird uns auch eine A+ Bewertung geben!
 
-{{< img src="/images/ecc-ssl/ecc-ssl-key-mozilla.png" >}}
+![https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Datum: 08.04.2023)](/images/ecc-ssl/ecc-ssl-key-mozilla.png)
 
 Darüber hinaus können wir als Ergebnis des SSL Labs-Berichts sehen, dass ein 384-Bit-ECC-Zertifikat verwendet wurde.
 
-{{< img src="/images/ecc-ssl/ecc-ssl-key-ssllabs.png" >}}
+![SSL Labs Test](/images/ecc-ssl/ecc-ssl-key-ssllabs.png)
 
 HINWEIS: Dieser Artikel profitiert vom Artikel von [Benjamin Black](https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc) zum gleichen Thema.

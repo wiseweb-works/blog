@@ -27,6 +27,6 @@ Thank you dear Ged [^1] for inspiring me to create a web page that is not unnece
 
 This site was created using [Hugo](https://gohugo.io/) and with the theme [PaperMod](https://github.com/adityatelange/hugo-PaperMod/). Also, this site is a Green Member of [512kbClub](https://512kb.club/) with its size below 100kb.
 
-![512kbClub](https://512kb.club/assets/images/green-team.svg)
+![512kbClub](/images/green-team.jpg)
 
 [^1]: https://yunbere.hayalmasal.org/

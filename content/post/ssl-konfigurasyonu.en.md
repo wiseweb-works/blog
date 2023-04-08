@@ -126,10 +126,10 @@ ssl_dhparam /etc/nginx/dhparam.pem; >> The command to change the values ​​to
 After making the settings, apply the settings with the command "sudo nginx -t" and then, if you do not see an error message, "sudo service nginx restart" and restart the service. Now the connection will be provided with the configuration and conditions you have specified. If you want to see the before/after scoring difference, you can look at the images below or test your own site at "https://www.ssllabs.com/ssltest/index.html".
 
 BEFORE
-{{< img src="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png" >}}
+![SSL Labs test result](/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png)
 
 AFTER
-{{< img src="/images/ssl-anlatim/ssl-son-hali-ssllabs.png" >}}
+![SSL Labs test result](/images/ssl-anlatim/ssl-son-hali-ssllabs.png)
 
 If you ask why Cipher Strength is not 100%, it is not possible to make 100% at the moment because of the "TLS_AES_128_GCM_SHA256 (0x1301)" that comes automatically with TLS 1.3 and is added even if we don't want it. If you think that I will turn off TLS 1.3, then it will not come, then unfortunately your points are gone from somewhere else.
 

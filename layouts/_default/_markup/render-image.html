@@ -1,0 +1,47 @@
+{{ $newAbsURL:= absURL "/blog" }}
+<picture>
+  {{ $isJPG := eq (path.Ext .Destination) ".jpg" }}
+  {{ $isPNG := eq (path.Ext .Destination) ".png" }}
+  {{ $img := imageConfig (add "/static" (.Destination | safeURL)) }}
+
+  {{ if ($isJPG) -}}
+    {{ $avifPath:= replace .Destination ".jpg" ".avif" }}
+    {{ $avifPathStatic:= printf "static/%s" $avifPath }}
+
+    {{ if (fileExists $avifPathStatic) -}}
+      <source srcset="{{ printf "%s%s" $newAbsURL $avifPath }}" type="image/avif">
+    {{- end }}
+
+    {{ $webpPath:= replace .Destination ".jpg" ".webp" }}
+    {{ $webpPathStatic:= printf "static/%s" $webpPath }}
+
+    {{ if (fileExists $webpPathStatic) -}}
+      <source srcset="{{ printf "%s%s" $newAbsURL $webpPath }}" type="image/webp">
+    {{- end }}
+  {{- end }}
+
+  {{ if ($isPNG) -}}
+    {{ $avifPath:= replace .Destination ".png" ".avif" }}
+    {{ $avifPathStatic:= printf "static/%s" $avifPath }}
+
+    {{ if (fileExists $avifPathStatic) -}}
+      <source srcset="{{ printf "%s%s" $newAbsURL $avifPath }}" type="image/avif">
+    {{- end }}
+
+    {{ $webpPath:= replace .Destination ".png" ".webp" }}
+    {{ $webpPathStatic:= printf "static/%s" $webpPath }}
+
+    {{ if (fileExists $webpPathStatic) -}}
+      <source srcset="{{ printf "%s%s" $newAbsURL $webpPath }}" type="image/webp">
+    {{- end }}
+  {{- end }}
+
+  <img
+    src="{{ printf "%s%s" $newAbsURL .Destination }}"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <caption><center><b><small>{{ .Text }}</small></b></center></caption>
+</picture>

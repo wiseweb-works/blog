@@ -11,7 +11,7 @@ Bugün sizlerle yönettiğiniz bir web sitesi veya uygulama sunucusu ile ziyaret
 
 Peki iyi güzel anlattın da bu işin aması nerede dediğinizi duyar gibiyim. Sizi üzeceğim fakat bu işin aması yok. Olmamasının sebebi ise işin arka plandaki matematikte saklı. Kısaca her iki sertifika üretim ve kullanımındaki ufak farklardan bahsedip, bunların nasıl ve neden büyük farklara neden olduğunu açıklayıp son kısımda da bonus olarak başlıkta yazmayan bir şeyden bahsedeceğim. (Sonuna kadar okumanız gerekecek bonus için :D)
 
-{{< img src="/images/ecc-ssl/key-size-comparison.jpg" >}}
+![https://www.globalsign.com/en/blog/elliptic-curve-cryptography (Erişim Tarihi: 08.04.2023)](/images/ecc-ssl/key-size-comparison.jpg)
 
 ## ECC Sertifikasının üretim süreci
 
@@ -207,14 +207,14 @@ Debian Linux'ta, özel anahtarımı `/home/KULLANICI_ADI/SSL/private/example.com
 
 Her şeyi doğru yaptıysak, sertifikayı Chrome gibi bir web tarayıcısı ile incelediğimizde, bunun bir EC sertifikası olduğunu onaylayacaktır:
 
-{{< img src="/images/ecc-ssl/ecc-sll-key-chrome.png" >}}
+![https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Erişim Tarihi: 08.04.2023)](/images/ecc-ssl/ecc-sll-key-chrome.png)
 
 Mozilla Gözlemevi de bize A+ notu verecek!
 
-{{< img src="/images/ecc-ssl/ecc-ssl-key-mozilla.png" >}}
+![https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Erişim Tarihi: 08.04.2023)](/images/ecc-ssl/ecc-ssl-key-mozilla.png)
 
 Ayrıca SSL Labs'ın rapor sonucunda 384 Bitlik bir ECC sertifikası'nın kullanıldığını görebiliyoruz.
 
-{{< img src="/images/ecc-ssl/ecc-ssl-key-ssllabs.png" >}}
+![SSL Labs Test Sonucu](/images/ecc-ssl/ecc-ssl-key-ssllabs.png)
 
 NOT: Bu yazıda [Benjamin Black](https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc)'in aynı konulu yazısından faydalanılmıştır.

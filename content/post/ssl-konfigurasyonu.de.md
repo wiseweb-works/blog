@@ -126,10 +126,10 @@ ssl_dhparam /etc/nginx/dhparam.pem; >> Der Befehl zum Ändern der während des D
 Nachdem Sie die Einstellungen vorgenommen haben, übernehmen Sie die Einstellungen mit dem Befehl „sudo nginx -t“ und dann, wenn Sie keine Fehlermeldung sehen, „sudo service nginx restart“ und starten Sie den Dienst neu. Nun wird die Verbindung mit der von Ihnen festgelegten Konfiguration und Bedingungen bereitgestellt. Wenn Sie den Vorher/Nachher-Bewertungsunterschied sehen möchten, können Sie sich die Bilder unten ansehen oder Ihre eigene Website unter „<https://www.ssllabs.com/ssltest/index.html“> testen.
 
 VOR
-{{< img src="/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png" >}}
+![SSL Labs test](/images/ssl-anlatim/ssl-ilk-hali-ssllabs.png)
 
 NACH
-{{< img src="/images/ssl-anlatim/ssl-son-hali-ssllabs.png" >}}
+![SSL Labs test](/images/ssl-anlatim/ssl-son-hali-ssllabs.png)
 
 Wenn Sie fragen, warum die Cipher-Stärke nicht 100 % beträgt, ist es derzeit nicht möglich, 100 % zu erreichen, da „TLS_AES_128_GCM_SHA256 (0x1301)“ automatisch mit TLS 1.3 geliefert wird und hinzugefügt wird, auch wenn wir es nicht möchten. Wenn Sie denken, dass ich TLS 1.3 abschalte, dann wird es nicht kommen, dann sind Ihre Punkte leider woanders weg.
 

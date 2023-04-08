@@ -1,0 +1,25 @@
+{{ $img := resources.GetMatch (.Get "src") }}
+
+{{- $ws := uniq (slice 240 300 360 420 480 600 768 800 960 1024 1080 1200 1366 1440 1920 $img.Width) -}}
+
+{{- $srcset := slice -}}
+{{ range sort $ws }}
+  {{ if (le . $img.Width) }}
+    {{ $w := printf "%dx webp q50" . }}
+    {{ $url := printf "%s %dw" (($img.Resize $w).RelPermalink | absURL | safeURL) . }}
+    {{ $srcset = $srcset | append $url }}
+  {{ end }}
+{{ end }}
+
+{{ $set := delimit $srcset "," }}
+
+
+{{ $alt := .Get "alt" }}
+{{ $title := cond (not (.Get "title")) $alt (.Get "title") }}
+
+<figure>
+  <div class="img-box">
+    <img srcset="{{ $set }}" style="max-width:{{$img.Width}}px;width:100%" src="{{ $img.RelPermalink | absURL | safeURL }}" fetchpriority="low" alt="{{ $alt | safeHTML }}" title="{{ $title | safeHTML }}"/>
+  </div>
+  <figcaption><center><small>{{$alt | safeHTML }}</small></center></figcaption>
+</figure>

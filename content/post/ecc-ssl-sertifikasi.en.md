@@ -11,7 +11,7 @@ Today we will learn how to generate SSL certificates to ensure that the traffic 
 
 Well, you explained it well, but where is the point of this work, I seem to hear you say. I will upset you, but there is no point in this business. The reason why it doesn't is hidden in the background math. Briefly, I will talk about the minor differences in the production and use of both certificates, explain how and why they cause big differences, and in the last part, I will talk about something that is not written in the title as a bonus. (For the bonus you'll have to read till the end :D)
 
-{{< img src="/images/ecc-ssl/key-size-comparison.jpg" >}}
+![https://www.globalsign.com/en/blog/elliptic-curve-cryptography (Date: 08.04.2023)](/images/ecc-ssl/key-size-comparison.jpg)
 
 ## Production process of ECC Certificate
 
@@ -207,14 +207,14 @@ On Debian Linux I like to create subdirectories for my domains by keeping my pri
 
 If we've done everything right, inspecting the certificate with a web browser like Chrome will confirm that it's an EC certificate:
 
-{{< img src="/images/ecc-ssl/ecc-sll-key-chrome.png" >}}
+![https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Date: 08.04.2023)](/images/ecc-ssl/ecc-sll-key-chrome.png)
 
 Mozilla Observatory will also give us an A+ rating!
 
-{{< img src="/images/ecc-ssl/ecc-ssl-key-mozilla.png" >}}
+![https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Date: 08.04.2023)](/images/ecc-ssl/ecc-ssl-key-mozilla.png)
 
 In addition, we can see that a 384-bit ECC certificate was used as a result of the SSL Labs report.
 
-{{< img src="/images/ecc-ssl/ecc-ssl-key-ssllabs.png" >}}
+![SSL Labs Test Result](/images/ecc-ssl/ecc-ssl-key-ssllabs.png)
 
 NOTE: This article has benefited from the article of [Benjamin Black](https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc) on the same subject.

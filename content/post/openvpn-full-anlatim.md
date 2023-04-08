@@ -96,9 +96,10 @@ OpenVPN ile bağlantı kurduğum her zaman kendimi Yıldız Filosu planlarını 
 
 Şimdi kafanızda sürecin yaklaşık bir resmi oluştu ise başlangıcı TCP sürecinin anlatımıyla yapıyorum. Olayımızda bir istemci ve bir sunucunun olduğunu ve bağlantının sadece bu ikisinden ibaret olduğunu düşünelim. İstemci bağlanmak istediği sunucuya bir SYN (m) paketi gönderir. Sunucu ise buna cevap olarak aynı port üzerinden bir SYN (n) paketi ve ACK (m+1) paket gönderir. Bunu alan istemci de cevap olarak ACK (n+1) şeklinde dönüş yapar ve 3'lü TCP el sıkışması veya 3 Way TCP handshake gerçekleşmiş olur. Böylece belirtilen port üzerinden istemci ve sunucu arasında açık bir kanalımız oluştu.
 
-| |  |
-|---|---|
-| {{< img src="/images/openvpn-full/TCP-Handshake.jpg" >}} | {{< img src="/images/openvpn-full/TCP-Handshake-2.png" >}} |
+![https://blog.shiftasia.com/what-happen-when-access-website (Erişim Tarihi: 08.04.2023)](/images/openvpn-full/TCP-Handshake.jpg)
+
+---
+![https://www.netscout.com/blog/asert/ddos-attacks-ssl-something-old-something-new (Erişim Tarihi: 08.04.2023)](/images/openvpn-full/TCP-Handshake-2.png)
 
 Fotoğraflarda da görüleceği üzere eğer süreç sorunsuz işler ise 3 adımda iletişim kurulabiliyor. Fakat neden 3 adımda bu işi yapıyoruz daha kısa şekilde olmaz mı derseniz size (şimdilik) hayır olmaz full-duplex bir iletişim için her iki tarafın da SYN ve ACK paketlerini göndermesi gerekiyor derim. İleride belki farklı yollarını da anlatırım ama şimdilik böyle. Zaten işin TCP/UDP kısmı her zaman için kısa ve basittir.
 
@@ -107,9 +108,10 @@ Fotoğraflarda da görüleceği üzere eğer süreç sorunsuz işler ise 3 adım
 TCP üzerinden bir iletişim kurulmasının ardından yine muhabbeti başka bir aşamaya taşıyan kişi istemci oluyor. Her zaman için istemciler sunucudan bir şeyler talep eder veya bir cevap ister. Sunucular genel olarak kendilerine gelmeyen bir isteği cevapladığı çok görülmemiştir. Önce talep sonra arz ilkesine göre süreç ilerler. Evet, taraflar TLS katmanındalar şimdi. İstemci sunucuya önce bir merhaba diyor. Şaka değil gerçek. İstemci tarafından gönderilen ilk pakete `Client-Hello` paketi denir. Bu paketin yanında (süreci hızlandırmak adına) desteklediği şifreleme algoritmalarını belirten `Supported-Chipers` paketi, istemci tarafından rastgele üretilmiş bir sayı, aynı IP adresinde birden fazla hizmet çalıştırılıyor ise bir `SNI` sunucu adı indikatörü ve yine gerekiyor ise oturum ID'si gönderilir. Sunucunun buna cevabı ise öncelikle kibar bir merhaba demek oluyor. Çünkü sunucunun cevaben gönderdiği ilk pakete de `Server-Hello` paketi denir. Bu paketin yanında sunucu sertifikasını, kendi desteklediği şifreleme algoritmalarını ve seçtiği algoritmayı belirten `Selected-Chiper` paketi, kendisinin ürettiği rastgele bir sayıyı, gerekirse Oturum ID'sini ve aynı IP üzerinden birden fazla istemci bağlanıyor ise buna ilişkin SNI benzeri bir ID'yi gönderir. İstemci öncelikle iletişime başladığı tarafından gerçekten beklediği kişi olup olmadığını sunucu sertifikası ile doğrular. Ayrıca bazı durumlarda da sunucu istemcinin beklediği istemcilerden biri olup olmadığını yine sertifika ile doğrular. Eğer bu karşılıklı doğrulama (mutual-authentication) süreci olumlu sonuçlanır ise bir sonraki aşamaya geçilir. Anahtar üretim ve değişim süreci tetiklenmiş olur. Bu aşamda yine istemci devreye girer ve güvensiz önkabul edilen bu iletişim sırasında belirledikleri algoritma ile anahtar değiştirmek istediğini söyler. Taraflar Diffie-Hellman veya ECDHE ile bir önanahtar oluşturmaya başlarlar. Bunun için istemci ve sunucu tarafından ön-sırlar paylaşılır. Bir takım matematiksel işlemler yapılarak bulunan cevaplar karşıya gönderilir ve tekrar matematiksel işlemler yapılarak aynı sonuca ulaşılır. İşte ulaşılan sonuç aralarında güvenli bir şekilde oluşturdukları ilk ön-anahtar oluyor. Bundan sonra belirledikleri şifreleme algoritması ile
 iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulur ve süreç oradan devam eder.
 
-| |  |
-|---|---|
-| {{< img src="/images/openvpn-full/TLS-Handshake.png" >}} | {{< img src="/images/openvpn-full/TLS-Handshake-2.png" >}} |
+![https://www.researchgate.net/publication/298065605_A_multi-level_framework_to_identify_HTTPS_services (Erişim Tarihi: 08.04.2023)](/images/openvpn-full/TLS-Handshake.png)
+
+---
+![](/images/openvpn-full/TLS-Handshake-2.png)
 
 Fotoğraflarda da görülebileceği üzere süreç bir web sayfasına bağlanılırken yaşanan süreçle neredeyse aynı. Sadece ihtiyaçlara göre belirli aşamalar ekleniyor, çıkarılıyor veya değiştiriliyor. Örneğin İleri Seviye Gizlilik anlamına gelen PFS gereğince taraflar ön-anahtarı sunucunun asimetrik anahtarı ile iletmiyor. Çünkü bu durumda her oturum için aynı anahtar kullanılacağı için verilerin depolanıp daha sonra anahtar açığa çıktığı bir gün beklenerek veriler geçmişe dönük okunabilir bir hale gelecektir. Bu yüzden bu değişiklik yapıldı. Yine sıfır güven tehdit modeli gereğince her bir katmanın ve sürecin bir diğerinin işini doğru yapacağına güvenmeden süreci ilerletmesini istiyorum. Bu yüzden TLS katmanındaki o ilk iletişim anında dahi paketlerin `tls-auth` özelliği gereğince şifrelenmesini ve gelen-giden verilerin bütünlüğünün doğrulanmasını istiyoruz. Daha ilk merhaba dediğiniz andan itibaren üçüncü kişiler sizin ne konuştuğunuzu hangi aşamada olduğunuzu anlayamayacaklardır. Bunun için önceden belirlenmiş bir anahtar/anahtarlar ile ilk iletişim başlatılır ve gerekirse belirli aralıklarla bu anahtarlar yenilenir. Böylece TLS katmanında ilk ön-anahtar oluşturulana kadar dahi gizlilikten ödün verilmemiş ve yetkisiz kişilerce boşuna tarafik yaratılmamış olur.
 
@@ -117,9 +119,13 @@ Fotoğraflarda da görülebileceği üzere süreç bir web sayfasına bağlanıl
 
 Eğer tüm bu süreç başarılı bir şekilde tamamlanmış ve veri kanalına geçilebildiyse eğer artık işin en güzel kısmına gelmiş bulunuyorsunuz. Veriler AES şifreleme methodu ile şifrelenecek. Şifreleme sırasında seçiminize göre CBC-GCM counter moduna göre tablolar karıştırılacak ve bu süreçte seçiminize göre 128 veya 256 bit uzunluğunda şifreleme anahtarı kullanılacak. Tabi ne hangisini seçerseniz seçin şifreleme blok uzunluğu 128 bit olucak. Değişen sadece şifreleme anahtarı uzunluğu. Benim bu anlatımım için seçmiş olduğum AES-256-GCM bir AEAD şifreleme türüdür. Diğer kanallardan ve süreçlerden bağımsız olarak gönderdiği verileri belirli bir aşamada özetini çıkartır ve özeti ile birlikte gönderir. Böylece 'Authentication Encryption with associated data' anlamına gelen AEAD'de doğrulama ve şifreleme işlevleri yerine getirilmiş oluyor. Burada bir ayrıma gidilmesini gerektirecek şöyle bir sorun mevcuttur. Şifreleme ve Özet alma algoritmalarını hangi aşamada ve sırayla kullanacağız.
 
-| Encrypt-then-MAC (EtM) | Encrypt-and-MAC (E&M) | MAC-then-Encrypt (MtE) |
-|---|---|---|
-| {{< img src="/images/openvpn-full/EtM.png" >}} | {{< img src="/images/openvpn-full/EaM.png" >}} | {{< img src="/images/openvpn-full/MtE.png" >}} |
+![Encrypt-then-MAC (EtM) https://en.wikipedia.org/wiki/Authenticated_encryption (Erişim Tarihi: 08.04.2023)](/images/openvpn-full/EtM.png)
+
+---
+![Encrypt-and-MAC (E-and-M) https://en.wikipedia.org/wiki/Authenticated_encryption (Erişim Tarihi: 08.04.2023)](/images/openvpn-full/EaM.png)
+
+---
+![MAC-then-Encrypt (MtE) https://en.wikipedia.org/wiki/Authenticated_encryption (Erişim Tarihi: 08.04.2023)](/images/openvpn-full/MtE.png)
 
 - Birinci yaklaşım olan EtM'ye göre veri önce şifrelenir ardından başka bir anahtar ile özeti sonucu şifrelenir ve ortaya çıkan sonuç bloklar halinde birlikte gönderilir. Bunu kullanan gerçek dünya çözümlerine bakacak olursak IPSec protokolü ilk akla gelen olacaktır. Bu, AE'de en yüksek güvenlik tanımına ulaşabilen tek yöntemdir, ancak bu ancak kullanılan MAC algoritmasının bozulma içermediği veya henüz kırılmadığı takdirde elde edilebilir. SSHv2 için de çeşitli EtM şifre takımları mevcuttur. Ancak veri ve özet için anahtar ayrımının zorunlu olduğunu unutmayın (şifreleme ve anahtarlı karma için farklı anahtarlar kullanılmalıdır), aksi takdirde kullanılan belirli şifreleme yöntemine ve karma işlevine bağlı olarak potansiyel olarak güvensiz bir sonuç elde edebilirsiniz.
 
@@ -127,7 +133,7 @@ Eğer tüm bu süreç başarılı bir şekilde tamamlanmış ve veri kanalına g
 
 - Üçüncü ve bildiğim son yaklaşım olan MtE'ye göre düz metine dayalı olarak bir özet dosyası üretilir. Ardından düz metin ve özet dosyası birlikteyken anahtar ile şifrelenir.  Şifreli metin ve şifreli özet dosyası birlikte gönderilir. Bunu kullanan gerçek dünya çözümlerine bakacak olursak ilk ve en önemlisi SSL/TLS uygulamalarıdır. SSL/TLS uygulamalarının kendi içlerinde ne kadar güvenilir ve sürdürülebilir olduklarını hepimiz biliyoruz. Bunun ötesinde de güvenliği artırmak adına yıllar içersinde `MAC-then-pad-then-encrypt` gibi geliştirmeler yapıldı. Bu geliştirmeye göre önce düz metinin özeti alınır ardından blok boyutuna kadar doldurulur ve ardından şifreleme işlemi yapılır. Böylece daha da güvenilir bir şifreleme sonucu oluşur. Ama doldurma mekanizmasının belirli hatalar yapması durumunda Padding Oracle gibi saldırılara neden olduğu durumlar mevcuttur.
 
-{{< img src="/images/openvpn-full/TAP-TUN.png" >}}
+![https://community.openvpn.net/openvpn/wiki/Gigabit_Networks_Linux (Erişim Tarihi: 08.04.2023)](/images/openvpn-full/TAP-TUN.png)
 
 Kullanılacak AEAD yaklaşımı da seçildikten sonra TAP veya TUN kullanımına göre yukarıdaki grafikte görülen yol izlenir. Bu yola göre kullanıcı alanında yapılan/yapılmak istenen eylem çekirdek (kernel) seviyesinde TAP/TUN adaptörlerine gider. Bu adaptörler çekirdek seviyesinde bulunmaları nedeniyle çok hızlı bir şekilde işlem yaparlar. Ardından sanal adaptörler ilgili kütüphane ile gerekli şifrelemeyi yapar, gerekirse özeti ekler ve paket boyutu ayarı yapar. Ardından sunucu Ethernet arayüzü üzerinden istemcinin Ethernet arayüzüne paketleri sırayla gönderir. Bunu alan istemci ise paketleri yeniden ayarlar, düzenler gerekirse birleştirir ve gerekli kütüphaneler ile şifresini çözer. Şifresini çözdükten sonra bunu sanal adaptör aracılığı ile istemcini son kullanıcısına iletir. Böylece tüm bu matematiksel işlemler, uğraşlar sonucunda birkaç çevrim neticesinde kullanıcı istediği içeriğe ulaşmış oldu. Anlatması oldukça uzun ama kullanması çok kolay sevgili okuyucular. Sadece GitHub sayfama girik ilgili [script sayfasını](https://github.com/wiseweb-works/openvpn-most-secure-install/) ziyaret etmeniz yeterlidir. İlgili script tüm bu ayarlamaları interaktif olarak sizin yerinize yapmaktadır. Size de arkanıza yaslanıp keyfini çıkarmak kalıyor.
 

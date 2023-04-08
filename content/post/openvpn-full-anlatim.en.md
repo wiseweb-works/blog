@@ -96,9 +96,10 @@ Every time I connect with OpenVPN I feel like R2-D2 hijacking their Starfleet pl
 
 Now, if you have an approximate picture of the process in your mind, I start with the explanation of the TCP process. Let's say we have a client and a server in our case, and the connection is just these two. The client sends a SYN (m) packet to the server it wants to connect to. In response, the server sends a SYN (n) packet and an ACK (m+1) packet over the same port. The client that receives this also returns as ACK (n+1) in response, and a 3-way TCP handshake or 3-Way TCP handshake takes place. Thus, we have an open channel between client and server over the specified port.
 
-| |  |
-|---|---|
-| {{< img src="/images/openvpn-full/TCP-Handshake.jpg" >}} | {{< img src="/images/openvpn-full/TCP-Handshake-2.png" >}} |
+![https://blog.shiftasia.com/what-happen-when-access-website (Date: 08.04.2023)](/images/openvpn-full/TCP-Handshake.jpg)
+
+---
+![https://www.netscout.com/blog/asert/ddos-attacks-ssl-something-old-something-new (Date: 08.04.2023)](/images/openvpn-full/TCP-Handshake-2.png)
 
 As can be seen in the photos, if the process runs smoothly, communication can be made in 3 steps. But if you ask why we are doing this in 3 steps, can't it be done in a shorter way? I would say (for now) no, no, for a full-duplex communication, both parties need to send SYN and ACK packets. Maybe I'll tell you different ways in the future, but for now this is how it is. Anyway, the TCP/UDP part is always short and simple.
 
@@ -107,9 +108,10 @@ As can be seen in the photos, if the process runs smoothly, communication can be
 After establishing a communication over TCP, the client is the person who takes the conversation to another level. Clients always request something from the server or request an answer. In general, servers are not seen to respond to a request that did not come to them. The process proceeds according to the principle of demand first, then supply. Yes, the parties are at the TLS layer now. The client first says hello to the server. Not a joke, it's real. The first packet sent by the client is called the `Client-Hello` packet. Next to this package (in order to speed up the process), the `Supported-Chipers` package that specifies the encryption algorithms it supports, a randomly generated number by the client, an `SNI` server name indicator if more than one service is running on the same IP address, and the session ID if necessary. . The server's response to this is, first of all, a polite hello. Because the first packet that the server sends in response is called the `Server-Hello` packet. Next to this package, the `Selected-Chiper` package, which specifies the server certificate, the encryption algorithms it supports, and the algorithm it chooses, sends a random number it generates, the Session ID if necessary, and an SNI-like ID if more than one client is connecting over the same IP. . The client first verifies with the server certificate whether it is really the person it is waiting for by starting the communication. In addition, in some cases, the server verifies with a certificate whether the client is one of the clients it expects. If this mutual-authentication process is positive, the next stage is passed. The key generation and exchange process is triggered. At this stage, the client again steps in and says that he wants to change the key with the algorithm they have determined during this communication, which is considered insecure. Parties begin to generate a prekey with Diffie-Hellman or ECDHE. For this, pre-secrets are shared by the client and server. The answers found by performing a number of mathematical operations are sent to the top and the same result is reached by performing mathematical operations again. The result is the first fore-key they've securely created between them. After that, with the encryption algorithm they determined,
 A data channel other than the control channel is created to communicate and the process continues from there.
 
-| |  |
-|---|---|
-| {{< img src="/images/openvpn-full/TLS-Handshake.png" >}} | {{< img src="/images/openvpn-full/TLS-Handshake-2.png" >}} |
+![https://www.researchgate.net/publication/298065605_A_multi-level_framework_to_identify_HTTPS_services (Date: 08.04.2023)](/images/openvpn-full/TLS-Handshake.png)
+
+---
+![](/images/openvpn-full/TLS-Handshake-2.png)
 
 As can be seen in the photos, the process is almost the same as when connecting to a web page. Only certain stages are added, removed or changed according to needs. For example, in accordance with PFS, which stands for Advanced Privacy, the parties do not transmit the front-key with the server's asymmetric key. Because in this case, since the same key will be used for each session, the data will be stored and then the data will be readable retrospectively by waiting for a day when the key is revealed. That's why this change was made. Again, in accordance with the zero trust threat model, I want each layer and process to advance the process without trusting the other to do their job correctly. That's why we want the packets to be encrypted according to the `tls-auth` feature and to verify the integrity of the incoming and outgoing data, even at that first communication moment in the TLS layer. From the first moment you say hello, third parties will not be able to understand what you are talking about and at what stage you are. For this, the first communication is started with a predetermined key(s) and if necessary, these keys are renewed at regular intervals. Thus, even until the first pre-key is created in the TLS layer, confidentiality is not compromised and unauthorized parties are not created in vain.
 
@@ -117,9 +119,13 @@ As can be seen in the photos, the process is almost the same as when connecting 
 
 If this whole process has been completed successfully and the data channel has been passed, you have now come to the best part of the job. Data will be encrypted with AES encryption method. During encryption, the tables will be shuffled according to the CBC-GCM counter mode according to your selection, and a 128 or 256-bit encryption key will be used in this process according to your selection. Of course, whatever you choose, the encryption block length will be 128 bits. Only the encryption key length changes. AES-256-GCM that I have chosen for this explanation is an AEAD encryption type. It summarizes the data it sends independently from other channels and processes at a certain stage and sends it together with the summary. Thus, authentication and encryption functions are fulfilled in AEAD, which stands for 'Authentication Encryption with associated data'. There is a problem that requires a distinction to be made here. At what stage and in which order will we use the encryption and hashing algorithms?
 
-| Encrypt-then-MAC (EtM) | Encrypt-and-MAC (E&M) | MAC-then-Encrypt (MtE) |
-|---|---|---|
-| {{< img src="/images/openvpn-full/EtM.png" >}} | {{< img src="/images/openvpn-full/EaM.png" >}} | {{< img src="/images/openvpn-full/MtE.png" >}} |
+![Encrypt-then-MAC (EtM) https://en.wikipedia.org/wiki/Authenticated_encryption (Date: 08.04.2023)](/images/openvpn-full/EtM.png)
+
+---
+![Encrypt-and-MAC (E-and-M) https://en.wikipedia.org/wiki/Authenticated_encryption (Date: 08.04.2023)](/images/openvpn-full/EaM.png)
+
+---
+![MAC-then-Encrypt (MtE) https://en.wikipedia.org/wiki/Authenticated_encryption (Date: 08.04.2023)](/images/openvpn-full/MtE.png)
 
 - According to EtM, which is the first approach, the data is first encrypted, then encrypted with another key as a result of the digest, and the resulting result is sent together in blocks. If we look at real-world solutions that use it, the IPSec protocol will come to mind first. This is the only method that can achieve the highest security definition in AE, but this can only be achieved if the MAC algorithm used is free of corruption or has not yet been cracked. Various EtM cipher suites are also available for SSHv2. Note, however, that key separation is mandatory for data and digest (different keys must be used for encryption and key hashing), otherwise you may end up with a potentially insecure result depending on the particular encryption method and hash function used.
 
@@ -127,7 +133,7 @@ If this whole process has been completed successfully and the data channel has b
 
 - According to MtE, which is the third and last approach that I know of, a summary file is generated based on plain text. Then the plaintext and digest file together are encrypted with the key. The ciphertext and ciphertext file are sent together. If we look at real world solutions that use it, first and foremost are SSL/TLS implementations. We all know how reliable and sustainable SSL/TLS applications are in themselves. Beyond that, improvements such as `MAC-then-pad-then-encrypt` have been made over the years to increase security. According to this improvement, first the plain text is digested, then filled up to the block size, and then the encryption is done. This results in an even more reliable encryption result. But there are cases where the padding mechanism causes attacks like Padding Oracle if it makes certain mistakes.
 
-{{< img src="/images/openvpn-full/TAP-TUN.png" >}}
+![https://community.openvpn.net/openvpn/wiki/Gigabit_Networks_Linux (Date: 08.04.2023)](/images/openvpn-full/TAP-TUN.png)
 
 After selecting the AEAD approach to be used, the path shown in the graphic above is followed according to the use of TAP or TUN. According to this path, the action done/desired to be done in the user area goes to TAP/TUN adapters at the kernel level. Because these adapters are at the kernel level, they operate very quickly. Then the virtual adapters do the necessary encryption with the relevant library, add the digest if necessary, and set the packet size. Then the server sends packets sequentially to the client's Ethernet interface over the Ethernet interface. The client that receives it reconfigures the packages, organizes them, combines them if necessary, and decrypts them with the necessary libraries. After decrypting it, it transmits the client to the end user via the virtual adapter. Thus, as a result of all these mathematical operations and efforts, after a few cycles, the user reached the desired content. It is quite long to explain, but very easy to use, dear readers. You just have to visit the relevant [script page](https://github.com/wiseweb-works/openvpn-most-secure-install/) on my GitHub page. The related script makes all these adjustments interactively for you. All you have to do is sit back and enjoy.
 
