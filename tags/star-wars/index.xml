@@ -4,7 +4,16 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
 </blockquote>
 <p>Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölümlerinde yapılmış akademik çalışmaların ötesine geçememiş olan şifreleme (cryptography) alanı artık bireylerin iyiliği için kullanılacaktı. Bu ilke imza atacak ilk kişilerin arkadaş olmasının dışında onları birleştiren asıl şey Star Wars’ın orijinal üçlemesini çocuklukları döneminde birlikte izlemiş ve etkinlenmiş olmalarıdır. 1977 Yılında orijinal üçlemenin ilk, tarihsel sıralamaya göre ise dördüncü film olan <a href="https://en.wikipedia.org/wiki/Star_Wars_(film)">Star Wars A New Hope</a> vizyona girmiş ve tüm çevreler tarafından beğeniyle izlenmişti. İlk filmin vizyona girişinden sonraki 3. ve 6. senelerde serinin beşinci ve altıncı filmleri olan <a href="https://en.wikipedia.org/wiki/The_Empire_Strikes_Back">The Empire Strikes Back</a> ve <a href="https://en.wikipedia.org/wiki/Return_of_the_Jedi">Return of the Jedi</a> de peş peşe vizyona girmiş ve seyircisinin filmden beklentisini ve serinin devamına olan isteğini artırmıştır. Serinin o dönemki yönetmeni George Lucas izleyenleri daha iyi bir üçlemeye hazırlamak adına orijinal üçlemenin üçüncü filminin vizyona girdiği tarih olan 1983 yılından 1999 yılına kadar seriye yeni film çıkarmamış ve teknolojik imkanların gelişmesini beklemiştir. Yani tarihsel üçleme efsanesinin ve de modern kriptografinin bence başladığı yıl olan 1999 yılına gelinene kadar. 90&rsquo;lı yıllar kendilerini Cypherpunks olarak adlandıran ve açık kaynak kodunu yücelten, gizlilik ve bireyin anonimlik hakkı üzerinde bir manifesto yayımlayan, bilgisayar ve teknoloji ile birlikte büyümüş bir neslin dönemiydi. İnternetin ülkemize gelişi ve tüm dünyadaki internet ağının gelişmesi ile birlikte 2000&rsquo;li yıllara girmeye yaklaştığımız dönemlerde kişi başına düşen bilgisayar sayısı oranı artmış ve her eve olmasa da birçok haneye geniş bant internet hizmeti ulaşmış bulunmaktaydı. İşte ülkemizde internet yeni yeni kabul görmeye ve kullanılmaya başlandığı dönemlerde yurt dışında bir arkadaş topluluğu World Wide Web (WWW)’in eksik taraflarından biri olan şifreleme ve gizlilik üzerine odaklanmaya başlamıştı bile.</p>
 <p>Basit anlatımıyla internet üzerinde bir websitesi barındırmamıza ve dünya üzerindeki herhangi bir bilgisayarın bu web sayfasına erişebilmesine imkan tanıyan bu servis temelde güzel olmasına rağmen çok büyük bir dezavantajı vardı. Bu dezavantaj bağlanmış olduğunuz internet sitesi ile aranızdaki bağlantının herhangi bir şekilde şifrelenmemesi, güvenli olmaması ve dahili/harici üçüncü kişiler tarafından bu iletişimin izlenebilir, değiştirilebilir ve dahi engellenebilir olmasıdır. Eskiden bir internet sitesine girdiğiniz zaman adres çubuğunda bir kilit simgesi ve aşağıda gördüğünüz gibi “Connection is secure” veya “Connection is not private” gibi bir bağlantının güvenli /güvensiz olduğunu düşündürecek bir bildirim yoktu. Çünkü o yıllarda bir internet sitesine üye olurken veya mail gönderirken iletişimin izlenebileceği veya bunu kötü amaçlar için kullanılabileceği henüz düşünülmemişti.</p>
-<p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
 <picture>
   
   
@@ -29,10 +38,9 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Bağlantı Güvenli Bildirimi Chrome</small></b></center></caption>
-</picture></p>
-<hr>
-<p>
+  <center><small><b>Bağlantı Güvenli Bildirimi Chrome</b></small></center>
+</picture></td>
+<td style="text-align:center">
 <picture>
   
   
@@ -57,8 +65,11 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Bağlantı Güvenli Değil Bildirimi Chrome</small></b></center></caption>
-</picture></p>
+  <center><small><b>Bağlantı Güvenli Değil Bildirimi Chrome</b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
 <p>Konunun girişine eklenmiş olan videoda 1977 yapımı Star Wars New Hope filminde (bunca yıldan sonra spoiler denemez artık) Galaktik İmparatorluk tarafından bütün galaksiyi yok edebilecek güçte ve devasa ölçekte bir ölüm yıldızı yapıldığının haberi alınır. Bu haberin alınması üzerine kendilerine Rebellion (isyancı) diyen bir grup bu ölçekte ve güçte bir geminin normal gemi savaşları ile yok edilemeyeceğini anlamış ve bu planları çalıp geminin zayıf noktalarını incelemeye karar vermişlerdir. Orijinal üçlemenin ilk filmi olmasına rağmen tarihsel olarak 4&rsquo;ncü film olması nedeniyle filmin başlangıcında bu planların çalındığını fakat henüz inceleme imkanı bulunamadan planları çalan uzay gemisinin imparatorluk kuvvetleri ve meşhur Dart Vader tarafından kovalandığını görüyoruz. Kovalamacanın sonuna doğru ellerindeki planları güvenli bir şekilde isyan kuvvetlerinin ana karargahına göndermeleri gerektiğini fakat imparatorluk kuvvetleri tarafından takip edilirken bunun çok zor olacağını anlayan Prenses Leia kendisince en güvenli gördüğü yöntemi kullanarak R2-D2 sınıfı bir robotun belleğine planları yükler ve filmimiz burada başlar. Videonun başlangıcında Dart Vader ve imparatorluk kuvvetleri tarafından geminin tamamı aranmasına rağmen Ölüm Yıldızının çalınmış planları bir türlü bulunamaz. Her ne kadar asilerden biri olduğu bilinse de (henüz Dart Vader tarafından ispatlanamamış) Prenses Leia diplomatik bir resmi görevde olduğunu söylemiş ve kendilerine böyle bir verinin gelmediğini iddia etmiştir. Yapılan incelemede gemiden böyle bir verinin aktarıldığını gösteren bir bilgiye de rastlanamamış olması sevgili Vader’ımızı çokça kızdırmıştır.</p>
 <p>Günümüzden 21 sene önce vizyona girmiş olan <a href="https://en.wikipedia.org/wiki/Star_Wars:_Episode_I_%E2%80%93_The_Phantom_Menace">The Phantom Menace</a> filmi her ne kadar modern şifrelemeyi doğrudan etkilememiş olsa da bu bir grup kişiye yıllar önce izlemiş ve beğenmiş oldukları orijinal üçlemenin ilk filmini ve bence ilk sahnesini hatırlamalarına neden oldu. O dönem gelişmekte olan gizlilik, anonimlik ve güvenlik düşünceleri neticesinde filmi izledikten sonra eski günleri yad etmek ve düşüncelerini paylaşmak için bir kafede bir araya geldiler. Genel arkadaş muhabbetinden ve havadan sudan konuşulduktan sonra aralarından biri konuşmanın ve bence tarihin de seyrini değiştiren şu soruyu sordu:</p>
 <blockquote>

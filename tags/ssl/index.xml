@@ -107,7 +107,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://blog.shiftasia.com/what-happen-when-access-website (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://blog.shiftasia.com/what-happen-when-access-website (Erişim Tarihi: 08.04.2023)</b></small></center>
 </picture></p>
 <hr>
 <p>
@@ -135,7 +135,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.netscout.com/blog/asert/ddos-attacks-ssl-something-old-something-new (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.netscout.com/blog/asert/ddos-attacks-ssl-something-old-something-new (Erişim Tarihi: 08.04.2023)</b></small></center>
 </picture></p>
 <p>Fotoğraflarda da görüleceği üzere eğer süreç sorunsuz işler ise 3 adımda iletişim kurulabiliyor. Fakat neden 3 adımda bu işi yapıyoruz daha kısa şekilde olmaz mı derseniz size (şimdilik) hayır olmaz full-duplex bir iletişim için her iki tarafın da SYN ve ACK paketlerini göndermesi gerekiyor derim. İleride belki farklı yollarını da anlatırım ama şimdilik böyle. Zaten işin TCP/UDP kısmı her zaman için kısa ve basittir.</p>
 <h3 id="tls-katmanındaki-işletilen-süreç">TLS katmanındaki işletilen süreç</h3>
@@ -166,7 +166,7 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.researchgate.net/publication/298065605_A_multi-level_framework_to_identify_HTTPS_services (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.researchgate.net/publication/298065605_A_multi-level_framework_to_identify_HTTPS_services (Erişim Tarihi: 08.04.2023)</b></small></center>
 </picture></p>
 <hr>
 <p>
@@ -194,12 +194,22 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small></small></b></center></caption>
+  <center><small><b></b></small></center>
 </picture></p>
 <p>Fotoğraflarda da görülebileceği üzere süreç bir web sayfasına bağlanılırken yaşanan süreçle neredeyse aynı. Sadece ihtiyaçlara göre belirli aşamalar ekleniyor, çıkarılıyor veya değiştiriliyor. Örneğin İleri Seviye Gizlilik anlamına gelen PFS gereğince taraflar ön-anahtarı sunucunun asimetrik anahtarı ile iletmiyor. Çünkü bu durumda her oturum için aynı anahtar kullanılacağı için verilerin depolanıp daha sonra anahtar açığa çıktığı bir gün beklenerek veriler geçmişe dönük okunabilir bir hale gelecektir. Bu yüzden bu değişiklik yapıldı. Yine sıfır güven tehdit modeli gereğince her bir katmanın ve sürecin bir diğerinin işini doğru yapacağına güvenmeden süreci ilerletmesini istiyorum. Bu yüzden TLS katmanındaki o ilk iletişim anında dahi paketlerin <code>tls-auth</code> özelliği gereğince şifrelenmesini ve gelen-giden verilerin bütünlüğünün doğrulanmasını istiyoruz. Daha ilk merhaba dediğiniz andan itibaren üçüncü kişiler sizin ne konuştuğunuzu hangi aşamada olduğunuzu anlayamayacaklardır. Bunun için önceden belirlenmiş bir anahtar/anahtarlar ile ilk iletişim başlatılır ve gerekirse belirli aralıklarla bu anahtarlar yenilenir. Böylece TLS katmanında ilk ön-anahtar oluşturulana kadar dahi gizlilikten ödün verilmemiş ve yetkisiz kişilerce boşuna tarafik yaratılmamış olur.</p>
 <h3 id="veri-katmanında-işleyen-süreç">Veri katmanında işleyen süreç</h3>
 <p>Eğer tüm bu süreç başarılı bir şekilde tamamlanmış ve veri kanalına geçilebildiyse eğer artık işin en güzel kısmına gelmiş bulunuyorsunuz. Veriler AES şifreleme methodu ile şifrelenecek. Şifreleme sırasında seçiminize göre CBC-GCM counter moduna göre tablolar karıştırılacak ve bu süreçte seçiminize göre 128 veya 256 bit uzunluğunda şifreleme anahtarı kullanılacak. Tabi ne hangisini seçerseniz seçin şifreleme blok uzunluğu 128 bit olucak. Değişen sadece şifreleme anahtarı uzunluğu. Benim bu anlatımım için seçmiş olduğum AES-256-GCM bir AEAD şifreleme türüdür. Diğer kanallardan ve süreçlerden bağımsız olarak gönderdiği verileri belirli bir aşamada özetini çıkartır ve özeti ile birlikte gönderir. Böylece &lsquo;Authentication Encryption with associated data&rsquo; anlamına gelen AEAD&rsquo;de doğrulama ve şifreleme işlevleri yerine getirilmiş oluyor. Burada bir ayrıma gidilmesini gerektirecek şöyle bir sorun mevcuttur. Şifreleme ve Özet alma algoritmalarını hangi aşamada ve sırayla kullanacağız.</p>
-<p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
 <picture>
   
   
@@ -224,10 +234,9 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Encrypt-then-MAC (EtM) https://en.wikipedia.org/wiki/Authenticated_encryption (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
-</picture></p>
-<hr>
-<p>
+  <center><small><b>Encrypt-then-MAC (EtM)</b></small></center>
+</picture></td>
+<td style="text-align:center">
 <picture>
   
   
@@ -252,10 +261,9 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Encrypt-and-MAC (E-and-M) https://en.wikipedia.org/wiki/Authenticated_encryption (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
-</picture></p>
-<hr>
-<p>
+  <center><small><b>Encrypt-and-MAC (E-and-M)</b></small></center>
+</picture></td>
+<td style="text-align:center">
 <picture>
   
   
@@ -280,8 +288,14 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>MAC-then-Encrypt (MtE) https://en.wikipedia.org/wiki/Authenticated_encryption (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
-</picture></p>
+  <center><small><b>MAC-then-Encrypt (MtE)</b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Authenticated_encryption">https://en.wikipedia.org/wiki/Authenticated_encryption</a> (Erişim Tarihi: 08.04.2023)</p>
+</blockquote>
 <ul>
 <li>
 <p>Birinci yaklaşım olan EtM&rsquo;ye göre veri önce şifrelenir ardından başka bir anahtar ile özeti sonucu şifrelenir ve ortaya çıkan sonuç bloklar halinde birlikte gönderilir. Bunu kullanan gerçek dünya çözümlerine bakacak olursak IPSec protokolü ilk akla gelen olacaktır. Bu, AE&rsquo;de en yüksek güvenlik tanımına ulaşabilen tek yöntemdir, ancak bu ancak kullanılan MAC algoritmasının bozulma içermediği veya henüz kırılmadığı takdirde elde edilebilir. SSHv2 için de çeşitli EtM şifre takımları mevcuttur. Ancak veri ve özet için anahtar ayrımının zorunlu olduğunu unutmayın (şifreleme ve anahtarlı karma için farklı anahtarlar kullanılmalıdır), aksi takdirde kullanılan belirli şifreleme yöntemine ve karma işlevine bağlı olarak potansiyel olarak güvensiz bir sonuç elde edebilirsiniz.</p>
@@ -318,7 +332,7 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://community.openvpn.net/openvpn/wiki/Gigabit_Networks_Linux (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://community.openvpn.net/openvpn/wiki/Gigabit_Networks_Linux (Erişim Tarihi: 08.04.2023)</b></small></center>
 </picture></p>
 <p>Kullanılacak AEAD yaklaşımı da seçildikten sonra TAP veya TUN kullanımına göre yukarıdaki grafikte görülen yol izlenir. Bu yola göre kullanıcı alanında yapılan/yapılmak istenen eylem çekirdek (kernel) seviyesinde TAP/TUN adaptörlerine gider. Bu adaptörler çekirdek seviyesinde bulunmaları nedeniyle çok hızlı bir şekilde işlem yaparlar. Ardından sanal adaptörler ilgili kütüphane ile gerekli şifrelemeyi yapar, gerekirse özeti ekler ve paket boyutu ayarı yapar. Ardından sunucu Ethernet arayüzü üzerinden istemcinin Ethernet arayüzüne paketleri sırayla gönderir. Bunu alan istemci ise paketleri yeniden ayarlar, düzenler gerekirse birleştirir ve gerekli kütüphaneler ile şifresini çözer. Şifresini çözdükten sonra bunu sanal adaptör aracılığı ile istemcini son kullanıcısına iletir. Böylece tüm bu matematiksel işlemler, uğraşlar sonucunda birkaç çevrim neticesinde kullanıcı istediği içeriğe ulaşmış oldu. Anlatması oldukça uzun ama kullanması çok kolay sevgili okuyucular. Sadece GitHub sayfama girik ilgili <a href="https://github.com/wiseweb-works/openvpn-most-secure-install/">script sayfasını</a> ziyaret etmeniz yeterlidir. İlgili script tüm bu ayarlamaları interaktif olarak sizin yerinize yapmaktadır. Size de arkanıza yaslanıp keyfini çıkarmak kalıyor.</p>
 <h1 id="sss-ve-son">SSS ve Son</h1>
@@ -351,7 +365,7 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.globalsign.com/en/blog/elliptic-curve-cryptography (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.globalsign.com/en/blog/elliptic-curve-cryptography (Erişim Tarihi: 08.04.2023)</b></small></center>
 </picture></p>
 <h2 id="ecc-sertifikasının-üretim-süreci">ECC Sertifikasının üretim süreci</h2>
 <p>Öncelikle (her zaman olduğu gibi) içinde bulunduğumuz Linux sürümünün paket yöneticisi ile son güncellemeleri konsol üzerinden yüklememiz gerekmektedir.</p>
@@ -511,7 +525,7 @@ Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Erişim Tarihi: 08.04.2023)</b></small></center>
 </picture></p>
 <p>Mozilla Gözlemevi de bize A+ notu verecek!</p>
 <p>
@@ -539,7 +553,7 @@ Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Erişim Tarihi: 08.04.2023)</b></small></center>
 </picture></p>
 <p>Ayrıca SSL Labs&rsquo;ın rapor sonucunda 384 Bitlik bir ECC sertifikası&rsquo;nın kullanıldığını görebiliyoruz.</p>
 <p>
@@ -567,7 +581,7 @@ Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>SSL Labs Test Sonucu</small></b></center></caption>
+  <center><small><b>SSL Labs Test Sonucu</b></small></center>
 </picture></p>
 <p>NOT: Bu yazıda <a href="https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc">Benjamin Black</a>&lsquo;in aynı konulu yazısından faydalanılmıştır.</p>
 ]]></content:encoded></item><item><title>Linux Sunucularda SSL güvenliğini arttırma</title><link>https://wiseweb-works.github.io/blog/post/ssl-konfigurasyonu/</link><pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ssl-konfigurasyonu/</guid><description>Linux Sunucularda SSL güvenliğini artırma Bugün sizlere mevcut sunucunuzda eğer bir websitesi ve/veya App serve ediyorsanız mutlaka ihtiyacınız olan SSL bağlantısından ve bununla bağlantılı olarak openssl kütüphanesinden bahsedeceğim. SSL (Secure Socket Layer) ve TLS (Transport Layer Security) sunucunuza bağlanmak isteyen kişileri siteniz ile güvenli şekilde iletişim kurmasına imkan sağlayan bir bağlantı şeklidir. Eskiden SSL v1-v3 arasında değişen sürümler mevcut ve siteler genelde bu SSL sürümlerini kullanırken artık SSL siteler tarafından terk edilmiş ve yerini daha güvenli olan TLS&amp;rsquo;ye bırakmıştır.</description><content:encoded><![CDATA[<h1 id="linux-sunucularda-ssl-güvenliğini-artırma">Linux Sunucularda SSL güvenliğini artırma</h1>
@@ -681,7 +695,7 @@ Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>SSL Labs test sonucu</small></b></center></caption>
+  <center><small><b>SSL Labs test sonucu</b></small></center>
 </picture></p>
 <p>SON DURUM
 
@@ -709,7 +723,7 @@ Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>SSL Labs test sonucu</small></b></center></caption>
+  <center><small><b>SSL Labs test sonucu</b></small></center>
 </picture></p>
 <p>Neden Cipher Strength %100 değil derseniz TLS 1.3 ile otomatik gelen ve biz istemesek de eklenen &ldquo;TLS_AES_128_GCM_SHA256 (0x1301)&rdquo; yüzünden şu an %100 yapmak mümkün değil. TLS 1.3&rsquo;ü kapatırım o zaman gelmez diye düşünürseniz o zaman da başka yerden puanınız gidiyor maalesef.</p>
 <h1 id="son">Son</h1>
@@ -720,7 +734,16 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
 </blockquote>
 <p>Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölümlerinde yapılmış akademik çalışmaların ötesine geçememiş olan şifreleme (cryptography) alanı artık bireylerin iyiliği için kullanılacaktı. Bu ilke imza atacak ilk kişilerin arkadaş olmasının dışında onları birleştiren asıl şey Star Wars’ın orijinal üçlemesini çocuklukları döneminde birlikte izlemiş ve etkinlenmiş olmalarıdır. 1977 Yılında orijinal üçlemenin ilk, tarihsel sıralamaya göre ise dördüncü film olan <a href="https://en.wikipedia.org/wiki/Star_Wars_(film)">Star Wars A New Hope</a> vizyona girmiş ve tüm çevreler tarafından beğeniyle izlenmişti. İlk filmin vizyona girişinden sonraki 3. ve 6. senelerde serinin beşinci ve altıncı filmleri olan <a href="https://en.wikipedia.org/wiki/The_Empire_Strikes_Back">The Empire Strikes Back</a> ve <a href="https://en.wikipedia.org/wiki/Return_of_the_Jedi">Return of the Jedi</a> de peş peşe vizyona girmiş ve seyircisinin filmden beklentisini ve serinin devamına olan isteğini artırmıştır. Serinin o dönemki yönetmeni George Lucas izleyenleri daha iyi bir üçlemeye hazırlamak adına orijinal üçlemenin üçüncü filminin vizyona girdiği tarih olan 1983 yılından 1999 yılına kadar seriye yeni film çıkarmamış ve teknolojik imkanların gelişmesini beklemiştir. Yani tarihsel üçleme efsanesinin ve de modern kriptografinin bence başladığı yıl olan 1999 yılına gelinene kadar. 90&rsquo;lı yıllar kendilerini Cypherpunks olarak adlandıran ve açık kaynak kodunu yücelten, gizlilik ve bireyin anonimlik hakkı üzerinde bir manifesto yayımlayan, bilgisayar ve teknoloji ile birlikte büyümüş bir neslin dönemiydi. İnternetin ülkemize gelişi ve tüm dünyadaki internet ağının gelişmesi ile birlikte 2000&rsquo;li yıllara girmeye yaklaştığımız dönemlerde kişi başına düşen bilgisayar sayısı oranı artmış ve her eve olmasa da birçok haneye geniş bant internet hizmeti ulaşmış bulunmaktaydı. İşte ülkemizde internet yeni yeni kabul görmeye ve kullanılmaya başlandığı dönemlerde yurt dışında bir arkadaş topluluğu World Wide Web (WWW)’in eksik taraflarından biri olan şifreleme ve gizlilik üzerine odaklanmaya başlamıştı bile.</p>
 <p>Basit anlatımıyla internet üzerinde bir websitesi barındırmamıza ve dünya üzerindeki herhangi bir bilgisayarın bu web sayfasına erişebilmesine imkan tanıyan bu servis temelde güzel olmasına rağmen çok büyük bir dezavantajı vardı. Bu dezavantaj bağlanmış olduğunuz internet sitesi ile aranızdaki bağlantının herhangi bir şekilde şifrelenmemesi, güvenli olmaması ve dahili/harici üçüncü kişiler tarafından bu iletişimin izlenebilir, değiştirilebilir ve dahi engellenebilir olmasıdır. Eskiden bir internet sitesine girdiğiniz zaman adres çubuğunda bir kilit simgesi ve aşağıda gördüğünüz gibi “Connection is secure” veya “Connection is not private” gibi bir bağlantının güvenli /güvensiz olduğunu düşündürecek bir bildirim yoktu. Çünkü o yıllarda bir internet sitesine üye olurken veya mail gönderirken iletişimin izlenebileceği veya bunu kötü amaçlar için kullanılabileceği henüz düşünülmemişti.</p>
-<p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
 <picture>
   
   
@@ -745,10 +768,9 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Bağlantı Güvenli Bildirimi Chrome</small></b></center></caption>
-</picture></p>
-<hr>
-<p>
+  <center><small><b>Bağlantı Güvenli Bildirimi Chrome</b></small></center>
+</picture></td>
+<td style="text-align:center">
 <picture>
   
   
@@ -773,8 +795,11 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Bağlantı Güvenli Değil Bildirimi Chrome</small></b></center></caption>
-</picture></p>
+  <center><small><b>Bağlantı Güvenli Değil Bildirimi Chrome</b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
 <p>Konunun girişine eklenmiş olan videoda 1977 yapımı Star Wars New Hope filminde (bunca yıldan sonra spoiler denemez artık) Galaktik İmparatorluk tarafından bütün galaksiyi yok edebilecek güçte ve devasa ölçekte bir ölüm yıldızı yapıldığının haberi alınır. Bu haberin alınması üzerine kendilerine Rebellion (isyancı) diyen bir grup bu ölçekte ve güçte bir geminin normal gemi savaşları ile yok edilemeyeceğini anlamış ve bu planları çalıp geminin zayıf noktalarını incelemeye karar vermişlerdir. Orijinal üçlemenin ilk filmi olmasına rağmen tarihsel olarak 4&rsquo;ncü film olması nedeniyle filmin başlangıcında bu planların çalındığını fakat henüz inceleme imkanı bulunamadan planları çalan uzay gemisinin imparatorluk kuvvetleri ve meşhur Dart Vader tarafından kovalandığını görüyoruz. Kovalamacanın sonuna doğru ellerindeki planları güvenli bir şekilde isyan kuvvetlerinin ana karargahına göndermeleri gerektiğini fakat imparatorluk kuvvetleri tarafından takip edilirken bunun çok zor olacağını anlayan Prenses Leia kendisince en güvenli gördüğü yöntemi kullanarak R2-D2 sınıfı bir robotun belleğine planları yükler ve filmimiz burada başlar. Videonun başlangıcında Dart Vader ve imparatorluk kuvvetleri tarafından geminin tamamı aranmasına rağmen Ölüm Yıldızının çalınmış planları bir türlü bulunamaz. Her ne kadar asilerden biri olduğu bilinse de (henüz Dart Vader tarafından ispatlanamamış) Prenses Leia diplomatik bir resmi görevde olduğunu söylemiş ve kendilerine böyle bir verinin gelmediğini iddia etmiştir. Yapılan incelemede gemiden böyle bir verinin aktarıldığını gösteren bir bilgiye de rastlanamamış olması sevgili Vader’ımızı çokça kızdırmıştır.</p>
 <p>Günümüzden 21 sene önce vizyona girmiş olan <a href="https://en.wikipedia.org/wiki/Star_Wars:_Episode_I_%E2%80%93_The_Phantom_Menace">The Phantom Menace</a> filmi her ne kadar modern şifrelemeyi doğrudan etkilememiş olsa da bu bir grup kişiye yıllar önce izlemiş ve beğenmiş oldukları orijinal üçlemenin ilk filmini ve bence ilk sahnesini hatırlamalarına neden oldu. O dönem gelişmekte olan gizlilik, anonimlik ve güvenlik düşünceleri neticesinde filmi izledikten sonra eski günleri yad etmek ve düşüncelerini paylaşmak için bir kafede bir araya geldiler. Genel arkadaş muhabbetinden ve havadan sudan konuşulduktan sonra aralarından biri konuşmanın ve bence tarihin de seyrini değiştiren şu soruyu sordu:</p>
 <blockquote>

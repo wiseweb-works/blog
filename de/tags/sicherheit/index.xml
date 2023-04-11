@@ -26,7 +26,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.globalsign.com/en/blog/elliptic-curve-cryptography (Datum: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.globalsign.com/en/blog/elliptic-curve-cryptography (Datum: 08.04.2023)</b></small></center>
 </picture></p>
 <h2 id="produktionsprozess-des-ecc-zertifikats">Produktionsprozess des ECC-Zertifikats</h2>
 <p>Zuerst müssen wir (wie immer) die neuesten Updates über die Konsole mit dem Paketmanager der Linux-Version installieren, in der wir uns befinden.</p>
@@ -186,7 +186,7 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Datum: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Datum: 08.04.2023)</b></small></center>
 </picture></p>
 <p>Mozilla Observatory wird uns auch eine A+ Bewertung geben!</p>
 <p>
@@ -214,7 +214,7 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Datum: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Datum: 08.04.2023)</b></small></center>
 </picture></p>
 <p>Darüber hinaus können wir als Ergebnis des SSL Labs-Berichts sehen, dass ein 384-Bit-ECC-Zertifikat verwendet wurde.</p>
 <p>
@@ -242,7 +242,7 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>SSL Labs Test</small></b></center></caption>
+  <center><small><b>SSL Labs Test</b></small></center>
 </picture></p>
 <p>HINWEIS: Dieser Artikel profitiert vom Artikel von <a href="https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc">Benjamin Black</a> zum gleichen Thema.</p>
 ]]></content:encoded></item><item><title>Erhöhung der SSL-Sicherheit auf Linux-Servern</title><link>https://wiseweb-works.github.io/blog/de/post/ssl-konfigurasyonu/</link><pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/de/post/ssl-konfigurasyonu/</guid><description>Erhöhung der SSL-Sicherheit auf Linux-Servern Wenn Sie heute eine Website und/oder App auf Ihrem aktuellen Server betreiben, werde ich über die benötigte SSL-Verbindung und die damit verbundene openssl-Bibliothek sprechen. SSL (Secure Socket Layer) und TLS (Transport Layer Security) sind eine Form der Verbindung, die es Personen, die sich mit Ihrem Server verbinden möchten, ermöglicht, sicher mit Ihrer Website zu kommunizieren. In der Vergangenheit gab es Versionen von SSL v1 bis v3, und während Websites im Allgemeinen diese SSL-Versionen verwenden, wurde SSL jetzt von den Websites aufgegeben und durch das sicherere TLS ersetzt.</description><content:encoded><![CDATA[<h1 id="erhöhung-der-ssl-sicherheit-auf-linux-servern">Erhöhung der SSL-Sicherheit auf Linux-Servern</h1>
@@ -356,7 +356,7 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>SSL Labs test</small></b></center></caption>
+  <center><small><b>SSL Labs test</b></small></center>
 </picture></p>
 <p>NACH
 
@@ -384,7 +384,7 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>SSL Labs test</small></b></center></caption>
+  <center><small><b>SSL Labs test</b></small></center>
 </picture></p>
 <p>Wenn Sie fragen, warum die Cipher-Stärke nicht 100 % beträgt, ist es derzeit nicht möglich, 100 % zu erreichen, da „TLS_AES_128_GCM_SHA256 (0x1301)“ automatisch mit TLS 1.3 geliefert wird und hinzugefügt wird, auch wenn wir es nicht möchten. Wenn Sie denken, dass ich TLS 1.3 abschalte, dann wird es nicht kommen, dann sind Ihre Punkte leider woanders weg.</p>
 <h1 id="ende">Ende</h1>

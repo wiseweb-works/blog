@@ -39,7 +39,7 @@ Yazdıklarım içerisinde ilginizi çeken bir konu varsa sizin de fikirlerinizi 
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small></small></b></center></caption>
+  <center><small><b></b></small></center>
 </picture></p>
 <div class="footnotes" role="doc-endnotes">
 <hr>

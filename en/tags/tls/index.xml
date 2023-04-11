@@ -107,7 +107,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://blog.shiftasia.com/what-happen-when-access-website (Date: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://blog.shiftasia.com/what-happen-when-access-website (Date: 08.04.2023)</b></small></center>
 </picture></p>
 <hr>
 <p>
@@ -135,7 +135,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.netscout.com/blog/asert/ddos-attacks-ssl-something-old-something-new (Date: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.netscout.com/blog/asert/ddos-attacks-ssl-something-old-something-new (Date: 08.04.2023)</b></small></center>
 </picture></p>
 <p>As can be seen in the photos, if the process runs smoothly, communication can be made in 3 steps. But if you ask why we are doing this in 3 steps, can&rsquo;t it be done in a shorter way? I would say (for now) no, no, for a full-duplex communication, both parties need to send SYN and ACK packets. Maybe I&rsquo;ll tell you different ways in the future, but for now this is how it is. Anyway, the TCP/UDP part is always short and simple.</p>
 <h3 id="process-running-in-tls-layer">Process running in TLS layer</h3>
@@ -166,7 +166,7 @@ A data channel other than the control channel is created to communicate and the 
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.researchgate.net/publication/298065605_A_multi-level_framework_to_identify_HTTPS_services (Date: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.researchgate.net/publication/298065605_A_multi-level_framework_to_identify_HTTPS_services (Date: 08.04.2023)</b></small></center>
 </picture></p>
 <hr>
 <p>
@@ -194,12 +194,22 @@ A data channel other than the control channel is created to communicate and the 
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small></small></b></center></caption>
+  <center><small><b></b></small></center>
 </picture></p>
 <p>As can be seen in the photos, the process is almost the same as when connecting to a web page. Only certain stages are added, removed or changed according to needs. For example, in accordance with PFS, which stands for Advanced Privacy, the parties do not transmit the front-key with the server&rsquo;s asymmetric key. Because in this case, since the same key will be used for each session, the data will be stored and then the data will be readable retrospectively by waiting for a day when the key is revealed. That&rsquo;s why this change was made. Again, in accordance with the zero trust threat model, I want each layer and process to advance the process without trusting the other to do their job correctly. That&rsquo;s why we want the packets to be encrypted according to the <code>tls-auth</code> feature and to verify the integrity of the incoming and outgoing data, even at that first communication moment in the TLS layer. From the first moment you say hello, third parties will not be able to understand what you are talking about and at what stage you are. For this, the first communication is started with a predetermined key(s) and if necessary, these keys are renewed at regular intervals. Thus, even until the first pre-key is created in the TLS layer, confidentiality is not compromised and unauthorized parties are not created in vain.</p>
 <h3 id="process-running-in-the-data-layer">Process running in the data layer</h3>
 <p>If this whole process has been completed successfully and the data channel has been passed, you have now come to the best part of the job. Data will be encrypted with AES encryption method. During encryption, the tables will be shuffled according to the CBC-GCM counter mode according to your selection, and a 128 or 256-bit encryption key will be used in this process according to your selection. Of course, whatever you choose, the encryption block length will be 128 bits. Only the encryption key length changes. AES-256-GCM that I have chosen for this explanation is an AEAD encryption type. It summarizes the data it sends independently from other channels and processes at a certain stage and sends it together with the summary. Thus, authentication and encryption functions are fulfilled in AEAD, which stands for &lsquo;Authentication Encryption with associated data&rsquo;. There is a problem that requires a distinction to be made here. At what stage and in which order will we use the encryption and hashing algorithms?</p>
-<p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
 <picture>
   
   
@@ -224,10 +234,9 @@ A data channel other than the control channel is created to communicate and the 
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Encrypt-then-MAC (EtM) https://en.wikipedia.org/wiki/Authenticated_encryption (Date: 08.04.2023)</small></b></center></caption>
-</picture></p>
-<hr>
-<p>
+  <center><small><b>Encrypt-then-MAC (EtM)</b></small></center>
+</picture></td>
+<td style="text-align:center">
 <picture>
   
   
@@ -252,10 +261,9 @@ A data channel other than the control channel is created to communicate and the 
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Encrypt-and-MAC (E-and-M) https://en.wikipedia.org/wiki/Authenticated_encryption (Date: 08.04.2023)</small></b></center></caption>
-</picture></p>
-<hr>
-<p>
+  <center><small><b>Encrypt-and-MAC (E-and-M)</b></small></center>
+</picture></td>
+<td style="text-align:center">
 <picture>
   
   
@@ -280,8 +288,14 @@ A data channel other than the control channel is created to communicate and the 
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>MAC-then-Encrypt (MtE) https://en.wikipedia.org/wiki/Authenticated_encryption (Date: 08.04.2023)</small></b></center></caption>
-</picture></p>
+  <center><small><b>MAC-then-Encrypt (MtE)</b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Authenticated_encryption">https://en.wikipedia.org/wiki/Authenticated_encryption</a> (Date: 08.04.2023)</p>
+</blockquote>
 <ul>
 <li>
 <p>According to EtM, which is the first approach, the data is first encrypted, then encrypted with another key as a result of the digest, and the resulting result is sent together in blocks. If we look at real-world solutions that use it, the IPSec protocol will come to mind first. This is the only method that can achieve the highest security definition in AE, but this can only be achieved if the MAC algorithm used is free of corruption or has not yet been cracked. Various EtM cipher suites are also available for SSHv2. Note, however, that key separation is mandatory for data and digest (different keys must be used for encryption and key hashing), otherwise you may end up with a potentially insecure result depending on the particular encryption method and hash function used.</p>
@@ -318,7 +332,7 @@ A data channel other than the control channel is created to communicate and the 
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://community.openvpn.net/openvpn/wiki/Gigabit_Networks_Linux (Date: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://community.openvpn.net/openvpn/wiki/Gigabit_Networks_Linux (Date: 08.04.2023)</b></small></center>
 </picture></p>
 <p>After selecting the AEAD approach to be used, the path shown in the graphic above is followed according to the use of TAP or TUN. According to this path, the action done/desired to be done in the user area goes to TAP/TUN adapters at the kernel level. Because these adapters are at the kernel level, they operate very quickly. Then the virtual adapters do the necessary encryption with the relevant library, add the digest if necessary, and set the packet size. Then the server sends packets sequentially to the client&rsquo;s Ethernet interface over the Ethernet interface. The client that receives it reconfigures the packages, organizes them, combines them if necessary, and decrypts them with the necessary libraries. After decrypting it, it transmits the client to the end user via the virtual adapter. Thus, as a result of all these mathematical operations and efforts, after a few cycles, the user reached the desired content. It is quite long to explain, but very easy to use, dear readers. You just have to visit the relevant <a href="https://github.com/wiseweb-works/openvpn-most-secure-install/">script page</a> on my GitHub page. The related script makes all these adjustments interactively for you. All you have to do is sit back and enjoy.</p>
 <h1 id="faq-and-end">FAQ and End</h1>

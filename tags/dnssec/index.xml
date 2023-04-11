@@ -87,7 +87,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://adguard.com/tr/adguard-windows/overview.html (Erişim Tarihi 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://adguard.com/tr/adguard-windows/overview.html (Erişim Tarihi 07.04.2023)</b></small></center>
 </picture></p>
 <h3 id="212-yükleyiciyi-çalıştırın">2.1.2 Yükleyiciyi Çalıştırın</h3>
 <p>AdGuard yükleyicisini indirdikten sonra, PC&rsquo;nizde dosyayı bulun ve yükleyiciyi çalıştırmak için üzerine çift tıklayın. Kullanıcı Hesabı Denetimi (UAC) tarafından istenirse, yükleyiciye PC&rsquo;nizde değişiklik yapması için izin vermeniz gerekebilir.</p>
@@ -116,7 +116,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Adguard Windows uygulaması yükleyici görüntüleri</small></b></center></caption>
+  <center><small><b>Adguard Windows uygulaması yükleyici görüntüleri</b></small></center>
 </picture></p>
 <h3 id="213-kurulum-seçeneklerini-seçin">2.1.3 Kurulum Seçeneklerini Seçin</h3>
 <p>Bir sonraki adım, AdGuard için kurulum seçeneklerini seçmektir. AdGuard&rsquo;ı tüm kullanıcılar için veya yalnızca mevcut kullanıcı için yüklemeyi seçebilirsiniz. Ayrıca kurulum klasörünü seçebilir ve bir masaüstü kısayolu oluşturabilirsiniz.</p>
@@ -145,7 +145,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Adguard Windows uygulaması kurulum seçenekleri</small></b></center></caption>
+  <center><small><b>Adguard Windows uygulaması kurulum seçenekleri</b></small></center>
 </picture></p>
 <h3 id="214-adguardı-yükleyin">2.1.4 AdGuard&rsquo;ı yükleyin</h3>
 <p>Kurulum seçeneklerini seçtikten sonra, kurulum sürecini başlatmak için &ldquo;Yükle&rdquo; düğmesine tıklayın. Yükleme işlemi bilgisayarınızın hızına bağlı olarak birkaç dakika sürebilir.</p>
@@ -174,7 +174,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Adguard Windows uygulaması kurulum görüntüleri</small></b></center></caption>
+  <center><small><b>Adguard Windows uygulaması kurulum görüntüleri</b></small></center>
 </picture></p>
 <h3 id="215-adguardı-başlatın">2.1.5 AdGuard&rsquo;ı başlatın</h3>
 <p>Yükleme tamamlandıktan sonra, AdGuard&rsquo;ı masaüstü kısayolundan veya Başlat menüsünden başlatabilirsiniz. AdGuard&rsquo;ı ilk kez başlattığınızda, ayarları tercihlerinize göre yapılandırmanızı isteyecektir.</p>
@@ -203,7 +203,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Adguard Windows uygulaması genel ayarları</small></b></center></caption>
+  <center><small><b>Adguard Windows uygulaması genel ayarları</b></small></center>
 </picture></p>
 <h3 id="216-reklamsız-taramanın-keyfini-çıkarın">2.1.6 Reklamsız Taramanın Keyfini Çıkarın</h3>
 <p>AdGuard&rsquo;ın ayarlarını yapılandırdıktan sonra, reklamsız bir göz atma deneyiminin keyfini çıkarabilirsiniz. AdGuard, web sayfalarından her türlü reklamı<sup id="fnref3:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> otomatik olarak kaldırarak gezinmenizi daha hızlı ve sorunsuz hale getirir.</p>
@@ -232,7 +232,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.youtube.com/watch?v=YW9Ojcm1Gkg (Erişim Tarihi 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.youtube.com/watch?v=YW9Ojcm1Gkg (Erişim Tarihi 07.04.2023)</b></small></center>
 </picture></p>
 <h3 id="-217-kısa-özet">&gt; 2.1.7 Kısa Özet</h3>
 <blockquote>
@@ -278,7 +278,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://adguard.com/tr/adguard-windows/overview.html (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://adguard.com/tr/adguard-windows/overview.html (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 </blockquote>
 <hr>
@@ -309,7 +309,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://blog.chromium.org/2020/05/a-safer-and-more-private-browsing-DoH.html (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://blog.chromium.org/2020/05/a-safer-and-more-private-browsing-DoH.html (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 <p>Bu sorunu çözmek için HTTPS üzerinden DNS (DoH), TLS üzerinden DNS (DoT), QUIC üzerinden DNS (DoQ) ve DNSCrypt dahil olmak üzere birkaç yeni protokol geliştirilmiştir. Blog gönderisinin bu kısmında, bu protokoller arasındaki farkları ve DNS sorgularınızı korumaya nasıl yardımcı olabileceklerini tartışacağız. DNS-over-HTTPS (DoH), DNS-over-TLS (DoT), DNS-over-QUIC (DoQ) ve DNSCrypt birçok avantaj sağlarken, dikkate alınması gereken bazı potansiyel dezavantajlar da vardır. <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
 <h2 id="41-https-üzerinden-dns-doh">4.1 HTTPS üzerinden DNS (DoH)</h2>
@@ -340,7 +340,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://blog.chromium.org/2020/05/a-safer-and-more-private-browsing-DoH.html (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://blog.chromium.org/2020/05/a-safer-and-more-private-browsing-DoH.html (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 <ul>
 <li>
@@ -383,7 +383,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.myrasecurity.com/de/knowledge-hub/dns-over-tls (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.myrasecurity.com/de/knowledge-hub/dns-over-tls (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 <ul>
 <li>
@@ -443,7 +443,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://dev.to/cipherops/using-dnscrypt-with-adguard-home-pi-hole-7j6 (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://dev.to/cipherops/using-dnscrypt-with-adguard-home-pi-hole-7j6 (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 <ul>
 <li>
@@ -485,7 +485,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.researchgate.net/profile/Minzhao-Lyu/publication/357587121 (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.researchgate.net/profile/Minzhao-Lyu/publication/357587121 (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 </blockquote>
 <hr>
@@ -519,7 +519,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.dk-hostmaster.dk/en/dnssec (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.dk-hostmaster.dk/en/dnssec (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 <h2 id="52-edns-istemci-alt-ağı-ecs">5.2 EDNS İstemci Alt Ağı (ECS)</h2>
 <p>EDNS İstemci Alt Ağı, DNS sunucularının istemcinin IP adresi hakkında bilgi almasına izin veren DNS protokolünün bir uzantısıdır. Bu bilgiler, DNS sorgularına daha doğru yanıtlar sağlamak için kullanılır ve DNS çözümleme sürecinin hızını ve güvenilirliğini artırmaya yardımcı olabilir.</p>
@@ -552,7 +552,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://blog.cloudflare.com/encrypted-client-hello (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://blog.cloudflare.com/encrypted-client-hello (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 <h2 id="54-şifreli-istemci-merhaba-encrypted-client-hello">5.4 Şifreli İstemci Merhaba (Encrypted Client Hello)</h2>
 <p>Encrypted Client Hello, TLS anlaşma sürecinin gizliliğini ve güvenliğini artırmaya yardımcı olan başka bir teknolojidir. İstemci Merhaba mesajı, TLS bağlantısını başlatmak için istemci tarafından gönderilir ve istemcinin desteklediği TLS sürümleri ve şifre paketleri hakkında bilgi içerir.</p>
@@ -582,7 +582,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://blog.cloudflare.com/encrypted-client-hello (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://blog.cloudflare.com/encrypted-client-hello (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 <p>Çözüm
 DNSSEC, EDNS İstemci Alt Ağı, Şifreli SNI ve Şifreli İstemci Hello, internette güvenliği ve gizliliği geliştirmeye yardımcı olan önemli teknolojilerdir. Bu teknolojiler, DNS sahtekarlığı saldırılarını önlemek, daha doğru DNS yanıtları sağlamak ve TLS el sıkışma işlemi sırasında kullanıcı gizliliğini korumak için tasarlanmıştır. Bu teknolojileri uygulayarak herkes için daha güvenli ve güvenli bir internet oluşturmaya yardımcı olabiliriz.</p>

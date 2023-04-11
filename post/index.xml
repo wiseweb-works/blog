@@ -1,4 +1,488 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on Wise</title><link>https://wiseweb-works.github.io/blog/post/</link><description>Recent content in Posts on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 06 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/post/index.xml" rel="self" type="application/rss+xml"/><item><title>AdGuard ile Reklam Engelleme</title><link>https://wiseweb-works.github.io/blog/post/adguard-reklam-engelleme/</link><pubDate>Thu, 06 Apr 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/adguard-reklam-engelleme/</guid><description>1. AdGuard: Reklamsız Gezinti İçin Nihai Çözümünüz İnternette gezinirken sürekli karşınıza çıkan reklam ve açılır pencerelerinden sıkıldıysanız, AdGuard Windows uygulamasını kullanmayı düşünebilirsiniz. AdGuard, yalnızca reklamları kaldırmakla kalmayıp aynı zamanda bilgisayarınızı kötü amaçlı yazılımlardan ve kimlik avı saldırılarından koruyan güçlü bir reklam engelleyicidir. Tanıdığınız ve bildiğiniz tüm reklamlara son kez sarılın artık onları bir daha göremeyeceksiniz. Çünkü bu blog gönderisinde, AdGuard&amp;rsquo;ın özelliklerini ve göz atma deneyiminizi nasıl geliştirebileceğini keşfedeceğiz.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on Wise</title><link>https://wiseweb-works.github.io/blog/post/</link><description>Recent content in Posts on Wise</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 11 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Crowdsec IPS/IDS Yazılımı</title><link>https://wiseweb-works.github.io/blog/post/crowdsec-anlatim/</link><pubDate>Tue, 11 Apr 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/crowdsec-anlatim/</guid><description>1. Crowdsec IPS/IDS Yazılımı Tanıtımı CrowdSec, siber tehditlere karşı gerçek zamanlı koruma sağlamak için kolektif bir zeka yaklaşımı kullanan Linux sunucuları için açık kaynaklı bir güvenlik çözümüdür. Bu blog gönderisinde, CrowdSec&amp;rsquo;in (v.1.4.6)1 özelliklerini, Linux sunucularınızı korumak için neden harika bir seçim olduğunun nedenlerini ve CrowdSec ile diğer IPS/IDS yazılımları arasındaki farkları ve benzerlikleri keşfedeceğiz.
+1.1 CrowdSec&amp;rsquo;in Özellikleri CrowdSec, onu Linux sunucuları için güçlü ve etkili bir güvenlik çözümü yapan çeşitli özellikler sunar.</description><content:encoded><![CDATA[<h1 id="1-crowdsec-ipsids-yazılımı-tanıtımı">1. Crowdsec IPS/IDS Yazılımı Tanıtımı</h1>
+<p>CrowdSec, siber tehditlere karşı gerçek zamanlı koruma sağlamak için kolektif bir zeka yaklaşımı kullanan Linux sunucuları için açık kaynaklı bir güvenlik çözümüdür. Bu blog gönderisinde, CrowdSec&rsquo;in (v.1.4.6)<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> özelliklerini, Linux sunucularınızı korumak için neden harika bir seçim olduğunun nedenlerini ve CrowdSec ile diğer IPS/IDS yazılımları arasındaki farkları ve benzerlikleri keşfedeceğiz.</p>
+<h2 id="11-crowdsecin-özellikleri">1.1 CrowdSec&rsquo;in Özellikleri</h2>
+<p>CrowdSec, onu Linux sunucuları için güçlü ve etkili bir güvenlik çözümü yapan çeşitli özellikler sunar. Temel özelliklerinden bazıları şunlardır:</p>
+<h3 id="111-gerçek-zamanlı-tehdit-tespiti">1.1.1 Gerçek zamanlı tehdit tespiti</h3>
+<ul>
+<li>CrowdSec, tehditleri gerçek zamanlı olarak tespit etmek için makine öğrenimi algoritmalarını kullanır ve saldırıların gerçekleşmesini önler.</li>
+</ul>
+<h3 id="112-otomatik-engelleme">1.1.2 Otomatik engelleme</h3>
+<ul>
+<li>Bir tehdit algılandığında CrowdSec, saldırıyla ilişkili IP adresini otomatik olarak engelleyerek anında koruma sağlar.</li>
+</ul>
+<h3 id="113-kolektif-zeka">1.1.3 Kolektif zeka</h3>
+<ul>
+<li>CrowdSec, yeni ve gelişmekte olan tehditleri algılamak için diğer CrowdSec kullanıcıları da dahil olmak üzere birden çok kaynaktan gelen verilerden yararlanır.</li>
+</ul>
+<h3 id="114-kolay-entegrasyon">1.1.4 Kolay entegrasyon</h3>
+<ul>
+<li>CrowdSec, kapsamlı bir güvenlik çözümü sağlamak için güvenlik duvarları ve SIEM&rsquo;ler gibi diğer güvenlik çözümleriyle kolayca entegre edilebilir.</li>
+</ul>
+<h3 id="115-özelleştirilebilir-kurallar">1.1.5 Özelleştirilebilir kurallar</h3>
+<ul>
+<li>CrowdSec, kullanıcıların güvenlik politikalarının kendi özel gereksinimleriyle uyumlu olmasını sağlayarak kendi kurallarını oluşturmasına ve özelleştirmesine olanak tanır.</li>
+</ul>
+<h2 id="12-neden-crowdseci-seçmelisiniz">1.2 Neden CrowdSec&rsquo;i Seçmelisiniz?</h2>
+<p>CrowdSec&rsquo;in Linux sunucularınızın güvenliğini sağlamak için mükemmel bir seçim olmasının birkaç nedeni vardır. Bu nedenlerden bazıları şunlardır:</p>
+<h3 id="121-açık-kaynak">1.2.1 Açık kaynak</h3>
+<ul>
+<li>CrowdSec açık kaynaklı bir çözümdür, yani kullanımı ücretsizdir ve özel ihtiyaçlarınızı karşılayacak şekilde kolayca özelleştirilebilir.</li>
+</ul>
+<h3 id="122-toplu-zeka">1.2.2 Toplu zeka</h3>
+<ul>
+<li>CrowdSec, yeni ve gelişmekte olan tehditleri tespit etmek için toplu zekanın gücünden yararlanarak geleneksel güvenlik çözümlerinden daha yüksek düzeyde koruma sağlar.</li>
+</ul>
+<h3 id="123-kolay-entegrasyon">1.2.3 Kolay entegrasyon</h3>
+<ul>
+<li>CrowdSec, diğer güvenlik çözümleriyle kolayca entegre edilebilir ve bu da onu her kuruluş için esnek ve uyarlanabilir bir çözüm haline getirir.</li>
+</ul>
+<h3 id="124-özelleştirilebilir-kurallar">1.2.4 Özelleştirilebilir kurallar</h3>
+<ul>
+<li>CrowdSec, kullanıcıların güvenlik politikalarının kendi özel gereksinimleriyle uyumlu olmasını sağlayarak kendi kurallarını oluşturmasına ve özelleştirmesine olanak tanır.</li>
+</ul>
+<h2 id="13-crowdsec-ve-cloudflare-arasındaki-fark-ve-benzerlikler">1.3 CrowdSec ve Cloudflare Arasındaki Fark ve Benzerlikler</h2>
+<p>CrowdSec ve Cloudflare güvenlik çözümleri olmakla birlikte, ikisi arasında bazı temel farklılıklar vardır. Örneğin:</p>
+<h3 id="131-farkları">1.3.1 Farkları</h3>
+<ul>
+<li>
+<p>CrowdSec açık kaynaklı bir çözümken Cloudflare ticari bir çözümdür.</p>
+</li>
+<li>
+<p>CrowdSec, yeni ve gelişmekte olan tehditleri algılamak için toplu zekayı kullanırken Cloudflare, makine öğrenimi ve imza tabanlı algılamanın bir kombinasyonunu kullanır.</p>
+</li>
+<li>
+<p>CrowdSec, Linux sunucularını korumaya odaklanırken, Cloudflare çok çeşitli platformlar için güvenlik çözümleri sunar.</p>
+</li>
+</ul>
+<h3 id="132-benzerlikleri">1.3.2 Benzerlikleri</h3>
+<p>Bu farklılıklara rağmen, hem CrowdSec hem de Cloudflare bazı benzerlikleri paylaşır. Örneğin:</p>
+<ul>
+<li>
+<p>Her iki çözüm de tehditleri gerçek zamanlı olarak algılamak için makine öğrenimi algoritmalarını kullanır.</p>
+</li>
+<li>
+<p>Her iki çözüm de kötü amaçlı IP adreslerinin otomatik olarak engellenmesini sağlar.</p>
+</li>
+<li>
+<p>Her iki çözüm de diğer güvenlik çözümleriyle kolayca entegre edilebilir ve kapsamlı bir güvenlik çözümü sunar.</p>
+</li>
+</ul>
+<h2 id="14-kısa-özet">1.4 Kısa Özet</h2>
+<p>(TL;DR) <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> CrowdSec, Linux sunucuları için gerçek zamanlı tehdit algılama, otomatik engelleme ve toplu zeka sağlayan güçlü ve etkili bir güvenlik çözümüdür. Açık kaynak yapısı, kolay entegrasyonu ve özelleştirilebilir kuralları, onu Linux sunucularının güvenliğini sağlamak isteyen tüm kuruluşlar için mükemmel bir seçim haline getirir. CrowdSec ve Cloudflare arasında bazı farklılıklar olsa da, her iki çözüm de bazı benzerliklere sahiptir ve dijital varlıklarını güvence altına almak isteyen kuruluşlar için mükemmel seçeneklerdir.</p>
+<h1 id="2-crowdsec-linux-nasıl-kurulur">2. Crowdsec Linux Nasıl Kurulur</h1>
+<p>CrowdSec, siber tehditlere karşı gerçek zamanlı koruma sağlamak için toplu zeka kullanan Linux sunucuları için açık kaynaklı bir güvenlik çözümüdür. Blog yazısının bu kısmında CrowdSec&rsquo;i Linux sunucunuza kurma adımlarının yanı sıra sunucunuzun güvenliğini daha da artırmak için bir Linux bouncer&rsquo;ı nasıl kuracağınız konusunda size yol göstereceğiz.</p>
+<h2 id="21-adım-adım-kılavuz">2.1 Adım Adım Kılavuz</h2>
+<p>Başlamadan önce, kurulum işleminin Linux dağıtımınıza bağlı olarak değişebileceğini lütfen unutmayın. Aşağıdaki adımlar Ubuntu 20.04&rsquo;ü temel alır, ancak diğer dağıtımlar için talimatları CrowdSec dokümantasyon sayfasında bulabilirsiniz.</p>
+<h3 id="211-crowdseci-yükleyin">2.1.1 CrowdSec&rsquo;i yükleyin</h3>
+<p>Öncelikle, aşağıdaki komutu çalıştırarak CrowdSec deposunu sisteminize eklemeniz gerekir:</p>
+<h4 id="repo-ve-gpg-anahtarını-manul-ekleme-yöntemi">Repo ve GPG anahtarını manul ekleme yöntemi</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;deb https://packages.crowdsec.net/deb stable main&#39;</span> | sudo tee /etc/apt/sources.list.d/crowdsec.list
+</span></span></code></pre></div><p>Ardından, aşağıdaki komutu çalıştırarak CrowdSec imzalama anahtarını sisteminize eklemeniz gerekir:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget -qO - https://packages.crowdsec.net/crowdsec.gpg.key | sudo apt-key add -
+</span></span></code></pre></div><h4 id="otomatikleştirilmiş-script-ile-repo-ve-gpg-anahtarının-eklenmesi">Otomatikleştirilmiş script ile Repo ve GPG anahtarının eklenmesi</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.deb.sh | sudo bash
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th style="text-align:center">Debian<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></th>
+<th style="text-align:center">Ubuntu<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+    
+
+    
+
+    
+    
+
+    
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/crowdsec/1.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b></b></small></center>
+</picture></td>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+    
+
+    
+
+    
+    
+
+    
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/crowdsec/1-1.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b></b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
+<p>Depoyu ve anahtarı ekledikten sonra CrowdSec&rsquo;i aşağıdaki komutu çalıştırarak kurulumu yapabilirsiniz:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt install crowdsec
+</span></span></code></pre></div><table>
+<thead>
+<tr>
+<th style="text-align:center">Debian<sup id="fnref1:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></th>
+<th style="text-align:center">Ubuntu<sup id="fnref1:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+    
+
+    
+
+    
+    
+
+    
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/crowdsec/2.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b></b></small></center>
+</picture></td>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+    
+
+    
+
+    
+    
+
+    
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/crowdsec/2-1.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b></b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
+<h3 id="212-crowdseci-yapılandırın">2.1.2 CrowdSec&rsquo;i yapılandırın</h3>
+<p>CrowdSec yüklendikten sonra ihtiyaçlarınıza göre yapılandırmanız gerekir. CrowdSec için ana yapılandırma dosyası <code>/etc/crowdsec/config.yaml</code> konumunda bulunur. Bu dosyayı nano veya vim gibi bir metin düzenleyici kullanarak düzenleyebilirsiniz.</p>
+<p>Yapılandırma dosyası iyi yorumlanmıştır, bu nedenle her seçeneğin ne yaptığını anlamak kolaydır. CrowdSec tarafından kullanılan Bouncer ve Parserların yanı sıra log kaydı alma, engelleme ve bildirim seçeneklerini özelleştirebilirsiniz.</p>
+<h3 id="213-crowdseci-başlatın">2.1.3 CrowdSec&rsquo;i Başlatın</h3>
+<p>CrowdSec&rsquo;i yapılandırdıktan sonra, aşağıdaki komutu çalıştırarak hizmeti başlatabilirsiniz:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl start crowdsec
+</span></span></code></pre></div><p>Aşağıdaki komutu çalıştırarak CrowdSec&rsquo;in durumunu kontrol edebilirsiniz:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl status crowdsec
+</span></span></code></pre></div><p>CrowdSec düzgün çalışıyorsa hizmetin etkin olduğunu belirten bir mesaj görmelisiniz.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+    
+
+    
+
+    
+    
+
+    
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/crowdsec/3.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Debian(3)</b></small></center>
+</picture></p>
+<h3 id="214-bir-linux-bouncer-kurun">2.1.4 Bir Linux Bouncer Kurun</h3>
+<p>Linux Bouncer, sunucunuzu siber tehditlere karşı korumaya yardımcı olabilecek ek bir güvenlik katmanıdır. Bouncerlar, ağ trafiğini izleyerek ve bilinen kötü amaçlı IP adreslerinden gelen istekleri engelleyerek çalışır.</p>
+<p>CrowdSec, iptables bouncer ve nftables bouncer dahil olmak üzere kurabileceğiniz birkaç bouncer ile birlikte gelir.</p>
+<h4 id="iptables-bouncer-yüklemek-için-aşağıdaki-komutu-çalıştırın">Iptables Bouncer yüklemek için aşağıdaki komutu çalıştırın</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install crowdsec-firewall-bouncer
+</span></span></code></pre></div><p>
+<picture>
+  
+  
+  
+
+  
+    
+
+    
+
+    
+    
+
+    
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/crowdsec/4.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Ubuntu(4)</b></small></center>
+</picture></p>
+<h4 id="nftables-bouncer-yüklemek-için-aşağıdaki-komutu-çalıştırın">Nftables Bouncer yüklemek için aşağıdaki komutu çalıştırın</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install crowdsec-nftables-bouncer
+</span></span></code></pre></div><p>Bir bouncer kurduktan sonra onu CrowdSec ile çalışacak şekilde yapılandırmanız gerekir. bouncer için yapılandırma dosyası <code>/etc/crowdsec/bouncers.yaml</code> konumunda bulunur. Bu dosyayı nano veya vim gibi bir metin düzenleyici kullanarak düzenleyebilirsiniz.</p>
+<p>Yapılandırma dosyası iyi yorumlanmıştır, bu nedenle her seçeneğin ne yaptığını anlamak kolaydır. CrowdSec tarafından kullanılan Bouncer ve Parserların yanı sıra günlüğe kaydetme, engelleme ve bildirim seçeneklerini özelleştirebilirsiniz.</p>
+<h3 id="215-bouncerı-başlatın">2.1.5 Bouncer&rsquo;ı Başlatın</h3>
+<p>bouncer yapılandırdıktan sonra, aşağıdaki komutu çalıştırarak hizmeti başlatabilirsiniz:</p>
+<h4 id="iptables-için">Iptables için</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl start crowdsec-firewall-bouncer
+</span></span></code></pre></div><p>Aşağıdaki komutu çalıştırarak bouncerların durumunu kontrol edebilirsiniz:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl status crowdsec-firewall-bouncer
+</span></span></code></pre></div><h4 id="nftables-için">Nftables için</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl start crowdsec-nftables-bouncer
+</span></span></code></pre></div><p>Aşağıdaki komutu çalıştırarak bouncerların durumunu kontrol edebilirsiniz:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl status crowdsec-nftables-b
+</span></span></code></pre></div><p>Aşağıdaki komutu çalıştırarak CrowdSec&rsquo;in durumunu kontrol edebilirsiniz:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl status crowdsec
+</span></span></code></pre></div><p>CrowdSec düzgün çalışıyorsa hizmetin etkin olduğunu belirten bir mesaj görmelisiniz.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+    
+
+    
+
+    
+    
+
+    
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/crowdsec/3.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Debian(3)</b></small></center>
+</picture></p>
+<h3 id="216-crowdseci-test-edin">2.1.6 CrowdSec&rsquo;i Test Edin</h3>
+<p>CrowdSec&rsquo;in düzgün çalıştığını test etmek için sunucunuza farklı bir IP adresinden birkaç kez giriş yapmayı deneyebilirsiniz. Birkaç başarısız oturum açma denemesinden sonra CrowdSec, başarısız denemelerle ilişkili IP adresini bloke etmelidir.</p>
+<p>Engellenen IP adreslerini aşağıdaki komutu çalıştırarak kontrol edebilirsiniz:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo cscli alerts list
+</span></span></code></pre></div><p>Bu komut size CrowdSec tarafından engellenen IP adreslerinin bir listesini gösterecektir.</p>
+<h3 id="217-kısa-özet">2.1.7 Kısa Özet</h3>
+<p>(TL;DR) <sup id="fnref1:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> CrowdSec&rsquo;i Linux sunucunuza yüklemek, sunucunuzu gerçek zamanlı olarak siber tehditlere karşı korumaya yardımcı olabilecek basit bir işlemdir. CrowdSec, yeni ve gelişmekte olan tehditleri algılamak için toplu zekayı kullanarak geleneksel güvenlik çözümlerinden daha yüksek düzeyde koruma sağlar. Bu gönderide belirtilen adımları izleyerek CrowdSec&rsquo;i Linux sunucunuza yükleyip yapılandırabilir ve dijital varlıklarınızı korumaya başlayabilirsiniz.</p>
+<h1 id="3-crowdsec-nasıl-çalışır">3. CrowdSec Nasıl Çalışır?</h1>
+<p>CrowdSec, toplu zeka kullanarak siber tehditlere karşı gerçek zamanlı koruma sağlayan, Linux sunucuları için açık kaynaklı bir güvenlik çözümüdür. Bu blog gönderisinde, CrowdSec&rsquo;in nasıl çalıştığını ve işleyişinde yer alan farklı bileşenleri tartışacağız.</p>
+<h2 id="31-zararlı-trafiği-tespit-ve-işleme">3.1 Zararlı Trafiği Tespit ve İşleme</h2>
+<p>CrowdSec, çeşitli kaynaklardan veri toplayarak, ilgili bilgileri çıkarmak için verileri ayrıştırarak ve olası tehditleri belirlemek için senaryolar uygulayarak çalışır. Bir tehdit belirlenirse, IP adresini bloke etmek veya bir bildirim göndermek gibi uygun eylem gerçekleştirilir.</p>
+<p>CrowdSec, potansiyel tehditleri belirleme yeteneğini geliştirmek için toplu zekayı da kullanır. Bir tehdit belirlendiğinde, benzer tehditleri belirleme becerilerini geliştirmek için bilgiler diğer CrowdSec kullanıcılarıyla paylaşılır.</p>
+<h3 id="311-data-sources">3.1.1 Data Sources</h3>
+<p>CrowdSec, olası tehditleri belirlemek için çeşitli kaynaklardan veri toplar. Bu veri kaynakları, sistem günlüklerini, ağ trafiğini ve üçüncü taraf API&rsquo;leri içerir. Toplanan veriler daha sonra ilgili bilgileri çıkarmak için Parserlar tarafından işlenir.</p>
+<h3 id="312-parsers">3.1.2 Parsers</h3>
+<p>Parserlar, toplanan verilerden ilgili bilgileri çıkarmak için kullanılır. CrowdSec, sistem günlükleri, ağ trafiği ve üçüncü taraf API&rsquo;ler için yerleşik Parserlarla birlikte gelir. Ayrıca, diğer kaynaklardan bilgi ayıklamak için özel Parserlar oluşturabilirsiniz.</p>
+<h3 id="313-scenarios">3.1.3 Scenarios</h3>
+<p>Senaryolar, olası tehditleri belirlemeye yönelik kuralları tanımlamak için kullanılır. CrowdSec, kaba kuvvet saldırıları ve bağlantı noktası taraması gibi yaygın tehditler için yerleşik senaryolarla birlikte gelir. Ayrıca, ortamınızla ilgili belirli tehditleri belirlemek için özel senaryolar da oluşturabilirsiniz.</p>
+<h3 id="314-collections">3.1.4 Collections</h3>
+<p>Koleksiyonlar, benzer senaryoları birlikte gruplandırmak için kullanılır. Bu, senaryoların yönetimini ve dağıtımını basitleştirmeye yardımcı olur. CrowdSec, SSH ve HTTP gibi yaygın tehdit türleri için yerleşik koleksiyonlarla birlikte gelir. Senaryoları gerektiği gibi gruplandırmak için özel koleksiyonlar da oluşturabilirsiniz.</p>
+<h3 id="315-kısa-özet">3.1.5 Kısa Özet</h3>
+<p>(TL;DR) <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> CrowdSec, siber tehditlere karşı gerçek zamanlı koruma sağlayan, Linux sunucuları için güçlü bir açık kaynaklı güvenlik çözümüdür. CrowdSec, çeşitli kaynaklardan veri toplayarak, verileri ayrıştırarak ve senaryolar uygulayarak potansiyel tehditleri belirleyebilir ve uygun önlemleri alabilir. Ek olarak, toplu zekanın kullanılması, CrowdSec&rsquo;in potansiyel tehditleri belirleme yeteneğini sürekli olarak geliştirmesine olanak tanıyarak onu herhangi bir Linux sunucusu için etkili bir güvenlik çözümü haline getirir.</p>
+<h2 id="32-zararlı-trafiği-engelleme-yöntemleri">3.2 Zararlı Trafiği Engelleme Yöntemleri</h2>
+<p>CrowdSec, siber tehditlere karşı gerçek zamanlı koruma sağlayan, Linux sunucuları için açık kaynaklı bir güvenlik çözümüdür. CrowdSec&rsquo;in temel özelliklerinden biri, yasaklama, captcha&rsquo;lar ve özel kararlar dahil olmak üzere çeşitli yöntemler kullanarak yasal olmayan trafiği önleme yeteneğidir. Bu blog gönderisinde, bu yöntemleri ve sunucunuzun güvenliğini artırmak için nasıl kullanılabileceğini ayrıntılı olarak tartışacağız.</p>
+<h3 id="321-ban">3.2.1 Ban</h3>
+<p>
+<picture>
+  
+  
+  
+
+  
+    
+
+    
+
+    
+    
+
+    
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/crowdsec/5-ban.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>https://tr.wordpress.org/plugins/crowdsec/ (Erişim Tarihi: 11.04.2023)</b></small></center>
+</picture></p>
+<p>Yasaklama, meşru olmayan trafiği önlemenin en basit yöntemidir. CrowdSec potansiyel bir tehdit belirlediğinde, daha fazla erişimi engellemek için rahatsız edici IP adresini engelleyebilir. Bu, IP adresini her yeni bağlantı kurulduğunda kontrol edilen bir kara listeye ekleyerek yapılır. Yasaklama, tekrarlayan suçluların sunucunuza erişmesini önlemenin etkili bir yoludur, ancak aynı zamanda yanlış pozitiflere yol açabilir ve meşru trafiği engelleyebilir.</p>
+<h3 id="322-captcha">3.2.2 Captcha</h3>
+<p>
+<picture>
+  
+  
+  
+
+  
+    
+
+    
+
+    
+    
+
+    
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/crowdsec/6-captcha.jpg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>https://tr.wordpress.org/plugins/crowdsec/ (Erişim Tarihi: 11.04.2023)</b></small></center>
+</picture></p>
+<p>Captcha, otomatik botların sunucunuza erişmesini engellemek için yaygın olarak kullanılan bir yöntemdir. CrowdSec potansiyel bir tehdit belirlediğinde, kullanıcıya bir captcha sorgulaması sunabilir. Bu zorluk tipik olarak belirli görüntüleri tanımlamayı veya bir dizi karakter girmeyi içerir. Kullanıcı captcha sınamasını geçerse, sunucunuza erişebilir. Captcha, otomatik botların sunucunuza erişmesini önlemenin etkili bir yoludur, ancak gelişmiş botlar tarafından da atlanabilir.</p>
+<h3 id="323-custom-decision">3.2.3 Custom Decision</h3>
+<p>CrowdSec, belirli senaryolara göre özel kararlar almanıza da olanak tanır. Örneğin, sürekli olarak sunucunuza erişmeye çalışan bir IP adresi tespit ederseniz, bu IP adresinden gelecek tüm istekleri engellemeye karar verebilirsiniz. Alternatif olarak, kullanıcıyı farklı bir sayfaya yönlendirmeyi veya özel bir mesaj görüntülemeyi seçebilirsiniz. Özel kararlar, CrowdSec&rsquo;in yanıtını belirli senaryolara uyarlamanıza olanak tanıyarak sunucunuzun güvenliği üzerinde daha fazla kontrol sahibi olmanızı sağlar.</p>
+<h3 id="323-kısa-özet">3.2.3 Kısa Özet</h3>
+<p>(TL;DR) <sup id="fnref3:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> CrowdSec, siber tehditlere karşı gerçek zamanlı koruma sağlayan Linux sunucuları için güçlü bir güvenlik çözümüdür. CrowdSec, yasaklama, captcha&rsquo;lar ve özel kararlar gibi yöntemleri kullanarak meşru olmayan trafiği önleyebilir ve sunucunuzun güvenliğini artırabilir. İster küçük bir web sitesi ister büyük bir kurumsal uygulama çalıştırıyor olun, CrowdSec sunucunuzu siber tehditlere karşı korumanıza ve kullanıcılarınızın sitenize güvenli bir şekilde erişmesini sağlamanıza yardımcı olabilir.</p>
+<h1 id="4-crowdsec-ile-tech-demo">4. Crowdsec İle Tech Demo</h1>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/kG68PgwOOeU" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<blockquote>
+<p><a href="https://www.youtube.com/watch?v=kG68PgwOOeU">https://www.youtube.com/watch?v=kG68PgwOOeU</a></p>
+<p>Crowdsec Youtube Kanalı (Erişim Tarihi: 11.04.2023)</p>
+</blockquote>
+<p>Günümüzün dijital çağında, Dağıtılmış Hizmet Reddi (DDoS) saldırıları, işletmeler ve kuruluşlar için ortak bir tehdit haline geldi. Bu saldırılar, bir web sitesini veya uygulamayı trafikle doldurmak, trafiği bunaltmak ve meşru kullanıcılar için kullanılamaz hale getirmek için tasarlanmıştır. Önde gelen bir güvenlik çözümleri sağlayıcısı olan CrowdSec, yakın tarihli bir <a href="https://www.crowdsec.net/blog/how-to-beat-application-ddos">blog gönderisinde (Erişim Tarihi: 11.04.2023)</a>, uygulama DDoS saldırılarını yenmek için bazı etkili stratejiler paylaştı.</p>
+<p>Blog gönderisi, kuruluşların karşılaşabileceği farklı uygulama DDoS saldırı türlerini açıklayarak başlıyor. Bunlar, HTTP/S Flood, Slow R/W Atağı (Slowloris) ve Application Layer Atak saldırılarını içerir. Her saldırı türü farklı bir yürütme yöntemine sahip olsa da, hepsi bir uygulamayı aşırı yükleyerek kullanıcılar tarafından kullanılamaz hale getirmeyi amaçlar.</p>
+<p>Gönderi daha sonra uygulama DDoS saldırılarını yenmek için bazı etkili teknikleri açıklamaya devam ediyor. En önemli stratejilerden biri, kapsamlı bir DDoS koruma yazılımına sahip olmaktır. Bu, diğer önlemlerin yanı sıra güvenlik duvarlarının, izinsiz giriş tespit sistemlerinin (IDS), izinsiz giriş engelleme sisstemlerinin (IPS) ve yük dengeleyicilerin (Load Balancing) kurulmasını içerir.</p>
+<p>Diğer bir etkili yaklaşım, İçerik Dağıtım Ağlarını (CDN&rsquo;ler) kullanmaktır. CDN&rsquo;ler, trafiği birden çok sunucu arasında dağıtmaya yardımcı olur ve bu da bir saldırının etkisini azaltmaya yardımcı olabilir. Ek olarak, CDN&rsquo;ler, meşru kullanıcılar için performansını iyileştirerek bir uygulamanın gecikmesini azaltmaya yardımcı olabilir.</p>
+<p>Gönderi ayrıca hız sınırlayıcı tekniklerin uygulanmasını önerir. Bu, belirli bir zaman çerçevesi içinde bir uygulamaya gönderilebilecek trafik miktarına ilişkin sınırlar belirlemeyi içerir. Rate Limiting (Hız sınırlama), bir uygulamaya gönderilebilecek trafik miktarını sınırlayarak uygulama DDoS saldırılarını önlemeye yardımcı olabilir.</p>
+<p>Son olarak gönderi, tüm yazılımları güncel tutmanızı önerir. Buna işletim sistemleri, web sunucuları ve uygulamalar dahildir. Yazılımı güncel tutmak, bilinen tüm güvenlik açıklarının yamalanmasını sağlamaya yardımcı olarak saldırı riskini azaltır.</p>
+<p>Sonuç olarak, uygulama DDoS saldırıları, işletmeler ve kuruluşlar için önemli bir tehdit olabilir. Ancak doğru stratejiler uygulandığında bu saldırıları yenmek ve uygulamaları ve web sitelerini çevrimiçi tutmak mümkündür. Kuruluşlar, kapsamlı bir DDoS koruma planı uygulayarak, CDN&rsquo;leri kullanarak, hız sınırlayıcı teknikler uygulayarak ve yazılımları güncel tutarak, bir uygulama DDoS saldırısı riskini önemli ölçüde azaltabilir.</p>
+<h2 id="41-beta-sürümü-ve-geleceği-hakkında">4.1 Beta Sürümü ve Geleceği Hakkında</h2>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    
+
+    
+    
+
+    
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/crowdsec/crowdsec-beta.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Crowdsec Beta Duyurusu (Erişim Tarihi: 11.04.2023)</b></small></center>
+</picture></p>
+<p>Crowdsec yazılımı yakın zaman önce v1.5 Beta sürümünü<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup> kısıtlı kullanıma açtı. Kısıtlı test için yapmış olduğum başvuruyu kabul etmeleri sebebiyle kendilerine öncelikle teşekkür ediyorum. Mevcut trendlere ve siber güvenlik çözümlerine yönelik artan talebe dayanarak, Crowdsec yazılımının önümüzdeki yıllarda büyümeye ve popülerlik kazanmaya devam edeceğini tahmin ediyorum. Yazılımın, topluluk zekası ve makine öğrenimi algoritmalarını kullanarak tehdit algılama ve hafifletmeye yönelik benzersiz yaklaşımı, sektörde potansiyel olarak devrim yaratabilecek umut verici bir yeniliktir.</p>
+<p>Ayrıca, açık kaynak topluluğundan gelen güçlü destek, Crowdsec&rsquo;in başarısının arkasındaki itici güç olmuştur. Yazılımın açık kaynak olması ve herkesin kullanması ve katkıda bulunması için ücretsiz olarak erişilebilir olması, yazılımı iyileştirmek ve geliştirmek için sürekli çalışan (ve Beta sürümünde olacağı gibi feedback veren) büyük ve özel bir kullanıcı ve geliştirici topluluğunun gelişmesine yardımcı olmuştur.</p>
+<p>Daha fazla insan Crowdsec&rsquo;in yeteneklerinin farkına vardıkça ve bir açık kaynak projesine katkıda bulunmanın faydalarını gördükçe, bu topluluk desteğinin büyümeye ve güçlenmeye devam etmesini bekliyorum. Topluluğun geri bildirimleri ve katkıları, Crowdsec&rsquo;in siber güvenlik sektörünün ön saflarında kalmasını sağlayarak yeni özelliklerin ve iyileştirmelerin geliştirilmesine yardımcı olacaktır. Bu nedenle bir sonraki blog yazımda Crowdsec&rsquo;in Beta sürümünü inceleyip deneyimlerimi paylaşacağım.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://github.com/crowdsecurity/crowdsec/releases/tag/v1.4.6">https://github.com/crowdsecurity/crowdsec/releases/tag/v1.4.6</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>TL;DR: <code>Too long; Didn't read</code> veya <code>Çok uzundu; okumadım</code> özet geç anlamında&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref2:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref3:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://www.youtube.com/watch?v=7jwVkWt_4TI">https://www.youtube.com/watch?v=7jwVkWt_4TI</a> (Erişim Tarihi: 11.04.2023)&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://www.youtube.com/watch?v=2kW_200N60k">https://www.youtube.com/watch?v=2kW_200N60k</a> (Erişim Tarihi: 11.04.2023)&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://www.crowdsec.net/blog/crowdsec-v1-5-beta">https://www.crowdsec.net/blog/crowdsec-v1-5-beta</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+]]></content:encoded></item><item><title>AdGuard ile Reklam Engelleme</title><link>https://wiseweb-works.github.io/blog/post/adguard-reklam-engelleme/</link><pubDate>Thu, 06 Apr 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/adguard-reklam-engelleme/</guid><description>1. AdGuard: Reklamsız Gezinti İçin Nihai Çözümünüz İnternette gezinirken sürekli karşınıza çıkan reklam ve açılır pencerelerinden sıkıldıysanız, AdGuard Windows uygulamasını kullanmayı düşünebilirsiniz. AdGuard, yalnızca reklamları kaldırmakla kalmayıp aynı zamanda bilgisayarınızı kötü amaçlı yazılımlardan ve kimlik avı saldırılarından koruyan güçlü bir reklam engelleyicidir. Tanıdığınız ve bildiğiniz tüm reklamlara son kez sarılın artık onları bir daha göremeyeceksiniz. Çünkü bu blog gönderisinde, AdGuard&amp;rsquo;ın özelliklerini ve göz atma deneyiminizi nasıl geliştirebileceğini keşfedeceğiz.
 1.1 AdGuard Uygulamasının Özellikleri 1.</description><content:encoded><![CDATA[<h1 id="1-adguard-reklamsız-gezinti-için-nihai-çözümünüz">1. AdGuard: Reklamsız Gezinti İçin Nihai Çözümünüz</h1>
 <p>İnternette gezinirken sürekli karşınıza çıkan reklam ve açılır pencerelerinden sıkıldıysanız, <a href="https://adguard.com/tr/adguard-windows/overview.html">AdGuard Windows uygulamasını</a> kullanmayı düşünebilirsiniz. AdGuard, yalnızca reklamları kaldırmakla kalmayıp aynı zamanda bilgisayarınızı kötü amaçlı yazılımlardan ve kimlik avı saldırılarından koruyan güçlü bir reklam engelleyicidir. Tanıdığınız ve bildiğiniz tüm reklamlara son kez sarılın artık onları bir daha göremeyeceksiniz. Çünkü bu blog gönderisinde, AdGuard&rsquo;ın özelliklerini ve göz atma deneyiminizi nasıl geliştirebileceğini keşfedeceğiz.</p>
 <h2 id="11-adguard-uygulamasının-özellikleri">1.1 AdGuard Uygulamasının Özellikleri</h2>
@@ -87,7 +571,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://adguard.com/tr/adguard-windows/overview.html (Erişim Tarihi 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://adguard.com/tr/adguard-windows/overview.html (Erişim Tarihi 07.04.2023)</b></small></center>
 </picture></p>
 <h3 id="212-yükleyiciyi-çalıştırın">2.1.2 Yükleyiciyi Çalıştırın</h3>
 <p>AdGuard yükleyicisini indirdikten sonra, PC&rsquo;nizde dosyayı bulun ve yükleyiciyi çalıştırmak için üzerine çift tıklayın. Kullanıcı Hesabı Denetimi (UAC) tarafından istenirse, yükleyiciye PC&rsquo;nizde değişiklik yapması için izin vermeniz gerekebilir.</p>
@@ -116,7 +600,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Adguard Windows uygulaması yükleyici görüntüleri</small></b></center></caption>
+  <center><small><b>Adguard Windows uygulaması yükleyici görüntüleri</b></small></center>
 </picture></p>
 <h3 id="213-kurulum-seçeneklerini-seçin">2.1.3 Kurulum Seçeneklerini Seçin</h3>
 <p>Bir sonraki adım, AdGuard için kurulum seçeneklerini seçmektir. AdGuard&rsquo;ı tüm kullanıcılar için veya yalnızca mevcut kullanıcı için yüklemeyi seçebilirsiniz. Ayrıca kurulum klasörünü seçebilir ve bir masaüstü kısayolu oluşturabilirsiniz.</p>
@@ -145,7 +629,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Adguard Windows uygulaması kurulum seçenekleri</small></b></center></caption>
+  <center><small><b>Adguard Windows uygulaması kurulum seçenekleri</b></small></center>
 </picture></p>
 <h3 id="214-adguardı-yükleyin">2.1.4 AdGuard&rsquo;ı yükleyin</h3>
 <p>Kurulum seçeneklerini seçtikten sonra, kurulum sürecini başlatmak için &ldquo;Yükle&rdquo; düğmesine tıklayın. Yükleme işlemi bilgisayarınızın hızına bağlı olarak birkaç dakika sürebilir.</p>
@@ -174,7 +658,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Adguard Windows uygulaması kurulum görüntüleri</small></b></center></caption>
+  <center><small><b>Adguard Windows uygulaması kurulum görüntüleri</b></small></center>
 </picture></p>
 <h3 id="215-adguardı-başlatın">2.1.5 AdGuard&rsquo;ı başlatın</h3>
 <p>Yükleme tamamlandıktan sonra, AdGuard&rsquo;ı masaüstü kısayolundan veya Başlat menüsünden başlatabilirsiniz. AdGuard&rsquo;ı ilk kez başlattığınızda, ayarları tercihlerinize göre yapılandırmanızı isteyecektir.</p>
@@ -203,7 +687,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Adguard Windows uygulaması genel ayarları</small></b></center></caption>
+  <center><small><b>Adguard Windows uygulaması genel ayarları</b></small></center>
 </picture></p>
 <h3 id="216-reklamsız-taramanın-keyfini-çıkarın">2.1.6 Reklamsız Taramanın Keyfini Çıkarın</h3>
 <p>AdGuard&rsquo;ın ayarlarını yapılandırdıktan sonra, reklamsız bir göz atma deneyiminin keyfini çıkarabilirsiniz. AdGuard, web sayfalarından her türlü reklamı<sup id="fnref3:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> otomatik olarak kaldırarak gezinmenizi daha hızlı ve sorunsuz hale getirir.</p>
@@ -232,7 +716,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.youtube.com/watch?v=YW9Ojcm1Gkg (Erişim Tarihi 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.youtube.com/watch?v=YW9Ojcm1Gkg (Erişim Tarihi 07.04.2023)</b></small></center>
 </picture></p>
 <h3 id="-217-kısa-özet">&gt; 2.1.7 Kısa Özet</h3>
 <blockquote>
@@ -278,7 +762,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://adguard.com/tr/adguard-windows/overview.html (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://adguard.com/tr/adguard-windows/overview.html (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 </blockquote>
 <hr>
@@ -309,7 +793,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://blog.chromium.org/2020/05/a-safer-and-more-private-browsing-DoH.html (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://blog.chromium.org/2020/05/a-safer-and-more-private-browsing-DoH.html (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 <p>Bu sorunu çözmek için HTTPS üzerinden DNS (DoH), TLS üzerinden DNS (DoT), QUIC üzerinden DNS (DoQ) ve DNSCrypt dahil olmak üzere birkaç yeni protokol geliştirilmiştir. Blog gönderisinin bu kısmında, bu protokoller arasındaki farkları ve DNS sorgularınızı korumaya nasıl yardımcı olabileceklerini tartışacağız. DNS-over-HTTPS (DoH), DNS-over-TLS (DoT), DNS-over-QUIC (DoQ) ve DNSCrypt birçok avantaj sağlarken, dikkate alınması gereken bazı potansiyel dezavantajlar da vardır. <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
 <h2 id="41-https-üzerinden-dns-doh">4.1 HTTPS üzerinden DNS (DoH)</h2>
@@ -340,7 +824,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://blog.chromium.org/2020/05/a-safer-and-more-private-browsing-DoH.html (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://blog.chromium.org/2020/05/a-safer-and-more-private-browsing-DoH.html (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 <ul>
 <li>
@@ -383,7 +867,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.myrasecurity.com/de/knowledge-hub/dns-over-tls (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.myrasecurity.com/de/knowledge-hub/dns-over-tls (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 <ul>
 <li>
@@ -443,7 +927,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://dev.to/cipherops/using-dnscrypt-with-adguard-home-pi-hole-7j6 (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://dev.to/cipherops/using-dnscrypt-with-adguard-home-pi-hole-7j6 (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 <ul>
 <li>
@@ -485,7 +969,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.researchgate.net/profile/Minzhao-Lyu/publication/357587121 (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.researchgate.net/profile/Minzhao-Lyu/publication/357587121 (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 </blockquote>
 <hr>
@@ -519,7 +1003,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.dk-hostmaster.dk/en/dnssec (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.dk-hostmaster.dk/en/dnssec (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 <h2 id="52-edns-istemci-alt-ağı-ecs">5.2 EDNS İstemci Alt Ağı (ECS)</h2>
 <p>EDNS İstemci Alt Ağı, DNS sunucularının istemcinin IP adresi hakkında bilgi almasına izin veren DNS protokolünün bir uzantısıdır. Bu bilgiler, DNS sorgularına daha doğru yanıtlar sağlamak için kullanılır ve DNS çözümleme sürecinin hızını ve güvenilirliğini artırmaya yardımcı olabilir.</p>
@@ -552,7 +1036,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://blog.cloudflare.com/encrypted-client-hello (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://blog.cloudflare.com/encrypted-client-hello (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 <h2 id="54-şifreli-istemci-merhaba-encrypted-client-hello">5.4 Şifreli İstemci Merhaba (Encrypted Client Hello)</h2>
 <p>Encrypted Client Hello, TLS anlaşma sürecinin gizliliğini ve güvenliğini artırmaya yardımcı olan başka bir teknolojidir. İstemci Merhaba mesajı, TLS bağlantısını başlatmak için istemci tarafından gönderilir ve istemcinin desteklediği TLS sürümleri ve şifre paketleri hakkında bilgi içerir.</p>
@@ -582,7 +1066,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://blog.cloudflare.com/encrypted-client-hello (Erişim Tarihi: 07.04.2023)</small></b></center></caption>
+  <center><small><b>https://blog.cloudflare.com/encrypted-client-hello (Erişim Tarihi: 07.04.2023)</b></small></center>
 </picture></p>
 <p>Çözüm
 DNSSEC, EDNS İstemci Alt Ağı, Şifreli SNI ve Şifreli İstemci Hello, internette güvenliği ve gizliliği geliştirmeye yardımcı olan önemli teknolojilerdir. Bu teknolojiler, DNS sahtekarlığı saldırılarını önlemek, daha doğru DNS yanıtları sağlamak ve TLS el sıkışma işlemi sırasında kullanıcı gizliliğini korumak için tasarlanmıştır. Bu teknolojileri uygulayarak herkes için daha güvenli ve güvenli bir internet oluşturmaya yardımcı olabiliriz.</p>
@@ -715,7 +1199,7 @@ DNSSEC, EDNS İstemci Alt Ağı, Şifreli SNI ve Şifreli İstemci Hello, intern
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://blog.shiftasia.com/what-happen-when-access-website (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://blog.shiftasia.com/what-happen-when-access-website (Erişim Tarihi: 08.04.2023)</b></small></center>
 </picture></p>
 <hr>
 <p>
@@ -743,7 +1227,7 @@ DNSSEC, EDNS İstemci Alt Ağı, Şifreli SNI ve Şifreli İstemci Hello, intern
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.netscout.com/blog/asert/ddos-attacks-ssl-something-old-something-new (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.netscout.com/blog/asert/ddos-attacks-ssl-something-old-something-new (Erişim Tarihi: 08.04.2023)</b></small></center>
 </picture></p>
 <p>Fotoğraflarda da görüleceği üzere eğer süreç sorunsuz işler ise 3 adımda iletişim kurulabiliyor. Fakat neden 3 adımda bu işi yapıyoruz daha kısa şekilde olmaz mı derseniz size (şimdilik) hayır olmaz full-duplex bir iletişim için her iki tarafın da SYN ve ACK paketlerini göndermesi gerekiyor derim. İleride belki farklı yollarını da anlatırım ama şimdilik böyle. Zaten işin TCP/UDP kısmı her zaman için kısa ve basittir.</p>
 <h3 id="tls-katmanındaki-işletilen-süreç">TLS katmanındaki işletilen süreç</h3>
@@ -774,7 +1258,7 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.researchgate.net/publication/298065605_A_multi-level_framework_to_identify_HTTPS_services (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.researchgate.net/publication/298065605_A_multi-level_framework_to_identify_HTTPS_services (Erişim Tarihi: 08.04.2023)</b></small></center>
 </picture></p>
 <hr>
 <p>
@@ -802,12 +1286,22 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small></small></b></center></caption>
+  <center><small><b></b></small></center>
 </picture></p>
 <p>Fotoğraflarda da görülebileceği üzere süreç bir web sayfasına bağlanılırken yaşanan süreçle neredeyse aynı. Sadece ihtiyaçlara göre belirli aşamalar ekleniyor, çıkarılıyor veya değiştiriliyor. Örneğin İleri Seviye Gizlilik anlamına gelen PFS gereğince taraflar ön-anahtarı sunucunun asimetrik anahtarı ile iletmiyor. Çünkü bu durumda her oturum için aynı anahtar kullanılacağı için verilerin depolanıp daha sonra anahtar açığa çıktığı bir gün beklenerek veriler geçmişe dönük okunabilir bir hale gelecektir. Bu yüzden bu değişiklik yapıldı. Yine sıfır güven tehdit modeli gereğince her bir katmanın ve sürecin bir diğerinin işini doğru yapacağına güvenmeden süreci ilerletmesini istiyorum. Bu yüzden TLS katmanındaki o ilk iletişim anında dahi paketlerin <code>tls-auth</code> özelliği gereğince şifrelenmesini ve gelen-giden verilerin bütünlüğünün doğrulanmasını istiyoruz. Daha ilk merhaba dediğiniz andan itibaren üçüncü kişiler sizin ne konuştuğunuzu hangi aşamada olduğunuzu anlayamayacaklardır. Bunun için önceden belirlenmiş bir anahtar/anahtarlar ile ilk iletişim başlatılır ve gerekirse belirli aralıklarla bu anahtarlar yenilenir. Böylece TLS katmanında ilk ön-anahtar oluşturulana kadar dahi gizlilikten ödün verilmemiş ve yetkisiz kişilerce boşuna tarafik yaratılmamış olur.</p>
 <h3 id="veri-katmanında-işleyen-süreç">Veri katmanında işleyen süreç</h3>
 <p>Eğer tüm bu süreç başarılı bir şekilde tamamlanmış ve veri kanalına geçilebildiyse eğer artık işin en güzel kısmına gelmiş bulunuyorsunuz. Veriler AES şifreleme methodu ile şifrelenecek. Şifreleme sırasında seçiminize göre CBC-GCM counter moduna göre tablolar karıştırılacak ve bu süreçte seçiminize göre 128 veya 256 bit uzunluğunda şifreleme anahtarı kullanılacak. Tabi ne hangisini seçerseniz seçin şifreleme blok uzunluğu 128 bit olucak. Değişen sadece şifreleme anahtarı uzunluğu. Benim bu anlatımım için seçmiş olduğum AES-256-GCM bir AEAD şifreleme türüdür. Diğer kanallardan ve süreçlerden bağımsız olarak gönderdiği verileri belirli bir aşamada özetini çıkartır ve özeti ile birlikte gönderir. Böylece &lsquo;Authentication Encryption with associated data&rsquo; anlamına gelen AEAD&rsquo;de doğrulama ve şifreleme işlevleri yerine getirilmiş oluyor. Burada bir ayrıma gidilmesini gerektirecek şöyle bir sorun mevcuttur. Şifreleme ve Özet alma algoritmalarını hangi aşamada ve sırayla kullanacağız.</p>
-<p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
 <picture>
   
   
@@ -832,10 +1326,9 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Encrypt-then-MAC (EtM) https://en.wikipedia.org/wiki/Authenticated_encryption (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
-</picture></p>
-<hr>
-<p>
+  <center><small><b>Encrypt-then-MAC (EtM)</b></small></center>
+</picture></td>
+<td style="text-align:center">
 <picture>
   
   
@@ -860,10 +1353,9 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Encrypt-and-MAC (E-and-M) https://en.wikipedia.org/wiki/Authenticated_encryption (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
-</picture></p>
-<hr>
-<p>
+  <center><small><b>Encrypt-and-MAC (E-and-M)</b></small></center>
+</picture></td>
+<td style="text-align:center">
 <picture>
   
   
@@ -888,8 +1380,14 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>MAC-then-Encrypt (MtE) https://en.wikipedia.org/wiki/Authenticated_encryption (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
-</picture></p>
+  <center><small><b>MAC-then-Encrypt (MtE)</b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Authenticated_encryption">https://en.wikipedia.org/wiki/Authenticated_encryption</a> (Erişim Tarihi: 08.04.2023)</p>
+</blockquote>
 <ul>
 <li>
 <p>Birinci yaklaşım olan EtM&rsquo;ye göre veri önce şifrelenir ardından başka bir anahtar ile özeti sonucu şifrelenir ve ortaya çıkan sonuç bloklar halinde birlikte gönderilir. Bunu kullanan gerçek dünya çözümlerine bakacak olursak IPSec protokolü ilk akla gelen olacaktır. Bu, AE&rsquo;de en yüksek güvenlik tanımına ulaşabilen tek yöntemdir, ancak bu ancak kullanılan MAC algoritmasının bozulma içermediği veya henüz kırılmadığı takdirde elde edilebilir. SSHv2 için de çeşitli EtM şifre takımları mevcuttur. Ancak veri ve özet için anahtar ayrımının zorunlu olduğunu unutmayın (şifreleme ve anahtarlı karma için farklı anahtarlar kullanılmalıdır), aksi takdirde kullanılan belirli şifreleme yöntemine ve karma işlevine bağlı olarak potansiyel olarak güvensiz bir sonuç elde edebilirsiniz.</p>
@@ -926,7 +1424,7 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://community.openvpn.net/openvpn/wiki/Gigabit_Networks_Linux (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://community.openvpn.net/openvpn/wiki/Gigabit_Networks_Linux (Erişim Tarihi: 08.04.2023)</b></small></center>
 </picture></p>
 <p>Kullanılacak AEAD yaklaşımı da seçildikten sonra TAP veya TUN kullanımına göre yukarıdaki grafikte görülen yol izlenir. Bu yola göre kullanıcı alanında yapılan/yapılmak istenen eylem çekirdek (kernel) seviyesinde TAP/TUN adaptörlerine gider. Bu adaptörler çekirdek seviyesinde bulunmaları nedeniyle çok hızlı bir şekilde işlem yaparlar. Ardından sanal adaptörler ilgili kütüphane ile gerekli şifrelemeyi yapar, gerekirse özeti ekler ve paket boyutu ayarı yapar. Ardından sunucu Ethernet arayüzü üzerinden istemcinin Ethernet arayüzüne paketleri sırayla gönderir. Bunu alan istemci ise paketleri yeniden ayarlar, düzenler gerekirse birleştirir ve gerekli kütüphaneler ile şifresini çözer. Şifresini çözdükten sonra bunu sanal adaptör aracılığı ile istemcini son kullanıcısına iletir. Böylece tüm bu matematiksel işlemler, uğraşlar sonucunda birkaç çevrim neticesinde kullanıcı istediği içeriğe ulaşmış oldu. Anlatması oldukça uzun ama kullanması çok kolay sevgili okuyucular. Sadece GitHub sayfama girik ilgili <a href="https://github.com/wiseweb-works/openvpn-most-secure-install/">script sayfasını</a> ziyaret etmeniz yeterlidir. İlgili script tüm bu ayarlamaları interaktif olarak sizin yerinize yapmaktadır. Size de arkanıza yaslanıp keyfini çıkarmak kalıyor.</p>
 <h1 id="sss-ve-son">SSS ve Son</h1>
@@ -959,7 +1457,7 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.globalsign.com/en/blog/elliptic-curve-cryptography (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.globalsign.com/en/blog/elliptic-curve-cryptography (Erişim Tarihi: 08.04.2023)</b></small></center>
 </picture></p>
 <h2 id="ecc-sertifikasının-üretim-süreci">ECC Sertifikasının üretim süreci</h2>
 <p>Öncelikle (her zaman olduğu gibi) içinde bulunduğumuz Linux sürümünün paket yöneticisi ile son güncellemeleri konsol üzerinden yüklememiz gerekmektedir.</p>
@@ -1119,7 +1617,7 @@ Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Erişim Tarihi: 08.04.2023)</b></small></center>
 </picture></p>
 <p>Mozilla Gözlemevi de bize A+ notu verecek!</p>
 <p>
@@ -1147,7 +1645,7 @@ Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Erişim Tarihi: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Erişim Tarihi: 08.04.2023)</b></small></center>
 </picture></p>
 <p>Ayrıca SSL Labs&rsquo;ın rapor sonucunda 384 Bitlik bir ECC sertifikası&rsquo;nın kullanıldığını görebiliyoruz.</p>
 <p>
@@ -1175,7 +1673,7 @@ Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>SSL Labs Test Sonucu</small></b></center></caption>
+  <center><small><b>SSL Labs Test Sonucu</b></small></center>
 </picture></p>
 <p>NOT: Bu yazıda <a href="https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc">Benjamin Black</a>&lsquo;in aynı konulu yazısından faydalanılmıştır.</p>
 ]]></content:encoded></item><item><title>Linux Sunucularda SSL güvenliğini arttırma</title><link>https://wiseweb-works.github.io/blog/post/ssl-konfigurasyonu/</link><pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ssl-konfigurasyonu/</guid><description>Linux Sunucularda SSL güvenliğini artırma Bugün sizlere mevcut sunucunuzda eğer bir websitesi ve/veya App serve ediyorsanız mutlaka ihtiyacınız olan SSL bağlantısından ve bununla bağlantılı olarak openssl kütüphanesinden bahsedeceğim. SSL (Secure Socket Layer) ve TLS (Transport Layer Security) sunucunuza bağlanmak isteyen kişileri siteniz ile güvenli şekilde iletişim kurmasına imkan sağlayan bir bağlantı şeklidir. Eskiden SSL v1-v3 arasında değişen sürümler mevcut ve siteler genelde bu SSL sürümlerini kullanırken artık SSL siteler tarafından terk edilmiş ve yerini daha güvenli olan TLS&amp;rsquo;ye bırakmıştır.</description><content:encoded><![CDATA[<h1 id="linux-sunucularda-ssl-güvenliğini-artırma">Linux Sunucularda SSL güvenliğini artırma</h1>
@@ -1289,7 +1787,7 @@ Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>SSL Labs test sonucu</small></b></center></caption>
+  <center><small><b>SSL Labs test sonucu</b></small></center>
 </picture></p>
 <p>SON DURUM
 
@@ -1317,7 +1815,7 @@ Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>SSL Labs test sonucu</small></b></center></caption>
+  <center><small><b>SSL Labs test sonucu</b></small></center>
 </picture></p>
 <p>Neden Cipher Strength %100 değil derseniz TLS 1.3 ile otomatik gelen ve biz istemesek de eklenen &ldquo;TLS_AES_128_GCM_SHA256 (0x1301)&rdquo; yüzünden şu an %100 yapmak mümkün değil. TLS 1.3&rsquo;ü kapatırım o zaman gelmez diye düşünürseniz o zaman da başka yerden puanınız gidiyor maalesef.</p>
 <h1 id="son">Son</h1>
@@ -1422,7 +1920,7 @@ Bulup değiştireceğimiz başlıklar</p>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Alesia Savaşı Günümüzde Olsaydı</small></b></center></caption>
+  <center><small><b>Alesia Savaşı Günümüzde Olsaydı</b></small></center>
 </picture></p>
 <p>Videonun daha ilk saniyede gözüken sarımsı bayrak Galyalıların kullandığı renk olup tahminimce eski bayraklarından birisidir. Normalde bayrakları yine o renk olmak üzere bir kartal-kuş türünü barındıran bir bayraktır ama renk direkt bu. Truva atı olayı M.Ö 13. yy da geçen ve yine Paris civarlarında yapılan bir taktiktir. Yine o civarda yaşamış Akhalılar tarafından yapılan iş bu taktik bu yüzden “daha önce denendi olmaz” deyip geçiyor. Sonrasında ise Brütüs’e dönüp “sen dur” veya “sen de var ya” der gibi bakması ve mimikleri Sezar ile Brütüs arasındaki bıçaklama olayına bir gönderme. Maximus ismi direkt maximum karta bir atıf olmasının haricinde filmde bu neyin kafası diyen (o dönemki lider) Sezardan sonraki adama gönderme. Tam adı Marcus Maximus Aurelius Antoninus Augustus olan ve sezardan sonra hüküm süren bir lider. Sonunda geçen “Biz buraya Sezarı övmeye değil gömmeye geldik.” sözü de orada beyaz kafası gözüken Marcus Antonius’a bir göndermedir. Kendisi Sezar’a suiskastten yargılanmış birisidir. Bence bu haliyle (benim yakalayabildiğim) reklam efsane kurgulanmış. Son olarak ilk kredi kartının çıkış tarihi ile Savaş tarihi olan M.Ö 52 arasında yaklaşık 2.000 Yıl olması da bir tesadüf değildir diye düşünüyorum.</p>
 <p>Rubicon nehrini geçmek özdeyişi adını İtalya’da bulunan rubicon nehrinden alır. Roma Cumhuriyeti döneminde komutanlar askeri güçleri ve kimlikleri ile başkente giremeyeceği ve demokrasiye aykırı bir eylem olarak görüldüğü için Roma şehir sınırlarından biri olan Rubicon nehrini geçmek askerlere yasaklanmıştı. Roma’yı ele geçirmek isteyen komutanlar ilk eylem olarak bulundukları karargahtan çıkarak Rubicon nehrini geçer ve bu artık geri dönüşü olmayan bu yola girerlerdi. Bu öyle bir yoldu ki artık kararlarından vazgeçseler bile cezalandırılacaklardır. O yüzden Rubicon’u geçmeyi çok iyi hesaplamak, çok iyi düşünmek gerek. Maximum Kart Cem Yılmaz ile böyle bir reklam yaparak bence kitleleri etkileyecek bir şey yapmak istemiş olsa da kimsenin farketmeyeceği ama bence çok güzel bir reklama imza attılar.</p>
@@ -1464,7 +1962,7 @@ Bulup değiştireceğimiz başlıklar</p>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://zappysys.com/blog/ssis-pgp-encryption-decryption (Erişim Zamanı: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://zappysys.com/blog/ssis-pgp-encryption-decryption (Erişim Zamanı: 08.04.2023)</b></small></center>
 </picture></p>
 <p>PGP’nin şifreleme ve şifre çözme özelliklerinin nasıl çalıştığını ve internet alemi için neden bu kadar büyük bir atılım anlamına geldiğini insanlara anlatmaya başladılar. PGP asimetrik şifreleme denilen ve günümüzde internet tarayıcılarından elektronik imza ile girişi destekleyen tüm internet sitelerinde ve özellikle bankalarda kullanılan bir şifreleme/şifre çözme şeklidir. Asimetrik şifrelemeden kısaca bahsedersek eğer (sadece asimetrik şifrelemeyi tüm detaylarıyla anlatan bir yazı da gelecek) şifrelemeyi yapan anahtar ile şifrelenmiş veriyi açacak olan anahtarın farklı olduğu ve birbirlerinden üretildiği bir şifreleme türüdür. Bu şifreleme türünde sizin public (genel) anahtarınız ve private (gizli) anahtarınız mevcuttur. Bu anahtarlardan birisi ile yapılan şifrelemeyi aynı anahtar açamayıp sadece diğer anahtar ile açılması/çözülmesi mümkündür. Daha kolay anlaşılması için bir örnek üzerinden gidelim. Eskiden çelik kapılarda ve kepenklerde bolca kullanılan asma kilitleri gözümüzün önüne getirelim. Şimdi bu kilitler üretildiği zaman bu kilidi açabilecek anahtar da yanında üretilip son kullanıcıya yanında veriliyor. Bana şifreli bir şekilde bir yazı veya bir dosya göndermek istediğinizi düşünelim. Görece olarak güvenli bulduğunuz bir kutuya bana göndermek istediğiniz dosyaları koyup daha sonra da benden almış olduğunuz şahsi asma kilidimi üzerine takıyorsunuz. Bu aşamada benim size vermiş olduğum tek şey bir asma kilit ve anahtarlar hala bende. Kutu kapatıldıktan ve asma kilit üzerine takıldıktan sonra asma kilidin demirlerini ittirerek içine geçirip kutuyu tamamen kilitli bir hale getiriyorsunuz. Bu aşamadan sonra size vermiş olduğum asma kilidi kullanarak kutuyu açma imkanınız yok hatta içine koyduğunuz şeyleri de artık kapattıktan sonra tekrar değiştirmeniz mümkün değil. Benim aynı asma kilitten yüzlercesine sahip olduğumu ve hepsinin aynı ve sadece bende olan bir anahtar ile açıldığını düşündüğünüzde etrafımdaki insanlara anahtarsız bir asma kilit vermenin çok da sorun olmayacağından emin olabilirsiniz. Asimetrik anahtar ile şifreleme yapılırken de gizli (private) anahtarınız ile yüzlerce genel (public) anahtar üretebilirsiniz fakat private keyiniz her zaman için tekdir. Artık benim kilidim ile kilitlenmiş kutuyu bana göndermeniz ve benim de onu kendime ait gizli anahtar ile açmam sonucunda güvenli bir şekilde bir iletişim sağlamış olduk.</p>
 <p>PGP’nin bize sağlamış olduğu bir anahtar ile şifreleyip sadece diğer anahtar ile o verinin açılabilmesi özelliği dönemi için çok üst düzey bir şifreleme ve güvenlik işleviydi. Şifreleme için kullanılan anahtarların uzunluğu 2048 Bit, 3072 Bit ve 4096 Bit boyutundaydı. 1 Bitin 8 Bayt olduğunu düşünürseniz bu sayıların hem bir insan için hem de o dönemin bilgisayarları için oldukça büyük sayılar olduğunu anlamışsınızdır. O dönem daha hızlı olması (düşündüğünüz kadar hızlı değil) için en düşük anahtar boyutu olan 2048 Bit kullanılmış olup genel olarak gönderilen maillerin içeriğinin (sadece içerik kısmı) ve ekte gönderilen dosyaların şifrelenmesi şeklinde kullanılmıştır. 2048 Bit yerine en yüksek anahtar boyutu olan 4096 Bit kullanıldığı zaman her ne kadar anahtar boyutu 2 kat artmış olsa da hız yerine göre 4 ile 10 kat arasında azalmaktaydı. Ortalama 200–400 karakterden oluşan bir salt yazının şifrelenmesi sırasında en düşük anahtar boyutu ile şifrelenmesi bilgisayarınızın gücüne bağlı olarak 1 ila 10 sn arasında değişebiliyordu. Bu nedenle daha uzun anahtar boyutuna sahip 4069 Bit’in şifreleme süreci çok uzun sürmekteydi. Şimdi bakıldığında 1–2 dk gibi süreler çok kısa gibi gelse de sadece bir metni göndermek için bu kadar beklemenizin gerekiyor olması o dönem için gerçekten can sıkıcıydı. Üstelik sizin şifreleme sürecinde beklediğiniz kadar da şifrelemeyi çözecek anahtara sahip kişiyi de çözüm sırasında bekletiyordunuz.</p>
@@ -1492,7 +1990,16 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
 </blockquote>
 <p>Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölümlerinde yapılmış akademik çalışmaların ötesine geçememiş olan şifreleme (cryptography) alanı artık bireylerin iyiliği için kullanılacaktı. Bu ilke imza atacak ilk kişilerin arkadaş olmasının dışında onları birleştiren asıl şey Star Wars’ın orijinal üçlemesini çocuklukları döneminde birlikte izlemiş ve etkinlenmiş olmalarıdır. 1977 Yılında orijinal üçlemenin ilk, tarihsel sıralamaya göre ise dördüncü film olan <a href="https://en.wikipedia.org/wiki/Star_Wars_(film)">Star Wars A New Hope</a> vizyona girmiş ve tüm çevreler tarafından beğeniyle izlenmişti. İlk filmin vizyona girişinden sonraki 3. ve 6. senelerde serinin beşinci ve altıncı filmleri olan <a href="https://en.wikipedia.org/wiki/The_Empire_Strikes_Back">The Empire Strikes Back</a> ve <a href="https://en.wikipedia.org/wiki/Return_of_the_Jedi">Return of the Jedi</a> de peş peşe vizyona girmiş ve seyircisinin filmden beklentisini ve serinin devamına olan isteğini artırmıştır. Serinin o dönemki yönetmeni George Lucas izleyenleri daha iyi bir üçlemeye hazırlamak adına orijinal üçlemenin üçüncü filminin vizyona girdiği tarih olan 1983 yılından 1999 yılına kadar seriye yeni film çıkarmamış ve teknolojik imkanların gelişmesini beklemiştir. Yani tarihsel üçleme efsanesinin ve de modern kriptografinin bence başladığı yıl olan 1999 yılına gelinene kadar. 90&rsquo;lı yıllar kendilerini Cypherpunks olarak adlandıran ve açık kaynak kodunu yücelten, gizlilik ve bireyin anonimlik hakkı üzerinde bir manifesto yayımlayan, bilgisayar ve teknoloji ile birlikte büyümüş bir neslin dönemiydi. İnternetin ülkemize gelişi ve tüm dünyadaki internet ağının gelişmesi ile birlikte 2000&rsquo;li yıllara girmeye yaklaştığımız dönemlerde kişi başına düşen bilgisayar sayısı oranı artmış ve her eve olmasa da birçok haneye geniş bant internet hizmeti ulaşmış bulunmaktaydı. İşte ülkemizde internet yeni yeni kabul görmeye ve kullanılmaya başlandığı dönemlerde yurt dışında bir arkadaş topluluğu World Wide Web (WWW)’in eksik taraflarından biri olan şifreleme ve gizlilik üzerine odaklanmaya başlamıştı bile.</p>
 <p>Basit anlatımıyla internet üzerinde bir websitesi barındırmamıza ve dünya üzerindeki herhangi bir bilgisayarın bu web sayfasına erişebilmesine imkan tanıyan bu servis temelde güzel olmasına rağmen çok büyük bir dezavantajı vardı. Bu dezavantaj bağlanmış olduğunuz internet sitesi ile aranızdaki bağlantının herhangi bir şekilde şifrelenmemesi, güvenli olmaması ve dahili/harici üçüncü kişiler tarafından bu iletişimin izlenebilir, değiştirilebilir ve dahi engellenebilir olmasıdır. Eskiden bir internet sitesine girdiğiniz zaman adres çubuğunda bir kilit simgesi ve aşağıda gördüğünüz gibi “Connection is secure” veya “Connection is not private” gibi bir bağlantının güvenli /güvensiz olduğunu düşündürecek bir bildirim yoktu. Çünkü o yıllarda bir internet sitesine üye olurken veya mail gönderirken iletişimin izlenebileceği veya bunu kötü amaçlar için kullanılabileceği henüz düşünülmemişti.</p>
-<p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
 <picture>
   
   
@@ -1517,10 +2024,9 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Bağlantı Güvenli Bildirimi Chrome</small></b></center></caption>
-</picture></p>
-<hr>
-<p>
+  <center><small><b>Bağlantı Güvenli Bildirimi Chrome</b></small></center>
+</picture></td>
+<td style="text-align:center">
 <picture>
   
   
@@ -1545,8 +2051,11 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Bağlantı Güvenli Değil Bildirimi Chrome</small></b></center></caption>
-</picture></p>
+  <center><small><b>Bağlantı Güvenli Değil Bildirimi Chrome</b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
 <p>Konunun girişine eklenmiş olan videoda 1977 yapımı Star Wars New Hope filminde (bunca yıldan sonra spoiler denemez artık) Galaktik İmparatorluk tarafından bütün galaksiyi yok edebilecek güçte ve devasa ölçekte bir ölüm yıldızı yapıldığının haberi alınır. Bu haberin alınması üzerine kendilerine Rebellion (isyancı) diyen bir grup bu ölçekte ve güçte bir geminin normal gemi savaşları ile yok edilemeyeceğini anlamış ve bu planları çalıp geminin zayıf noktalarını incelemeye karar vermişlerdir. Orijinal üçlemenin ilk filmi olmasına rağmen tarihsel olarak 4&rsquo;ncü film olması nedeniyle filmin başlangıcında bu planların çalındığını fakat henüz inceleme imkanı bulunamadan planları çalan uzay gemisinin imparatorluk kuvvetleri ve meşhur Dart Vader tarafından kovalandığını görüyoruz. Kovalamacanın sonuna doğru ellerindeki planları güvenli bir şekilde isyan kuvvetlerinin ana karargahına göndermeleri gerektiğini fakat imparatorluk kuvvetleri tarafından takip edilirken bunun çok zor olacağını anlayan Prenses Leia kendisince en güvenli gördüğü yöntemi kullanarak R2-D2 sınıfı bir robotun belleğine planları yükler ve filmimiz burada başlar. Videonun başlangıcında Dart Vader ve imparatorluk kuvvetleri tarafından geminin tamamı aranmasına rağmen Ölüm Yıldızının çalınmış planları bir türlü bulunamaz. Her ne kadar asilerden biri olduğu bilinse de (henüz Dart Vader tarafından ispatlanamamış) Prenses Leia diplomatik bir resmi görevde olduğunu söylemiş ve kendilerine böyle bir verinin gelmediğini iddia etmiştir. Yapılan incelemede gemiden böyle bir verinin aktarıldığını gösteren bir bilgiye de rastlanamamış olması sevgili Vader’ımızı çokça kızdırmıştır.</p>
 <p>Günümüzden 21 sene önce vizyona girmiş olan <a href="https://en.wikipedia.org/wiki/Star_Wars:_Episode_I_%E2%80%93_The_Phantom_Menace">The Phantom Menace</a> filmi her ne kadar modern şifrelemeyi doğrudan etkilememiş olsa da bu bir grup kişiye yıllar önce izlemiş ve beğenmiş oldukları orijinal üçlemenin ilk filmini ve bence ilk sahnesini hatırlamalarına neden oldu. O dönem gelişmekte olan gizlilik, anonimlik ve güvenlik düşünceleri neticesinde filmi izledikten sonra eski günleri yad etmek ve düşüncelerini paylaşmak için bir kafede bir araya geldiler. Genel arkadaş muhabbetinden ve havadan sudan konuşulduktan sonra aralarından biri konuşmanın ve bence tarihin de seyrini değiştiren şu soruyu sordu:</p>
 <blockquote>

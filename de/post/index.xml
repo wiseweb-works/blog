@@ -107,7 +107,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://blog.shiftasia.com/what-happen-when-access-website (Datum: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://blog.shiftasia.com/what-happen-when-access-website (Datum: 08.04.2023)</b></small></center>
 </picture></p>
 <hr>
 <p>
@@ -135,7 +135,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.netscout.com/blog/asert/ddos-attacks-ssl-something-old-something-new (Datum: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.netscout.com/blog/asert/ddos-attacks-ssl-something-old-something-new (Datum: 08.04.2023)</b></small></center>
 </picture></p>
 <p>Wie auf den Fotos zu sehen, kann bei reibungslosem Ablauf die Kommunikation in 3 Schritten erfolgen. Aber wenn Sie fragen, warum wir das in 3 Schritten machen, geht das nicht auch kürzer? Ich würde (vorerst) nein sagen, nein, für eine Vollduplex-Kommunikation müssen beide Parteien SYN- und ACK-Pakete senden. Vielleicht erzähle ich Ihnen in Zukunft andere Wege, aber im Moment ist es so. Wie auch immer, der TCP/UDP-Teil ist immer kurz und einfach.</p>
 <h3 id="prozess-der-in-der-tls-schicht-ausgeführt-wird">Prozess, der in der TLS-Schicht ausgeführt wird</h3>
@@ -165,7 +165,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.researchgate.net/publication/298065605_A_multi-level_framework_to_identify_HTTPS_services (Datum: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.researchgate.net/publication/298065605_A_multi-level_framework_to_identify_HTTPS_services (Datum: 08.04.2023)</b></small></center>
 </picture></p>
 <hr>
 <p>
@@ -193,12 +193,22 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small></small></b></center></caption>
+  <center><small><b></b></small></center>
 </picture></p>
 <p>Wie auf den Fotos zu sehen ist, ist der Vorgang fast derselbe wie beim Herstellen einer Verbindung zu einer Webseite. Je nach Bedarf werden nur bestimmte Stufen hinzugefügt, entfernt oder geändert. Beispielsweise übermitteln die Parteien gemäß PFS, was für Advanced Privacy steht, den Front-Key nicht mit dem asymmetrischen Schlüssel des Servers. Da in diesem Fall für jede Sitzung derselbe Schlüssel verwendet wird, werden die Daten gespeichert und sind dann rückwirkend lesbar, indem auf einen Tag gewartet wird, an dem der Schlüssel enthüllt wird. Deshalb wurde diese Änderung vorgenommen. Auch hier möchte ich gemäß dem Zero-Trust-Bedrohungsmodell, dass jede Schicht und jeder Prozess den Prozess vorantreibt, ohne darauf zu vertrauen, dass die andere ihre Arbeit korrekt erledigt. Aus diesem Grund wollen wir, dass die Pakete gemäß der Funktion <code>tls-auth</code> verschlüsselt werden und die Integrität der ein- und ausgehenden Daten bereits im ersten Kommunikationsmoment in der TLS-Schicht überprüft wird. Vom ersten Moment an, in dem Sie Hallo sagen, können Dritte nicht verstehen, wovon Sie sprechen und in welcher Phase Sie sich befinden. Dazu wird die erste Kommunikation mit einem oder mehreren vorgegebenen Schlüsseln gestartet und bei Bedarf werden diese Schlüssel in regelmäßigen Abständen erneuert. So wird auch bis zur Erstellung des ersten Pre-Keys in der TLS-Schicht die Vertraulichkeit nicht kompromittiert und Unbefugte nicht umsonst erstellt.</p>
 <h3 id="prozess-der-in-der-datenschicht-ausgeführt-wird">Prozess, der in der Datenschicht ausgeführt wird</h3>
 <p>Wenn dieser gesamte Vorgang erfolgreich abgeschlossen und der Datenkanal bestanden wurde, sind Sie nun beim besten Teil der Arbeit angelangt. Die Daten werden mit der AES-Verschlüsselungsmethode verschlüsselt. Während der Verschlüsselung werden die Tabellen gemäß dem CBC-GCM-Zählermodus gemäß Ihrer Auswahl gemischt, und bei diesem Vorgang wird gemäß Ihrer Auswahl ein 128- oder 256-Bit-Verschlüsselungsschlüssel verwendet. Unabhängig von Ihrer Wahl beträgt die Verschlüsselungsblocklänge natürlich 128 Bit. Nur die Länge des Verschlüsselungsschlüssels ändert sich. AES-256-GCM, das ich für diese Erklärung ausgewählt habe, ist ein AEAD-Verschlüsselungstyp. Es fasst die von ihm gesendeten Daten unabhängig von anderen Kanälen und Prozessen zu einem bestimmten Zeitpunkt zusammen und versendet sie zusammen mit der Zusammenfassung. Somit werden Authentifizierungs- und Verschlüsselungsfunktionen in AEAD erfüllt, was für <code>Authentication Encryption with Associated Data</code> steht. Es gibt ein Problem, das hier eine Unterscheidung erfordert. In welcher Phase und in welcher Reihenfolge werden wir die Verschlüsselungs- und Hash-Algorithmen verwenden?</p>
-<p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
 <picture>
   
   
@@ -223,10 +233,9 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Encrypt-then-MAC (EtM) https://en.wikipedia.org/wiki/Authenticated_encryption (Datum: 08.04.2023)</small></b></center></caption>
-</picture></p>
-<hr>
-<p>
+  <center><small><b>Encrypt-then-MAC (EtM)</b></small></center>
+</picture></td>
+<td style="text-align:center">
 <picture>
   
   
@@ -251,10 +260,9 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>Encrypt-and-MAC (E-and-M) https://en.wikipedia.org/wiki/Authenticated_encryption (Datum: 08.04.2023)</small></b></center></caption>
-</picture></p>
-<hr>
-<p>
+  <center><small><b>Encrypt-and-MAC (E-and-M)</b></small></center>
+</picture></td>
+<td style="text-align:center">
 <picture>
   
   
@@ -279,8 +287,14 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>MAC-then-Encrypt (MtE) https://en.wikipedia.org/wiki/Authenticated_encryption (Datum: 08.04.2023)</small></b></center></caption>
-</picture></p>
+  <center><small><b>MAC-then-Encrypt (MtE)</b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Authenticated_encryption">https://en.wikipedia.org/wiki/Authenticated_encryption</a> (Datum: 08.04.2023)</p>
+</blockquote>
 <ul>
 <li>
 <p>Laut EtM, dem ersten Ansatz, werden die Daten zuerst verschlüsselt, dann als Ergebnis des Digests mit einem anderen Schlüssel verschlüsselt und das resultierende Ergebnis in Blöcken zusammen gesendet. Wenn wir uns reale Lösungen ansehen, die es verwenden, fällt uns zuerst das IPSec-Protokoll ein. Dies ist die einzige Methode, die die höchste Sicherheitsdefinition in AE erreichen kann, dies kann jedoch nur erreicht werden, wenn der verwendete MAC-Algorithmus frei von Korruption ist oder noch nicht geknackt wurde. Für SSHv2 sind auch verschiedene EtM-Cipher-Suites verfügbar. Beachten Sie jedoch, dass für Daten und Digest eine Schlüsseltrennung zwingend erforderlich ist (für Verschlüsselung und Schlüssel-Hashing müssen unterschiedliche Schlüssel verwendet werden), da Sie sonst je nach verwendeter Verschlüsselungsmethode und Hash-Funktion möglicherweise ein unsicheres Ergebnis erhalten.</p>
@@ -317,7 +331,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://community.openvpn.net/openvpn/wiki/Gigabit_Networks_Linux (Datum: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://community.openvpn.net/openvpn/wiki/Gigabit_Networks_Linux (Datum: 08.04.2023)</b></small></center>
 </picture></p>
 <p>Nach der Auswahl des zu verwendenden AEAD-Ansatzes wird je nach Verwendung von TAP oder TUN der in der obigen Grafik dargestellte Weg beschritten. Gemäß diesem Pfad geht die im Benutzerbereich ausgeführte/gewünschte Aktion zu den TAP/TUN-Adaptern auf Kernel-Ebene. Da sich diese Adapter auf der Kernel-Ebene befinden, arbeiten sie sehr schnell. Dann führen die virtuellen Adapter die notwendige Verschlüsselung mit der entsprechenden Bibliothek durch, fügen ggf. den Digest hinzu und stellen die Paketgröße ein. Dann sendet der Server Pakete sequentiell über die Ethernet-Schnittstelle an die Ethernet-Schnittstelle des Clients. Der Client, der es erhält, konfiguriert die Pakete neu, organisiert sie, kombiniert sie bei Bedarf und entschlüsselt sie mit den erforderlichen Bibliotheken. Nach der Entschlüsselung überträgt es den Client über den virtuellen Adapter an den Endbenutzer. Als Ergebnis all dieser mathematischen Operationen und Bemühungen erreichte der Benutzer also nach einigen Zyklen den gewünschten Inhalt. Es ist ziemlich lang zu erklären, aber sehr einfach zu bedienen, liebe Leser. Sie müssen nur die entsprechende <a href="https://github.com/wiseweb-works/openvpn-most-secure-install/">Skriptseite</a> auf meiner GitHub-Seite besuchen. Das zugehörige Skript nimmt all diese Anpassungen interaktiv für Sie vor. Alles, was Sie tun müssen, ist sich zurückzulehnen und zu genießen.</p>
 <h1 id="faq-und-ende">FAQ und Ende</h1>
@@ -350,7 +364,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.globalsign.com/en/blog/elliptic-curve-cryptography (Datum: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.globalsign.com/en/blog/elliptic-curve-cryptography (Datum: 08.04.2023)</b></small></center>
 </picture></p>
 <h2 id="produktionsprozess-des-ecc-zertifikats">Produktionsprozess des ECC-Zertifikats</h2>
 <p>Zuerst müssen wir (wie immer) die neuesten Updates über die Konsole mit dem Paketmanager der Linux-Version installieren, in der wir uns befinden.</p>
@@ -510,7 +524,7 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Datum: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Datum: 08.04.2023)</b></small></center>
 </picture></p>
 <p>Mozilla Observatory wird uns auch eine A+ Bewertung geben!</p>
 <p>
@@ -538,7 +552,7 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Datum: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Datum: 08.04.2023)</b></small></center>
 </picture></p>
 <p>Darüber hinaus können wir als Ergebnis des SSL Labs-Berichts sehen, dass ein 384-Bit-ECC-Zertifikat verwendet wurde.</p>
 <p>
@@ -566,7 +580,7 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>SSL Labs Test</small></b></center></caption>
+  <center><small><b>SSL Labs Test</b></small></center>
 </picture></p>
 <p>HINWEIS: Dieser Artikel profitiert vom Artikel von <a href="https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc">Benjamin Black</a> zum gleichen Thema.</p>
 ]]></content:encoded></item><item><title>Erhöhung der SSL-Sicherheit auf Linux-Servern</title><link>https://wiseweb-works.github.io/blog/de/post/ssl-konfigurasyonu/</link><pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/de/post/ssl-konfigurasyonu/</guid><description>Erhöhung der SSL-Sicherheit auf Linux-Servern Wenn Sie heute eine Website und/oder App auf Ihrem aktuellen Server betreiben, werde ich über die benötigte SSL-Verbindung und die damit verbundene openssl-Bibliothek sprechen. SSL (Secure Socket Layer) und TLS (Transport Layer Security) sind eine Form der Verbindung, die es Personen, die sich mit Ihrem Server verbinden möchten, ermöglicht, sicher mit Ihrer Website zu kommunizieren. In der Vergangenheit gab es Versionen von SSL v1 bis v3, und während Websites im Allgemeinen diese SSL-Versionen verwenden, wurde SSL jetzt von den Websites aufgegeben und durch das sicherere TLS ersetzt.</description><content:encoded><![CDATA[<h1 id="erhöhung-der-ssl-sicherheit-auf-linux-servern">Erhöhung der SSL-Sicherheit auf Linux-Servern</h1>
@@ -680,7 +694,7 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>SSL Labs test</small></b></center></caption>
+  <center><small><b>SSL Labs test</b></small></center>
 </picture></p>
 <p>NACH
 
@@ -708,7 +722,7 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>SSL Labs test</small></b></center></caption>
+  <center><small><b>SSL Labs test</b></small></center>
 </picture></p>
 <p>Wenn Sie fragen, warum die Cipher-Stärke nicht 100 % beträgt, ist es derzeit nicht möglich, 100 % zu erreichen, da „TLS_AES_128_GCM_SHA256 (0x1301)“ automatisch mit TLS 1.3 geliefert wird und hinzugefügt wird, auch wenn wir es nicht möchten. Wenn Sie denken, dass ich TLS 1.3 abschalte, dann wird es nicht kommen, dann sind Ihre Punkte leider woanders weg.</p>
 <h1 id="ende">Ende</h1>

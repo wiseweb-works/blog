@@ -109,7 +109,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>SSL Labs test</small></b></center></caption>
+  <center><small><b>SSL Labs test</b></small></center>
 </picture></p>
 <p>NACH
 
@@ -137,7 +137,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>SSL Labs test</small></b></center></caption>
+  <center><small><b>SSL Labs test</b></small></center>
 </picture></p>
 <p>Wenn Sie fragen, warum die Cipher-Stärke nicht 100 % beträgt, ist es derzeit nicht möglich, 100 % zu erreichen, da „TLS_AES_128_GCM_SHA256 (0x1301)“ automatisch mit TLS 1.3 geliefert wird und hinzugefügt wird, auch wenn wir es nicht möchten. Wenn Sie denken, dass ich TLS 1.3 abschalte, dann wird es nicht kommen, dann sind Ihre Punkte leider woanders weg.</p>
 <h1 id="ende">Ende</h1>

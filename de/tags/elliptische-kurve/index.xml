@@ -26,7 +26,7 @@
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://www.globalsign.com/en/blog/elliptic-curve-cryptography (Datum: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://www.globalsign.com/en/blog/elliptic-curve-cryptography (Datum: 08.04.2023)</b></small></center>
 </picture></p>
 <h2 id="produktionsprozess-des-ecc-zertifikats">Produktionsprozess des ECC-Zertifikats</h2>
 <p>Zuerst müssen wir (wie immer) die neuesten Updates über die Konsole mit dem Paketmanager der Linux-Version installieren, in der wir uns befinden.</p>
@@ -186,7 +186,7 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Datum: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Datum: 08.04.2023)</b></small></center>
 </picture></p>
 <p>Mozilla Observatory wird uns auch eine A+ Bewertung geben!</p>
 <p>
@@ -214,7 +214,7 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Datum: 08.04.2023)</small></b></center></caption>
+  <center><small><b>https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc (Datum: 08.04.2023)</b></small></center>
 </picture></p>
 <p>Darüber hinaus können wir als Ergebnis des SSL Labs-Berichts sehen, dass ein 384-Bit-ECC-Zertifikat verwendet wurde.</p>
 <p>
@@ -242,7 +242,7 @@ An dieser Stelle kann die CSR <code>csr.pem</code> gelöscht werden.</li>
     width= min(100%, 720px)
     height= auto
   />
-  <caption><center><b><small>SSL Labs Test</small></b></center></caption>
+  <center><small><b>SSL Labs Test</b></small></center>
 </picture></p>
 <p>HINWEIS: Dieser Artikel profitiert vom Artikel von <a href="https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc">Benjamin Black</a> zum gleichen Thema.</p>
 ]]></content:encoded></item></channel></rss>
