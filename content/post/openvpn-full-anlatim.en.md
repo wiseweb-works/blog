@@ -119,13 +119,11 @@ As can be seen in the photos, the process is almost the same as when connecting 
 
 If this whole process has been completed successfully and the data channel has been passed, you have now come to the best part of the job. Data will be encrypted with AES encryption method. During encryption, the tables will be shuffled according to the CBC-GCM counter mode according to your selection, and a 128 or 256-bit encryption key will be used in this process according to your selection. Of course, whatever you choose, the encryption block length will be 128 bits. Only the encryption key length changes. AES-256-GCM that I have chosen for this explanation is an AEAD encryption type. It summarizes the data it sends independently from other channels and processes at a certain stage and sends it together with the summary. Thus, authentication and encryption functions are fulfilled in AEAD, which stands for 'Authentication Encryption with associated data'. There is a problem that requires a distinction to be made here. At what stage and in which order will we use the encryption and hashing algorithms?
 
-![Encrypt-then-MAC (EtM) https://en.wikipedia.org/wiki/Authenticated_encryption (Date: 08.04.2023)](/images/openvpn-full/EtM.png)
+||||
+|:---:|:---:|:---:|
+| ![Encrypt-then-MAC (EtM)](/images/openvpn-full/EtM.png) | ![Encrypt-and-MAC (E-and-M)](/images/openvpn-full/EaM.png) | ![MAC-then-Encrypt (MtE)](/images/openvpn-full/MtE.png) |
 
----
-![Encrypt-and-MAC (E-and-M) https://en.wikipedia.org/wiki/Authenticated_encryption (Date: 08.04.2023)](/images/openvpn-full/EaM.png)
-
----
-![MAC-then-Encrypt (MtE) https://en.wikipedia.org/wiki/Authenticated_encryption (Date: 08.04.2023)](/images/openvpn-full/MtE.png)
+> https://en.wikipedia.org/wiki/Authenticated_encryption (Date: 08.04.2023)
 
 - According to EtM, which is the first approach, the data is first encrypted, then encrypted with another key as a result of the digest, and the resulting result is sent together in blocks. If we look at real-world solutions that use it, the IPSec protocol will come to mind first. This is the only method that can achieve the highest security definition in AE, but this can only be achieved if the MAC algorithm used is free of corruption or has not yet been cracked. Various EtM cipher suites are also available for SSHv2. Note, however, that key separation is mandatory for data and digest (different keys must be used for encryption and key hashing), otherwise you may end up with a potentially insecure result depending on the particular encryption method and hash function used.
 

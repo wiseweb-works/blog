@@ -1,8 +1,8 @@
 .post-content p {
-    text-align: justify !important;
+    text-align: justify;
 }
 
 .post-content img {
-  margin-left: auto !important;
-  margin-right: auto !important;
+  display: block;
+  margin: 12px auto 0px;
 }

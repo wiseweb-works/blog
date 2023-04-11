@@ -118,13 +118,11 @@ Wie auf den Fotos zu sehen ist, ist der Vorgang fast derselbe wie beim Herstelle
 
 Wenn dieser gesamte Vorgang erfolgreich abgeschlossen und der Datenkanal bestanden wurde, sind Sie nun beim besten Teil der Arbeit angelangt. Die Daten werden mit der AES-Verschlüsselungsmethode verschlüsselt. Während der Verschlüsselung werden die Tabellen gemäß dem CBC-GCM-Zählermodus gemäß Ihrer Auswahl gemischt, und bei diesem Vorgang wird gemäß Ihrer Auswahl ein 128- oder 256-Bit-Verschlüsselungsschlüssel verwendet. Unabhängig von Ihrer Wahl beträgt die Verschlüsselungsblocklänge natürlich 128 Bit. Nur die Länge des Verschlüsselungsschlüssels ändert sich. AES-256-GCM, das ich für diese Erklärung ausgewählt habe, ist ein AEAD-Verschlüsselungstyp. Es fasst die von ihm gesendeten Daten unabhängig von anderen Kanälen und Prozessen zu einem bestimmten Zeitpunkt zusammen und versendet sie zusammen mit der Zusammenfassung. Somit werden Authentifizierungs- und Verschlüsselungsfunktionen in AEAD erfüllt, was für `Authentication Encryption with Associated Data` steht. Es gibt ein Problem, das hier eine Unterscheidung erfordert. In welcher Phase und in welcher Reihenfolge werden wir die Verschlüsselungs- und Hash-Algorithmen verwenden?
 
-![Encrypt-then-MAC (EtM) https://en.wikipedia.org/wiki/Authenticated_encryption (Datum: 08.04.2023)](/images/openvpn-full/EtM.png)
+||||
+|:---:|:---:|:---:|
+| ![Encrypt-then-MAC (EtM)](/images/openvpn-full/EtM.png) | ![Encrypt-and-MAC (E-and-M)](/images/openvpn-full/EaM.png) | ![MAC-then-Encrypt (MtE)](/images/openvpn-full/MtE.png) |
 
----
-![Encrypt-and-MAC (E-and-M) https://en.wikipedia.org/wiki/Authenticated_encryption (Datum: 08.04.2023)](/images/openvpn-full/EaM.png)
-
----
-![MAC-then-Encrypt (MtE) https://en.wikipedia.org/wiki/Authenticated_encryption (Datum: 08.04.2023)](/images/openvpn-full/MtE.png)
+> https://en.wikipedia.org/wiki/Authenticated_encryption (Datum: 08.04.2023)
 
 - Laut EtM, dem ersten Ansatz, werden die Daten zuerst verschlüsselt, dann als Ergebnis des Digests mit einem anderen Schlüssel verschlüsselt und das resultierende Ergebnis in Blöcken zusammen gesendet. Wenn wir uns reale Lösungen ansehen, die es verwenden, fällt uns zuerst das IPSec-Protokoll ein. Dies ist die einzige Methode, die die höchste Sicherheitsdefinition in AE erreichen kann, dies kann jedoch nur erreicht werden, wenn der verwendete MAC-Algorithmus frei von Korruption ist oder noch nicht geknackt wurde. Für SSHv2 sind auch verschiedene EtM-Cipher-Suites verfügbar. Beachten Sie jedoch, dass für Daten und Digest eine Schlüsseltrennung zwingend erforderlich ist (für Verschlüsselung und Schlüssel-Hashing müssen unterschiedliche Schlüssel verwendet werden), da Sie sonst je nach verwendeter Verschlüsselungsmethode und Hash-Funktion möglicherweise ein unsicheres Ergebnis erhalten.
 
