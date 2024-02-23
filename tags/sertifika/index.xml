@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Sertifika on Wise</title><link>https://wiseweb-works.github.io/blog/tags/sertifika/</link><description>Recent content in Sertifika on Wise</description><generator>Hugo -- gohugo.io</generator><language>tr</language><lastBuildDate>Sat, 24 Feb 2024 00:17:41 +0100</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/sertifika/index.xml" rel="self" type="application/rss+xml"/><item><title>Actalis ile ücretsiz S/MIME sertifikası alınması</title><link>https://wiseweb-works.github.io/blog/post/actalis-ile-smime-sertifikasi/</link><pubDate>Sun, 01 Oct 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/actalis-ile-smime-sertifikasi/</guid><description>Ücretsiz S/MIME Sertifikası Nasıl Alınır: Adım Adım Rehber Günümüzde e-posta iletişimi günlük yaşamın ayrılmaz bir parçası haline geldi. Ancak e-posta gönderirken veya alırken güvenlik endişeleri her zaman mevcuttur. S/MIME (Secure/Multipurpose Internet Mail Extensions), e-postalarınızı daha güvenli hale getirmenize yardımcı olan bir teknolojidir. S/MIME sertifikaları, e-postalarınızı şifrelemek ve kimlik doğrulama sağlamak için kullanılır. Neyse ki, ücretsiz S/MIME sertifikaları edinmek oldukça kolaydır. Bu forum rehberinde, bu işlemi adım adım anlatacağız.
+Adım 1: Actalis Extrassl Sayfasına Gidin İlk adımda, ücretsiz bir S/MIME sertifikası almak için Actalis Extrassl web sitesini ziyaret edin.</description><content:encoded><![CDATA[<h1 id="ücretsiz-smime-sertifikası-nasıl-alınır-adım-adım-rehber">Ücretsiz S/MIME Sertifikası Nasıl Alınır: Adım Adım Rehber</h1>
+<p>Günümüzde e-posta iletişimi günlük yaşamın ayrılmaz bir parçası haline geldi. Ancak e-posta gönderirken veya alırken güvenlik endişeleri her zaman mevcuttur. S/MIME (Secure/Multipurpose Internet Mail Extensions), e-postalarınızı daha güvenli hale getirmenize yardımcı olan bir teknolojidir. S/MIME sertifikaları, e-postalarınızı şifrelemek ve kimlik doğrulama sağlamak için kullanılır. Neyse ki, ücretsiz S/MIME sertifikaları edinmek oldukça kolaydır. Bu forum rehberinde, bu işlemi adım adım anlatacağız.</p>
+<h2 id="adım-1-actalis-extrassl-sayfasına-gidin">Adım 1: Actalis Extrassl Sayfasına Gidin</h2>
+<p>İlk adımda, ücretsiz bir S/MIME sertifikası almak için <a href="https://extrassl.actalis.it/portal/uapub/freemail">Actalis Extrassl</a> web sitesini ziyaret edin. Bu sertifikayı almak için bu siteyi kullanacağız. Siteye girdikten sonra sizde bir e-posta adresi isteyecek. Bu adres s/mime sertifikasını üreteceğiniz adres olması gerekli.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/1.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/1.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/actalis/1.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Actalis Extrassl</b></small></center>
+</picture></p>
+<h2 id="opsiyonel-adım-2-dil-seçeneğini-ayarlayın">(Opsiyonel) Adım 2: Dil Seçeneğini Ayarlayın</h2>
+<p>Sitenin üst sağ köşesinde, dil seçeneğini ayarlayabilirsiniz. Eğer sizde de başlangıçta İtalyanca çıkıyor ise dil seçeneğini İngilizce olarak ayarlamak isteyebilirsiniz, böylece prosedürü daha iyi anlayabilirsiniz.</p>
+<h2 id="adım-3-e-posta-adresinizi-doğrulayın">Adım 3: E-Posta Adresinizi Doğrulayın</h2>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/2.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/2.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/actalis/2.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Gelen mail</b></small></center>
+</picture></p>
+<p>Bir önceki adımda girmiş olduğunuz mail adresinize görseldeki gibi bir kod gönderecekler. Bu kod girmiş olduğumuz mail adresinin bize ait olduğunu ve gönderilen mailleri alabildiğimizi teyit etmek amacıyla gönderiliyor.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/3.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/3.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/actalis/3.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Doğrulama kodu girme ekranı</b></small></center>
+</picture></p>
+<p>Size gelen kodu ilgili fotoda görülen Verification code alanını girmeniz ve her iki kutucuğu da seçtikten sonra Submit request butonuna tıklamanız gerekiyor.</p>
+<h2 id="adım-4-sertifikayı-indirin-ve-kurun">Adım 4: Sertifikayı İndirin ve Kurun</h2>
+<p>Doğrulama işlemi tamamlandığında, S/MIME sertifikası hazır olacak ve size verilen talimatları izleyerek sertifikayı indirip kurabileceksiniz.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/4.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/4.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/actalis/4.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Onay Ekranı</b></small></center>
+</picture></p>
+<p>Fakat öncelikle yukarıdaki gibi bir onaylama ekranı gördüğünüzden emin olmanız ve tüm süreç bitene kadar bu ekranı kapatmamanız gerekiyor. Ekrandaki onaylama metninin altında (ben ilk seferinde gözden kaçırmıştım) bir şifre beliriyor ve bunu bir yere not etmeniz gerekiyor.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/5.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/5.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/actalis/5.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Sertifika Geldi</b></small></center>
+</picture></p>
+<p>Daha sonra mail adresinize gelen şifreli sertifika dosyasını ilgili zip dosyasından çıkarmanız gerekiyor. Size verilen şifre zip dosyası için değil sertifikayı içeri aktarırken kullanılacak. Zip dosyasının bir şifresi yok.</p>
+<h2 id="adım-5-e-posta-istemcisi-ayarlarınızı-yapın">Adım 5: E-Posta İstemcisi Ayarlarınızı Yapın</h2>
+<p>Son olarak, e-posta istemcinizde S/MIME sertifikanızı kullanmak için gerekli ayarları yapmanız gerekecektir. Bu adımlar, kullandığınız e-posta istemcisine göre değişebilir. O yüzden ayrı ayrı anlatmak yerine ilgili linkleri aşağıya bırakıyorum.</p>
+<ul>
+<li><a href="https://www.ssl.com/how-to/installing-an-s-mime-certificate-and-sending-secure-email-in-mozilla-thunderbird-on-windows-10/">Thunderbird</a></li>
+<li><a href="https://support.apple.com/en-ie/HT202345">Apple Cihazları</a></li>
+<li><a href="https://support.microsoft.com/en-au/office/encrypt-messages-by-using-s-mime-in-outlook-on-the-web-878c79fc-7088-4b39-966f-14512658f480">Outlook Web</a></li>
+<li><a href="https://support.microsoft.com/en-us/office/encrypt-email-messages-373339cb-bf1a-4509-b296-802a39d801dc">Outlook Uygulaması</a></li>
+<li><a href="https://docs.kde.org/stable5/en/kleopatra/kleopatra/configuration-smime-validation.html">Kleopatra (Manuel kullanım için)</a></li>
+</ul>
+<h2 id="son-söz">Son Söz</h2>
+<p>Artık ücretsiz S/MIME sertifikasına sahipsiniz ve e-postalarınızı daha güvenli hale getirebilirsiniz. Bu sertifikalar, e-postalarınızın şifrelenmesine ve kimlik doğrulamasına yardımcı olur, böylece kişisel bilgilerinizin güvende olduğundan emin olabilirsiniz. Son bir hatırlatma olarak da S/MIME sertifikaları belirli bir süreyle sınırlı olmaktadır, bu nedenle süresi dolduğunda yeniden sertifika almanız gerekecektir. Bu siteden aldığınız sertifikalar genelde 1 senelik oluyor.</p>
+<h3 id="kaynakça">Kaynakça</h3>
+<p>E-posta güvenliği hakkında daha fazla bilgi edinmek için bu yazıda fazlasıyla yararlandığım <a href="https://www.frankysweb.de/tipp-kostenloses-s-mime-zertifikat-neu/">Franky&rsquo;s Web</a> sitesini ziyaret edebilirsiniz.</p>
+<p>İlk yayım: <a href="https://btt.community/t/actalis-ile-ucretsiz-s-mime-sertifikasi-alinmasi/1927">BTT Community</a></p>
+]]></content:encoded></item></channel></rss>

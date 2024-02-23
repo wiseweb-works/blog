@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Macbook on Wise</title><link>https://wiseweb-works.github.io/blog/tags/macbook/</link><description>Recent content in Macbook on Wise</description><generator>Hugo -- gohugo.io</generator><language>tr</language><lastBuildDate>Sat, 24 Feb 2024 00:17:41 +0100</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/macbook/index.xml" rel="self" type="application/rss+xml"/><item><title>Eski Maclere OpenCore ile Desteklenmeyen Sürümlerin Kurulumu</title><link>https://wiseweb-works.github.io/blog/post/opencore-legacy-eski-macbook/</link><pubDate>Sun, 08 Oct 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/opencore-legacy-eski-macbook/</guid><description>OpenCore Legacy Mac Yama Aracı OpenCore Logosu Rehber son güncellenme: 08.10.2023 (Sonoma desteği dahil)
+Bu rehber, OpenCore Legacy Patcher (bundan sonra OCLP olarak anılacaktır) programını kullanma konusunda size yol gösterecektir. Geliştirici katkıları ve kullanıcı raporlarının yanı sıra kişisel deneyimlerdeki araştırmalara dayanmaktadır. OCLP kullanılarak macOS 14 Sonoma ilginç bir şekilde 12 yıllık bir Mac&amp;rsquo;e başarıyla yüklendi. Söz konusu Mac, desteği 2017&amp;rsquo;de macOS 10.13 High Sierra ile sonlanan 2011 ortası iMac 27 inçtir.</description><content:encoded><![CDATA[<h1 id="opencore-legacy-mac-yama-aracı">OpenCore Legacy Mac Yama Aracı</h1>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/1.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>OpenCore Logosu</b></small></center>
+</picture>
+<strong>Rehber son güncellenme: 08.10.2023 (Sonoma desteği dahil)</strong></p>
+<p>Bu rehber, OpenCore Legacy Patcher (bundan sonra OCLP olarak anılacaktır) programını kullanma konusunda size yol gösterecektir. Geliştirici katkıları ve kullanıcı raporlarının yanı sıra kişisel deneyimlerdeki araştırmalara dayanmaktadır. OCLP kullanılarak macOS 14 Sonoma ilginç bir şekilde 12 yıllık bir Mac&rsquo;e başarıyla yüklendi. Söz konusu Mac, desteği 2017&rsquo;de macOS 10.13 High Sierra ile sonlanan <a href="https://support.apple.com/kb/SP689?locale=en_US&viewlocale=en_US">2011 ortası iMac</a> 27 inçtir.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/2.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Kaynak: macsofa.net</b></small></center>
+</picture></p>
+<h2 id="oclp-ne-yapabilir">OCLP ne yapabilir?</h2>
+<p>OCLP 2021 yılında ilk defa geliştirilmeye başlanmış olup bu programın yardımıyla, 2006&rsquo;dan itibaren artık Apple tarafından desteklenmeyen eski Mac&rsquo;lere (an itibariyle 83 tane cihaz) Apple’ın sunduğu daha yeni işletim sistemi versiyonlarını yükleyebilirsiniz. Bunlar <a href="https://support.apple.com/tr-tr/HT211238">macOS 11 Big Sur</a>, <a href="https://support.apple.com/tr-tr/HT212551">macOS 12 Monterey</a>, <a href="https://support.apple.com/tr-tr/HT213264">macOS 13 Ventura</a>, <a href="https://www.apple.com/tr/macos/sonoma/">macOS 14 Sonoma</a> ve <a href="https://semver.org/lang/tr/">semantik sürüm numaralandırması sistemine göre</a> alt sürüm güncellemeleridir. Kural olarak, başarıyla OCLP ile yamalanmış bir sistem ile yerel olarak çalışan (yani Apple’ın resmi olarak desteklediği) bir sistem arasında herhangi bir fark görmezsiniz.</p>
+<p>OCLP web sitesine <a href="https://dortania.github.io/OpenCore-Legacy-Patcher">buradan</a> ulaşabilirsiniz ve rehber süresince ihtiyacımız olan programı <a href="https://github.com/dortania/OpenCore-Legacy-Patcher">bu web sitesinden</a> ücretsiz olarak indirebilirsiniz. Yeni sistemi Mac&rsquo;inizin dahili sabit sürücüsüne veya harici bir sabit sürücüye kurabilirsiniz.</p>
+<h2 id="oclp-nasıl-çalışır">OCLP nasıl çalışır?</h2>
+<p>Basitçe açıklamak gerekirse, OCLP değiştirilmiş bir önyükleme bölümü oluşturur ve Mac&rsquo;i sisteme karşı simule ederek (desteklenen bir Mac&rsquo;miş gibi davranarak) sistemin başlatılmasını sağlar. OCLP kendi işletim sistemini değil, orijinal macOS&rsquo;u başlatır. Bu amaçla OCLP, macOS önyükleyicisine açık kaynaklı bir alternatif olan OpenCore önyükleyicisini kullanır. Eğer Hackintosh/Ryzentosh terimlerini daha önce duyduysanız OpenCore önyükleyicisine aşinasınızdır.</p>
+<p>Bunu yapmak için OCLP, OpenCore yapılandırmasındaki belirli bileşenleri değiştirir ve karşılık gelen bir yapılandırma dosyası (OpenCore config) oluşturur. Değiştirilen bileşenler RAM&rsquo;deki bir referans dosyasında saklanır. İlgili bir config dosyası kullanılarak bu referans dosyası, Mac&rsquo;in her başlatılışında oluşturulur.</p>
+<p>İlgili bileşenlere erişmek için bu referanslardan bazıları kök ayrıcalıklarına (root yetkisine) ihtiyaç duyar. Bu nedenle yazının ilerleyen safalarında belirtilen kök yaması (root patch), bileşenler veya donanım değiştiğinde referans dosyasını yeniler. Bu, gerekli bileşenlerin doğru şekilde adreslemesini ve sistemin hatasız çalışmasını sağlar.</p>
+<p>Tüm bu işlemler yama yapıldıktan sonra arka planda otomatik olarak çalışır.</p>
+<h2 id="oclpyi-kim-geliştirir">OCLP&rsquo;yi kim geliştirir?</h2>
+<p>OCLP, Hackintosh topluluğundan bir grup özel programcı olan <a href="https://github.com/dortania">Dortania</a> tarafından geliştirilmekte ve <a href="https://khronokernel.github.io/about-me">Mykola Grymalyuk</a> yani Khronokernel tarafından yönetilmektedir.</p>
+<p>Amaçları erken eskime veya <a href="https://tr.wikipedia.org/wiki/Planl%C4%B1_eskime">planlı eskitme</a> yerine eski Mac&rsquo;lerin mümkün olduğu kadar uzun süre kullanılabilmesini sağlamaktır. Yamalı yeni sistem sayesinde veri güvenliği ve programlar güncel tutulmaya devam edilebilmektedir.</p>
+<p>Bu sürdürülebilirliğin yanı sıra OCLP&rsquo;nin güvenilirliği de geliştiriciler için önemlidir, bu nedenle kaynak kodu Github üzerinden kullanıcılara açıktır. Buna göre programda tespit edilecek güvenlik açıkları topluluk kullanıcıları tarafından hemen fark edilebilecek ve gerekli düzeltmeler yine kullanıcılar/proje yöneticileri tarafından yayımlanacaktır. Fakat şimdiye kadar o ölçekte büyük bir açık söz konusu olmamıştır.</p>
+<p>OCLP&rsquo;nin teknolojik kökleri <a href="https://www.youtube.com/@dosdude1/videos">Collin Mistr&rsquo;a</a> dayanmaktadır. Yama aracı macOS 10.12 Sierra&rsquo;nın yüklenmesine olanak tanıyan <a href="https://dosdude1.com/software.html">dosdude1</a> adlı projesi temel alınarak geliştirildi.</p>
+<h2 id="oclp-karmaşık-mı">OCLP karmaşık mı?</h2>
+<p>OCLP&rsquo;yi kullanmak bu talimatlarda göründüğünden çok daha az karmaşıktır. Olası sorunları önlemek için rehberin uzun versiyonunu okumanızı öneririm. Burada açıklanan adımları takip ettiğiniz takdirde, derinlemesine teknik bilgiye sahip olmayan bir kullanıcı bile başarılı olacaktır. Daha kolay yönlendirme için kısa ve uzun versiyonların yapısı aynıdır.</p>
+<h3 id="kisa-versiyon">KISA VERSİYON</h3>
+<p>Aşağıdaki süreç macOS 11 Big Sur, macOS 12 Monterey ve macOS 13 Ventura sistemlerine yama uygulanması için geçerlidir. MacOS 14 Sonoma&rsquo;ya yama uygulanması uzun versiyonun IV. Bölümünde anlatılmaktadır.</p>
+<h4 id="i-araştirma">I. ARAŞTIRMA</h4>
+<p>Mac&rsquo;inizin OCLP ile uyumluluğunu <a href="https://dortania.github.io/OpenCore-Legacy-Patcher/MODELS.html">buradan</a> kontrol edin. Ayrıca oradaki cihaz listesinin yorum sütununda yer alan kısıtlamalara ve önerilere de dikkat edin.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/3.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/3.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/3.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Destek</b></small></center>
+</picture></p>
+<h4 id="ii-veri-güvenliği">II. VERİ GÜVENLİĞİ</h4>
+<p>Daha sonra oluşabilecek sistem veya program sorunlarına karşı önerim en az iki güncel yedek bulunmalıdır. Biri Time Machine yöntemi kullanılarak alınacak olan yedek olup diğeri ise dosyalarınızın harici bir hard diske sürükle bırak yöntemi ile yedeklenmesi şeklindedir.</p>
+<h4 id="iii-gereklilikler">III. GEREKLİLİKLER</h4>
+<p>İstediğiniz sistemin yükleyicisine, yani <a href="https://github.com/dortania/OpenCore-Legacy-Patcher/releases/latest">güncel OCLP sürümüne</a> ihtiyacınız var. OCLP destekli bir Mac, fare, klavye, en az 16 GB belleğe sahip bir yardımcı sürücü (usb disk yeterlidir) veya harici sabit disk, gerekirse yeni sisteminizin hedef sürücüsü olmalıdır. Tüm cihazları USB üzerinden bağlamanız gerekir. Güvenli tarafta olmak için, güç kaynağını kullanarak dizüstü bilgisayar çalıştırmalısınız.</p>
+<h4 id="iv-kurulum">IV. KURULUM</h4>
+<p>Aşağıdaki bölümlerde yeni sistemin kurulumu adım adım anlatılmaktadır.</p>
+<p>1. Yardımcı cihazın hazırlanması
+
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/4.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Disk İzlencesi</b></small></center>
+</picture></p>
+<p>➝ Yardımcı cihazı (örn. USB çubuğu) Mac&rsquo;e bağlayın.</p>
+<p>➝ Disk İzlencesi Programını açın.</p>
+<p>➝ “Görüntüle”ye ve ardından “Tüm cihazları göster”e tıklayın.</p>
+<p>➝ Yardımcı cihaz simgesini seçin; simgesi sola hizalanmıştır.
+
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/5.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Usb Formatlama</b></small></center>
+</picture></p>
+<p>➝ “Sil”e tıklayın.</p>
+<p>➝ İsim aynı kalabilir.</p>
+<p>➝ Format olarak “Mac OS Genişletilmiş (Günlüklü)” seçeneğini seçin.</p>
+<p>➝ Şema olarak “GUID Bölümleme Tablosu”nu seçin.</p>
+<p>➝ “Sil”e tıklayın; komut tüm verileri siler.</p>
+<p>➝ “Bitti”ye tıklayın.</p>
+<p>2. Sistem kurucunun yardımcı cihaza kurulması</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/6.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/6.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/6.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>OCLP 1.0.1</b></small></center>
+</picture></p>
+<p>➝ “MacOS Yükleyici Oluştur”a tıklayın.</p>
+<p>➝ “MacOS Installer&rsquo;ı İndir” seçeneğine tıklayın.</p>
+<p>➝ macOS&rsquo;u seçin.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/7.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/7.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/7.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>1</b></small></center>
+</picture></td>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/8.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/8.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/8.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>2</b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
+<p>➝ İndirdikten sonra otomatik doğrulamayı bekleyin.</p>
+<p>➝ Yönetici şifresini girin.</p>
+<p>➝ “MacOS Yükleyici Oluşturulsun mu?” penceresinde “Evet”e tıklayın.</p>
+<p>➝ “Yerel macOS Yükleyiciyi Seç” penceresinde yükleyiciyi seçin.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/9.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/9.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/9.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>3</b></small></center>
+</picture></p>
+<p>➝ Yardımcı sürücüyü seçin (Mac&rsquo;inizin dahili HD&rsquo;si olarak disk0&rsquo;ı değil).</p>
+<p>➝ “Onay” penceresinde “Evet”e tıklayın; komut tüm verileri siler.</p>
+<p>➝ Yönetici şifresini girin.</p>
+<p>➝ “MacOS yükleyici başarıyla oluşturuldu!” penceresinde “Evet”e tıklayın.</p>
+<p>➝ “OpenCore yapılandırmanızın oluşturulması tamamlandı!” penceresinde “Diske yükle” seçeneğine tıklayın.</p>
+<p>➝ Yardımcı cihazı seçin (disk0&rsquo;ı değil).</p>
+<p>➝ Yönetici şifresini girin.</p>
+<p>➝ “Uygulamak için yeniden başlatılsın mı?” penceresinde alt tuşunu basılı tutarak “Yeniden Başlat”a tıklayın.</p>
+<p>➝ “Yeniden Başlat”a tıklayın ve alt tuşunu basılı tutmaya devam edin.</p>
+<p>➝ Başlangıç yöneticisinde “EFI boot”u seçin ve alt tuşunu basılı tutmaya devam edin.</p>
+<p>➝ Bir sonraki başlangıç ekranında alt tuşunu basılı tutarken “MacOS xyz&rsquo;yi yükle” seçeneğini seçin ve alt tuşunu bırakın.</p>
+<p>➝ Kurtarma bölümü (macOS Recovery) görüntülenir.</p>
+<p>3. Sistemin kurulumu</p>
+<p>“MacOS Recovery” kurtarma bölümünde yükseltme veya temiz kurulum gerçekleştirebilirsiniz. Ancak başka bir program zaten bir sistem yaması oluşturduysa temiz kurulum yapmanız gerekir. Harici bir HD&rsquo;ye kurulum yaparken lütfen uzun versiyondaki açıklama bölümlerine de dikkat edin.</p>
+<p>a) Yükseltme</p>
+<p>➝ Aşağıdaki düğmelere tıklayın:</p>
+<p>➝ “MacOS xyz&rsquo;yi (hangi sürümü indirdiyseniz) yükle”</p>
+<p>➝ “Devam Et”</p>
+<p>➝ “Devam Et”</p>
+<p>➝ “Kabul et”</p>
+<p>➝ “Kabul et”</p>
+<p>➝ Hedef sürücüyü seçin.</p>
+<p>➝ “Devam Et”e tıklayın.</p>
+<p>➝ Kurulum birkaç yeniden başlatmayla başlar (30 dk kadar ve daha uzun).
+Bu süre zarfında herhangi bir şekilde Usb&rsquo;yi çıkarmayın ve yeniden başlatıldığı zaman çıkan önyükleme seçeneklerine karışmayın. Her şey otomatik olarak ilerleyecektir. Siz sadece sizden bir bilgi girmeniz gerektiği takdirde kuruluma müdahale etmelisiniz.</p>
+<p>b) Temiz Kurulum</p>
+<p>➝ “Disk Yardımcı Programı”na tıklayın.</p>
+<p>➝ “Devam Et”e tıklayın.</p>
+<p>➝ Hedef sürücüyü seçin.</p>
+<p>➝ “Sil”e tıklayın.</p>
+<p>➝ Bir isim verin.</p>
+<p>➝ Format olarak APFS&rsquo;yi seçin.</p>
+<p>➝ Şema olarak GUID bölümleme tablosunu seçin.</p>
+<p>➝ “Sil”e tıklayın; komut tüm verileri siler.</p>
+<p>➝ “Bitti”ye tıklayın.</p>
+<p>➝ Aşağıdaki düğmelere tıklayın:</p>
+<p>➝ “MacOS xyz&rsquo;yi yükle”</p>
+<p>➝ “Devam Et”</p>
+<p>➝ “Devam Et”</p>
+<p>➝ “Kabul et”</p>
+<p>➝ “Kabul et”</p>
+<p>➝ Hedef sürücüyü seçin.</p>
+<p>➝ “Devam Et”e tıklayın.</p>
+<p>➝ Kurulum birkaç yeniden başlatmayla başlar (30 dk kadar ve daha uzun).</p>
+<p>➝ Bu süre zarfında herhangi bir şekilde Usb&rsquo;yi çıkarmayın ve yeniden başlatıldığı zaman çıkan önyükleme seçeneklerine karışmayın. Her şey otomatik olarak ilerleyecektir.</p>
+<h4 id="v-kurulumdan-sonra">V. KURULUMDAN SONRA</h4>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/10.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Post-Install</b></small></center>
+</picture></p>
+<p>➝ Sürücülerin güncel olup olmadığını kontrol edin ve OCLP&rsquo;yi açın.</p>
+<p>➝ “Yükleme Sonrası Kök Yaması”na tıklayın.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/11.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Root Patch</b></small></center>
+</picture></p>
+<p>➝ “Tüm geçerli yamalar zaten yüklü” mesajını görürseniz başka bir şey yapmanıza gerek yoktur.</p>
+<p>➝ “Sistem için mevcut yamalar” mesajında “Kök Yamalamayı Başlat” seçeneğine tıklayın.</p>
+<p>➝ “Evet”e tıklayın.</p>
+<p>➝ Yönetici şifresini girin.</p>
+<p>➝ “Yeniden Başlat”a tıklayın.</p>
+<p>➝ “Yeniden Başlat”a tıklayın.</p>
+<p>➝ Yeniden başlattıktan sonra tekrar “Post-Install Root Patch” seçeneğine tıklayın.</p>
+<p>➝ Şimdi “Tüm geçerli yamalar zaten yüklü” mesajı görüntülenmelidir.</p>
+<h4 id="vi-sorun-çözümleri">VI. SORUN ÇÖZÜMLERİ</h4>
+<p>Önerilen çözümler için <a href="https://dortania.github.io/OpenCore-Legacy-Patcher/TROUBLESHOOTING.html">Github</a> sayfasını ziyaret edebilirsiniz.</p>
+<h3 id="uzun-versiyon">UZUN VERSİYON</h3>
+<p>Aşağıdaki süreç macOS 11 Big Sur, macOS 12 Monterey, macOS 13 Ventura ve MacOS 14 Sonoma sistemlerine yama uygulanması için geçerlidir. Kısa bölümde anlatılan şeylerin daha ayrıntılı ve geniş bir şekilde anlatıldığı bir bölüm olacaktır.</p>
+<h4 id="i-araştirma-1">I. ARAŞTIRMA</h4>
+<p>1. Mac&rsquo;inizin OCLP ile uyumluluğunu <a href="https://dortania.github.io/OpenCore-Legacy-Patcher/MODELS.html">buradan</a> kontrol edin. Ayrıca oradaki cihaz listesinin yorum sütununda yer alan kısıtlamalara ve önerilere de dikkat edin. Model adını (örn. iMac 12.2) eski sistemlerde şu şekilde bulabilirsiniz: Sol üstte Apple simgesi ➝ “Bu Mac Hakkında” ➝ “Sistem raporu” ➝ “Model tanımlama”.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/12.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/12.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/12.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Sistem Raporu</b></small></center>
+</picture></p>
+<p>2. Ayrıca OCLP cihaz listesinin yorum sütunundaki kısıtlamalara veya önerilere de dikkat edin.</p>
+<h4 id="ii-veri-güvenliği-1">II. VERİ GÜVENLİĞİ</h4>
+<p>1. OCLP&rsquo;yi kullanmadan önce en az iki güncel yedeğin mevcut olması gerekir çünkü geliştiricilerin gösterdiği tüm özene rağmen sistem veya program sorunları ortaya çıkabilir. Asıl yedekleme Time Machine yöntemi kullanılarak alınacak olan yedek olup diğeri ise dosyalarınızın harici bir hard diske sürükle bırak yöntemi ile yedeklenmesi şeklindedir.</p>
+<p>2. Mac&rsquo;inizin dahili sabit sürücüsüyle herhangi bir risk almak istemiyorsanız yamayı boş bir harici sabit sürücüde de gerçekleştirebilirsiniz.</p>
+<p>3. OCLP, Mac&rsquo;inizin dahili HD&rsquo;sinin ilk bölümünü &ldquo;disk0&rdquo; olarak ve diğer tüm bölüm ve sürücüleri &ldquo;disk1&rdquo;, &ldquo;disk2&rdquo; vb. olarak ifade eder. Bu nedenle, bunları OCLP&rsquo;leriyle tanımlayarak karışıklığı önleyin.</p>
+<h4 id="iii-gereklilikler-1">III. GEREKLİLİKLER</h4>
+<p>1. USB fare ve USB klavye</p>
+<p>2. Talimatları okumak için çıktı veya cihaz</p>
+<p>3. OCLP destekli bir Mac (dizüstü bilgisayar Güvenli tarafta olmak için güç kaynağını kullanmalısınız.)</p>
+<p>4. En az 16 GB kapasiteli USB sürücüsü (çubuk yeterlidir)</p>
+<p>Aşağıda ve yazının devamında <em>yardımcı cihaz</em> olarak anılacaktır.</p>
+<p>5. USB bağlantı noktasına sahip harici sürücü (hedef sürücü ise)</p>
+<p>6. <a href="https://github.com/dortania/OpenCore-Legacy-Patcher/releases/latest">OCLP&rsquo;nin son sürümü</a></p>
+<p>7. Yeni işletim sistemi kurulum sihirbazı (InstallAssistant.pkg)</p>
+<p>İndirme işlemi OCLP aracılığıyla, App Store&rsquo;dan veya</p>
+<p>İndirme bağlantıları Apple sunucusuna yönlendirilen aşağıdaki web siteleri:
+<a href="https://support.apple.com/tr-tr/HT211238">MacOS 11 Big Sur</a>, <a href="https://support.apple.com/tr-tr/HT212551">macOS 12 Monterey</a>, <a href="https://support.apple.com/tr-tr/HT213264">macOS 13 Ventura</a>, <a href="https://www.apple.com/tr/macos/sonoma/">macOS 14 Sonoma</a> aracılığı ile yapılabilir.</p>
+<h4 id="iv-kurulum-1">IV. KURULUM</h4>
+<p>Aşağıdaki süreç macOS 11 Big Sur, macOS 12 Monterey ve macOS 13 Ventura sistemlerine yama uygulanması için geçerlidir. MacOS 14 Sonoma&rsquo;ya yama uygulanması <strong>4. maddede</strong> açıklanacaktır.</p>
+<p>1. Yardımcı cihazın hazırlanması</p>
+<p>Yeni sisteminize yama yapmadan önce, sistem yükleyiciyi yardımcı bir cihaza (örn. USB bellek) yüklemelisiniz. Bunu şu şekilde hazırlayın:</p>
+<p>➝ Yardımcı cihazı Mac&rsquo;e bağlayın.</p>
+<p>➝ Disk İzlencesi Programını açın.</p>
+<p>➝ “Görüntüle”ye ve ardından “Tüm cihazları göster”e tıklayın.</p>
+<p>➝ Yardımcı cihazın sürücü sembolünü seçin (simge sola hizalanmıştır).</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/13.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Usb Formatlama</b></small></center>
+</picture></p>
+<p>➝ “Sil”e tıklayın.</p>
+<p>➝ İsim kalabilir.</p>
+<p>➝ Format olarak “Mac OS Genişletilmiş (Günlüklü)” seçeneğini seçin.</p>
+<p>➝ Şema olarak “GUID Bölümleme Tablosu”nu seçin.</p>
+<p>➝ “Sil”e tıklayın (komut tüm verileri siler).</p>
+<p>➝ “Bitti”ye tıklayın.</p>
+<p>➝ Önerilen Time Machine yedeklemesini reddedin.</p>
+<p>2. Sistem kurucunun yardımcı cihaza kurulması</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/14.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/14.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/14.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>OCLP 1.0.1</b></small></center>
+</picture></p>
+<p>Yardımcı cihazı hazırladıktan sonra artık sistem kurulumunu ona kurabilirsiniz. Bunu yapmak için OCLP&rsquo;de “MacOS Yükleyici Oluştur” seçeneğine tıklayın. Yükleyiciye zaten sahipseniz “Mevcut macOS Yükleyiciyi Kullan” seçeneğini seçin. Aksi takdirde “MacOS Installer&rsquo;ı İndir” seçeneğini ve istediğiniz macOS&rsquo;u seçin. Daha sonra indirme işlemi başlayacaktır.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/7.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/7.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/7.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>1</b></small></center>
+</picture></td>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/8.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/8.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/8.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>2</b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
+<p>İndirme işleminden sonra otomatik doğrulama gerçekleşir. Daha sonra yönetici şifresini girin ve “InstallAssistant.pkg” kurulum sihirbazından çıkartılan “install MacOS xyz.app” isimli sistem yükleyicisinin dahili sürücünüzün Uygulamalar klasöründe olduğundan emin olun. OCLP yalnızca orada sistem kurulumunu tanır.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/9.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/9.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/9.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>3</b></small></center>
+</picture></p>
+<p>Ardından “MacOS Yükleyici Oluşturulsun mu?” penceresinde “Evet”e tıklayın, “Yerel macOS Yükleyiciyi Seçin” penceresinde yükleyiciyi seçin, yardımcı sürücüyü seçin (Mac&rsquo;inizin dahili HD&rsquo;si olduğu için disk0 değil), “Evet”e tıklayın “Onay” penceresinde ” (komut tüm verileri siler), yönetici şifresini girin ve önerilen Time Machine yedeklemesini reddedin.</p>
+<p>Kurulum tamamlanana kadar “Yükleyici Oluşturuluyor: MacOS xyz’yi Yükle” penceresini açık bırakın. Yardımcı cihazın hızına bağlı olarak yaklaşık 30 dakika veya daha uzun sürebilir. Yardımcı cihaz otomatik olarak yeni adı “MacOS xyz&rsquo;yi yükle” alır.</p>
+<p>Bundan sonra, “macOS yükleyicisi başarıyla oluşturuldu!” penceresinde “Evet”e tıklayın, “OpenCore yapılandırmanızı oluşturma tamamlandı!” penceresinde “Diske yükle”ye tıklayın, yardımcı cihazı seçin (disk0 değil), birimi seçin ve Yönetici-Şifresini girin.</p>
+<p>Ardından, “Uygulamak için yeniden başlatılsın mı?” penceresinde alt tuşunu basılı tutarak “Yeniden Başlat” seçeneğine tıklayın, ardından “Yeniden Başlat” seçeneğine tıklayın (alt tuşuna basmaya devam edin), başlangıç yöneticisinde “EFI önyükleme” seçeneğini seçin (alt tuşuna basmaya devam edin) tuşuna basın), bir sonraki başlangıç ekranında “MacOS xyz&rsquo;yi yükle”yi seçin (Alt tuşuna basmaya devam edin) ve ardından Alt tuşunu bırakın. Artık “macOS Recovery” kurtarma bölümü görüntülenecektir.</p>
+<p>3. Sistemin kurulması</p>
+<p>“MacOS Recovery” kurtarma bölümüne ulaştığınızda, yeni sistemin asıl kurulumu burada başlar. Bu nedenle güncel yedeklemelerin önemini son kez hatırlatmak istiyoruz.</p>
+<p>Kurulum süresi, ilgili sürücülerin hızına bağlı olarak değişebilir ve bu nedenle bazen sabır gerektirir. Örneğin, &ldquo;Bir dakikadan az kaldı&hellip;&rdquo; mesajı uzun süre görüntüleniyorsa, bu mutlaka bir sorun olduğu anlamına gelmez, çünkü kurulum bir saate kadar veya daha uzun sürebilir.</p>
+<p>Mevcut sistemi güncelleyebilir veya yeni bir kurulum gerçekleştirebilirsiniz. Deneyim raporlarına göre temiz kurulumlarda başarı oranı daha yüksektir. Ancak bu, yama yapmadan önce yeni sistemin hedef birimini silmenizi gerektirir. Son olarak, kullanıcılarınızı, ayarlarınızı, programlarınızı vb. bir yedekten hedef birime kopyalamak için geçiş yardımcısını kullanabilirsiniz.</p>
+<p>Ancak yükseltme yaparken yeni sistemin hedef birimini silmeniz gerekmez, çünkü bu yalnızca sistemdeki sistemi günceller. Ancak başka bir program zaten bir sistem yaması oluşturduysa temiz kurulum yapmanız gerekir. Yabancı yama silinir ve OCLP yaması ile değiştirilir.</p>
+<p>Yeni sistemin kurulum konumu, Mac&rsquo;inizin dahili sürücüsü veya harici bir sürücü olabilir. Kurulumun ilgili sürücünün ilk bölümünde yapılması tavsiye edilir.</p>
+<p>a) Yükseltme</p>
+<p>Adım IV.2. sonunda macOS Recovery bölümüne ulaştıktan sonra yükseltme yapmak için şu adımları izleyin:</p>
+<p>➝ Aşağıdaki düğmelere tıklayın:</p>
+<p>➝ “MacOS xyz&rsquo;yi yükle”</p>
+<p>➝ “Devam Et”</p>
+<p>➝ “Devam Et”</p>
+<p>➝ “Kabul et”</p>
+<p>➝ “Kabul et”</p>
+<p>➝ Yeni sistemin hedef hacmini seçin.</p>
+<p>➝ “Devam Et”e tıklayın.</p>
+<p>➝ Hedef sürücüye bağlı olarak c) veya d) noktasından okumaya devam edin.</p>
+<p>Not: OCLP geliştiricileri, Big Sur veya Monterey&rsquo;den Ventura&rsquo;ya daha sonraki bir yükseltme için yazılım güncelleme sistemi ayarını değil, harici bir kurulum ortamı kullanılmasını önerir.</p>
+<p>b) Temiz Kurulum</p>
+<p>Temiz bir kurulum için “macOS Recovery” kurtarma bölümünde şu yolu izleyin:</p>
+<p>➝ Disk Yardımcı Programını açın.</p>
+<p>➝ “Devam Et”e tıklayın.</p>
+<p>➝ Yeni sistemin hedef sürücüsünü seçin.</p>
+<p>➝ “Sil”e tıklayın.</p>
+<p>➝ Bir isim verin.</p>
+<p>➝ APFS formatını seçin.</p>
+<p>➝ Şema olarak GUID bölümleme tablosunu seçin.</p>
+<p>➝ “Sil”e tıklayın; komut tüm verileri siler.</p>
+<p>➝ “Bitti”ye tıklayın.</p>
+<p>➝ Disk Yardımcı Programından çıkın.</p>
+<p>➝ Aşağıdaki düğmelere tıklayın:</p>
+<p>➝ “MacOS xyz&rsquo;yi yükle”</p>
+<p>➝ “Devam Et”</p>
+<p>➝ “Devam Et”</p>
+<p>➝ “Kabul et”</p>
+<p>➝ “Kabul et”</p>
+<p>➝ Yeni sistemin hedef hacmini seçin.</p>
+<p>➝ “Devam Et”e tıklayın.</p>
+<p>➝ Hedef sürücüye bağlı olarak c) veya d) noktasından okumaya devam edin.</p>
+<p>Not: APFS biçimindeki bir birim, eski HFS+ biçimindeki bir birimi okuyabilir ve yazabilir. Ancak bir HFS+ birimi yalnızca HFS+ biriminde en az macOS 10.12.6 Sierra yüklüyse APFS birimini okuyabilir ve yazabilir. Maalesef hâlâ önemli kısıtlamalar mevcut.</p>
+<p>c) Dahili sürücüye kurulum</p>
+<p>a) veya b) noktasından sonra &ldquo;Yaklaşık xy dakika kaldı&rdquo; ilerleme çubuğu görünür ve bunu daha fazla yeniden başlatma izler (hiçbir şeye tıklamayın) ve &ldquo;xy % tamamlandı&rdquo; ilerleme çubuğunun bulunduğu siyah bir ekran gelir.</p>
+<p>Kurulum sırasında kurtarma bölümü ikinci kez görünürse sol üstteki Apple simgesinin altındaki &ldquo;Yeniden Başlat&quot;a tıklayın, ardından Alt tuşunu basılı tutun, Başlangıç Yöneticisi&rsquo;nde &ldquo;EFI Boot&quot;u seçin ve Alt tuşunu basılı tutmaya devam edin ve &quot; Bir sonraki başlangıç ekranında macOS Installer”. Kurtarma bölümü yeniden görünürse bu işlemi tekrarlayın.</p>
+<p>d) Harici sürücüye kurulum</p>
+<p>Harici bir sürücüye kurulum yaparken aşağıdaki noktalar dikkate alınmalıdır: MacOS 10.15 Catalina&rsquo;dan bu yana harici sürücüler artık Firewire aracılığıyla başlatılamadığından, sürücüyü Mac&rsquo;teki USB bağlantı noktasına bağlamanız gerekir. Ancak yama yaptıktan sonra OCLP&rsquo;de harici sürücünüzün Firewire aracılığıyla yeniden başlatılabileceğini ayarlayabilirsiniz. Harici bir HD&rsquo;nin yalnızca Bilgi penceresinde &ldquo;Bu birimdeki sahipliği yoksay&rdquo; seçeneği işaretlenmemişse önyüklenebilir olacağını unutmayın.</p>
+<p>MacOS 13 Ventura&rsquo;nın harici bir sabit sürücüye temiz kurulumu 0.6.4 sürümünden bu yana yeni OCLP sürümlerinde daha kısadır:</p>
+<p>➝ “Yükle: “Yaklaşık xy dakika kaldı” ilerleme çubuğu görünür.</p>
+<p>➝ Başlangıç yöneticisinde “macOS Installer”ı seçin.</p>
+<p>➝ Apple simgesinin bulunduğu siyah bir ekran ve “Yaklaşık xx dakika kaldı” ilerleme çubuğunu görebilirsiniz.</p>
+<p>➝ Başlangıç Yöneticisi görünür (hiçbir şeye tıklamayın).</p>
+<p>➝ Bunu, Apple simgesinin bulunduğu siyah bir ekranla ve 15 dakika boyunca tam bir ilerleme göstergesiyle yeniden başlatma izler.</p>
+<p>➝ Yeniden başlatma gerçekleşir.</p>
+<p>➝ Başlangıç yöneticisinde yeni sistemin hedef birimini seçin.</p>
+<p>➝ Başka bir yeniden başlatma olacak.</p>
+<p>➝ Başlangıç yöneticisinde yeni sistemin hedef hacmini tekrar seçin.</p>
+<p>➝ %98&rsquo;de uzun bir bekleme süresiyle birlikte “%xy tamamlandı” ilerleme göstergesinin yer aldığı siyah bir ekran görüntülenir.</p>
+<p>➝ Başka bir yeniden başlatma olacak.</p>
+<p>➝ Startup Manager&rsquo;da aşağıdaki hiçbir şeyi seçmeyin.</p>
+<p>➝ Kurtarma bölümü (macOS Recovery) görünür.</p>
+<p>➝ Sol üstteki Apple simgesine tıklayın.</p>
+<p>➝ Alt tuşunu basılı tutarken “Yeniden Başlat”a tıklayın.</p>
+<p>➝ Başlangıç yöneticisinde yeni sistemin yüklendiği diski seçin.</p>
+<p>Kurulum sırasında kurtarma bölümünün ikinci kez görüntülenmesi gerekiyorsa: Sol üstteki Apple simgesinin altındaki &ldquo;Yeniden Başlat&rdquo; seçeneğine tıklayın ve ardından alt tuşunu basılı tutun, başlangıç yöneticisinde &ldquo;EFI Boot&rdquo; seçeneğini seçin ve alt tuşunu basılı tutmaya devam edin. tuşuna basın ve bir sonraki başlangıç ekranında “macOS Installer”ı seçin. Kurtarma bölümü yeniden görünürse bu işlemi tekrarlayın.</p>
+<p>Temiz kurulumu tamamlamak için, normal sistem kurulumunda olduğu gibi kurulum sihirbazında ülkeyi, dili, ağı (şifrenizi hazır bulundurun) vb. seçersiniz. Kullanıcı adını atarken, lütfen kullanıcı adını kullanmamanın daha iyi olacağını unutmayın. Daha sonra taşınacak kullanıcının adını seçin.</p>
+<h4 id="v-kurulumdan-sonra-1">V. KURULUMDAN SONRA</h4>
+<p>1. Yazılım Güncelleme sistem ayarlarında otomatik güncellemeleri devre dışı bırakmalısınız. Bu, Apple yazılım güncellemesinin bir sonucu olarak olası sistem sorunlarını önlemek için tavsiye edilir. İlk lansmanından sonra yeni sistem, öncelikle Spotlight endeksini yeniden oluşturması gerektiğinden genellikle biraz daha yavaş olacaktır.</p>
+<p>2. İlk sistem önyüklemesinden hemen sonra OCLP, OpenCore&rsquo;u dahili sabit sürücüye yüklemek isteyip istemediğinizi soracaktır. Bu, gelecekte yardımcı cihaz olmadan sistemi başlatmanıza olanak sağlayacaktır. Yeni sistem harici bir sürücüye kurulmuşsa, bu iletişim kutusundaki &ldquo;dahili sabit sürücüye&rdquo; ifadesi yanıltıcı olabilir. Bu durumda harici sürücüye OpenCore&rsquo;un da kurulması gerekir.</p>
+<p>OpenCore kurulumu şu şekilde çalışır: “Tamam”a tıklayın, ardından “Diske yükle”ye tıklayın, yeni sistemin sürücüsünü ve ardından birimi seçin. Daha sonra alt tuşunu basılı tutarak “EFI Boot”un başlangıç yöneticisini başlatın ve alt tuşunu basılı tutmaya devam edin. Bir sonraki önyükleme ekranında yeni sistemin biriminden önyükleme yapın.</p>
+<p>Yukarıdaki &ldquo;Tamam&rdquo; seçeneğine tıkladıktan sonra, aşağıdaki günlük penceresi OpenCore kurulumunun ayrı ayrı adımlarını gösterir. Daha sonra OpenCore kurmaya karar verirseniz “Build and Install OpenCore” komutunu kullanarak yukarıda anlatılan işlemi başlatabilirsiniz.</p>
+<p>3. Yeni sisteminizi harici bir birime kurduysanız:</p>
+<p>a) 0.6.7 sürümünden itibaren OCLP&rsquo;yi artık harici birimin programlar klasörüne değil, Library/Application Support/Dortania klasörüne yerleştirmeniz gerekiyor. Ancak OCLP&rsquo;den bir takma ad oluşturabilir ve bunu Uygulamalar klasörüne koyabilirsiniz.</p>
+<p>b) Adım V.2.&lsquo;yi tamamladıysanız, gelecekte yeni sisteminizi yardımcı cihaz olmadan başlatabileceksiniz. Şu şekilde çalışır: Mac&rsquo;i açtığınızda Alt tuşunu basılı tutun, ilk başlangıç ekranında &ldquo;EFI Boot&quot;u seçin. “EFI Boot” tanınmazsa, harici HD&rsquo;yi Mac&rsquo;in USB bağlantı noktasından kısa süreliğine çıkarabilir (başlangıç ekranını olduğu gibi bırakarak) ve tekrar takabilirsiniz. Kural olarak “EFI önyüklemesi”nin tanınması gerekir.</p>
+<p>c) Yama sonrasında harici sürücünüzü Firewire aracılığıyla yeniden başlatmak istiyorsanız bunu aşağıdaki şekilde yapabilirsiniz:</p>
+<p>➝ OCLP&rsquo;yi açın.</p>
+<p>➝ “Ayarlar”a tıklayın.</p>
+<p>➝ “Hedef Model” altında Mac türünü seçin.</p>
+<p>➝ “Oluştur”a tıklayın.</p>
+<p>➝ “FireWire Önyükleme” seçeneğini etkinleştirin.</p>
+<p>➝ “Geri Dön”e tıklayın.</p>
+<p>➝ “OpenCore Oluştur ve Kur” seçeneğine tıklayın.</p>
+<p>➝ “Diske yükle”ye tıklayın.</p>
+<p>➝ Yeni sistemin sürücüsünü seçin.</p>
+<p>➝ Yönetici şifresini girin.</p>
+<p>➝ “Yeniden Başlat”a tıklayın.</p>
+<p>4. “Ayarlar” altında OpenCore ayarlarını bulacaksınız. Ancak bunları yalnızca etkisini biliyorsanız değiştirin; aksi halde bilgisayarın bir sonraki başlatılması başarısız olabilir. Ayrıca, Hedef Model ayarlarını değiştirmeden önce her Mac modelinin farklı ayarları olduğundan öncelikle bilgisayar modelinizi seçmelisiniz.</p>
+<p>Ayarları düzenlemek ve kaydetmek için şu adımları izleyin:</p>
+<p>➝ OCLP&rsquo;yi açın.</p>
+<p>➝ “Ayarlar”a tıklayın.</p>
+<p>➝ “Hedef Model” altında Mac&rsquo;i seçin.</p>
+<p>➝ Daha sonra OCLP&rsquo;yi kapatmadan ayarlara girin. Aksi halde önceki ayarlar kalır.</p>
+<p>➝ “Geri Dön”e tıklayın.</p>
+<p>➝ “OpenCore Oluştur ve Kur” seçeneğine tıklayın.</p>
+<p>➝ “Diske yükle”ye tıklayın.</p>
+<p>➝ Yeni sistemin sürücüsünü seçin.</p>
+<p>➝ Yönetici şifresini girin.</p>
+<p>➝ “Yeniden Başlat”a tıklayın.</p>
+<p>5. Yeni sistemi dahili bir sabit sürücüye kurduysanız ve artık Başlangıç Yöneticisinin gelecekte görüntülenmesini istemiyorsanız, aşağıdaki şekilde ilerleyin:</p>
+<p>➝ OCLP&rsquo;yi açın.</p>
+<p>➝ “Ayarlar”a tıklayın.</p>
+<p>➝ “Açık Çekirdek Önyükleme Seçicisini Göster” seçeneğinin işaretini kaldırın.</p>
+<p>➝ Aşağıdaki “Ana Menüye Dön” seçeneğine tıklayın.</p>
+<p>➝ “OpenCore Oluştur ve Kur” seçeneğine tıklayın.</p>
+<p>➝ “Diske yükle”ye tıklayın.</p>
+<p>➝ disk0&rsquo;ı seçin (= dahili sürücü).</p>
+<p>➝ Yönetici şifresini girin.</p>
+<p>➝ “Yeniden Başlat”a tıklayın.</p>
+<p>➝ “Yeniden Başlat”a tıklayın.</p>
+<p>6. &ldquo;Önyükleme Seçici Zaman Aşımı&rdquo; ayarı, başlangıç yöneticisinin (önyükleme seçicinin) ne kadar süreyle görüntüleneceğini belirtmenize olanak tanır. Bu süre zarfında yamalı ya da başka bir başlangıç diskinizi seçebilirsiniz. Bu süre dolduktan sonra standart işletim sistemi başlatılır.</p>
+<p>7. Metal olmayan bir Mac&rsquo;te menü çubuğunun yazı tipi rengini beyazdan siyaha değiştirmek istiyorsanız OCLP&rsquo;yi açın, Ayarlar&rsquo;a tıklayın, Metal Olmayan Ayarlar&rsquo;a tıklayın, Koyu Menü Çubuğu&rsquo;nu seçin ve “ Ayarlar&rsquo;a dönün”. Son olarak kullanıcıyı yeniden kaydetmeniz yeterlidir; “OpenCore&rsquo;u Oluştur ve Kur” komutu gerekli değildir</p>
+<p>8. Sistem ile donanım arasındaki iletişim için gereken tüm sürücülerin güncel olup olmadığını kontrol edin. Bu şu şekilde çalışır:</p>
+<p>➝ OCLP&rsquo;yi açın.</p>
+<p>➝ “Yükleme Sonrası Kök Yaması”na tıklayın.</p>
+<p>➝ “Tüm geçerli yamalar zaten yüklü” mesajını görürseniz başka bir şey yapmanıza gerek yoktur.</p>
+<p>➝ “Sistem için mevcut yamalar” mesajında “Kök Yamalamayı Başlat” seçeneğine tıklayın.</p>
+<p>➝ “Evet”e tıklayın.</p>
+<p>➝ Yönetici şifresini girin.</p>
+<p>➝ “Yeniden Başlat”a tıklayın.</p>
+<p>➝ “Yeniden Başlat”a tıklayın.</p>
+<p>➝ Başlangıç yöneticisinde hiçbir şey seçmeyin.</p>
+<p>➝ Yeniden başlattıktan sonra tekrar “Post-Install Root Patch” seçeneğine tıklayın.</p>
+<p>➝ Şimdi “Tüm geçerli yamalar zaten yüklü” mesajı görüntülenmelidir.</p>
+<p>9. Yamalı bir birimi başka bir Mac&rsquo;te başlatmayı da deneyebilirsiniz. Ancak lütfen bunun uygun donanım yazılımına, ilgili macOS&rsquo;a ve yamalı birim ile aynı OpenCore&rsquo;a sahip olması gerektiğini unutmayın. Ayrıca donanımın aynı olması gerekmektedir. Farklı Bluetooth modülleri gibi farklılıklar varsa, donanım tanınmazsa başlatma sorunları ortaya çıkabilir.</p>
+<h4 id="vi-sorun-çözümleri-1">VI. SORUN ÇÖZÜMLERİ</h4>
+<p>1. Önerilen çözümler için <a href="https://dortania.github.io/OpenCore-Legacy-Patcher/TROUBLESHOOTING.html">Github</a> sayfasını ziyaret edebilirsiniz. Özellikle Bluetooth sorunları için bakmanızda da fayda var. Gerekirse en son sürüm olan Sonoma yerine bir önceki sürümü yüklemeniz bazen daha uyumlu ve faydalı olabiliyor.</p>
+<p>2. 0.6.7 sürümünden bu yana, ~/Library/Logs/Dortania klasöründeki OCLP günlük dosyasına “Dosya” ve “Günlük Dosyasını Göster” menüleri aracılığıyla doğrudan erişebilirsiniz. Bu, hataların olası nedenlerinin belirlenmesine olanak sağlar.</p>
+<p>3. Bir ses arızası varsa, Ses sistemi ayarlarından dahili hoparlörlerin çıkış cihazı olarak seçilip seçilmediğini kontrol edebilirsiniz.</p>
+<p>4. Sistem bir sistem veya güvenlik güncellemesinden sonra artık başlamazsa, Shift tuşunu basılı tutarak Mac&rsquo;i Güvenli Modda başlatmayı ve ardından &ldquo;Yükleme Sonrası Kök Yaması&rdquo; yolunu kullanmayı deneyebilirsiniz</p>
+<p>Bu işe yaramazsa kök yamaları silmenizi öneririz. Bu şu şekilde çalışır:</p>
+<p>➝ Başlatma sırasında alt tuşunu basılı tutun ve başlangıç yöneticisinde “EFI önyükleme” seçeneğini seçin.</p>
+<p>➝ Bir sonraki ekranda önyükleme seçenekleri menüsünü açmak için boşluk çubuğuna basın.</p>
+<p>➝ Kurtarma bölümünü seçin.</p>
+<p>➝ Orada Terminal programını açın.</p>
+<p>➝ Aşağıdaki komut satırını kopyala ve yapıştır kullanarak terminal penceresine yapıştırın:</p>
+<p><code>mount -uw /Volumes/Macintosh\ HD</code></p>
+<p>➝ Enter tuşuna basın.</p>
+<p>➝ Bu ikinci komut satırını ekleyin:</p>
+<p><code>bless --mount /Volumes/Macintosh\ HD --bootefi --last-sealed-snapshot</code></p>
+<p>➝ Enter tuşuna tekrar basın.</p>
+<p>➝ Sol üstteki Apple simgesine tıklayın ve alttaki “Yeniden Başlat”a tıklayın.</p>
+<p>Her iki komut satırını da girerken, <em>Macintosh\ HD</em> adını yamalı biriminizin adı ile değiştirin ve addaki her boşluğun önüne \ ters eğik çizgi karakterini ekleyin.</p>
+<p>Bu adımlardan sonra, OCLP&rsquo;yi güncelleyene kadar veya önyükleme sorunundan önce bunu zaten yaptıysanız, sorunu çözen yeni bir OCLP güncellemesi mevcut olana kadar kök yamaları yeniden yüklemeyi beklemelisiniz.</p>
+<p>6. Büyük sorunlar olması durumunda, yama yapılmamış önceki sistem sürümüne geçmek de mümkündür. Bunu yapmak için Time Machine&rsquo;i, kurtarma bölümünü veya önyüklenebilir bir yükleyiciyi kullanabilirsiniz. Bununla ilgili talimatları <a href="https://www.drbuho.com/how-to/downgrade-macos">burada</a> bulabilirsiniz. (Lütfen reklamları dikkate almayın). Time Machine için yamadan önce oluşturulmuş bir yedeği seçmeniz gerektiğini unutmayın. Ancak eski bir OCLP sistem yamasına geçmek mümkün değildir. Bunu yapmak için, Temiz Kurulum&rsquo;u kullanarak OCLP&rsquo;yi kullanarak istediğiniz eski sistem sürümünü yüklemelisiniz.</p>
+<h1 id="son">SON</h1>
+<p>Neyse ki OCLP yalnızca ücretsiz değil aynı zamanda son derece sürdürülebilirdir. Mac&rsquo;in daha uzun süre kullanılabilmesi nedeniyle program yalnızca donanım maliyetlerini ve elektronik atıkları azaltmakla kalmıyor, aynı zamanda kaynak tüketimini ve üretimden kaynaklanan emisyonları da azaltıyor.</p>
+<p>OCLP geliştiricilerinin sürekli kararlılığını desteklemek isterseniz, örneğin çok sayıda test bilgisayarı satın alarak veya yalnızca teşekkür etmek amacıyla bunu küçük bir bağışla geliştiricilerin <a href="https://opencollective.com/opencore-legacy-patcher">web sitesinden</a> yapabilirsiniz.</p>
+<p>OCLP gelişmeye devam ettikçe gelecekte bu talimatlardan sapmalar ortaya çıkabilir. Daha sonra yeni özellikleri <a href="https://github.com/dortania/OpenCore-Legacy-Patcher">OCLP web sitesinde</a> bulabilirsiniz. Ayrıca şu <a href="https://www.youtube.com/@Mr.Macintosh/videos">video koleksiyonunu</a> ve ilgili <a href="https://de.wikipedia.org/wiki/OpenCore_Legacy_Patcher">Wiki</a> sayfasına da göz atılmasını öneririm.</p>
+<p>MacOS Sonoma kurulumu ile ilgili örnek videoya aşağıdan ulaşabilirsiniz:
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/eGR2qGw9lG8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</p>
+<h2 id="kaynakça">Kaynakça:</h2>
+<p>Yazı sırasında kullandığım kaynaklar:</p>
+<ul>
+<li><a href="https://github.com/dortania/OpenCore-Legacy-Patcher">OpenCore Legacy Patcher Github</a></li>
+<li><a href="https://dortania.github.io/OpenCore-Legacy-Patcher">OpenCore Legacy Patcher Web Sayfası</a></li>
+<li><a href="https://macsofa.net/">Macsofa Forum</a></li>
+<li><a href="https://www.youtube.com/@Mr.Macintosh/videos">Mr.Macintosh Youtube Kanalı</a></li>
+<li><a href="https://khronokernel.github.io">Khronokernel Web Sayfası</a></li>
+<li>İlk Yayım: <a href="https://btt.community/t/eski-maclere-opencore-ile-desteklenmeyen-surumlerin-kurulumu/2140">BTT</a></li>
+</ul>
+]]></content:encoded></item></channel></rss>

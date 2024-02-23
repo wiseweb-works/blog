@@ -1,6 +1,1219 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Wise</title><link>https://wiseweb-works.github.io/blog/</link><description>Recent content on Wise</description><generator>Hugo -- gohugo.io</generator><language>tr</language><lastBuildDate>Tue, 11 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Crowdsec IPS/IDS Yazılımı</title><link>https://wiseweb-works.github.io/blog/post/crowdsec-anlatim/</link><pubDate>Tue, 11 Apr 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/crowdsec-anlatim/</guid><description>1. Crowdsec IPS/IDS Yazılımı Tanıtımı CrowdSec, siber tehditlere karşı gerçek zamanlı koruma sağlamak için kolektif bir zeka yaklaşımı kullanan Linux sunucuları için açık kaynaklı bir güvenlik çözümüdür. Bu blog gönderisinde, CrowdSec&amp;rsquo;in (v.1.4.6)1 özelliklerini, Linux sunucularınızı korumak için neden harika bir seçim olduğunun nedenlerini ve CrowdSec ile diğer IPS/IDS yazılımları arasındaki farkları ve benzerlikleri keşfedeceğiz.
-1.1 CrowdSec&amp;rsquo;in Özellikleri CrowdSec, onu Linux sunucuları için güçlü ve etkili bir güvenlik çözümü yapan çeşitli özellikler sunar.</description>
-<![CDATA[<h1 id="1-crowdsec-ipsids-yazılımı-tanıtımı">1. Crowdsec IPS/IDS Yazılımı Tanıtımı</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Wise</title><link>https://wiseweb-works.github.io/blog/</link><description>Recent content on Wise</description><generator>Hugo -- gohugo.io</generator><language>tr</language><lastBuildDate>Sat, 24 Feb 2024 00:17:41 +0100</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>FFmpeg ile video çevirmek için en uygun ayarı kolayca bulmak</title><link>https://wiseweb-works.github.io/blog/post/ffmpeg-abav1/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ffmpeg-abav1/</guid><description>Giriş Günümüzde video ve ses (genel olarak medya diyebiliriz) dosyalarını işlemek (kesme, yeniden boyutlandırma ve filtre uygulama) ve dönüştürmek için birçok araç bulunmaktadır. Ancak, bu araçlardan biri diğerlerinden daha çok öne çıkmakta ve belki de birçoğunun arka planında (Yusuf İpek Videosu) kullanılmaktadır. FFMPEG adlı bu araç/yazılım ücretsiz ve açık kaynaklı olup LGPL, GPL2 ve GPL3 (farklı kısım ve tarihler açısından kullanılan diğer lisanlar da mevcut) lisanları altında geliştirilmektedir.
+Lisansla ilgili orjinal dilinde açıklama:</description><content:encoded><![CDATA[<h1 id="giriş">Giriş</h1>
+<p>Günümüzde video ve ses (genel olarak medya diyebiliriz) dosyalarını işlemek (kesme, yeniden boyutlandırma ve filtre uygulama) ve dönüştürmek için birçok araç bulunmaktadır. Ancak, bu araçlardan biri diğerlerinden daha çok öne çıkmakta ve belki de birçoğunun arka planında (<a href="https://www.youtube.com/watch?v=clrVhDx_A-s">Yusuf İpek Videosu</a>) kullanılmaktadır. FFMPEG adlı bu araç/yazılım ücretsiz ve <a href="https://github.com/FFmpeg/FFmpeg">açık kaynaklı</a> olup LGPL, GPL2 ve GPL3 (farklı kısım ve tarihler açısından kullanılan diğer lisanlar da mevcut) lisanları altında geliştirilmektedir.</p>
+<p>Lisansla ilgili orjinal dilinde açıklama:</p>
+<blockquote>
+<p>Most files in FFmpeg are under the GNU Lesser General Public License version 2.1 or later (LGPL v2.1+). Read the file COPYING.LGPLv2.1 for details. Some other files have MIT/X11/BSD-style licenses. In combination the LGPL v2.1+ applies to FFmpeg.</p>
+</blockquote>
+<blockquote>
+<p>Some optional parts of FFmpeg are licensed under the GNU General Public License version 2 or later GPL v2+). See the file COPYING.GPLv2 for details. None of these parts are used by default, you have to explicitly pass &ndash;enable-gpl to configure to activate them. In this case, FFmpeg&rsquo;s license changes to GPL v2+.</p>
+</blockquote>
+<p>Bu rehberde sizlerle birlikte FFMPEG yazılımın kullanımından ve kendimiz için en uygun/optimize ayarı;</p>
+<ol>
+<li>Hız,</li>
+<li>Dosya Boyutu,</li>
+<li>Görüntü Kalitesi ve</li>
+<li>(Opsiyonel) Uyumluluk</li>
+</ol>
+<p>başlıklarını da dikkate alarak nasıl bulabileceğimizi anlatacağım.</p>
+<h2 id="teknik-açıklama-kısmı">Teknik açıklama kısmı</h2>
+<p>Sürecin tamamına hakim olmak veya arka planında neler olduğunu anlamak isteyenler için işin teknik kısmını açıklayarak başlayacağım. Bu kısmı isterseniz atlayıp direk yandan &ldquo;AB-AV1 Yazılımı&rdquo; ile ilgili başlığa tıklayabilirsiniz.</p>
+<h3 id="videoses-codecleri-nelerdir">Video/Ses Codecleri Nelerdir?</h3>
+<p><a href="https://ffmpeg.org/ffmpeg-codecs.html">Video/Ses codecleri</a> video ve ses dosyalarını sıkıştırmak ve/veya yeniden kodlamak için kullanılan algoritmalardır. Bu işlem (encode/decode) daha küçük dosya boyutları elde etmek ve iletim ile depolama sırasında bant genişliğini azaltmak için önemlidir. Eğer bir video/ses dosyasını sıkıştırmadan saklamak isteseydik ihtiyacımız olacak alan gerçekten çok fazla olurdu. Örnek olarak 1 dk&rsquo;lık 1080p 30fps bir video uncompress şekilde (<a href="https://dvsgroup.com/tools/BitRateCalculator.php">Kaynak</a>) yaklaşık 10,5 GB yer kaplamaktadır. Bu miktar 4K 10 bit HDR dünyasına giriş yaptığımızda 1 dk için 55,6 GB gibi aşırı uçuk bir rakama çıkmaktadır.</p>
+<p>Bu boyutların ne kadar büyük olduğunu şu örnek ile farkedebiliriz. 4K UHD Blu-ray bir diskin içerisine bu 1dk&rsquo;lık sıkıştırılmamış video yerine 3:30 Saat civarı süren <a href="https://www.imdb.com/title/tt1302006/">The Irishman Filmini</a> farklı dillerde seslendirme, altyazı ve ekstra içeriklerle sığdırabiliyorlar.</p>
+<h4 id="x264-h264-video-encoder">x264: H.264 Video Encoder</h4>
+<p>x264, H.264/MPEG-4 AVC (Advanced Video Codec) standardını uygulayan bir video encoder&rsquo;dır. Bu codec, yüksek kaliteli (zamanına göre) video sağlamak için optimize edilmiştir ve geniş bir cihaz yelpazesinde desteklenir. x264 çıktığı dönem için yüksek sıkıştırma oranları sağlayarak düşük bant genişliği kullanımı yani kaliteli videolara erişmemizi mümkün kıldı. Halen daha kullandığımız birçok elektronik cihaz tarafından gerek yazılımsal gerek de donanımsal boyutta destekleniyor. Fakat günümüzün yüksek kalite ve düşük dosya boyutu isteklerine uyum sağlamakta güçlük çekmektedir. Zamanına göre yüksek sıkıştırma ve yüksek kalite verdiği düşünülen sonuçları artık bazı çevrelerce yeterli görülmemektedir.</p>
+<h4 id="x265-h265hevc-video-encoder">x265: H.265/HEVC Video Encoder</h4>
+<p>x265, H.265/HEVC (High-Efficiency Video Coding) standardını uygulayan ve H264&rsquo;ün ardılı olan bir video encoder&rsquo;dır. x265, x264&rsquo;e kıyasla daha iyi sıkıştırma performansı sunar. Bu, daha düşük bant genişliği kullanımı ve aynı kalitede daha küçük dosya boyutları anlamına gelir. H265&rsquo;de kendinden önce gelen video codec&rsquo;i gibi birçok cihaz tarafından yazılımsal ve bazı cihazlar tarafından donanımsal hızlandırma ile kullanılabilmektedir. Her iki codec arasındaki sıkıştırma farkı aynı kalite için yaklaşık %25 ile %50 civarında farketmektedir.</p>
+<h4 id="av1-video-encoder">AV1 Video Encoder</h4>
+<p>Geleceğin standartlarından biri olması beklenen AV1 özellikle yüksek verimli video sağlamak için tasarlanmıştır. x264 ve x265&rsquo;e alternatif olarak geliştirilen AV1, özellikle diğerlerinin aksine açık kaynaklı ve tescilli olmayan bir codec olarak dikkat çeker. AV1, çok daha yüksek kalitede videoyu (her zaman için ana hedef bu olmuştur) sağlaması ve çok daha düşük bant genişliği kullanımıyla bilinir. Diğer codeclerle asıl ayrıldığı nokta da zaten gerçekten çok düşük bant genişliklerinde verdiği yüksek kaliteden kaynaklıdır. Canlı yayın yapan oyuncular için çok büyük gelecek vaadetmekte ve 3,5 MBps gibi bir değerde dahi güzel bir deneyim sunabilmektedir.</p>
+<h4 id="karşılaştırma-x264-x265-ve-av1">Karşılaştırma: x264, x265 ve AV1</h4>
+<ul>
+<li><strong>Sıkıştırma Oranları:</strong> x265 ve AV1, genellikle daha iyi sıkıştırma oranları sunar.</li>
+<li><strong>Performans:</strong> x264, genellikle düşük kaynak tüketimi (CPU/GPU) ve hızlı oynatma performansı ile bilinir; ancak x265 ve AV1, yüksek performans ve daha iyi sıkıştırma sağlayabilir.</li>
+<li><strong>Uyumluluk:</strong> AV1 diğerlerinin aksine henüz çok geniş bir cihaz desteğine (sıkıştırma ve oynatma açısından) ulaşamadı. En yüksek cihaz/oynatıcı uyumluluğunu arayanlar için x264 en iyi sonucu verecektir.</li>
+</ul>
+<h4 id="kısa-sonuç">Kısa Sonuç</h4>
+<p>Her video encoder, belirli senaryolarda daha iyi performans gösterir ve seçim, kullanım amaçlarına ve gereksinimlere bağlıdır. x264, x265 ve AV1, farklı avantajlara sahip olabilir ve FFmpeg, bu encoder&rsquo;ları kullanarak geniş bir video işleme yelpazesi sunar. Ben şahsen AV1&rsquo;in henüz ev kullanıcıları özelinde kullanılabilir bir seviyede olmaması nedeniyle H265&rsquo;i tercih ediyorum. Yazının geri kalanında da bunun üzerinden anlatımıma devam edeceğim.</p>
+<h3 id="preset-nedir">Preset Nedir?</h3>
+<p>FFmpeg&rsquo;deki presetler, bir video veya ses dosyasını belirli bir kalite ve boyutta kodlamak için kullanılan <a href="https://x265.readthedocs.io/en/stable/presets.html">önceden tanımlanmış ayarlardır</a> Bu ayarlar, codec tarafından kullanılan bir dizi parametre grubunu (komut) içerir ve genellikle kalite ile dosya boyutu arasındaki dengeyi sağlamak için tasarlanmıştır.</p>
+<p>Presetlerde daha hızlı bir kodlama süreci genellikle daha düşük kalite ile sonuçlanır, bu nedenle kullanıcılar ihtiyacına bağlı olarak farklı presetleri seçebilirler. X265 için tanımlanmış olan presetler aşağıdaki gibidir:</p>
+<ol>
+<li><code>ultrafast</code>: En hızlı kodlama, ancak düşük kalite.</li>
+<li><code>superfast</code>: ultrafast&rsquo;ten biraz daha yavaş, daha iyi kalite.</li>
+<li><code>veryfast</code>: Daha dengeli bir hız ve kalite.</li>
+<li><code>faster</code>: Daha yüksek kalite, biraz daha uzun süren kodlama.</li>
+<li><code>fast</code>: Standart ayar, genel kullanım için iyi bir denge.</li>
+<li><code>medium</code>: Kalite ve hız arasında bir denge.</li>
+<li><code>slow</code>: Daha iyi kalite, ancak daha uzun süren kodlama.</li>
+<li><code>slower</code>: slow&rsquo;dan daha yüksek kalite, daha uzun süre.</li>
+<li><code>veryslow</code>: En yüksek kalite, ancak en uzun kodlama süresi.</li>
+<li><code>placebo</code>: Adından da anlaşılacağı üzere çok önerilen (veya dikkate alınan) bir preset değil</li>
+</ol>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/ffmpeg-abav1/1.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/ffmpeg-abav1/1.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/ffmpeg-abav1/1.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>X265 Encoding</b></small></center>
+</picture></p>
+<p>Şahsen genelde veryfast veya slow presetlerini kullanıyorum. Farklı ihtiyaçlarıma bu ikisi (genelde) en iyi cevap veriyor. Fakat girdi olarak hangi videonun dikkate alınacağı ve her video özelinde verecekleri sonuç her zaman için aynı olmayabiliyor. Bknz: <a href="https://www.youtube.com/watch?v=mntswiXuvfI">Anime videolarının sıkıştırılmasındaki problemler</a></p>
+<h3 id="crfvbr-ve-cbr-nedir">CRF/VBR ve CBR Nedir?</h3>
+<p><strong>CRF (Constant Rate Factor)</strong>, bir video dosyasının kalitesini kontrol etmek için kullanılan bir parametredir. Bu yöntemde, belirli bir hedef kalite seviyesine ulaşılması için codec, bitrate&rsquo;i otomatik olarak ayarlar. Yani, kullanıcı belirli bir bitrate&rsquo;i elle belirtmez, sadece kalite seviyesini seçer. Daha düşük bir CRF değeri, daha yüksek bir kalite anlamına gelir, ancak dosya boyutu artar.</p>
+<p><strong>CBR (Constant Bitrate)</strong>, videonun belirli bir sabit bitrate ile kodlanmasını sağlar. Bu, dosya boyutunu önceden belirlemenizi sağlar, ancak kalite değişkenlik gösterebilir. CBR, özellikle belirli bir bant genişliği sınırlaması varsa veya bir iletim ortamı belirli bir bitrate&rsquo;i destekliyorsa kullanışlıdır. Her saniye için harcanacak değer belirli olduğundan hareketli ve sabit sahneler arasında belirgin bir kalite farkı oluşacaktır. Bunu kendinize daha önce &ldquo;Neden konfeti atıldığında videonun kalitesi bozuluyor?&rdquo; diyerek sormuş olabilirsiniz. Eğer sormadıysanız da <a href="https://www.youtube.com/watch?v=r6Rp-uo6HmI">Tom Scott&rsquo;un</a> bununla ilgili eğitici bir videosu bulunuyor.</p>
+<p><strong>VBR (Variable Bitrate)</strong>, videonun her bir çerçevesi için farklı bit oranlarını kullanarak kodlanmasını sağlar. Bu, sahnede daha fazla ayrıntı olduğunda daha yüksek bir bitrate sağlayarak kaliteyi artırabilir. Ancak, dosya boyutu daha değişken olacaktır. Bu ayar aslında CRF ile aynı olarak düşünülebilir. Fakat farklı mecralarda ayrı ayrı ve bazen de birlikte anılmaları nedeniyle ekstradan açıklama gereği duydum.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/ffmpeg-abav1/2.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/ffmpeg-abav1/2.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/ffmpeg-abav1/2.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>CRF-VMAF</b></small></center>
+</picture></p>
+<p>Şahsi olarak bazen 22 bazen de 24 olan CRF değerini kullanıyorum. Eğer biraz daha hızlı bir şekilde sonuçlandırmak istiyorsam 26 veya 28&rsquo;i de kullanabiliyorum. CRF değerleri 1-1 artmamaktadır. İsterseniz 22,03 gibi bir ayar dahi kullanabilirsiniz. Ama bu derece ince ayarın pek mantığı olmayacaktır. Genel kullanımda 2&rsquo;şer adım farklarla değişiklikler yapılmaktadır.</p>
+<h3 id="profil-türü-ve-seviyeleri-nelerdir">Profil Türü ve Seviyeleri Nelerdir?</h3>
+<p>Video kodlamada profil, bir codec&rsquo;in belirli bir uygulama senaryosu (film, video, animasyon ve resim gösterisi :smiley: ) için optimize edilmiş ayarları içeren bir grup parametreyi tanımlar. Her profil, belirli bir kullanım durumu veya cihaz için uygun olan farklı sıkıştırma ve kalite ayarlarına sahiptir.</p>
+<p>Profile seviyeleri ise bir codec tarafından desteklenen en yüksek çözünürlük, en yüksek bit hızı ve diğer teknik özellikleri belirleyen bir dizi sınırlamadır. Belirli bir seviye, belirli bir profil ile birleşerek bir codec&rsquo;in kapasitesini tanımlar.</p>
+<p>x265 için öntanımlı profiller olarak <code>auto, main, main10, main448, main448-intra, high</code> ve <code>mainstillpicture</code> gibi profilleri sayılabilir. Her profil, belirli bir uygulama senaryosuna yönelik optimize edilmiş ayarlar içerir. Bunlarla ilgili ayrıntılı teknik bilgi için <a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding_tiers_and_levels">Wiki sayfasına</a> göz atabilirsiniz. Ben aksine bir gereklilik olmadıkça main profili ve 5.1 seviyesini kullanıyorum.</p>
+<h3 id="vmaf-nedir-ve-neden-kullanıyoruz">VMAF Nedir ve Neden Kullanıyoruz?</h3>
+<p>VMAF, Netflix tarafından <a href="https://github.com/Netflix/vmaf">geliştirilen</a> ve 2014 yılında ortaya çıkan bir video kalite metriğidir. Bu metrik, izleyici deneyimini daha iyi anlamak ve video içeriğinin kalitesini değerlendirmek için tasarlanmıştır. Eğer Netflix&rsquo;in güzel içeriklerinin yüksek görüntü kalitesine aşina iseniz ve bu sizi tatmin ediyorsa o zaman görüntü kalitesi ölçütü olarak VMAF&rsquo;ya da güvenebilirsiniz.</p>
+<p>FFmpeg ise bu metriği kullanarak video kodlama ayarlarını optimize etme konusunda bize yardımcı olur. Belirli bir kalite aşıldıktan sonra insan gözüyle daha iyi/kötü ayrımı yapmamız veya bunu saatlerce süren bir video özelinde aynı özenle devam ettirmemiz mümkün değil. Rehberin önceki kısımlarında paylaştığım sıkıştırma teknolojileri yanlış veya bilinçsiz kullanımda izleyici deneyimini önemli ölçüde etkilemektedir. Bu bağlamda, Video Multimodal Assessment Fusion (VMAF) gibi teknolojiler (SSIM veya PSNR), video kalitesini artırmak ve daha verimli bir sıkıştırmayı tercih etmemiz konusunda bize yardımcı olmaktadır. Kaldı ki her zaman için daha yüksek dosya boyutu daha çok kalite anlamına gelmeyecektir. Bu nedenle kalitenin matematiksel ölçümünde VMAF ölçütünü kullanıyoruz.</p>
+<p>VMAF değeri 0-100 aralığında bir değer olup orjinal video ile dönüştürülmüş (kendileri bozulmuş da der aslında) video arasındaki benzerliği göstermektedir. 90 ve üzeri bir değeri neredeyse aynı kalite (bizi rahatsız etmeyecek kadar) olarak kabul etmemiz mümkün iken 95 ve üstünü artık en dikaktli gözlerin dahi farkedemeyeceği şekilde aynı olarak düşünebiliriz.</p>
+<p>Şahsi olarak min 90 değerini tutturabildiğim zaman video çevirimini başarılı olarak değerlendiriyorum.</p>
+<h2 id="otomatikleştirilmiş-hali-ab-av1-yazılımı">Otomatikleştirilmiş hali: AB-AV1 yazılımı</h2>
+<p>AB-AV1 gönüllüler tarafından MIT lisansı altında geliştirilen ve <a href="https://github.com/alexheretic/ab-av1">açık kaynaklı</a> bir yazılımdır. Yazılımın odaklandığı ve çözmek istediği sorun video dönüştürürken ve ffmpeg yazılımını kullanırken teknik bilgilerle çok boğuşmadan istediğimiz sonuca bizi ulaştıracak değer veya değerleri hızlı bir şekilde elde etmektir. Yazılım rehberin paylaşıldığı tarih itibariyle şu yöntemi izlemektedir. Öncelik her 12 dk&rsquo;lık video kısmı için bir örnek kısım alıyor. Bu örnek kısım/lar video çok kısa olmadığı sürece 20&rsquo;şer sn&rsquo;ye kadar çıkabilmektedir. Sonrasında bu örnek videoları farklı CRF ve Preset değerleri ile kombine edip ortaya çıkan sonuçların VMAF değerlerini de hesaplıyor. Bunu yaparken de kaba kuvvet saldırısı yapar gibi 1 den başlayıp 50 ye doğru gitmiyor. Her iki ayar içinde ortadan başlayıp (CRF 25, preset medium gibi) uçlara doğru giden bir yol izliyor. Eğer istenilen şartlara uyan 4-5 adet sonuç bulur ise aramayı durduruyor bu da çok hızlı bir şekilde sonuca ulaşmamızı sağlıyor.</p>
+<p>Bu yazılımı bulmadan önce kendim tüm 20-30 arasındaki tüm CRF değerleri ve tüm presetler için topluca komut çalıştırıp sonra gene elle hepsinin VMAF değerlerine bakıyor, bir excel tablosu yapıyordum. Bu da gerçekten çok uzun süren ve teknik bilgi olmadan yapılması kolay olmayan bir yola götürüyordu beni. İlgili eski çalışmalarımdan birkaç ekran görüntüsünü sizlerle paylaşmak istiyorum ki ne büyük bir dertten kurtulduğum daha ne anlaşılsın.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/ffmpeg-abav1/3.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>1</b></small></center>
+</picture></td>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/ffmpeg-abav1/4.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>2</b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
+<p>İki adet test videosu ile yapmış olduğum bu testler yaklaşık 1 gün sürmüştü. Ben cihazı kullanırken arka planda sistem de bu testleri yapıyordu.</p>
+<h3 id="yazılımın-indirilmesi-veveya-kurulması">Yazılımın indirilmesi ve/veya kurulması</h3>
+<p>Yazılım Linux ve Windows işletim sistemlerini desteklemektedir. Windows için exe uzantılı dosyayı indirip kullanabilirsiniz. Arch Linux kullanıyorsanız <a href="https://aur.archlinux.org/packages/ab-av1">Aur&rsquo;da</a> paketi mevcut. Diğer linux dağıtımı kullanıcıları ise binary dosyası olarak indirebilir veya kendisi derleyebilir. Yükleme ile ilgili <a href="https://github.com/alexheretic/ab-av1?tab=readme-ov-file#install">talimatlara</a> Github sayfasından ulaşabilirsiniz.</p>
+<h3 id="yazılımın-ayarları">Yazılımın ayarları</h3>
+<p>Yazılımı kurduktan sonra <code>ab-av1 -h</code> komutu ile yardım kısmına veya ayrıntılı bilgiye ulaşabilirsiniz. Sizi yaklaşık olarak şöyle bir ekran karşılayacaktır.</p>
+<pre tabindex="0"><code>AV1 encoding with fast VMAF sampling
+
+Usage: ab-av1 &lt;COMMAND&gt;
+
+Commands:
+  sample-encode      Encode &amp; analyse input samples to predict how a full encode would go.
+                         This is much quicker than a full encode/vmaf run.
+  vmaf               Full VMAF score calculation, distorted file vs reference file.
+                         Works with videos and images.
+  encode             Invoke ffmpeg to encode a video or image
+  crf-search         Interpolated binary search using sample-encode to find the best crf
+                         value delivering min-vmaf &amp; max-encoded-percent.
+  auto-encode        Automatically determine the best crf to deliver the min-vmaf and use it to encode a video
+                         or image.
+  print-completions  Print shell completions
+  help               Print this message or the help of the given subcommand(s)
+
+Options:
+  -h, --help     Print help
+  -V, --version  Print version
+</code></pre><p>En basit kullanım senaryosu olarak aşağıdaki gibi yapabilirsiniz:</p>
+<pre tabindex="0"><code>ab-av1 crf-search --encoder libx265 -i dosyanız.uzantısı
+</code></pre><p>bu şekilde yazılımın öntanımlı olarak dikkate aldığı değer aralıklarında ve x265 için uygun olacak sonuçları size verecektir. Biraz ince ayar yapmak isterseniz eğer istediğiniz kalite miktarını VMAF değeri olarak aşağıdaki gibi belirtebilirsiniz:</p>
+<pre tabindex="0"><code>ab-av1 crf-search --encoder libx265 --min-vmaf 95 -i dosyanız.uzantısı (veya 90 artık size kalmış)
+</code></pre><p>Ben nasıl kullanıyorum diye soracak olursanız eğer:</p>
+<pre tabindex="0"><code>ab-av1 crf-search --encoder libx265 --min-vmaf 90 --min-crf 20 --max-crf 30 --crf-increment 2 --preset veryfast --enc x265-params=level=5.1:high-tier=1 -i dosyanız.uzantısı
+</code></pre><p>Örnek olarak çok bilinen bir video olan <a href="https://mango.blender.org/download/">Tears of Steel</a> üzerinde bir deneme yapmak gerekirse eğer:</p>
+<pre tabindex="0"><code>- crf 25 VMAF 94.40 (33%) (cache)
+- crf 27 VMAF 92.30 (26%) (cache)
+- crf 30 VMAF 87.55 (17%) (cache)
+- crf 28 VMAF 90.94 (22%) (cache)
+- crf 29 VMAF 89.36 (20%) (cache)
+00:00:00 ################################################(sampling crf 29, eta 0s)
+Encode with: ab-av1 encode -e libx265 -i tears_of_steel_1080p.mov --crf 28 --preset veryfast --enc x265-params=level=5.1:high-tier=1
+
+crf 28 VMAF 90.94 predicted video stream size 124.37 MiB (22%) taking 18 minutes
+</code></pre><p>çıktısını verecektir. Ben daha önce denemek için kullandığımdan bende cache&rsquo;den verileri hemen getirdi.</p>
+<p>Bize önerdiği ayar <strong>CRF: 28 Preset: Veryfast</strong> şeklinde olup tahmini olarak çevirinin 18 dk süreceğini ve sonuç dosya boyutunun %22&rsquo;si kadar olacağını (neredeyse 5&rsquo;te bir) öngörüyor. Özellikle öngörüyor dememim sebebi videonun tamamı özelinde bir kontrol değil de aldığı örnekler özelinde bir tahmin yürütttüğü için ufak da olsa bir hata payı mümkün. Bu bilgileri aldıktan sonra ister ffmpeg üzerinden siz ilgili komutları yazıp çeviriye başlayabilirsiniz ister de size verdiği ve <code>Encode with: ab-av1 ....</code> diye başlayan komutu direk yapıştırarak aynı araç içerisinden çeviriyi de yapabilirsiniz. Yani size komutu dahi veriyor :D</p>
+<h3 id="gerçek-dünya-testleri">Gerçek dünya testleri</h3>
+<p>Evdeki hesap her zaman pazara uymadığı için ve bunca yazının da gerçekten işe yarayıp yaramadığından emin olmak için test etmek iyi olacaktır. Videonun &ldquo;Full Movie – First version (HD rendered) - HD 1080p (mov)&rdquo; olan versiyonunu indirdim. İlgili video 12dk 14sn uzunluğunda ve 557M (583774083) boyutunda olup çeviri işlemi ffmpeg ile yapıldığında aşağıdaki:</p>
+<pre tabindex="0"><code>x265 [info]: HEVC encoder version 3.5
+x265 [info]: build info [Linux][GCC 11.2.0][64 bit] 8bit+10bit+12bit
+x265 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+x265 [warning]: Specifying a decoder level with constant rate factor rate-control requires
+x265 [warning]: enabling VBV with vbv-bufsize=160000kb vbv-maxrate=160000kbps. VBV outputs are non-deterministic!
+x265 [info]: Main profile, Level-5.1 (High tier)
+x265 [info]: Thread pool created using 4 threads
+x265 [info]: Slices                              : 1
+x265 [info]: frame threads / pool features       : 2 / wpp(13 rows)
+x265 [info]: Coding QT: max CU size, min CU size : 64 / 8
+x265 [info]: Residual QT: max TU size, max depth : 32 / 1 inter / 1 intra
+x265 [info]: ME / range / subpel / merge         : hex / 57 / 1 / 2
+x265 [info]: Keyframe min / max / scenecut / bias  : 24 / 250 / 40 / 5.00 
+x265 [info]: Lookahead / bframes / badapt        : 15 / 4 / 0
+x265 [info]: b-pyramid / weightp / weightb       : 1 / 1 / 0
+x265 [info]: References / ref-limit  cu / depth  : 2 / on / on
+x265 [info]: AQ: mode / str / qg-size / cu-tree  : 2 / 1.0 / 32 / 1
+x265 [info]: Rate Control / qCompress            : CRF-28.0 / 0.60
+x265 [info]: VBV/HRD buffer / max-rate / init    : 160000 / 160000 / 0.900
+x265 [info]: tools: rd=2 psy-rd=2.00 early-skip rskip mode=1 signhide tmvp
+x265 [info]: tools: fast-intra strong-intra-smoothing lslices=5 deblock sao
+frame=17620 fps= 22 q=32.8 Lsize=  124521kB time=00:12:14.07 bitrate=1389.6kbits/s speed=0.909x    
+x265 [info]: frame I:    172, Avg QP:26.60  kb/s: 9754.63 
+x265 [info]: frame P:   3528, Avg QP:28.30  kb/s: 3513.82 
+x265 [info]: frame B:  13920, Avg QP:34.37  kb/s: 577.41  
+x265 [info]: Weighted P-Frames: Y:4.1% UV:2.5%
+x265 [info]: consecutive B-frames: 4.8% 0.6% 0.8% 1.0% 92.8% 
+
+encoded 17620 frames in **807.69s (21.82 fps)**, 1254.95 kb/s, Avg QP:33.08
+</code></pre><p>çıktıyı verdi ve neticeten benim cihazımda (CPU i5-7300U) yaklaşık (807sn) 13,5 dk sürdü. Sonuç dosya boyutu ise 122 M (127509197) oldu. Ardından FFMPEG ile bu sefer de VMAF değerini hesaplatmak ve tüm sonuçları bir araya getirip değerlendirmek istedim. VMAF değerini hesaplamak için aşağıdaki komutu kullandım.</p>
+<pre tabindex="0"><code>ffmpeg -i output.mkv -i tears_of_steel_1080p.mov -lavfi libvmaf -f null –
+</code></pre><p>ve bana sonuç olarak aşağıdaki çıktıyı verdi:</p>
+<pre tabindex="0"><code>[out#0/null @ 0x558d1bc41180] video:8259kB audio:126464kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+frame=17620 fps= 12 q=-0.0 Lsize=N/A time=00:12:14.16 bitrate=N/A speed=0.492x    
+[Parsed_libvmaf_0 @ 0x558d1a9b2880] **VMAF score: 91.112250**
+</code></pre><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Orjinal Dosya</th>
+<th>AB-AV1 in Vaadi</th>
+<th>Gerçek Dünya Testi</th>
+<th>Fark</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VMAF</td>
+<td>% 100</td>
+<td>% 90,94</td>
+<td>% 91.11</td>
+<td>%+ 0,17</td>
+</tr>
+<tr>
+<td>Dosya Boyutu</td>
+<td>557 MB</td>
+<td>124,37 MB (%22)</td>
+<td>122 MB (%21.84)</td>
+<td>2,4 MB %-1,94</td>
+</tr>
+<tr>
+<td>Uzunluk/Çevirirken geçen süre</td>
+<td>12dk 14sn</td>
+<td>18 dk</td>
+<td>13dk  27 sn</td>
+<td>4 dk 33 sn %-25,28</td>
+</tr>
+</tbody>
+</table>
+<p>Sonuç olarak hepsini bir araya getirdiğimizde gerçekten iç açıcı ve vaat edilenden daha iyi sonuçlar elde etmiş olduk. Bütün bu süreçler devam ederken PC&rsquo;yi kullanmaya ve bu yazıyı yazmaya devam ettiğim de düşünülürse çok güzel sonuçlar verdiğini söyleyebiliriz.</p>
+<h2 id="anlatım-dışı-bırakılan-kısımlar">Anlatım dışı bırakılan kısımlar</h2>
+<p>Bu rehberde ses dosyalarının yeniden sıkıştırılması veya dönüştürülmesi konusuna hiç girmedim. Eğer böyle bir istek gelir ise bu kısma ekleme yapabilirim. Fakat 192 kb/s gibi bir bitrate bile kullansanız sonuç dosyayı çok farkettirmeyeceği için bu nedenle dikkate almadım. Odyofil olarak da adlandırılan kişilerden biri iseniz ve 5.1 veya 7.1 bir ses sistemine sahipseniz eğer işte o zaman bu kısım bir anlam ifade edebilir. Onun haricinde ses dosyalarını direk olduğu gibi alabilirsiniz ki ek bir ayar yapmazsanız zaten böyle olmaktadır.</p>
+<h1 id="son-söz-ve-kaynakça">Son Söz ve Kaynakça</h1>
+<p>Artık siz de profesyoneller gibi neredeyse hiç kalite kaybı yaşamadan videolarınızı sıkıştırabilir ve alandan tasarruf edebilirsiniz. Elinizdeki Blu-ray ve UltraHD Blu-ray&rsquo;leri daha az yer kaplayacak şekilde hard diskinize kaydetmek veya Plex gibi bir ev sinema sistemi kurmak istiyorsanız artık bunu gönül rahatlığı ile yapabilirsiniz. Bir sonraki rehbere kadar iyi seyirler ve esenlikler dileğiyle.</p>
+<p>Kaynaklar:</p>
+<ul>
+<li><a href="https://github.com/FFmpeg/FFmpeg">https://github.com/FFmpeg/FFmpeg</a></li>
+<li><a href="https://ffmpeg.org/ffmpeg-codecs.html">https://ffmpeg.org/ffmpeg-codecs.html</a></li>
+<li><a href="https://dvsgroup.com/tools/BitRateCalculator.php">https://dvsgroup.com/tools/BitRateCalculator.php</a></li>
+<li><a href="https://www.imdb.com/title/tt1302006/">https://www.imdb.com/title/tt1302006/</a></li>
+<li><a href="https://x265.readthedocs.io/en/stable/presets.html">https://x265.readthedocs.io/en/stable/presets.html</a></li>
+<li><a href="https://streaminglearningcenter.com">https://streaminglearningcenter.com</a> (Grafik)</li>
+<li><a href="https://goughlui.com">https://goughlui.com</a> (Grafik)</li>
+<li><a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding_tiers_and_levels">https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding_tiers_and_levels</a></li>
+<li><a href="https://github.com/Netflix/vmaf">https://github.com/Netflix/vmaf</a></li>
+<li><a href="https://github.com/alexheretic/ab-av1">https://github.com/alexheretic/ab-av1</a></li>
+<li><a href="https://aur.archlinux.org/packages/ab-av1">https://aur.archlinux.org/packages/ab-av1</a></li>
+<li><a href="https://github.com/alexheretic/ab-av1">https://github.com/alexheretic/ab-av1</a></li>
+<li><a href="https://mango.blender.org/">https://mango.blender.org/</a></li>
+<li><a href="https://ottverse.com/analysis-of-svt-av1-presets-and-crf-values/">https://ottverse.com/analysis-of-svt-av1-presets-and-crf-values/</a></li>
+<li><a href="https://superuser.com/questions/1556953/why-does-preset-veryfast-in-ffmpeg-generate-the-most-compressed-file-compared">https://superuser.com/questions/1556953/why-does-preset-veryfast-in-ffmpeg-generate-the-most-compressed-file-compared</a></li>
+<li><a href="https://codecalamity.com/encoding-uhd-4k-hdr10-videos-with-ffmpeg/">https://codecalamity.com/encoding-uhd-4k-hdr10-videos-with-ffmpeg/</a></li>
+<li>İlk Yayım: <a href="https://btt.community/t/ffmpeg-ile-video-cevirmek-icin-en-uygun-ayari-kolayca-bulmak/4443">BTT</a></li>
+</ul>
+]]></content:encoded></item><item><title>Eski Maclere OpenCore ile Desteklenmeyen Sürümlerin Kurulumu</title><link>https://wiseweb-works.github.io/blog/post/opencore-legacy-eski-macbook/</link><pubDate>Sun, 08 Oct 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/opencore-legacy-eski-macbook/</guid><description>OpenCore Legacy Mac Yama Aracı OpenCore Logosu Rehber son güncellenme: 08.10.2023 (Sonoma desteği dahil)
+Bu rehber, OpenCore Legacy Patcher (bundan sonra OCLP olarak anılacaktır) programını kullanma konusunda size yol gösterecektir. Geliştirici katkıları ve kullanıcı raporlarının yanı sıra kişisel deneyimlerdeki araştırmalara dayanmaktadır. OCLP kullanılarak macOS 14 Sonoma ilginç bir şekilde 12 yıllık bir Mac&amp;rsquo;e başarıyla yüklendi. Söz konusu Mac, desteği 2017&amp;rsquo;de macOS 10.13 High Sierra ile sonlanan 2011 ortası iMac 27 inçtir.</description><content:encoded><![CDATA[<h1 id="opencore-legacy-mac-yama-aracı">OpenCore Legacy Mac Yama Aracı</h1>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/1.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>OpenCore Logosu</b></small></center>
+</picture>
+<strong>Rehber son güncellenme: 08.10.2023 (Sonoma desteği dahil)</strong></p>
+<p>Bu rehber, OpenCore Legacy Patcher (bundan sonra OCLP olarak anılacaktır) programını kullanma konusunda size yol gösterecektir. Geliştirici katkıları ve kullanıcı raporlarının yanı sıra kişisel deneyimlerdeki araştırmalara dayanmaktadır. OCLP kullanılarak macOS 14 Sonoma ilginç bir şekilde 12 yıllık bir Mac&rsquo;e başarıyla yüklendi. Söz konusu Mac, desteği 2017&rsquo;de macOS 10.13 High Sierra ile sonlanan <a href="https://support.apple.com/kb/SP689?locale=en_US&viewlocale=en_US">2011 ortası iMac</a> 27 inçtir.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/2.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Kaynak: macsofa.net</b></small></center>
+</picture></p>
+<h2 id="oclp-ne-yapabilir">OCLP ne yapabilir?</h2>
+<p>OCLP 2021 yılında ilk defa geliştirilmeye başlanmış olup bu programın yardımıyla, 2006&rsquo;dan itibaren artık Apple tarafından desteklenmeyen eski Mac&rsquo;lere (an itibariyle 83 tane cihaz) Apple’ın sunduğu daha yeni işletim sistemi versiyonlarını yükleyebilirsiniz. Bunlar <a href="https://support.apple.com/tr-tr/HT211238">macOS 11 Big Sur</a>, <a href="https://support.apple.com/tr-tr/HT212551">macOS 12 Monterey</a>, <a href="https://support.apple.com/tr-tr/HT213264">macOS 13 Ventura</a>, <a href="https://www.apple.com/tr/macos/sonoma/">macOS 14 Sonoma</a> ve <a href="https://semver.org/lang/tr/">semantik sürüm numaralandırması sistemine göre</a> alt sürüm güncellemeleridir. Kural olarak, başarıyla OCLP ile yamalanmış bir sistem ile yerel olarak çalışan (yani Apple’ın resmi olarak desteklediği) bir sistem arasında herhangi bir fark görmezsiniz.</p>
+<p>OCLP web sitesine <a href="https://dortania.github.io/OpenCore-Legacy-Patcher">buradan</a> ulaşabilirsiniz ve rehber süresince ihtiyacımız olan programı <a href="https://github.com/dortania/OpenCore-Legacy-Patcher">bu web sitesinden</a> ücretsiz olarak indirebilirsiniz. Yeni sistemi Mac&rsquo;inizin dahili sabit sürücüsüne veya harici bir sabit sürücüye kurabilirsiniz.</p>
+<h2 id="oclp-nasıl-çalışır">OCLP nasıl çalışır?</h2>
+<p>Basitçe açıklamak gerekirse, OCLP değiştirilmiş bir önyükleme bölümü oluşturur ve Mac&rsquo;i sisteme karşı simule ederek (desteklenen bir Mac&rsquo;miş gibi davranarak) sistemin başlatılmasını sağlar. OCLP kendi işletim sistemini değil, orijinal macOS&rsquo;u başlatır. Bu amaçla OCLP, macOS önyükleyicisine açık kaynaklı bir alternatif olan OpenCore önyükleyicisini kullanır. Eğer Hackintosh/Ryzentosh terimlerini daha önce duyduysanız OpenCore önyükleyicisine aşinasınızdır.</p>
+<p>Bunu yapmak için OCLP, OpenCore yapılandırmasındaki belirli bileşenleri değiştirir ve karşılık gelen bir yapılandırma dosyası (OpenCore config) oluşturur. Değiştirilen bileşenler RAM&rsquo;deki bir referans dosyasında saklanır. İlgili bir config dosyası kullanılarak bu referans dosyası, Mac&rsquo;in her başlatılışında oluşturulur.</p>
+<p>İlgili bileşenlere erişmek için bu referanslardan bazıları kök ayrıcalıklarına (root yetkisine) ihtiyaç duyar. Bu nedenle yazının ilerleyen safalarında belirtilen kök yaması (root patch), bileşenler veya donanım değiştiğinde referans dosyasını yeniler. Bu, gerekli bileşenlerin doğru şekilde adreslemesini ve sistemin hatasız çalışmasını sağlar.</p>
+<p>Tüm bu işlemler yama yapıldıktan sonra arka planda otomatik olarak çalışır.</p>
+<h2 id="oclpyi-kim-geliştirir">OCLP&rsquo;yi kim geliştirir?</h2>
+<p>OCLP, Hackintosh topluluğundan bir grup özel programcı olan <a href="https://github.com/dortania">Dortania</a> tarafından geliştirilmekte ve <a href="https://khronokernel.github.io/about-me">Mykola Grymalyuk</a> yani Khronokernel tarafından yönetilmektedir.</p>
+<p>Amaçları erken eskime veya <a href="https://tr.wikipedia.org/wiki/Planl%C4%B1_eskime">planlı eskitme</a> yerine eski Mac&rsquo;lerin mümkün olduğu kadar uzun süre kullanılabilmesini sağlamaktır. Yamalı yeni sistem sayesinde veri güvenliği ve programlar güncel tutulmaya devam edilebilmektedir.</p>
+<p>Bu sürdürülebilirliğin yanı sıra OCLP&rsquo;nin güvenilirliği de geliştiriciler için önemlidir, bu nedenle kaynak kodu Github üzerinden kullanıcılara açıktır. Buna göre programda tespit edilecek güvenlik açıkları topluluk kullanıcıları tarafından hemen fark edilebilecek ve gerekli düzeltmeler yine kullanıcılar/proje yöneticileri tarafından yayımlanacaktır. Fakat şimdiye kadar o ölçekte büyük bir açık söz konusu olmamıştır.</p>
+<p>OCLP&rsquo;nin teknolojik kökleri <a href="https://www.youtube.com/@dosdude1/videos">Collin Mistr&rsquo;a</a> dayanmaktadır. Yama aracı macOS 10.12 Sierra&rsquo;nın yüklenmesine olanak tanıyan <a href="https://dosdude1.com/software.html">dosdude1</a> adlı projesi temel alınarak geliştirildi.</p>
+<h2 id="oclp-karmaşık-mı">OCLP karmaşık mı?</h2>
+<p>OCLP&rsquo;yi kullanmak bu talimatlarda göründüğünden çok daha az karmaşıktır. Olası sorunları önlemek için rehberin uzun versiyonunu okumanızı öneririm. Burada açıklanan adımları takip ettiğiniz takdirde, derinlemesine teknik bilgiye sahip olmayan bir kullanıcı bile başarılı olacaktır. Daha kolay yönlendirme için kısa ve uzun versiyonların yapısı aynıdır.</p>
+<h3 id="kisa-versiyon">KISA VERSİYON</h3>
+<p>Aşağıdaki süreç macOS 11 Big Sur, macOS 12 Monterey ve macOS 13 Ventura sistemlerine yama uygulanması için geçerlidir. MacOS 14 Sonoma&rsquo;ya yama uygulanması uzun versiyonun IV. Bölümünde anlatılmaktadır.</p>
+<h4 id="i-araştirma">I. ARAŞTIRMA</h4>
+<p>Mac&rsquo;inizin OCLP ile uyumluluğunu <a href="https://dortania.github.io/OpenCore-Legacy-Patcher/MODELS.html">buradan</a> kontrol edin. Ayrıca oradaki cihaz listesinin yorum sütununda yer alan kısıtlamalara ve önerilere de dikkat edin.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/3.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/3.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/3.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Destek</b></small></center>
+</picture></p>
+<h4 id="ii-veri-güvenliği">II. VERİ GÜVENLİĞİ</h4>
+<p>Daha sonra oluşabilecek sistem veya program sorunlarına karşı önerim en az iki güncel yedek bulunmalıdır. Biri Time Machine yöntemi kullanılarak alınacak olan yedek olup diğeri ise dosyalarınızın harici bir hard diske sürükle bırak yöntemi ile yedeklenmesi şeklindedir.</p>
+<h4 id="iii-gereklilikler">III. GEREKLİLİKLER</h4>
+<p>İstediğiniz sistemin yükleyicisine, yani <a href="https://github.com/dortania/OpenCore-Legacy-Patcher/releases/latest">güncel OCLP sürümüne</a> ihtiyacınız var. OCLP destekli bir Mac, fare, klavye, en az 16 GB belleğe sahip bir yardımcı sürücü (usb disk yeterlidir) veya harici sabit disk, gerekirse yeni sisteminizin hedef sürücüsü olmalıdır. Tüm cihazları USB üzerinden bağlamanız gerekir. Güvenli tarafta olmak için, güç kaynağını kullanarak dizüstü bilgisayar çalıştırmalısınız.</p>
+<h4 id="iv-kurulum">IV. KURULUM</h4>
+<p>Aşağıdaki bölümlerde yeni sistemin kurulumu adım adım anlatılmaktadır.</p>
+<p>1. Yardımcı cihazın hazırlanması
+
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/4.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Disk İzlencesi</b></small></center>
+</picture></p>
+<p>➝ Yardımcı cihazı (örn. USB çubuğu) Mac&rsquo;e bağlayın.</p>
+<p>➝ Disk İzlencesi Programını açın.</p>
+<p>➝ “Görüntüle”ye ve ardından “Tüm cihazları göster”e tıklayın.</p>
+<p>➝ Yardımcı cihaz simgesini seçin; simgesi sola hizalanmıştır.
+
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/5.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Usb Formatlama</b></small></center>
+</picture></p>
+<p>➝ “Sil”e tıklayın.</p>
+<p>➝ İsim aynı kalabilir.</p>
+<p>➝ Format olarak “Mac OS Genişletilmiş (Günlüklü)” seçeneğini seçin.</p>
+<p>➝ Şema olarak “GUID Bölümleme Tablosu”nu seçin.</p>
+<p>➝ “Sil”e tıklayın; komut tüm verileri siler.</p>
+<p>➝ “Bitti”ye tıklayın.</p>
+<p>2. Sistem kurucunun yardımcı cihaza kurulması</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/6.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/6.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/6.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>OCLP 1.0.1</b></small></center>
+</picture></p>
+<p>➝ “MacOS Yükleyici Oluştur”a tıklayın.</p>
+<p>➝ “MacOS Installer&rsquo;ı İndir” seçeneğine tıklayın.</p>
+<p>➝ macOS&rsquo;u seçin.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/7.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/7.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/7.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>1</b></small></center>
+</picture></td>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/8.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/8.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/8.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>2</b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
+<p>➝ İndirdikten sonra otomatik doğrulamayı bekleyin.</p>
+<p>➝ Yönetici şifresini girin.</p>
+<p>➝ “MacOS Yükleyici Oluşturulsun mu?” penceresinde “Evet”e tıklayın.</p>
+<p>➝ “Yerel macOS Yükleyiciyi Seç” penceresinde yükleyiciyi seçin.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/9.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/9.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/9.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>3</b></small></center>
+</picture></p>
+<p>➝ Yardımcı sürücüyü seçin (Mac&rsquo;inizin dahili HD&rsquo;si olarak disk0&rsquo;ı değil).</p>
+<p>➝ “Onay” penceresinde “Evet”e tıklayın; komut tüm verileri siler.</p>
+<p>➝ Yönetici şifresini girin.</p>
+<p>➝ “MacOS yükleyici başarıyla oluşturuldu!” penceresinde “Evet”e tıklayın.</p>
+<p>➝ “OpenCore yapılandırmanızın oluşturulması tamamlandı!” penceresinde “Diske yükle” seçeneğine tıklayın.</p>
+<p>➝ Yardımcı cihazı seçin (disk0&rsquo;ı değil).</p>
+<p>➝ Yönetici şifresini girin.</p>
+<p>➝ “Uygulamak için yeniden başlatılsın mı?” penceresinde alt tuşunu basılı tutarak “Yeniden Başlat”a tıklayın.</p>
+<p>➝ “Yeniden Başlat”a tıklayın ve alt tuşunu basılı tutmaya devam edin.</p>
+<p>➝ Başlangıç yöneticisinde “EFI boot”u seçin ve alt tuşunu basılı tutmaya devam edin.</p>
+<p>➝ Bir sonraki başlangıç ekranında alt tuşunu basılı tutarken “MacOS xyz&rsquo;yi yükle” seçeneğini seçin ve alt tuşunu bırakın.</p>
+<p>➝ Kurtarma bölümü (macOS Recovery) görüntülenir.</p>
+<p>3. Sistemin kurulumu</p>
+<p>“MacOS Recovery” kurtarma bölümünde yükseltme veya temiz kurulum gerçekleştirebilirsiniz. Ancak başka bir program zaten bir sistem yaması oluşturduysa temiz kurulum yapmanız gerekir. Harici bir HD&rsquo;ye kurulum yaparken lütfen uzun versiyondaki açıklama bölümlerine de dikkat edin.</p>
+<p>a) Yükseltme</p>
+<p>➝ Aşağıdaki düğmelere tıklayın:</p>
+<p>➝ “MacOS xyz&rsquo;yi (hangi sürümü indirdiyseniz) yükle”</p>
+<p>➝ “Devam Et”</p>
+<p>➝ “Devam Et”</p>
+<p>➝ “Kabul et”</p>
+<p>➝ “Kabul et”</p>
+<p>➝ Hedef sürücüyü seçin.</p>
+<p>➝ “Devam Et”e tıklayın.</p>
+<p>➝ Kurulum birkaç yeniden başlatmayla başlar (30 dk kadar ve daha uzun).
+Bu süre zarfında herhangi bir şekilde Usb&rsquo;yi çıkarmayın ve yeniden başlatıldığı zaman çıkan önyükleme seçeneklerine karışmayın. Her şey otomatik olarak ilerleyecektir. Siz sadece sizden bir bilgi girmeniz gerektiği takdirde kuruluma müdahale etmelisiniz.</p>
+<p>b) Temiz Kurulum</p>
+<p>➝ “Disk Yardımcı Programı”na tıklayın.</p>
+<p>➝ “Devam Et”e tıklayın.</p>
+<p>➝ Hedef sürücüyü seçin.</p>
+<p>➝ “Sil”e tıklayın.</p>
+<p>➝ Bir isim verin.</p>
+<p>➝ Format olarak APFS&rsquo;yi seçin.</p>
+<p>➝ Şema olarak GUID bölümleme tablosunu seçin.</p>
+<p>➝ “Sil”e tıklayın; komut tüm verileri siler.</p>
+<p>➝ “Bitti”ye tıklayın.</p>
+<p>➝ Aşağıdaki düğmelere tıklayın:</p>
+<p>➝ “MacOS xyz&rsquo;yi yükle”</p>
+<p>➝ “Devam Et”</p>
+<p>➝ “Devam Et”</p>
+<p>➝ “Kabul et”</p>
+<p>➝ “Kabul et”</p>
+<p>➝ Hedef sürücüyü seçin.</p>
+<p>➝ “Devam Et”e tıklayın.</p>
+<p>➝ Kurulum birkaç yeniden başlatmayla başlar (30 dk kadar ve daha uzun).</p>
+<p>➝ Bu süre zarfında herhangi bir şekilde Usb&rsquo;yi çıkarmayın ve yeniden başlatıldığı zaman çıkan önyükleme seçeneklerine karışmayın. Her şey otomatik olarak ilerleyecektir.</p>
+<h4 id="v-kurulumdan-sonra">V. KURULUMDAN SONRA</h4>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/10.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Post-Install</b></small></center>
+</picture></p>
+<p>➝ Sürücülerin güncel olup olmadığını kontrol edin ve OCLP&rsquo;yi açın.</p>
+<p>➝ “Yükleme Sonrası Kök Yaması”na tıklayın.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/11.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Root Patch</b></small></center>
+</picture></p>
+<p>➝ “Tüm geçerli yamalar zaten yüklü” mesajını görürseniz başka bir şey yapmanıza gerek yoktur.</p>
+<p>➝ “Sistem için mevcut yamalar” mesajında “Kök Yamalamayı Başlat” seçeneğine tıklayın.</p>
+<p>➝ “Evet”e tıklayın.</p>
+<p>➝ Yönetici şifresini girin.</p>
+<p>➝ “Yeniden Başlat”a tıklayın.</p>
+<p>➝ “Yeniden Başlat”a tıklayın.</p>
+<p>➝ Yeniden başlattıktan sonra tekrar “Post-Install Root Patch” seçeneğine tıklayın.</p>
+<p>➝ Şimdi “Tüm geçerli yamalar zaten yüklü” mesajı görüntülenmelidir.</p>
+<h4 id="vi-sorun-çözümleri">VI. SORUN ÇÖZÜMLERİ</h4>
+<p>Önerilen çözümler için <a href="https://dortania.github.io/OpenCore-Legacy-Patcher/TROUBLESHOOTING.html">Github</a> sayfasını ziyaret edebilirsiniz.</p>
+<h3 id="uzun-versiyon">UZUN VERSİYON</h3>
+<p>Aşağıdaki süreç macOS 11 Big Sur, macOS 12 Monterey, macOS 13 Ventura ve MacOS 14 Sonoma sistemlerine yama uygulanması için geçerlidir. Kısa bölümde anlatılan şeylerin daha ayrıntılı ve geniş bir şekilde anlatıldığı bir bölüm olacaktır.</p>
+<h4 id="i-araştirma-1">I. ARAŞTIRMA</h4>
+<p>1. Mac&rsquo;inizin OCLP ile uyumluluğunu <a href="https://dortania.github.io/OpenCore-Legacy-Patcher/MODELS.html">buradan</a> kontrol edin. Ayrıca oradaki cihaz listesinin yorum sütununda yer alan kısıtlamalara ve önerilere de dikkat edin. Model adını (örn. iMac 12.2) eski sistemlerde şu şekilde bulabilirsiniz: Sol üstte Apple simgesi ➝ “Bu Mac Hakkında” ➝ “Sistem raporu” ➝ “Model tanımlama”.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/12.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/12.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/12.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Sistem Raporu</b></small></center>
+</picture></p>
+<p>2. Ayrıca OCLP cihaz listesinin yorum sütunundaki kısıtlamalara veya önerilere de dikkat edin.</p>
+<h4 id="ii-veri-güvenliği-1">II. VERİ GÜVENLİĞİ</h4>
+<p>1. OCLP&rsquo;yi kullanmadan önce en az iki güncel yedeğin mevcut olması gerekir çünkü geliştiricilerin gösterdiği tüm özene rağmen sistem veya program sorunları ortaya çıkabilir. Asıl yedekleme Time Machine yöntemi kullanılarak alınacak olan yedek olup diğeri ise dosyalarınızın harici bir hard diske sürükle bırak yöntemi ile yedeklenmesi şeklindedir.</p>
+<p>2. Mac&rsquo;inizin dahili sabit sürücüsüyle herhangi bir risk almak istemiyorsanız yamayı boş bir harici sabit sürücüde de gerçekleştirebilirsiniz.</p>
+<p>3. OCLP, Mac&rsquo;inizin dahili HD&rsquo;sinin ilk bölümünü &ldquo;disk0&rdquo; olarak ve diğer tüm bölüm ve sürücüleri &ldquo;disk1&rdquo;, &ldquo;disk2&rdquo; vb. olarak ifade eder. Bu nedenle, bunları OCLP&rsquo;leriyle tanımlayarak karışıklığı önleyin.</p>
+<h4 id="iii-gereklilikler-1">III. GEREKLİLİKLER</h4>
+<p>1. USB fare ve USB klavye</p>
+<p>2. Talimatları okumak için çıktı veya cihaz</p>
+<p>3. OCLP destekli bir Mac (dizüstü bilgisayar Güvenli tarafta olmak için güç kaynağını kullanmalısınız.)</p>
+<p>4. En az 16 GB kapasiteli USB sürücüsü (çubuk yeterlidir)</p>
+<p>Aşağıda ve yazının devamında <em>yardımcı cihaz</em> olarak anılacaktır.</p>
+<p>5. USB bağlantı noktasına sahip harici sürücü (hedef sürücü ise)</p>
+<p>6. <a href="https://github.com/dortania/OpenCore-Legacy-Patcher/releases/latest">OCLP&rsquo;nin son sürümü</a></p>
+<p>7. Yeni işletim sistemi kurulum sihirbazı (InstallAssistant.pkg)</p>
+<p>İndirme işlemi OCLP aracılığıyla, App Store&rsquo;dan veya</p>
+<p>İndirme bağlantıları Apple sunucusuna yönlendirilen aşağıdaki web siteleri:
+<a href="https://support.apple.com/tr-tr/HT211238">MacOS 11 Big Sur</a>, <a href="https://support.apple.com/tr-tr/HT212551">macOS 12 Monterey</a>, <a href="https://support.apple.com/tr-tr/HT213264">macOS 13 Ventura</a>, <a href="https://www.apple.com/tr/macos/sonoma/">macOS 14 Sonoma</a> aracılığı ile yapılabilir.</p>
+<h4 id="iv-kurulum-1">IV. KURULUM</h4>
+<p>Aşağıdaki süreç macOS 11 Big Sur, macOS 12 Monterey ve macOS 13 Ventura sistemlerine yama uygulanması için geçerlidir. MacOS 14 Sonoma&rsquo;ya yama uygulanması <strong>4. maddede</strong> açıklanacaktır.</p>
+<p>1. Yardımcı cihazın hazırlanması</p>
+<p>Yeni sisteminize yama yapmadan önce, sistem yükleyiciyi yardımcı bir cihaza (örn. USB bellek) yüklemelisiniz. Bunu şu şekilde hazırlayın:</p>
+<p>➝ Yardımcı cihazı Mac&rsquo;e bağlayın.</p>
+<p>➝ Disk İzlencesi Programını açın.</p>
+<p>➝ “Görüntüle”ye ve ardından “Tüm cihazları göster”e tıklayın.</p>
+<p>➝ Yardımcı cihazın sürücü sembolünü seçin (simge sola hizalanmıştır).</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/13.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Usb Formatlama</b></small></center>
+</picture></p>
+<p>➝ “Sil”e tıklayın.</p>
+<p>➝ İsim kalabilir.</p>
+<p>➝ Format olarak “Mac OS Genişletilmiş (Günlüklü)” seçeneğini seçin.</p>
+<p>➝ Şema olarak “GUID Bölümleme Tablosu”nu seçin.</p>
+<p>➝ “Sil”e tıklayın (komut tüm verileri siler).</p>
+<p>➝ “Bitti”ye tıklayın.</p>
+<p>➝ Önerilen Time Machine yedeklemesini reddedin.</p>
+<p>2. Sistem kurucunun yardımcı cihaza kurulması</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/14.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/14.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/14.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>OCLP 1.0.1</b></small></center>
+</picture></p>
+<p>Yardımcı cihazı hazırladıktan sonra artık sistem kurulumunu ona kurabilirsiniz. Bunu yapmak için OCLP&rsquo;de “MacOS Yükleyici Oluştur” seçeneğine tıklayın. Yükleyiciye zaten sahipseniz “Mevcut macOS Yükleyiciyi Kullan” seçeneğini seçin. Aksi takdirde “MacOS Installer&rsquo;ı İndir” seçeneğini ve istediğiniz macOS&rsquo;u seçin. Daha sonra indirme işlemi başlayacaktır.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/7.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/7.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/7.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>1</b></small></center>
+</picture></td>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/8.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/8.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/8.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>2</b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
+<p>İndirme işleminden sonra otomatik doğrulama gerçekleşir. Daha sonra yönetici şifresini girin ve “InstallAssistant.pkg” kurulum sihirbazından çıkartılan “install MacOS xyz.app” isimli sistem yükleyicisinin dahili sürücünüzün Uygulamalar klasöründe olduğundan emin olun. OCLP yalnızca orada sistem kurulumunu tanır.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/9.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/opencore-legacy/9.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/opencore-legacy/9.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>3</b></small></center>
+</picture></p>
+<p>Ardından “MacOS Yükleyici Oluşturulsun mu?” penceresinde “Evet”e tıklayın, “Yerel macOS Yükleyiciyi Seçin” penceresinde yükleyiciyi seçin, yardımcı sürücüyü seçin (Mac&rsquo;inizin dahili HD&rsquo;si olduğu için disk0 değil), “Evet”e tıklayın “Onay” penceresinde ” (komut tüm verileri siler), yönetici şifresini girin ve önerilen Time Machine yedeklemesini reddedin.</p>
+<p>Kurulum tamamlanana kadar “Yükleyici Oluşturuluyor: MacOS xyz’yi Yükle” penceresini açık bırakın. Yardımcı cihazın hızına bağlı olarak yaklaşık 30 dakika veya daha uzun sürebilir. Yardımcı cihaz otomatik olarak yeni adı “MacOS xyz&rsquo;yi yükle” alır.</p>
+<p>Bundan sonra, “macOS yükleyicisi başarıyla oluşturuldu!” penceresinde “Evet”e tıklayın, “OpenCore yapılandırmanızı oluşturma tamamlandı!” penceresinde “Diske yükle”ye tıklayın, yardımcı cihazı seçin (disk0 değil), birimi seçin ve Yönetici-Şifresini girin.</p>
+<p>Ardından, “Uygulamak için yeniden başlatılsın mı?” penceresinde alt tuşunu basılı tutarak “Yeniden Başlat” seçeneğine tıklayın, ardından “Yeniden Başlat” seçeneğine tıklayın (alt tuşuna basmaya devam edin), başlangıç yöneticisinde “EFI önyükleme” seçeneğini seçin (alt tuşuna basmaya devam edin) tuşuna basın), bir sonraki başlangıç ekranında “MacOS xyz&rsquo;yi yükle”yi seçin (Alt tuşuna basmaya devam edin) ve ardından Alt tuşunu bırakın. Artık “macOS Recovery” kurtarma bölümü görüntülenecektir.</p>
+<p>3. Sistemin kurulması</p>
+<p>“MacOS Recovery” kurtarma bölümüne ulaştığınızda, yeni sistemin asıl kurulumu burada başlar. Bu nedenle güncel yedeklemelerin önemini son kez hatırlatmak istiyoruz.</p>
+<p>Kurulum süresi, ilgili sürücülerin hızına bağlı olarak değişebilir ve bu nedenle bazen sabır gerektirir. Örneğin, &ldquo;Bir dakikadan az kaldı&hellip;&rdquo; mesajı uzun süre görüntüleniyorsa, bu mutlaka bir sorun olduğu anlamına gelmez, çünkü kurulum bir saate kadar veya daha uzun sürebilir.</p>
+<p>Mevcut sistemi güncelleyebilir veya yeni bir kurulum gerçekleştirebilirsiniz. Deneyim raporlarına göre temiz kurulumlarda başarı oranı daha yüksektir. Ancak bu, yama yapmadan önce yeni sistemin hedef birimini silmenizi gerektirir. Son olarak, kullanıcılarınızı, ayarlarınızı, programlarınızı vb. bir yedekten hedef birime kopyalamak için geçiş yardımcısını kullanabilirsiniz.</p>
+<p>Ancak yükseltme yaparken yeni sistemin hedef birimini silmeniz gerekmez, çünkü bu yalnızca sistemdeki sistemi günceller. Ancak başka bir program zaten bir sistem yaması oluşturduysa temiz kurulum yapmanız gerekir. Yabancı yama silinir ve OCLP yaması ile değiştirilir.</p>
+<p>Yeni sistemin kurulum konumu, Mac&rsquo;inizin dahili sürücüsü veya harici bir sürücü olabilir. Kurulumun ilgili sürücünün ilk bölümünde yapılması tavsiye edilir.</p>
+<p>a) Yükseltme</p>
+<p>Adım IV.2. sonunda macOS Recovery bölümüne ulaştıktan sonra yükseltme yapmak için şu adımları izleyin:</p>
+<p>➝ Aşağıdaki düğmelere tıklayın:</p>
+<p>➝ “MacOS xyz&rsquo;yi yükle”</p>
+<p>➝ “Devam Et”</p>
+<p>➝ “Devam Et”</p>
+<p>➝ “Kabul et”</p>
+<p>➝ “Kabul et”</p>
+<p>➝ Yeni sistemin hedef hacmini seçin.</p>
+<p>➝ “Devam Et”e tıklayın.</p>
+<p>➝ Hedef sürücüye bağlı olarak c) veya d) noktasından okumaya devam edin.</p>
+<p>Not: OCLP geliştiricileri, Big Sur veya Monterey&rsquo;den Ventura&rsquo;ya daha sonraki bir yükseltme için yazılım güncelleme sistemi ayarını değil, harici bir kurulum ortamı kullanılmasını önerir.</p>
+<p>b) Temiz Kurulum</p>
+<p>Temiz bir kurulum için “macOS Recovery” kurtarma bölümünde şu yolu izleyin:</p>
+<p>➝ Disk Yardımcı Programını açın.</p>
+<p>➝ “Devam Et”e tıklayın.</p>
+<p>➝ Yeni sistemin hedef sürücüsünü seçin.</p>
+<p>➝ “Sil”e tıklayın.</p>
+<p>➝ Bir isim verin.</p>
+<p>➝ APFS formatını seçin.</p>
+<p>➝ Şema olarak GUID bölümleme tablosunu seçin.</p>
+<p>➝ “Sil”e tıklayın; komut tüm verileri siler.</p>
+<p>➝ “Bitti”ye tıklayın.</p>
+<p>➝ Disk Yardımcı Programından çıkın.</p>
+<p>➝ Aşağıdaki düğmelere tıklayın:</p>
+<p>➝ “MacOS xyz&rsquo;yi yükle”</p>
+<p>➝ “Devam Et”</p>
+<p>➝ “Devam Et”</p>
+<p>➝ “Kabul et”</p>
+<p>➝ “Kabul et”</p>
+<p>➝ Yeni sistemin hedef hacmini seçin.</p>
+<p>➝ “Devam Et”e tıklayın.</p>
+<p>➝ Hedef sürücüye bağlı olarak c) veya d) noktasından okumaya devam edin.</p>
+<p>Not: APFS biçimindeki bir birim, eski HFS+ biçimindeki bir birimi okuyabilir ve yazabilir. Ancak bir HFS+ birimi yalnızca HFS+ biriminde en az macOS 10.12.6 Sierra yüklüyse APFS birimini okuyabilir ve yazabilir. Maalesef hâlâ önemli kısıtlamalar mevcut.</p>
+<p>c) Dahili sürücüye kurulum</p>
+<p>a) veya b) noktasından sonra &ldquo;Yaklaşık xy dakika kaldı&rdquo; ilerleme çubuğu görünür ve bunu daha fazla yeniden başlatma izler (hiçbir şeye tıklamayın) ve &ldquo;xy % tamamlandı&rdquo; ilerleme çubuğunun bulunduğu siyah bir ekran gelir.</p>
+<p>Kurulum sırasında kurtarma bölümü ikinci kez görünürse sol üstteki Apple simgesinin altındaki &ldquo;Yeniden Başlat&quot;a tıklayın, ardından Alt tuşunu basılı tutun, Başlangıç Yöneticisi&rsquo;nde &ldquo;EFI Boot&quot;u seçin ve Alt tuşunu basılı tutmaya devam edin ve &quot; Bir sonraki başlangıç ekranında macOS Installer”. Kurtarma bölümü yeniden görünürse bu işlemi tekrarlayın.</p>
+<p>d) Harici sürücüye kurulum</p>
+<p>Harici bir sürücüye kurulum yaparken aşağıdaki noktalar dikkate alınmalıdır: MacOS 10.15 Catalina&rsquo;dan bu yana harici sürücüler artık Firewire aracılığıyla başlatılamadığından, sürücüyü Mac&rsquo;teki USB bağlantı noktasına bağlamanız gerekir. Ancak yama yaptıktan sonra OCLP&rsquo;de harici sürücünüzün Firewire aracılığıyla yeniden başlatılabileceğini ayarlayabilirsiniz. Harici bir HD&rsquo;nin yalnızca Bilgi penceresinde &ldquo;Bu birimdeki sahipliği yoksay&rdquo; seçeneği işaretlenmemişse önyüklenebilir olacağını unutmayın.</p>
+<p>MacOS 13 Ventura&rsquo;nın harici bir sabit sürücüye temiz kurulumu 0.6.4 sürümünden bu yana yeni OCLP sürümlerinde daha kısadır:</p>
+<p>➝ “Yükle: “Yaklaşık xy dakika kaldı” ilerleme çubuğu görünür.</p>
+<p>➝ Başlangıç yöneticisinde “macOS Installer”ı seçin.</p>
+<p>➝ Apple simgesinin bulunduğu siyah bir ekran ve “Yaklaşık xx dakika kaldı” ilerleme çubuğunu görebilirsiniz.</p>
+<p>➝ Başlangıç Yöneticisi görünür (hiçbir şeye tıklamayın).</p>
+<p>➝ Bunu, Apple simgesinin bulunduğu siyah bir ekranla ve 15 dakika boyunca tam bir ilerleme göstergesiyle yeniden başlatma izler.</p>
+<p>➝ Yeniden başlatma gerçekleşir.</p>
+<p>➝ Başlangıç yöneticisinde yeni sistemin hedef birimini seçin.</p>
+<p>➝ Başka bir yeniden başlatma olacak.</p>
+<p>➝ Başlangıç yöneticisinde yeni sistemin hedef hacmini tekrar seçin.</p>
+<p>➝ %98&rsquo;de uzun bir bekleme süresiyle birlikte “%xy tamamlandı” ilerleme göstergesinin yer aldığı siyah bir ekran görüntülenir.</p>
+<p>➝ Başka bir yeniden başlatma olacak.</p>
+<p>➝ Startup Manager&rsquo;da aşağıdaki hiçbir şeyi seçmeyin.</p>
+<p>➝ Kurtarma bölümü (macOS Recovery) görünür.</p>
+<p>➝ Sol üstteki Apple simgesine tıklayın.</p>
+<p>➝ Alt tuşunu basılı tutarken “Yeniden Başlat”a tıklayın.</p>
+<p>➝ Başlangıç yöneticisinde yeni sistemin yüklendiği diski seçin.</p>
+<p>Kurulum sırasında kurtarma bölümünün ikinci kez görüntülenmesi gerekiyorsa: Sol üstteki Apple simgesinin altındaki &ldquo;Yeniden Başlat&rdquo; seçeneğine tıklayın ve ardından alt tuşunu basılı tutun, başlangıç yöneticisinde &ldquo;EFI Boot&rdquo; seçeneğini seçin ve alt tuşunu basılı tutmaya devam edin. tuşuna basın ve bir sonraki başlangıç ekranında “macOS Installer”ı seçin. Kurtarma bölümü yeniden görünürse bu işlemi tekrarlayın.</p>
+<p>Temiz kurulumu tamamlamak için, normal sistem kurulumunda olduğu gibi kurulum sihirbazında ülkeyi, dili, ağı (şifrenizi hazır bulundurun) vb. seçersiniz. Kullanıcı adını atarken, lütfen kullanıcı adını kullanmamanın daha iyi olacağını unutmayın. Daha sonra taşınacak kullanıcının adını seçin.</p>
+<h4 id="v-kurulumdan-sonra-1">V. KURULUMDAN SONRA</h4>
+<p>1. Yazılım Güncelleme sistem ayarlarında otomatik güncellemeleri devre dışı bırakmalısınız. Bu, Apple yazılım güncellemesinin bir sonucu olarak olası sistem sorunlarını önlemek için tavsiye edilir. İlk lansmanından sonra yeni sistem, öncelikle Spotlight endeksini yeniden oluşturması gerektiğinden genellikle biraz daha yavaş olacaktır.</p>
+<p>2. İlk sistem önyüklemesinden hemen sonra OCLP, OpenCore&rsquo;u dahili sabit sürücüye yüklemek isteyip istemediğinizi soracaktır. Bu, gelecekte yardımcı cihaz olmadan sistemi başlatmanıza olanak sağlayacaktır. Yeni sistem harici bir sürücüye kurulmuşsa, bu iletişim kutusundaki &ldquo;dahili sabit sürücüye&rdquo; ifadesi yanıltıcı olabilir. Bu durumda harici sürücüye OpenCore&rsquo;un da kurulması gerekir.</p>
+<p>OpenCore kurulumu şu şekilde çalışır: “Tamam”a tıklayın, ardından “Diske yükle”ye tıklayın, yeni sistemin sürücüsünü ve ardından birimi seçin. Daha sonra alt tuşunu basılı tutarak “EFI Boot”un başlangıç yöneticisini başlatın ve alt tuşunu basılı tutmaya devam edin. Bir sonraki önyükleme ekranında yeni sistemin biriminden önyükleme yapın.</p>
+<p>Yukarıdaki &ldquo;Tamam&rdquo; seçeneğine tıkladıktan sonra, aşağıdaki günlük penceresi OpenCore kurulumunun ayrı ayrı adımlarını gösterir. Daha sonra OpenCore kurmaya karar verirseniz “Build and Install OpenCore” komutunu kullanarak yukarıda anlatılan işlemi başlatabilirsiniz.</p>
+<p>3. Yeni sisteminizi harici bir birime kurduysanız:</p>
+<p>a) 0.6.7 sürümünden itibaren OCLP&rsquo;yi artık harici birimin programlar klasörüne değil, Library/Application Support/Dortania klasörüne yerleştirmeniz gerekiyor. Ancak OCLP&rsquo;den bir takma ad oluşturabilir ve bunu Uygulamalar klasörüne koyabilirsiniz.</p>
+<p>b) Adım V.2.&lsquo;yi tamamladıysanız, gelecekte yeni sisteminizi yardımcı cihaz olmadan başlatabileceksiniz. Şu şekilde çalışır: Mac&rsquo;i açtığınızda Alt tuşunu basılı tutun, ilk başlangıç ekranında &ldquo;EFI Boot&quot;u seçin. “EFI Boot” tanınmazsa, harici HD&rsquo;yi Mac&rsquo;in USB bağlantı noktasından kısa süreliğine çıkarabilir (başlangıç ekranını olduğu gibi bırakarak) ve tekrar takabilirsiniz. Kural olarak “EFI önyüklemesi”nin tanınması gerekir.</p>
+<p>c) Yama sonrasında harici sürücünüzü Firewire aracılığıyla yeniden başlatmak istiyorsanız bunu aşağıdaki şekilde yapabilirsiniz:</p>
+<p>➝ OCLP&rsquo;yi açın.</p>
+<p>➝ “Ayarlar”a tıklayın.</p>
+<p>➝ “Hedef Model” altında Mac türünü seçin.</p>
+<p>➝ “Oluştur”a tıklayın.</p>
+<p>➝ “FireWire Önyükleme” seçeneğini etkinleştirin.</p>
+<p>➝ “Geri Dön”e tıklayın.</p>
+<p>➝ “OpenCore Oluştur ve Kur” seçeneğine tıklayın.</p>
+<p>➝ “Diske yükle”ye tıklayın.</p>
+<p>➝ Yeni sistemin sürücüsünü seçin.</p>
+<p>➝ Yönetici şifresini girin.</p>
+<p>➝ “Yeniden Başlat”a tıklayın.</p>
+<p>4. “Ayarlar” altında OpenCore ayarlarını bulacaksınız. Ancak bunları yalnızca etkisini biliyorsanız değiştirin; aksi halde bilgisayarın bir sonraki başlatılması başarısız olabilir. Ayrıca, Hedef Model ayarlarını değiştirmeden önce her Mac modelinin farklı ayarları olduğundan öncelikle bilgisayar modelinizi seçmelisiniz.</p>
+<p>Ayarları düzenlemek ve kaydetmek için şu adımları izleyin:</p>
+<p>➝ OCLP&rsquo;yi açın.</p>
+<p>➝ “Ayarlar”a tıklayın.</p>
+<p>➝ “Hedef Model” altında Mac&rsquo;i seçin.</p>
+<p>➝ Daha sonra OCLP&rsquo;yi kapatmadan ayarlara girin. Aksi halde önceki ayarlar kalır.</p>
+<p>➝ “Geri Dön”e tıklayın.</p>
+<p>➝ “OpenCore Oluştur ve Kur” seçeneğine tıklayın.</p>
+<p>➝ “Diske yükle”ye tıklayın.</p>
+<p>➝ Yeni sistemin sürücüsünü seçin.</p>
+<p>➝ Yönetici şifresini girin.</p>
+<p>➝ “Yeniden Başlat”a tıklayın.</p>
+<p>5. Yeni sistemi dahili bir sabit sürücüye kurduysanız ve artık Başlangıç Yöneticisinin gelecekte görüntülenmesini istemiyorsanız, aşağıdaki şekilde ilerleyin:</p>
+<p>➝ OCLP&rsquo;yi açın.</p>
+<p>➝ “Ayarlar”a tıklayın.</p>
+<p>➝ “Açık Çekirdek Önyükleme Seçicisini Göster” seçeneğinin işaretini kaldırın.</p>
+<p>➝ Aşağıdaki “Ana Menüye Dön” seçeneğine tıklayın.</p>
+<p>➝ “OpenCore Oluştur ve Kur” seçeneğine tıklayın.</p>
+<p>➝ “Diske yükle”ye tıklayın.</p>
+<p>➝ disk0&rsquo;ı seçin (= dahili sürücü).</p>
+<p>➝ Yönetici şifresini girin.</p>
+<p>➝ “Yeniden Başlat”a tıklayın.</p>
+<p>➝ “Yeniden Başlat”a tıklayın.</p>
+<p>6. &ldquo;Önyükleme Seçici Zaman Aşımı&rdquo; ayarı, başlangıç yöneticisinin (önyükleme seçicinin) ne kadar süreyle görüntüleneceğini belirtmenize olanak tanır. Bu süre zarfında yamalı ya da başka bir başlangıç diskinizi seçebilirsiniz. Bu süre dolduktan sonra standart işletim sistemi başlatılır.</p>
+<p>7. Metal olmayan bir Mac&rsquo;te menü çubuğunun yazı tipi rengini beyazdan siyaha değiştirmek istiyorsanız OCLP&rsquo;yi açın, Ayarlar&rsquo;a tıklayın, Metal Olmayan Ayarlar&rsquo;a tıklayın, Koyu Menü Çubuğu&rsquo;nu seçin ve “ Ayarlar&rsquo;a dönün”. Son olarak kullanıcıyı yeniden kaydetmeniz yeterlidir; “OpenCore&rsquo;u Oluştur ve Kur” komutu gerekli değildir</p>
+<p>8. Sistem ile donanım arasındaki iletişim için gereken tüm sürücülerin güncel olup olmadığını kontrol edin. Bu şu şekilde çalışır:</p>
+<p>➝ OCLP&rsquo;yi açın.</p>
+<p>➝ “Yükleme Sonrası Kök Yaması”na tıklayın.</p>
+<p>➝ “Tüm geçerli yamalar zaten yüklü” mesajını görürseniz başka bir şey yapmanıza gerek yoktur.</p>
+<p>➝ “Sistem için mevcut yamalar” mesajında “Kök Yamalamayı Başlat” seçeneğine tıklayın.</p>
+<p>➝ “Evet”e tıklayın.</p>
+<p>➝ Yönetici şifresini girin.</p>
+<p>➝ “Yeniden Başlat”a tıklayın.</p>
+<p>➝ “Yeniden Başlat”a tıklayın.</p>
+<p>➝ Başlangıç yöneticisinde hiçbir şey seçmeyin.</p>
+<p>➝ Yeniden başlattıktan sonra tekrar “Post-Install Root Patch” seçeneğine tıklayın.</p>
+<p>➝ Şimdi “Tüm geçerli yamalar zaten yüklü” mesajı görüntülenmelidir.</p>
+<p>9. Yamalı bir birimi başka bir Mac&rsquo;te başlatmayı da deneyebilirsiniz. Ancak lütfen bunun uygun donanım yazılımına, ilgili macOS&rsquo;a ve yamalı birim ile aynı OpenCore&rsquo;a sahip olması gerektiğini unutmayın. Ayrıca donanımın aynı olması gerekmektedir. Farklı Bluetooth modülleri gibi farklılıklar varsa, donanım tanınmazsa başlatma sorunları ortaya çıkabilir.</p>
+<h4 id="vi-sorun-çözümleri-1">VI. SORUN ÇÖZÜMLERİ</h4>
+<p>1. Önerilen çözümler için <a href="https://dortania.github.io/OpenCore-Legacy-Patcher/TROUBLESHOOTING.html">Github</a> sayfasını ziyaret edebilirsiniz. Özellikle Bluetooth sorunları için bakmanızda da fayda var. Gerekirse en son sürüm olan Sonoma yerine bir önceki sürümü yüklemeniz bazen daha uyumlu ve faydalı olabiliyor.</p>
+<p>2. 0.6.7 sürümünden bu yana, ~/Library/Logs/Dortania klasöründeki OCLP günlük dosyasına “Dosya” ve “Günlük Dosyasını Göster” menüleri aracılığıyla doğrudan erişebilirsiniz. Bu, hataların olası nedenlerinin belirlenmesine olanak sağlar.</p>
+<p>3. Bir ses arızası varsa, Ses sistemi ayarlarından dahili hoparlörlerin çıkış cihazı olarak seçilip seçilmediğini kontrol edebilirsiniz.</p>
+<p>4. Sistem bir sistem veya güvenlik güncellemesinden sonra artık başlamazsa, Shift tuşunu basılı tutarak Mac&rsquo;i Güvenli Modda başlatmayı ve ardından &ldquo;Yükleme Sonrası Kök Yaması&rdquo; yolunu kullanmayı deneyebilirsiniz</p>
+<p>Bu işe yaramazsa kök yamaları silmenizi öneririz. Bu şu şekilde çalışır:</p>
+<p>➝ Başlatma sırasında alt tuşunu basılı tutun ve başlangıç yöneticisinde “EFI önyükleme” seçeneğini seçin.</p>
+<p>➝ Bir sonraki ekranda önyükleme seçenekleri menüsünü açmak için boşluk çubuğuna basın.</p>
+<p>➝ Kurtarma bölümünü seçin.</p>
+<p>➝ Orada Terminal programını açın.</p>
+<p>➝ Aşağıdaki komut satırını kopyala ve yapıştır kullanarak terminal penceresine yapıştırın:</p>
+<p><code>mount -uw /Volumes/Macintosh\ HD</code></p>
+<p>➝ Enter tuşuna basın.</p>
+<p>➝ Bu ikinci komut satırını ekleyin:</p>
+<p><code>bless --mount /Volumes/Macintosh\ HD --bootefi --last-sealed-snapshot</code></p>
+<p>➝ Enter tuşuna tekrar basın.</p>
+<p>➝ Sol üstteki Apple simgesine tıklayın ve alttaki “Yeniden Başlat”a tıklayın.</p>
+<p>Her iki komut satırını da girerken, <em>Macintosh\ HD</em> adını yamalı biriminizin adı ile değiştirin ve addaki her boşluğun önüne \ ters eğik çizgi karakterini ekleyin.</p>
+<p>Bu adımlardan sonra, OCLP&rsquo;yi güncelleyene kadar veya önyükleme sorunundan önce bunu zaten yaptıysanız, sorunu çözen yeni bir OCLP güncellemesi mevcut olana kadar kök yamaları yeniden yüklemeyi beklemelisiniz.</p>
+<p>6. Büyük sorunlar olması durumunda, yama yapılmamış önceki sistem sürümüne geçmek de mümkündür. Bunu yapmak için Time Machine&rsquo;i, kurtarma bölümünü veya önyüklenebilir bir yükleyiciyi kullanabilirsiniz. Bununla ilgili talimatları <a href="https://www.drbuho.com/how-to/downgrade-macos">burada</a> bulabilirsiniz. (Lütfen reklamları dikkate almayın). Time Machine için yamadan önce oluşturulmuş bir yedeği seçmeniz gerektiğini unutmayın. Ancak eski bir OCLP sistem yamasına geçmek mümkün değildir. Bunu yapmak için, Temiz Kurulum&rsquo;u kullanarak OCLP&rsquo;yi kullanarak istediğiniz eski sistem sürümünü yüklemelisiniz.</p>
+<h1 id="son">SON</h1>
+<p>Neyse ki OCLP yalnızca ücretsiz değil aynı zamanda son derece sürdürülebilirdir. Mac&rsquo;in daha uzun süre kullanılabilmesi nedeniyle program yalnızca donanım maliyetlerini ve elektronik atıkları azaltmakla kalmıyor, aynı zamanda kaynak tüketimini ve üretimden kaynaklanan emisyonları da azaltıyor.</p>
+<p>OCLP geliştiricilerinin sürekli kararlılığını desteklemek isterseniz, örneğin çok sayıda test bilgisayarı satın alarak veya yalnızca teşekkür etmek amacıyla bunu küçük bir bağışla geliştiricilerin <a href="https://opencollective.com/opencore-legacy-patcher">web sitesinden</a> yapabilirsiniz.</p>
+<p>OCLP gelişmeye devam ettikçe gelecekte bu talimatlardan sapmalar ortaya çıkabilir. Daha sonra yeni özellikleri <a href="https://github.com/dortania/OpenCore-Legacy-Patcher">OCLP web sitesinde</a> bulabilirsiniz. Ayrıca şu <a href="https://www.youtube.com/@Mr.Macintosh/videos">video koleksiyonunu</a> ve ilgili <a href="https://de.wikipedia.org/wiki/OpenCore_Legacy_Patcher">Wiki</a> sayfasına da göz atılmasını öneririm.</p>
+<p>MacOS Sonoma kurulumu ile ilgili örnek videoya aşağıdan ulaşabilirsiniz:
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/eGR2qGw9lG8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</p>
+<h2 id="kaynakça">Kaynakça:</h2>
+<p>Yazı sırasında kullandığım kaynaklar:</p>
+<ul>
+<li><a href="https://github.com/dortania/OpenCore-Legacy-Patcher">OpenCore Legacy Patcher Github</a></li>
+<li><a href="https://dortania.github.io/OpenCore-Legacy-Patcher">OpenCore Legacy Patcher Web Sayfası</a></li>
+<li><a href="https://macsofa.net/">Macsofa Forum</a></li>
+<li><a href="https://www.youtube.com/@Mr.Macintosh/videos">Mr.Macintosh Youtube Kanalı</a></li>
+<li><a href="https://khronokernel.github.io">Khronokernel Web Sayfası</a></li>
+<li>İlk Yayım: <a href="https://btt.community/t/eski-maclere-opencore-ile-desteklenmeyen-surumlerin-kurulumu/2140">BTT</a></li>
+</ul>
+]]></content:encoded></item><item><title>Actalis ile ücretsiz S/MIME sertifikası alınması</title><link>https://wiseweb-works.github.io/blog/post/actalis-ile-smime-sertifikasi/</link><pubDate>Sun, 01 Oct 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/actalis-ile-smime-sertifikasi/</guid><description>Ücretsiz S/MIME Sertifikası Nasıl Alınır: Adım Adım Rehber Günümüzde e-posta iletişimi günlük yaşamın ayrılmaz bir parçası haline geldi. Ancak e-posta gönderirken veya alırken güvenlik endişeleri her zaman mevcuttur. S/MIME (Secure/Multipurpose Internet Mail Extensions), e-postalarınızı daha güvenli hale getirmenize yardımcı olan bir teknolojidir. S/MIME sertifikaları, e-postalarınızı şifrelemek ve kimlik doğrulama sağlamak için kullanılır. Neyse ki, ücretsiz S/MIME sertifikaları edinmek oldukça kolaydır. Bu forum rehberinde, bu işlemi adım adım anlatacağız.
+Adım 1: Actalis Extrassl Sayfasına Gidin İlk adımda, ücretsiz bir S/MIME sertifikası almak için Actalis Extrassl web sitesini ziyaret edin.</description><content:encoded><![CDATA[<h1 id="ücretsiz-smime-sertifikası-nasıl-alınır-adım-adım-rehber">Ücretsiz S/MIME Sertifikası Nasıl Alınır: Adım Adım Rehber</h1>
+<p>Günümüzde e-posta iletişimi günlük yaşamın ayrılmaz bir parçası haline geldi. Ancak e-posta gönderirken veya alırken güvenlik endişeleri her zaman mevcuttur. S/MIME (Secure/Multipurpose Internet Mail Extensions), e-postalarınızı daha güvenli hale getirmenize yardımcı olan bir teknolojidir. S/MIME sertifikaları, e-postalarınızı şifrelemek ve kimlik doğrulama sağlamak için kullanılır. Neyse ki, ücretsiz S/MIME sertifikaları edinmek oldukça kolaydır. Bu forum rehberinde, bu işlemi adım adım anlatacağız.</p>
+<h2 id="adım-1-actalis-extrassl-sayfasına-gidin">Adım 1: Actalis Extrassl Sayfasına Gidin</h2>
+<p>İlk adımda, ücretsiz bir S/MIME sertifikası almak için <a href="https://extrassl.actalis.it/portal/uapub/freemail">Actalis Extrassl</a> web sitesini ziyaret edin. Bu sertifikayı almak için bu siteyi kullanacağız. Siteye girdikten sonra sizde bir e-posta adresi isteyecek. Bu adres s/mime sertifikasını üreteceğiniz adres olması gerekli.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/1.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/1.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/actalis/1.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Actalis Extrassl</b></small></center>
+</picture></p>
+<h2 id="opsiyonel-adım-2-dil-seçeneğini-ayarlayın">(Opsiyonel) Adım 2: Dil Seçeneğini Ayarlayın</h2>
+<p>Sitenin üst sağ köşesinde, dil seçeneğini ayarlayabilirsiniz. Eğer sizde de başlangıçta İtalyanca çıkıyor ise dil seçeneğini İngilizce olarak ayarlamak isteyebilirsiniz, böylece prosedürü daha iyi anlayabilirsiniz.</p>
+<h2 id="adım-3-e-posta-adresinizi-doğrulayın">Adım 3: E-Posta Adresinizi Doğrulayın</h2>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/2.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/2.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/actalis/2.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Gelen mail</b></small></center>
+</picture></p>
+<p>Bir önceki adımda girmiş olduğunuz mail adresinize görseldeki gibi bir kod gönderecekler. Bu kod girmiş olduğumuz mail adresinin bize ait olduğunu ve gönderilen mailleri alabildiğimizi teyit etmek amacıyla gönderiliyor.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/3.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/3.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/actalis/3.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Doğrulama kodu girme ekranı</b></small></center>
+</picture></p>
+<p>Size gelen kodu ilgili fotoda görülen Verification code alanını girmeniz ve her iki kutucuğu da seçtikten sonra Submit request butonuna tıklamanız gerekiyor.</p>
+<h2 id="adım-4-sertifikayı-indirin-ve-kurun">Adım 4: Sertifikayı İndirin ve Kurun</h2>
+<p>Doğrulama işlemi tamamlandığında, S/MIME sertifikası hazır olacak ve size verilen talimatları izleyerek sertifikayı indirip kurabileceksiniz.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/4.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/4.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/actalis/4.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Onay Ekranı</b></small></center>
+</picture></p>
+<p>Fakat öncelikle yukarıdaki gibi bir onaylama ekranı gördüğünüzden emin olmanız ve tüm süreç bitene kadar bu ekranı kapatmamanız gerekiyor. Ekrandaki onaylama metninin altında (ben ilk seferinde gözden kaçırmıştım) bir şifre beliriyor ve bunu bir yere not etmeniz gerekiyor.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/5.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/actalis/5.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/actalis/5.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>Sertifika Geldi</b></small></center>
+</picture></p>
+<p>Daha sonra mail adresinize gelen şifreli sertifika dosyasını ilgili zip dosyasından çıkarmanız gerekiyor. Size verilen şifre zip dosyası için değil sertifikayı içeri aktarırken kullanılacak. Zip dosyasının bir şifresi yok.</p>
+<h2 id="adım-5-e-posta-istemcisi-ayarlarınızı-yapın">Adım 5: E-Posta İstemcisi Ayarlarınızı Yapın</h2>
+<p>Son olarak, e-posta istemcinizde S/MIME sertifikanızı kullanmak için gerekli ayarları yapmanız gerekecektir. Bu adımlar, kullandığınız e-posta istemcisine göre değişebilir. O yüzden ayrı ayrı anlatmak yerine ilgili linkleri aşağıya bırakıyorum.</p>
+<ul>
+<li><a href="https://www.ssl.com/how-to/installing-an-s-mime-certificate-and-sending-secure-email-in-mozilla-thunderbird-on-windows-10/">Thunderbird</a></li>
+<li><a href="https://support.apple.com/en-ie/HT202345">Apple Cihazları</a></li>
+<li><a href="https://support.microsoft.com/en-au/office/encrypt-messages-by-using-s-mime-in-outlook-on-the-web-878c79fc-7088-4b39-966f-14512658f480">Outlook Web</a></li>
+<li><a href="https://support.microsoft.com/en-us/office/encrypt-email-messages-373339cb-bf1a-4509-b296-802a39d801dc">Outlook Uygulaması</a></li>
+<li><a href="https://docs.kde.org/stable5/en/kleopatra/kleopatra/configuration-smime-validation.html">Kleopatra (Manuel kullanım için)</a></li>
+</ul>
+<h2 id="son-söz">Son Söz</h2>
+<p>Artık ücretsiz S/MIME sertifikasına sahipsiniz ve e-postalarınızı daha güvenli hale getirebilirsiniz. Bu sertifikalar, e-postalarınızın şifrelenmesine ve kimlik doğrulamasına yardımcı olur, böylece kişisel bilgilerinizin güvende olduğundan emin olabilirsiniz. Son bir hatırlatma olarak da S/MIME sertifikaları belirli bir süreyle sınırlı olmaktadır, bu nedenle süresi dolduğunda yeniden sertifika almanız gerekecektir. Bu siteden aldığınız sertifikalar genelde 1 senelik oluyor.</p>
+<h3 id="kaynakça">Kaynakça</h3>
+<p>E-posta güvenliği hakkında daha fazla bilgi edinmek için bu yazıda fazlasıyla yararlandığım <a href="https://www.frankysweb.de/tipp-kostenloses-s-mime-zertifikat-neu/">Franky&rsquo;s Web</a> sitesini ziyaret edebilirsiniz.</p>
+<p>İlk yayım: <a href="https://btt.community/t/actalis-ile-ucretsiz-s-mime-sertifikasi-alinmasi/1927">BTT Community</a></p>
+]]></content:encoded></item><item><title>Crowdsec IPS/IDS Yazılımı</title><link>https://wiseweb-works.github.io/blog/post/crowdsec-anlatim/</link><pubDate>Tue, 11 Apr 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/crowdsec-anlatim/</guid><description>1. Crowdsec IPS/IDS Yazılımı Tanıtımı CrowdSec, siber tehditlere karşı gerçek zamanlı koruma sağlamak için kolektif bir zeka yaklaşımı kullanan Linux sunucuları için açık kaynaklı bir güvenlik çözümüdür. Bu blog gönderisinde, CrowdSec&amp;rsquo;in (v.1.4.6)1 özelliklerini, Linux sunucularınızı korumak için neden harika bir seçim olduğunun nedenlerini ve CrowdSec ile diğer IPS/IDS yazılımları arasındaki farkları ve benzerlikleri keşfedeceğiz.
+1.1 CrowdSec&amp;rsquo;in Özellikleri CrowdSec, onu Linux sunucuları için güçlü ve etkili bir güvenlik çözümü yapan çeşitli özellikler sunar.</description><content:encoded><![CDATA[<h1 id="1-crowdsec-ipsids-yazılımı-tanıtımı">1. Crowdsec IPS/IDS Yazılımı Tanıtımı</h1>
 <p>CrowdSec, siber tehditlere karşı gerçek zamanlı koruma sağlamak için kolektif bir zeka yaklaşımı kullanan Linux sunucuları için açık kaynaklı bir güvenlik çözümüdür. Bu blog gönderisinde, CrowdSec&rsquo;in (v.1.4.6)<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> özelliklerini, Linux sunucularınızı korumak için neden harika bir seçim olduğunun nedenlerini ve CrowdSec ile diğer IPS/IDS yazılımları arasındaki farkları ve benzerlikleri keşfedeceğiz.</p>
 <h2 id="11-crowdsecin-özellikleri">1.1 CrowdSec&rsquo;in Özellikleri</h2>
 <p>CrowdSec, onu Linux sunucuları için güçlü ve etkili bir güvenlik çözümü yapan çeşitli özellikler sunar. Temel özelliklerinden bazıları şunlardır:</p>
@@ -483,9 +1696,8 @@
 </li>
 </ol>
 </div>
-]]></item><item><title>AdGuard ile Reklam Engelleme</title><link>https://wiseweb-works.github.io/blog/post/adguard-reklam-engelleme/</link><pubDate>Thu, 06 Apr 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/adguard-reklam-engelleme/</guid><description>1. AdGuard: Reklamsız Gezinti İçin Nihai Çözümünüz İnternette gezinirken sürekli karşınıza çıkan reklam ve açılır pencerelerinden sıkıldıysanız, AdGuard Windows uygulamasını kullanmayı düşünebilirsiniz. AdGuard, yalnızca reklamları kaldırmakla kalmayıp aynı zamanda bilgisayarınızı kötü amaçlı yazılımlardan ve kimlik avı saldırılarından koruyan güçlü bir reklam engelleyicidir. Tanıdığınız ve bildiğiniz tüm reklamlara son kez sarılın artık onları bir daha göremeyeceksiniz. Çünkü bu blog gönderisinde, AdGuard&amp;rsquo;ın özelliklerini ve göz atma deneyiminizi nasıl geliştirebileceğini keşfedeceğiz.
-1.1 AdGuard Uygulamasının Özellikleri 1.</description>
-<![CDATA[<h1 id="1-adguard-reklamsız-gezinti-için-nihai-çözümünüz">1. AdGuard: Reklamsız Gezinti İçin Nihai Çözümünüz</h1>
+]]></content:encoded></item><item><title>AdGuard ile Reklam Engelleme</title><link>https://wiseweb-works.github.io/blog/post/adguard-reklam-engelleme/</link><pubDate>Thu, 06 Apr 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/adguard-reklam-engelleme/</guid><description>1. AdGuard: Reklamsız Gezinti İçin Nihai Çözümünüz İnternette gezinirken sürekli karşınıza çıkan reklam ve açılır pencerelerinden sıkıldıysanız, AdGuard Windows uygulamasını kullanmayı düşünebilirsiniz. AdGuard, yalnızca reklamları kaldırmakla kalmayıp aynı zamanda bilgisayarınızı kötü amaçlı yazılımlardan ve kimlik avı saldırılarından koruyan güçlü bir reklam engelleyicidir. Tanıdığınız ve bildiğiniz tüm reklamlara son kez sarılın artık onları bir daha göremeyeceksiniz. Çünkü bu blog gönderisinde, AdGuard&amp;rsquo;ın özelliklerini ve göz atma deneyiminizi nasıl geliştirebileceğini keşfedeceğiz.
+1.1 AdGuard Uygulamasının Özellikleri 1.</description><content:encoded><![CDATA[<h1 id="1-adguard-reklamsız-gezinti-için-nihai-çözümünüz">1. AdGuard: Reklamsız Gezinti İçin Nihai Çözümünüz</h1>
 <p>İnternette gezinirken sürekli karşınıza çıkan reklam ve açılır pencerelerinden sıkıldıysanız, <a href="https://adguard.com/tr/adguard-windows/overview.html">AdGuard Windows uygulamasını</a> kullanmayı düşünebilirsiniz. AdGuard, yalnızca reklamları kaldırmakla kalmayıp aynı zamanda bilgisayarınızı kötü amaçlı yazılımlardan ve kimlik avı saldırılarından koruyan güçlü bir reklam engelleyicidir. Tanıdığınız ve bildiğiniz tüm reklamlara son kez sarılın artık onları bir daha göremeyeceksiniz. Çünkü bu blog gönderisinde, AdGuard&rsquo;ın özelliklerini ve göz atma deneyiminizi nasıl geliştirebileceğini keşfedeceğiz.</p>
 <h2 id="11-adguard-uygulamasının-özellikleri">1.1 AdGuard Uygulamasının Özellikleri</h2>
 <h3 id="111-reklam-engelleyici">1.1.1 Reklam engelleyici</h3>
@@ -1092,8 +2304,7 @@ DNSSEC, EDNS İstemci Alt Ağı, Şifreli SNI ve Şifreli İstemci Hello, intern
 </li>
 </ol>
 </div>
-]]></item><item><title>OpenVPN Derinlemesine Anlatım</title><link>https://wiseweb-works.github.io/blog/post/openvpn-full-anlatim/</link><pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/openvpn-full-anlatim/</guid><description>Giriş ve Özet Bugün sizlerle kendi bence son zamanların en önemli yazılımlarından olan OpenVPN ile ilgili derinlemesine bir inceleme yapacağız. Bu incelememizde öncelikle OpenVPN&amp;rsquo;in ne için kullanıldığından bahsedeceğiz. Ardından programı çalıştırmak için nelere ihtiyaç duyduğumuzu ve ilk çalıştırma öncesi yapılması gerekenleri inceleyeceğiz. Son olarak da bağlantının başlatıldığı ilk andan verinin çözüldüğü son adıma kadar nelerin arka planda döndüğünü anlatmaya çalışacağım. Dolayısıyla yazımız tahminimce 3 bölüm ve gerekirse bir de soru-cevap bölümünden oluşacak.</description>
-<![CDATA[<h1 id="giriş-ve-özet">Giriş ve Özet</h1>
+]]></content:encoded></item><item><title>OpenVPN Derinlemesine Anlatım</title><link>https://wiseweb-works.github.io/blog/post/openvpn-full-anlatim/</link><pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/openvpn-full-anlatim/</guid><description>Giriş ve Özet Bugün sizlerle kendi bence son zamanların en önemli yazılımlarından olan OpenVPN ile ilgili derinlemesine bir inceleme yapacağız. Bu incelememizde öncelikle OpenVPN&amp;rsquo;in ne için kullanıldığından bahsedeceğiz. Ardından programı çalıştırmak için nelere ihtiyaç duyduğumuzu ve ilk çalıştırma öncesi yapılması gerekenleri inceleyeceğiz. Son olarak da bağlantının başlatıldığı ilk andan verinin çözüldüğü son adıma kadar nelerin arka planda döndüğünü anlatmaya çalışacağım. Dolayısıyla yazımız tahminimce 3 bölüm ve gerekirse bir de soru-cevap bölümünden oluşacak.</description><content:encoded><![CDATA[<h1 id="giriş-ve-özet">Giriş ve Özet</h1>
 <p>Bugün sizlerle kendi bence son zamanların en önemli yazılımlarından olan OpenVPN ile ilgili derinlemesine bir inceleme yapacağız. Bu incelememizde öncelikle OpenVPN&rsquo;in ne için kullanıldığından bahsedeceğiz. Ardından programı çalıştırmak için nelere ihtiyaç duyduğumuzu ve ilk çalıştırma öncesi yapılması gerekenleri inceleyeceğiz. Son olarak da bağlantının başlatıldığı ilk andan verinin çözüldüğü son adıma kadar nelerin arka planda döndüğünü anlatmaya çalışacağım. Dolayısıyla yazımız tahminimce 3 bölüm ve gerekirse bir de soru-cevap bölümünden oluşacak. Şimdi kemerlerimizi bağlayalım ve internetin derin ve kasvetli dünyasında bir geziye çıkalım.</p>
 <h2 id="openvpn-nedir-ve-ne-için-kullanılıyor-">OpenVPN nedir ve ne için kullanılıyor ?</h2>
 <p>Günümüzde artık internet üzerinden yapılmayan bir iş neredeyse kalmadı. Hatta normalde internet üzerinden olmayan çalışma eylemimiz bile pandemi ve yeni normal nedeniyle evden çalışmaya doğru evrildi. Fakat hem alışık olmadığımız bir çalışma yöntemi olması nedeniyle hem de insanlarımızın teknoloji ile arasının pek iyi olmaması nedeniyle büyük sorunlar yaşandı. İnsanların evlerindeki bilgisayarlardan ofisteki bilgisayarlarına bağlanması gerektiği anlaşılmadan önce bazı firmalar çalışanların evlerine ofis bilgisayarlarını gönderme gibi uçuk fikirler buldu. Bunun ne kadar hatalı bir gidiş yolu olduğunu kısa süre içinde aldıkları geri dönüşlerden çok iyi anladılar. Kısaca elektronik cihazların ofiste kalması ve bir şekilde uzaktan güvenli ve sürdürülebilir bir bağlantı yapılması gerektiği sonunda kabullenildi. Kurumlar daha önceleri de kendilerini böyle ihtiyaçlar içinde buluyordu elbette ama bu derece büyük ölçekli bir durum söz konusu değildi o zamanlar. Pandemi öncesinde PPTP, L2TP, IPSec, IKev2, SSTP ve nihayet OpenVPN gibi çeşitli protokoller kullanıyordu. Bunlar genelde belirli uzun ve havalı kelimelerin kısaltması olup temel mantıkları iki veya daha fazla cihazı birbirine bağlamak ve aynı ağdaymış gibi hareket etmelerini sağlamak üzerinedir. OpenVPN&rsquo;den önceki protokoller belirli zayıflıkları, yavaşlıkları ve uygulanmasıyla ilgili teknik zorlukları da beraberlerinde getirdikleri için çok bahsetmeyeceğim. OpenVPN sunucu ve istemci rolündeki en az 2 cihazın birbirlerine bağlanması ve  bunu endüstiri standartlarını karşılayacak şekilde yapmasına yarayan protokol ve programın adıdır. Ben uzak masaüstü programı kullanıyorum buna ne gerek var dediğinizi duyar gibiyim. Maalesef o ve onun gibi diğer tüm programlar temelde bu protokolü kullanmak durumunda kalıyorlar. En meşhurlarından olan TeamViewer programında kalkan simgesine veya bağlantı ayrıntılarına bastığınız takdirde OpenVPN protokolünü görebilirsiniz.</p>
@@ -1432,8 +2643,7 @@ iletişime geçmek için kontrol kanalından hariç bir veri kanalı oluşturulu
 <p>Kullanılacak AEAD yaklaşımı da seçildikten sonra TAP veya TUN kullanımına göre yukarıdaki grafikte görülen yol izlenir. Bu yola göre kullanıcı alanında yapılan/yapılmak istenen eylem çekirdek (kernel) seviyesinde TAP/TUN adaptörlerine gider. Bu adaptörler çekirdek seviyesinde bulunmaları nedeniyle çok hızlı bir şekilde işlem yaparlar. Ardından sanal adaptörler ilgili kütüphane ile gerekli şifrelemeyi yapar, gerekirse özeti ekler ve paket boyutu ayarı yapar. Ardından sunucu Ethernet arayüzü üzerinden istemcinin Ethernet arayüzüne paketleri sırayla gönderir. Bunu alan istemci ise paketleri yeniden ayarlar, düzenler gerekirse birleştirir ve gerekli kütüphaneler ile şifresini çözer. Şifresini çözdükten sonra bunu sanal adaptör aracılığı ile istemcini son kullanıcısına iletir. Böylece tüm bu matematiksel işlemler, uğraşlar sonucunda birkaç çevrim neticesinde kullanıcı istediği içeriğe ulaşmış oldu. Anlatması oldukça uzun ama kullanması çok kolay sevgili okuyucular. Sadece GitHub sayfama girik ilgili <a href="https://github.com/wiseweb-works/openvpn-most-secure-install/">script sayfasını</a> ziyaret etmeniz yeterlidir. İlgili script tüm bu ayarlamaları interaktif olarak sizin yerinize yapmaktadır. Size de arkanıza yaslanıp keyfini çıkarmak kalıyor.</p>
 <h1 id="sss-ve-son">SSS ve Son</h1>
 <p>Bana <a href="mailto:wisewebworks@outlook.com">mail</a> yoluyla, <a href="https://fosstodon.org/@wise">Fosstodon</a> üzerinden veya <a href="https://github.com/wiseweb-works">GitHub</a> üzerinden gelen soruları zaman zaman buraya eklemeye çalışacağım. Böylece tarihsel olarak da hangi tarihte ne gibi sorular olmuş veya çözümü mevcut mu gibi düşüncelere kapılmadan direk sonuca ulaşabileceksiniz. Bunun haricinde de teknik dökümanı değiştirmeden ekstra açıklama gerektiren sorular gelirse onları da bu kısma almayı düşünüyorum.</p>
-]]></item><item><title>Linux Sunucuda ECC SSL Sertifikası Üretme</title><link>https://wiseweb-works.github.io/blog/post/ecc-ssl-sertifikasi/</link><pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ecc-ssl-sertifikasi/</guid><description>Giriş ve Özet Bugün sizlerle yönettiğiniz bir web sitesi veya uygulama sunucusu ile ziyaretçileriniz arasındaki trafiğin gizli/güvenilir ve doğrulanabilir olmasını sağlamak için SSL sertifikası üretmeyi öğreneceğiz. Ürettiğiniz sertifikayı nasıl ve hangi konfigürasyon ile deploy edeceğinizi önceki yazılarımda anlatmıştım. Bu yazıda ise az ekmek çok köfte denklemini nasıl kurabileceğimizi yani daha hızlı ve daha güvenli bir SSL sertifikası üretmeyi göstereceğim. Normalde Let&amp;rsquo;s Encrypt&amp;rsquo;in ACME protokolüne aşina iseniz (yazının yazıldığı tarih itibariyle) RSA asimetrik anahtar yapısı ile 1024-4098 (çok zorlarsanız belki 8196) bitlik bir sertifika ürettirmeniz ve bunu görece olarak 90 gün kullanmanız mümkündür.</description>
-<![CDATA[<h1 id="giriş-ve-özet">Giriş ve Özet</h1>
+]]></content:encoded></item><item><title>Linux Sunucuda ECC SSL Sertifikası Üretme</title><link>https://wiseweb-works.github.io/blog/post/ecc-ssl-sertifikasi/</link><pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ecc-ssl-sertifikasi/</guid><description>Giriş ve Özet Bugün sizlerle yönettiğiniz bir web sitesi veya uygulama sunucusu ile ziyaretçileriniz arasındaki trafiğin gizli/güvenilir ve doğrulanabilir olmasını sağlamak için SSL sertifikası üretmeyi öğreneceğiz. Ürettiğiniz sertifikayı nasıl ve hangi konfigürasyon ile deploy edeceğinizi önceki yazılarımda anlatmıştım. Bu yazıda ise az ekmek çok köfte denklemini nasıl kurabileceğimizi yani daha hızlı ve daha güvenli bir SSL sertifikası üretmeyi göstereceğim. Normalde Let&amp;rsquo;s Encrypt&amp;rsquo;in ACME protokolüne aşina iseniz (yazının yazıldığı tarih itibariyle) RSA asimetrik anahtar yapısı ile 1024-4098 (çok zorlarsanız belki 8196) bitlik bir sertifika ürettirmeniz ve bunu görece olarak 90 gün kullanmanız mümkündür.</description><content:encoded><![CDATA[<h1 id="giriş-ve-özet">Giriş ve Özet</h1>
 <p>Bugün sizlerle yönettiğiniz bir web sitesi veya uygulama sunucusu ile ziyaretçileriniz arasındaki trafiğin gizli/güvenilir ve doğrulanabilir olmasını sağlamak için SSL sertifikası üretmeyi öğreneceğiz. Ürettiğiniz sertifikayı nasıl ve hangi konfigürasyon ile deploy edeceğinizi önceki yazılarımda anlatmıştım. Bu yazıda ise az ekmek çok köfte denklemini nasıl kurabileceğimizi yani daha hızlı ve daha güvenli bir SSL sertifikası üretmeyi göstereceğim. Normalde Let&rsquo;s Encrypt&rsquo;in ACME protokolüne aşina iseniz (yazının yazıldığı tarih itibariyle) RSA asimetrik anahtar yapısı ile 1024-4098 (çok zorlarsanız belki 8196) bitlik bir sertifika ürettirmeniz ve bunu görece olarak 90 gün kullanmanız mümkündür. Fakat bu kadar büyük bir anahtarın üretilmesi, ürettikten sonra TLS handshake sırasında kullanılması ve ziyaretçilerin kullandığı cihazlar ile uyumlu olması çoğu senaryoda sorun çıkarmaktadır. Örneğin 2048 bit yerine 4096 bit kullanıldığı zaman bazı denemelerimde 0.4-0.8 sn daha uzun handshake süreleri ile karşı karşıya kalıyorum. Sadece handshake in bu kadar uzaması sorun değilmiş gibi sunucuya da ekstra bir yük bindiriyor. Fakat 4096 bit RSA yerine 384 bit ECC sertifikası ürettiğiniz zaman çok daha hızlı bir sertifikaya sahip olduğunuz gibi aynı zamanda da 7680 bit RSA&rsquo;ya (öyle bir boyut olsaydı) eşit bir güvenlik elde ediyorsunuz.</p>
 <p>Peki iyi güzel anlattın da bu işin aması nerede dediğinizi duyar gibiyim. Sizi üzeceğim fakat bu işin aması yok. Olmamasının sebebi ise işin arka plandaki matematikte saklı. Kısaca her iki sertifika üretim ve kullanımındaki ufak farklardan bahsedip, bunların nasıl ve neden büyük farklara neden olduğunu açıklayıp son kısımda da bonus olarak başlıkta yazmayan bir şeyden bahsedeceğim. (Sonuna kadar okumanız gerekecek bonus için :D)</p>
 <p>
@@ -1680,13 +2890,12 @@ Bu noktada, CSR <code>csr.pem</code> silinebilir.</li>
   <center><small><b>SSL Labs Test Sonucu</b></small></center>
 </picture></p>
 <p>NOT: Bu yazıda <a href="https://dev.to/benjaminblack/obtaining-an-elliptic-curve-dsa-certificate-with-lets-encrypt-51bc">Benjamin Black</a>&lsquo;in aynı konulu yazısından faydalanılmıştır.</p>
-]]></item><item><title>İletişim</title><link>https://wiseweb-works.github.io/blog/page/iletisim/</link><pubDate>Wed, 01 Dec 2021 23:58:00 +0100</pubDate><guid>https://wiseweb-works.github.io/blog/page/iletisim/</guid><description>Günümüz dünyasında gizlilik, güvenlik ve internet üzerine endişelerim ile bazı projelerimi kaleme aldığım web sayfama hoş geldiniz. Bu web sayfası hem şahsi portfolyomun oluşması hem de bilgi paylaşımı amacıyla oluşturulmuştur. ​ Yazdıklarım içerisinde ilginizi çeken bir konu varsa sizin de fikirlerinizi ve tabiki de Github pull requestlerinizi beklerim.
+]]></content:encoded></item><item><title>İletişim</title><link>https://wiseweb-works.github.io/blog/page/iletisim/</link><pubDate>Wed, 01 Dec 2021 23:58:00 +0100</pubDate><guid>https://wiseweb-works.github.io/blog/page/iletisim/</guid><description>Günümüz dünyasında gizlilik, güvenlik ve internet üzerine endişelerim ile bazı projelerimi kaleme aldığım web sayfama hoş geldiniz. Bu web sayfası hem şahsi portfolyomun oluşması hem de bilgi paylaşımı amacıyla oluşturulmuştur. ​ Yazdıklarım içerisinde ilginizi çeken bir konu varsa sizin de fikirlerinizi ve tabiki de Github pull requestlerinizi beklerim.
 Benimle iletişim kurmak isterseniz:
 e-posta wisewebworks[at]outlook.com
 mastodon fosstodon.org/@wise
 xmpp wise[at]yax.im
-Blog&amp;rsquo;um, RSS destekler. Arzu ederseniz kullanmakta olduğunuz RSS okuyucu üzerinden kayıt olabilirsiniz.</description>
-<![CDATA[<p>Günümüz dünyasında gizlilik, güvenlik ve internet üzerine endişelerim ile bazı projelerimi kaleme aldığım web sayfama hoş geldiniz. Bu web sayfası hem şahsi portfolyomun oluşması hem de bilgi paylaşımı amacıyla oluşturulmuştur.
+Blog&amp;rsquo;um, RSS destekler. Arzu ederseniz kullanmakta olduğunuz RSS okuyucu üzerinden kayıt olabilirsiniz.</description><content:encoded><![CDATA[<p>Günümüz dünyasında gizlilik, güvenlik ve internet üzerine endişelerim ile bazı projelerimi kaleme aldığım web sayfama hoş geldiniz. Bu web sayfası hem şahsi portfolyomun oluşması hem de bilgi paylaşımı amacıyla oluşturulmuştur.
 ​
 Yazdıklarım içerisinde ilginizi çeken bir konu varsa sizin de fikirlerinizi ve tabiki de Github pull requestlerinizi beklerim.</p>
 <p>Benimle iletişim kurmak isterseniz:</p>
@@ -1732,8 +2941,7 @@ Yazdıklarım içerisinde ilginizi çeken bir konu varsa sizin de fikirlerinizi 
 </li>
 </ol>
 </div>
-]]></item><item><title>Linux Sunucularda SSL güvenliğini arttırma</title><link>https://wiseweb-works.github.io/blog/post/ssl-konfigurasyonu/</link><pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ssl-konfigurasyonu/</guid><description>Linux Sunucularda SSL güvenliğini artırma Bugün sizlere mevcut sunucunuzda eğer bir websitesi ve/veya App serve ediyorsanız mutlaka ihtiyacınız olan SSL bağlantısından ve bununla bağlantılı olarak openssl kütüphanesinden bahsedeceğim. SSL (Secure Socket Layer) ve TLS (Transport Layer Security) sunucunuza bağlanmak isteyen kişileri siteniz ile güvenli şekilde iletişim kurmasına imkan sağlayan bir bağlantı şeklidir. Eskiden SSL v1-v3 arasında değişen sürümler mevcut ve siteler genelde bu SSL sürümlerini kullanırken artık SSL siteler tarafından terk edilmiş ve yerini daha güvenli olan TLS&amp;rsquo;ye bırakmıştır.</description>
-<![CDATA[<h1 id="linux-sunucularda-ssl-güvenliğini-artırma">Linux Sunucularda SSL güvenliğini artırma</h1>
+]]></content:encoded></item><item><title>Linux Sunucularda SSL güvenliğini arttırma</title><link>https://wiseweb-works.github.io/blog/post/ssl-konfigurasyonu/</link><pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ssl-konfigurasyonu/</guid><description>Linux Sunucularda SSL güvenliğini artırma Bugün sizlere mevcut sunucunuzda eğer bir websitesi ve/veya App serve ediyorsanız mutlaka ihtiyacınız olan SSL bağlantısından ve bununla bağlantılı olarak openssl kütüphanesinden bahsedeceğim. SSL (Secure Socket Layer) ve TLS (Transport Layer Security) sunucunuza bağlanmak isteyen kişileri siteniz ile güvenli şekilde iletişim kurmasına imkan sağlayan bir bağlantı şeklidir. Eskiden SSL v1-v3 arasında değişen sürümler mevcut ve siteler genelde bu SSL sürümlerini kullanırken artık SSL siteler tarafından terk edilmiş ve yerini daha güvenli olan TLS&amp;rsquo;ye bırakmıştır.</description><content:encoded><![CDATA[<h1 id="linux-sunucularda-ssl-güvenliğini-artırma">Linux Sunucularda SSL güvenliğini artırma</h1>
 <p>Bugün sizlere mevcut sunucunuzda eğer bir websitesi ve/veya App serve ediyorsanız mutlaka ihtiyacınız olan SSL bağlantısından ve bununla bağlantılı olarak openssl kütüphanesinden bahsedeceğim. SSL (Secure Socket Layer) ve TLS (Transport Layer Security) sunucunuza bağlanmak isteyen kişileri siteniz ile güvenli şekilde iletişim kurmasına imkan sağlayan bir bağlantı şeklidir. Eskiden SSL v1-v3 arasında değişen sürümler mevcut ve siteler genelde bu SSL sürümlerini kullanırken artık SSL siteler tarafından terk edilmiş ve yerini daha güvenli olan TLS&rsquo;ye bırakmıştır. Fakat yine de işin anlatımı kısmında ve config dosyalarını düzenlerken halen &ldquo;ssl&rdquo; kelimesini kullanmamız gerekecektir. Bunu ufak bir espiri ile de anlatmak gerekirse eğer bir uygulamanın 64 bit versiyonunu indirmek istediğiniz aman &ldquo;amd_64&rdquo; olarak neden geçtiğini hiç düşündünüz mü? Çünkü 64 bit&rsquo;e ilk geçen AMD olduğu için buna bir saygı göstergesi ve/veya alışkanlık olarak amd_64 olarak kaldı bu isimlendirme. Aynı şekilde de şu an TLS kullanıyor olmamıza rağmen isimlendirme ve konfigürasyon parametreleri &ldquo;SSL&rdquo; olarak kaldı.</p>
 <p>Daha önceki yazımızda olduğu gibi süreci yine basit, önerilen ve ileri-seviye olarak üç farklı başlık altında anlatacağım. Başlık içerikleri kişisel gerekliliklere göre aşamalı düşünülmüştür. Başlıklar bir biri ile bağlantılı olmasına rağmen istenilen bir aşamada bırakılması sorun oluşturmayacaktır.</p>
 <h2 id="basit-konfigürasyon">Basit konfigürasyon</h2>
@@ -1764,7 +2972,7 @@ Yazdıklarım içerisinde ilginizi çeken bir konu varsa sizin de fikirlerinizi 
 </span></span><span style="display:flex;"><span>ssl_ecdh_curve secp521r1:secp384r1; &gt;&gt; Ekliptik eğrileri kullanmamız gereken durumlarda hangi eğrileri tercih ettiğimizi bildiren komuttur.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>ssl_ciphers DH-RSA-AES256-SHA:DH-RSA-AES256-SHA256:DHE-RSA-AES256-GCM-SHA384:DH-RSA-AES256-GCM-SHA384:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:ECDH-ECDSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:ECDH-RSA-AES256-SHA:AECDH-AES256-SHA:ECDHE-ECDSA-AES256-SHA384:ECDH-ECDSA-AES256-SHA384:ECDH-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:ECDH-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDH-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-CCM:DHE-RSA-AES256-CCM8:ECDHE-ECDSA-AES256-CCM:ECDHE-ECDSA-AES256-CCM8:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-CHACHA20-POLY1305:DHE-RSA-CHACHA20-POLY1305; &gt;&gt; En güvenilir bulduğum SSL algoritmalarının bir araya getirilerek sadece bunları kullanmasını sunucuya söyleyen kod.
-</span></span></code></pre></div><p>Tek tek araştırmak isteyenler için tüm cipherlar: &ldquo;<a href="https://testssl.sh/openssl-iana.mapping.html%22">https://testssl.sh/openssl-iana.mapping.html&quot;</a></p>
+</span></span></code></pre></div><p>Tek tek araştırmak isteyenler için tüm cipherlar: &ldquo;<a href="https://testssl.sh/openssl-iana.mapping.html%22">https://testssl.sh/openssl-iana.mapping.html"</a></p>
 <p>Ayarları yaptıktan sonra kontrol etmek isterseniz: &ldquo;sudo nginx -t&rdquo; komutunu kullanabilirsiniz. Eğer bir hata mesajı görmez iseniz &ldquo;sudo systemctl restart nginx&rdquo; veya &ldquo;sudo service nginx restart&rdquo; komutu ile ayarları uygulayıp servisi baştan başlatabilirsiniz</p>
 <h2 id="önerilen-ayarlar">Önerilen ayarlar</h2>
 <p>Bir önceki ayarlara ek olarak performans özelinde bazı iyileştirmeler ve bunun yanı sıra sitenizin SSL test sitelerinde üst sıralara çıkmasını sağlayacak bazı ek konfigürasyonlar yapacağız. Bunun ardından ise sitenizin kullanıcı ile erişiminde faydalı olarak bazı başlıkları (header) ve sitenizin kaynaklarının üçüncü kişi siteler tarafından sömürülmemesi için bir takım iyileştirmeler yapacağız.</p>
@@ -1817,7 +3025,7 @@ Yazdıklarım içerisinde ilginizi çeken bir konu varsa sizin de fikirlerinizi 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>İşlem bittikten sonra nginx konfig dosyasına aşağıdaki komutu eklemeniz gerekmektedir.
 </span></span><span style="display:flex;"><span>ssl_dhparam /etc/nginx/dhparam.pem; &gt;&gt; Diffie-Hellman anahtar değişim algoritması sırasında kullanılacak değerleri default değerler dışında az önce oluşturduğumuz gizli değerler ile değiştirmeye yarayan komut.
-</span></span></code></pre></div><p>Ayarları yaptıktan sonra &ldquo;sudo nginx -t&rdquo; ve ardından eğer bir hata mesajı görmez iseniz &ldquo;sudo service nginx restart&rdquo; komutu ile ayarları uygulayıp servisi baştan başlatın. Artık sizin belirlediğiniz konfigürasyon ve şartlar ile bağlantı sağlanacaktır. Eğer öncesi/sonrası puanlama farkını görmek isterseniz aşağıdaki görsellere bakabilirsiniz veya kendi sitenizi &ldquo;<a href="https://www.ssllabs.com/ssltest/index.html%22">https://www.ssllabs.com/ssltest/index.html&quot;</a> adresinden test edebilirsiniz.</p>
+</span></span></code></pre></div><p>Ayarları yaptıktan sonra &ldquo;sudo nginx -t&rdquo; ve ardından eğer bir hata mesajı görmez iseniz &ldquo;sudo service nginx restart&rdquo; komutu ile ayarları uygulayıp servisi baştan başlatın. Artık sizin belirlediğiniz konfigürasyon ve şartlar ile bağlantı sağlanacaktır. Eğer öncesi/sonrası puanlama farkını görmek isterseniz aşağıdaki görsellere bakabilirsiniz veya kendi sitenizi &ldquo;<a href="https://www.ssllabs.com/ssltest/index.html%22">https://www.ssllabs.com/ssltest/index.html"</a> adresinden test edebilirsiniz.</p>
 <p>İLK HALİ
 
 <picture>
@@ -1877,9 +3085,8 @@ Yazdıklarım içerisinde ilginizi çeken bir konu varsa sizin de fikirlerinizi 
 <p>Neden Cipher Strength %100 değil derseniz TLS 1.3 ile otomatik gelen ve biz istemesek de eklenen &ldquo;TLS_AES_128_GCM_SHA256 (0x1301)&rdquo; yüzünden şu an %100 yapmak mümkün değil. TLS 1.3&rsquo;ü kapatırım o zaman gelmez diye düşünürseniz o zaman da başka yerden puanınız gidiyor maalesef.</p>
 <h1 id="son">Son</h1>
 <p>Bu yazı daha önce <a href="https://teknolojirehberleri.xyz">https://teknolojirehberleri.xyz</a> adresinde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
-]]></item><item><title>Linux Sunucularda SSH Güvenliği Artırma</title><link>https://wiseweb-works.github.io/blog/post/ssh-guvenligi/</link><pubDate>Tue, 05 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ssh-guvenligi/</guid><description>Linux Sunucularda SSH güvenliğini artırma Bugün sizlerle bir sunucu kiraladığınız zaman güvenli bir şekilde bağlanmamızı sağlayan SSH hizmetini nasıl daha güvenli ve dışarıdan gelecek kötü niyetli isteklerden uzak tutabiliriz bundan bahsedeceğim. Öncelikle süreci basit, önerilen ve ileri-seviye olarak üç farklı başlık altında anlatacağım. Başlık içerikleri kişisel gerekliliklere göre aşamalı düşünülmüştür. Başlıklar bir biri ile bağlantılı olmasına rağmen istenilen bir aşamada bırakılması sorun oluşturmayacaktır.
-Basit Güvenlik Önlemleri Öncelikle içinde bulunduğumuz Linux sürümünün paket yöneticisi ile güncellemeleri konsol üzerinden yüklememiz gerekmektedir.</description>
-<![CDATA[<h1 id="linux-sunucularda-ssh-güvenliğini-artırma">Linux Sunucularda SSH güvenliğini artırma</h1>
+]]></content:encoded></item><item><title>Linux Sunucularda SSH Güvenliği Artırma</title><link>https://wiseweb-works.github.io/blog/post/ssh-guvenligi/</link><pubDate>Tue, 05 Oct 2021 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ssh-guvenligi/</guid><description>Linux Sunucularda SSH güvenliğini artırma Bugün sizlerle bir sunucu kiraladığınız zaman güvenli bir şekilde bağlanmamızı sağlayan SSH hizmetini nasıl daha güvenli ve dışarıdan gelecek kötü niyetli isteklerden uzak tutabiliriz bundan bahsedeceğim. Öncelikle süreci basit, önerilen ve ileri-seviye olarak üç farklı başlık altında anlatacağım. Başlık içerikleri kişisel gerekliliklere göre aşamalı düşünülmüştür. Başlıklar bir biri ile bağlantılı olmasına rağmen istenilen bir aşamada bırakılması sorun oluşturmayacaktır.
+Basit Güvenlik Önlemleri Öncelikle içinde bulunduğumuz Linux sürümünün paket yöneticisi ile güncellemeleri konsol üzerinden yüklememiz gerekmektedir.</description><content:encoded><![CDATA[<h1 id="linux-sunucularda-ssh-güvenliğini-artırma">Linux Sunucularda SSH güvenliğini artırma</h1>
 <p>Bugün sizlerle bir sunucu kiraladığınız zaman güvenli bir şekilde bağlanmamızı sağlayan SSH hizmetini nasıl daha güvenli ve dışarıdan gelecek kötü niyetli isteklerden uzak tutabiliriz bundan bahsedeceğim. Öncelikle süreci basit, önerilen ve ileri-seviye olarak üç farklı başlık altında anlatacağım. Başlık içerikleri kişisel gerekliliklere göre aşamalı düşünülmüştür. Başlıklar bir biri ile bağlantılı olmasına rağmen istenilen bir aşamada bırakılması sorun oluşturmayacaktır.</p>
 <h2 id="basit-güvenlik-önlemleri">Basit Güvenlik Önlemleri</h2>
 <p>Öncelikle içinde bulunduğumuz Linux sürümünün paket yöneticisi ile güncellemeleri konsol üzerinden yüklememiz gerekmektedir.</p>
@@ -1946,8 +3153,7 @@ Bulup değiştireceğimiz başlıklar</p>
 <pre tabindex="0"><code class="language-texte" data-lang="texte">ssh -i ~/.ssh/ANAHTAR_ISMINIZ SUNUCUDAKI_KULLANICI_ADINIZ@SUNUCU_IP_ADRESI -p PORT_NUMARASI # komutunu kullanabilirsiniz. Gelen bildirimlere Enter deyip devam edebilirsiniz.
 </code></pre><h1 id="son">Son</h1>
 <p>Bu yazı daha önce <a href="https://teknolojirehberleri.xyz">https://teknolojirehberleri.xyz</a> adresinde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
-]]></item><item><title>Maximum Kart reklamı Rubicon nehrini geçti mi?</title><link>https://wiseweb-works.github.io/blog/post/maximum-kart-reklami/</link><pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/maximum-kart-reklami/</guid><description>Maximum Kart’ın artık müze kartı olarak geçerli olmadığı şu günlerde “Zaten müze müze gezip de ne yapacağız, biz Cem Yılmaz izliyoruz o bize yetiyor” şeklinde düşünen arkadaşlar için bir içerik hazırladım. Bildiğiniz veya benim de uydurmuş olabileceğim üzere İş bankasının maximum kart departmının Cem Yılmaz ve diğer sanatçılar ile yapmış olduğu 4–6 reklamlık bir iş birliği (PR) anlaşması mevcuttu. Bu süreçte bankanın ve kartın kullanımını teşvik edecek ve aynı zamanda da Cem Yılmaz üzerinden bilinirliliğini artırıcı bir takım reklamlar çekildi ve basında yayımlandı.</description>
-<![CDATA[<p>Maximum Kart’ın artık müze kartı olarak geçerli olmadığı şu günlerde “Zaten müze müze gezip de ne yapacağız, biz Cem Yılmaz izliyoruz o bize yetiyor” şeklinde düşünen arkadaşlar için bir içerik hazırladım. Bildiğiniz veya benim de uydurmuş olabileceğim üzere İş bankasının maximum kart departmının Cem Yılmaz ve diğer sanatçılar ile yapmış olduğu 4–6 reklamlık bir iş birliği (PR) anlaşması mevcuttu. Bu süreçte bankanın ve kartın kullanımını teşvik edecek ve aynı zamanda da Cem Yılmaz üzerinden bilinirliliğini artırıcı bir takım reklamlar çekildi ve basında yayımlandı. Bu reklamdan büyük bir çoğunluğu son kullanıcıya hitap eden ve direkt ürünün olduğu yerde (market, kafe v.b.) çekilmiş reklamlar olmasına rağmen içlerinden bir tanesi tamamen başka bir atmosferde çekilmişti. Sadece müze kart övmesi için bu kadar prodüksiyona ne gerek vardı diye düşünürken Cem Yılmazın böyle ilginç içerikleri çok sevdiği ve çok az kişinin anladığı ufak espiriler bıraktığı aklıma geldi. Mesela meşhur G.O.R.A filmindeki “evet evet tarafından” espirisinin bir dönem anlaşılmamış olması ve Cem Yılmazın bizatihi kendisi tarafından açıklanması sonucunda meşhur olması gibi. İşte ben de bugün sizlerle bu reklamı inceleyecek ve üzerine bir şeyler söyleyeceğim.</p>
+]]></content:encoded></item><item><title>Maximum Kart reklamı Rubicon nehrini geçti mi?</title><link>https://wiseweb-works.github.io/blog/post/maximum-kart-reklami/</link><pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/maximum-kart-reklami/</guid><description>Maximum Kart’ın artık müze kartı olarak geçerli olmadığı şu günlerde “Zaten müze müze gezip de ne yapacağız, biz Cem Yılmaz izliyoruz o bize yetiyor” şeklinde düşünen arkadaşlar için bir içerik hazırladım. Bildiğiniz veya benim de uydurmuş olabileceğim üzere İş bankasının maximum kart departmının Cem Yılmaz ve diğer sanatçılar ile yapmış olduğu 4–6 reklamlık bir iş birliği (PR) anlaşması mevcuttu. Bu süreçte bankanın ve kartın kullanımını teşvik edecek ve aynı zamanda da Cem Yılmaz üzerinden bilinirliliğini artırıcı bir takım reklamlar çekildi ve basında yayımlandı.</description><content:encoded><![CDATA[<p>Maximum Kart’ın artık müze kartı olarak geçerli olmadığı şu günlerde “Zaten müze müze gezip de ne yapacağız, biz Cem Yılmaz izliyoruz o bize yetiyor” şeklinde düşünen arkadaşlar için bir içerik hazırladım. Bildiğiniz veya benim de uydurmuş olabileceğim üzere İş bankasının maximum kart departmının Cem Yılmaz ve diğer sanatçılar ile yapmış olduğu 4–6 reklamlık bir iş birliği (PR) anlaşması mevcuttu. Bu süreçte bankanın ve kartın kullanımını teşvik edecek ve aynı zamanda da Cem Yılmaz üzerinden bilinirliliğini artırıcı bir takım reklamlar çekildi ve basında yayımlandı. Bu reklamdan büyük bir çoğunluğu son kullanıcıya hitap eden ve direkt ürünün olduğu yerde (market, kafe v.b.) çekilmiş reklamlar olmasına rağmen içlerinden bir tanesi tamamen başka bir atmosferde çekilmişti. Sadece müze kart övmesi için bu kadar prodüksiyona ne gerek vardı diye düşünürken Cem Yılmazın böyle ilginç içerikleri çok sevdiği ve çok az kişinin anladığı ufak espiriler bıraktığı aklıma geldi. Mesela meşhur G.O.R.A filmindeki “evet evet tarafından” espirisinin bir dönem anlaşılmamış olması ve Cem Yılmazın bizatihi kendisi tarafından açıklanması sonucunda meşhur olması gibi. İşte ben de bugün sizlerle bu reklamı inceleyecek ve üzerine bir şeyler söyleyeceğim.</p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/weFr-uSNjHo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
@@ -1990,12 +3196,12 @@ Bulup değiştireceğimiz başlıklar</p>
 </div>
 
 <p>NOT: Bu yazı daha önce şahsi medium.com adresimde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
-]]></item><item><title>PGP nedir ve gerçekten de oldukça iyi bir gizlilik sağlıyor mu?</title><link>https://wiseweb-works.github.io/blog/post/pgp-ve-gizlilik/</link><pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/pgp-ve-gizlilik/</guid><description>PGP Türkçede oldukça iyi gizlilik anlamına gelen Pretty Good Privacy kelimesinin baş harflerinde oluşturulmuş bir veri şifreleme, şifre çözme ve verileri elektronik olarak imzalama programıdır. Phil Zimmermann tarafından 90&amp;rsquo;lı yılların başında akademik bir makale olarak ortaya çıkmış ve yayımlandığı dönemden çok sonra gerçekten kullanılmaya ve getirilerinden yararlanılmaya başlanmıştır. Söz konusu program ilk ortaya çıktığı zamanlarda bir ihtiyacın kendisini ortaya çıkmaya zorlamasından ziyade daha çok bir düşünce deneyi olarak iletişimin her iki tarafı arasındaki verilerin şifrelenebileceği ve bunun nasıl yapılması gerektiği sorusu üzerine ortaya çıkmıştır.</description><![CDATA[
+]]></content:encoded></item><item><title>PGP nedir ve gerçekten de oldukça iyi bir gizlilik sağlıyor mu?</title><link>https://wiseweb-works.github.io/blog/post/pgp-ve-gizlilik/</link><pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/pgp-ve-gizlilik/</guid><description>PGP Türkçede oldukça iyi gizlilik anlamına gelen Pretty Good Privacy kelimesinin baş harflerinde oluşturulmuş bir veri şifreleme, şifre çözme ve verileri elektronik olarak imzalama programıdır. Phil Zimmermann tarafından 90&amp;rsquo;lı yılların başında akademik bir makale olarak ortaya çıkmış ve yayımlandığı dönemden çok sonra gerçekten kullanılmaya ve getirilerinden yararlanılmaya başlanmıştır. Söz konusu program ilk ortaya çıktığı zamanlarda bir ihtiyacın kendisini ortaya çıkmaya zorlamasından ziyade daha çok bir düşünce deneyi olarak iletişimin her iki tarafı arasındaki verilerin şifrelenebileceği ve bunun nasıl yapılması gerektiği sorusu üzerine ortaya çıkmıştır.</description><content:encoded><![CDATA[
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/VGz1dZ4Sg-g" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
-<p>PGP Türkçede oldukça iyi gizlilik anlamına gelen Pretty Good Privacy kelimesinin baş harflerinde oluşturulmuş bir veri şifreleme, şifre çözme ve verileri elektronik olarak imzalama programıdır. <a href="https://tr.wikipedia.org/w/index.php?title=Phil_Zimmermann&amp;action=edit&amp;redlink=1">Phil Zimmermann</a> tarafından 90&rsquo;lı yılların başında akademik bir makale olarak ortaya çıkmış ve yayımlandığı dönemden çok sonra gerçekten kullanılmaya ve getirilerinden yararlanılmaya başlanmıştır. Söz konusu program ilk ortaya çıktığı zamanlarda bir ihtiyacın kendisini ortaya çıkmaya zorlamasından ziyade daha çok bir düşünce deneyi olarak iletişimin her iki tarafı arasındaki verilerin şifrelenebileceği ve bunun nasıl yapılması gerektiği sorusu üzerine ortaya çıkmıştır. Ortaya çıkışının ardından gönderilen verilen şifrelenmesinin ve şifresinin taraflarca çözülmesinin yanına bir de verinin bütünlüğünün korunmasını sağlayan özet fonksiyonu ve mesajı gönderen kişinin kimliğinin doğrulanması sağlayan (ve kimi zaman inkar edilemezlik olarak da anılan) imzalama özelliği eklenmiştir. Ortaya çıktığı dönemde ve sonrasında açık kaynak kodlu olarak yayımlanmaya devam etmiş ve günümüzde OpenPGP adı altında gelişerek faaliyetlerine devam etmektedir. PGP’nin ortaya çıktığı 1991 yılından 6 sene sonra yani 1997 yılında kendilerine Internet Engineering Task Force (görev gücü biraz abartı olmadı :D) adını veren bir çalışma grubu PGP programının sağlamış olduğu şifreleme özelliklerinin piyasa standartı haline gelmesi ve kullanımının kolaylaştırılması için yazılar yayımlamaya başladılar.</p>
+<p>PGP Türkçede oldukça iyi gizlilik anlamına gelen Pretty Good Privacy kelimesinin baş harflerinde oluşturulmuş bir veri şifreleme, şifre çözme ve verileri elektronik olarak imzalama programıdır. <a href="https://tr.wikipedia.org/w/index.php?title=Phil_Zimmermann&action=edit&redlink=1">Phil Zimmermann</a> tarafından 90&rsquo;lı yılların başında akademik bir makale olarak ortaya çıkmış ve yayımlandığı dönemden çok sonra gerçekten kullanılmaya ve getirilerinden yararlanılmaya başlanmıştır. Söz konusu program ilk ortaya çıktığı zamanlarda bir ihtiyacın kendisini ortaya çıkmaya zorlamasından ziyade daha çok bir düşünce deneyi olarak iletişimin her iki tarafı arasındaki verilerin şifrelenebileceği ve bunun nasıl yapılması gerektiği sorusu üzerine ortaya çıkmıştır. Ortaya çıkışının ardından gönderilen verilen şifrelenmesinin ve şifresinin taraflarca çözülmesinin yanına bir de verinin bütünlüğünün korunmasını sağlayan özet fonksiyonu ve mesajı gönderen kişinin kimliğinin doğrulanması sağlayan (ve kimi zaman inkar edilemezlik olarak da anılan) imzalama özelliği eklenmiştir. Ortaya çıktığı dönemde ve sonrasında açık kaynak kodlu olarak yayımlanmaya devam etmiş ve günümüzde OpenPGP adı altında gelişerek faaliyetlerine devam etmektedir. PGP’nin ortaya çıktığı 1991 yılından 6 sene sonra yani 1997 yılında kendilerine Internet Engineering Task Force (görev gücü biraz abartı olmadı :D) adını veren bir çalışma grubu PGP programının sağlamış olduğu şifreleme özelliklerinin piyasa standartı haline gelmesi ve kullanımının kolaylaştırılması için yazılar yayımlamaya başladılar.</p>
 <p>
 <picture>
   
@@ -2036,17 +3242,15 @@ Bulup değiştireceğimiz başlıklar</p>
 </div>
 
 <p>NOT: Bu yazı daha önce şahsi medium.com adresimde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
-]]></item><item><title>Grigori Rasputin ve aynı isimli şarkı hk</title><link>https://wiseweb-works.github.io/blog/post/grigori-rasputin/</link><pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/grigori-rasputin/</guid><description>Nerede doğduğunu bilmediğimiz Grigori Rasputin isimli bu arkadaşın çocukluk yılları daha çok Sibirya geçiyor. Mavi gözleri ve etkileyici mimikleri var. Daha küçük yaştan itibaren insanları etkilemeyi ve ilgi çekmeyi başaran bir yapısı mevcut. Hatta bir keresinde yaşı küçük olmasına rağmen babasının çiftliğinden çalınan bir atı kimin çaldığını kehanet yoluyla tahmin eder. Herkes (babası da dahil) Rasputin’e inanmamış olsa da sonradan hırsız kendisi gelip suçunu itiraf eder. Bu olaydan sonra ailesi ve bütün çevresi onun gerçekten doğaüstü güçlere sahip olduğunu düşünmeye başlamıştır.</description>
-<![CDATA[<p>Nerede doğduğunu bilmediğimiz Grigori Rasputin isimli bu arkadaşın çocukluk yılları daha çok Sibirya geçiyor. Mavi gözleri ve etkileyici mimikleri var. Daha küçük yaştan itibaren insanları etkilemeyi ve ilgi çekmeyi başaran bir yapısı mevcut. Hatta bir keresinde yaşı küçük olmasına rağmen babasının çiftliğinden çalınan bir atı kimin çaldığını kehanet yoluyla tahmin eder. Herkes (babası da dahil) Rasputin’e inanmamış olsa da sonradan hırsız kendisi gelip suçunu itiraf eder. Bu olaydan sonra ailesi ve bütün çevresi onun gerçekten doğaüstü güçlere sahip olduğunu düşünmeye başlamıştır.</p>
+]]></content:encoded></item><item><title>Grigori Rasputin ve aynı isimli şarkı hk</title><link>https://wiseweb-works.github.io/blog/post/grigori-rasputin/</link><pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/grigori-rasputin/</guid><description>Nerede doğduğunu bilmediğimiz Grigori Rasputin isimli bu arkadaşın çocukluk yılları daha çok Sibirya geçiyor. Mavi gözleri ve etkileyici mimikleri var. Daha küçük yaştan itibaren insanları etkilemeyi ve ilgi çekmeyi başaran bir yapısı mevcut. Hatta bir keresinde yaşı küçük olmasına rağmen babasının çiftliğinden çalınan bir atı kimin çaldığını kehanet yoluyla tahmin eder. Herkes (babası da dahil) Rasputin’e inanmamış olsa da sonradan hırsız kendisi gelip suçunu itiraf eder. Bu olaydan sonra ailesi ve bütün çevresi onun gerçekten doğaüstü güçlere sahip olduğunu düşünmeye başlamıştır.</description><content:encoded><![CDATA[<p>Nerede doğduğunu bilmediğimiz Grigori Rasputin isimli bu arkadaşın çocukluk yılları daha çok Sibirya geçiyor. Mavi gözleri ve etkileyici mimikleri var. Daha küçük yaştan itibaren insanları etkilemeyi ve ilgi çekmeyi başaran bir yapısı mevcut. Hatta bir keresinde yaşı küçük olmasına rağmen babasının çiftliğinden çalınan bir atı kimin çaldığını kehanet yoluyla tahmin eder. Herkes (babası da dahil) Rasputin’e inanmamış olsa da sonradan hırsız kendisi gelip suçunu itiraf eder. Bu olaydan sonra ailesi ve bütün çevresi onun gerçekten doğaüstü güçlere sahip olduğunu düşünmeye başlamıştır.</p>
 <p>Büyüdükten sonra ailesi tarafından Rusyanın başka bir bölgesine gönderilir ve burada manastırda eğitim almaya başlar. Fakat kehanetleri azalmadığı gibi artmaya da başlar. İlgileri yine üzerine çekmeyi başarır burada da. Öyle ki 1904 yılında Çar Romanov’un küçük oğlu Aleksi’nin hemofili olduğunu öğrenir ve çocuğu ancak kendisinin tedavi edebileceğini iddia eder. Yine bir vaazında 1. Dünya Savaşından ve yaklaşmakta olan Bolşevik devriminden bahseder. Tarih tabiiki de onun yanılmadığını bize gösterecektir. Artık saraya çok yakındır ve vaazlarında Aleksi’nin hastalığını kendisinin tedavi edebileceğini çariçe Aleksandrova’ya açıklar. Çariçe kendisini saraya çağırır ve böylelikle Petersburg ve Kremlin saraylarının kapıları Rasputin’e sonuna kadar açılmış olur.</p>
 <p>Kısaca hayatından bahsettikten sonra <a href="https://www.youtube.com/watch?v=kvDMlk3kSYg">Boney M. grubunun şarkısında</a> daha çok geçen ve ölümünü (!) anlatan kısma gelmek istiyorum. Bu kısımdan sonra anlatılanlar bir miktar yoruma dayalı olmakla birlikte anlatılanlar arasında tam bir mutabakat yoktur.</p>
 <p>Rasputin, Prens Yusufov tarafından bir davete çağrılır, fakat Prens, Rasputin’i kendisi ile özel bir konuda görüşmek bahanesiyle davetten önce evine daha bütün misafirler gelmeden ayrı getirtir. Durum oldukça gariptir, Rasputin’i bahçe tarafında bodrum katında bir odaya indirirler fakat ikramda kusur yoktur. Siyanürle hazırlanan kurabiyeler ve yine siyanürlü şarap sunulur Rasputin’e. Merakla Prens’in ne anlatacağını bekleyen Rasputin, kurabiyeleri afiyetle yer ve hatta şaraptan da birkaç kadeh içer. Bir türlü konuya girmeyen ve lafı geveleyen Prens, Rasputin’e hiçbir şey olmadığını görünce telaşa kapılır, müsaade ister ve komployu hazırladığı ve yine evde başka bir odada onu bekleyen İngiliz ajanından yardım ister. İngiliz ona bir silah verir ve sessizce bu işi bitirmesini söyler. Prens silahı alır, odaya gider ve iki el ateş eder, başından ve boynundan yaralanan Rasputin yere yığılır. Komplocu Prens bu işi bitirdiğini zannederek yukarı çıkar ve diğer işbirlikçileri aşağıya çağırır. Fakat iki metrelik bu dev Sibiryalıyı öldürmek o kadarda kolay değildir. Prens ve komplocular odaya girdiklerinde Rasputin ayaktadır, ölmemiştir. Rasputin kendisini bahçeye atar ve kaçmaya başlar. Fakat katiller peşine düşerler ve Rasputin bahçe duvarını aşacakken arkasından ateş ederler ve durdururlar. Artık bu tehlikeli adamı öldürdüklerini düşünürler ve cesedini neva nehrine atarlar. Ceset birkaç gün sonra nehirden çıkarılır, otopsi yapılır. Otopsi raporuna göre Rasputin kurşunlardan değil ciğerine dolan sudan, yani boğularak ölmüştür. Onu öldürmek hiçte kolay olmamıştır anlaşılan.</p>
 <p>Burada bir parantez açmak istiyorum. Boğulan ve ciğerler patlayarak dışarı çıkan birinin sadece birkaç organının zarar görmüş olacağını düşünmek mantıksız. Hem cildi hem de diğer bütün hayati organları zarar görmüştür bu olaylar sonunda. Kendisini bulduklarını düşündükleri zaman teşhis etme konusunda emin olamamışlardır. Bu yüzden ben o anda dahi ölmediğini ve efsaneler aslını yaşatır kuralı gereğince hayatına bir süre daha devam ettiğini düşünüyorum. Kendisi aynı zamanda <strong>rasPUTİN</strong> ismine sahip olduğu ve Rusyanın en önde gelen şahsı ile isimleri benzediği için şarkıları son zamanlarda oldukça ön planda. Gerçi Putin başta oldu olalı bu şarkılar ön planda ama şu son 5–6 senedir bu şarkılar üzerinden Putin övmesine doyamadılar maalesef. Hatta <a href="https://www.youtube.com/watch?v=YgGzAKP_HuM">“Rasputin — Funk Overload”</a> adlı videoda Boney M. grubunun yapmış olduğu şarkıya bir animasyon ile farklı bir hava katmışlar. Ayrıca ilgili videonun içinde Putin ile ilgili bir bonus bölüm de mevcut. Hem eğlenceli hem de remix tarzı bir video olmuş. Bu kısa yazımız maalesef bitti.</p>
 <p>Bu hikayeyi yazarken faydalandığım siteleri kaynakça gibi eklemek isterdim ama paralel evrende şu anda tam olarak 10 dk geçti ve benim daha önemli işlerim var. O yüzden sevgili (!) Putine bir selam çakıp aranızdan ayrılıyorum.</p>
 <p>NOT: Bu yazı daha önce şahsi medium.com adresimde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
-]]></item><item><title>Modern kriptografi yöntemlerinin Star Wars filmi ile ilişkisi</title><link>https://wiseweb-works.github.io/blog/post/modern-kriptografi-star-wars/</link><pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/modern-kriptografi-star-wars/</guid><description>Uzun uzun bir zaman önce (!) pek de uzak olmayan bir galakside yaşayan insanlar internet üzerinden yapmış oldukları işlemlerin daha güvenli bir temele oturması ve bu iletişimin tarafları dışındaki üçüncü kişilerin bu iletişimi dinleyememesi ve hakkında bilgi sahibi olamaması için bir takım şifreleme yöntemleri geliştirmeye karar verirler. INTRO
-Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölümlerinde yapılmış akademik çalışmaların ötesine geçememiş olan şifreleme (cryptography) alanı artık bireylerin iyiliği için kullanılacaktı.</description>
-<![CDATA[<blockquote>
+]]></content:encoded></item><item><title>Modern kriptografi yöntemlerinin Star Wars filmi ile ilişkisi</title><link>https://wiseweb-works.github.io/blog/post/modern-kriptografi-star-wars/</link><pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/modern-kriptografi-star-wars/</guid><description>Uzun uzun bir zaman önce (!) pek de uzak olmayan bir galakside yaşayan insanlar internet üzerinden yapmış oldukları işlemlerin daha güvenli bir temele oturması ve bu iletişimin tarafları dışındaki üçüncü kişilerin bu iletişimi dinleyememesi ve hakkında bilgi sahibi olamaması için bir takım şifreleme yöntemleri geliştirmeye karar verirler. INTRO
+Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölümlerinde yapılmış akademik çalışmaların ötesine geçememiş olan şifreleme (cryptography) alanı artık bireylerin iyiliği için kullanılacaktı.</description><content:encoded><![CDATA[<blockquote>
 <p>Uzun uzun bir zaman önce (!) pek de uzak olmayan bir galakside yaşayan insanlar internet üzerinden yapmış oldukları işlemlerin daha güvenli bir temele oturması ve bu iletişimin tarafları dışındaki üçüncü kişilerin bu iletişimi dinleyememesi ve hakkında bilgi sahibi olamaması için bir takım şifreleme yöntemleri geliştirmeye karar verirler. <a href="https://starwarsintrocreator.kassellabs.io/#!/BM5xzF-d7ZTSDYuCtJC9">INTRO</a></p>
 </blockquote>
 <p>Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölümlerinde yapılmış akademik çalışmaların ötesine geçememiş olan şifreleme (cryptography) alanı artık bireylerin iyiliği için kullanılacaktı. Bu ilke imza atacak ilk kişilerin arkadaş olmasının dışında onları birleştiren asıl şey Star Wars’ın orijinal üçlemesini çocuklukları döneminde birlikte izlemiş ve etkinlenmiş olmalarıdır. 1977 Yılında orijinal üçlemenin ilk, tarihsel sıralamaya göre ise dördüncü film olan <a href="https://en.wikipedia.org/wiki/Star_Wars_(film)">Star Wars A New Hope</a> vizyona girmiş ve tüm çevreler tarafından beğeniyle izlenmişti. İlk filmin vizyona girişinden sonraki 3. ve 6. senelerde serinin beşinci ve altıncı filmleri olan <a href="https://en.wikipedia.org/wiki/The_Empire_Strikes_Back">The Empire Strikes Back</a> ve <a href="https://en.wikipedia.org/wiki/Return_of_the_Jedi">Return of the Jedi</a> de peş peşe vizyona girmiş ve seyircisinin filmden beklentisini ve serinin devamına olan isteğini artırmıştır. Serinin o dönemki yönetmeni George Lucas izleyenleri daha iyi bir üçlemeye hazırlamak adına orijinal üçlemenin üçüncü filminin vizyona girdiği tarih olan 1983 yılından 1999 yılına kadar seriye yeni film çıkarmamış ve teknolojik imkanların gelişmesini beklemiştir. Yani tarihsel üçleme efsanesinin ve de modern kriptografinin bence başladığı yıl olan 1999 yılına gelinene kadar. 90&rsquo;lı yıllar kendilerini Cypherpunks olarak adlandıran ve açık kaynak kodunu yücelten, gizlilik ve bireyin anonimlik hakkı üzerinde bir manifesto yayımlayan, bilgisayar ve teknoloji ile birlikte büyümüş bir neslin dönemiydi. İnternetin ülkemize gelişi ve tüm dünyadaki internet ağının gelişmesi ile birlikte 2000&rsquo;li yıllara girmeye yaklaştığımız dönemlerde kişi başına düşen bilgisayar sayısı oranı artmış ve her eve olmasa da birçok haneye geniş bant internet hizmeti ulaşmış bulunmaktaydı. İşte ülkemizde internet yeni yeni kabul görmeye ve kullanılmaya başlandığı dönemlerde yurt dışında bir arkadaş topluluğu World Wide Web (WWW)’in eksik taraflarından biri olan şifreleme ve gizlilik üzerine odaklanmaya başlamıştı bile.</p>
@@ -2125,9 +3329,8 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
 <p>Arkadaş grubu önce bir sessizliğe büründü ve soruyu soran kişi aynı ses tonuyla soruyu tekrarladı ve bu sefer sonuna <strong>“But without using R2-D2 or any kind of Droid :D”</strong> ekledi. Grupta yükselen gülüşmelerin ve filmle ilgili ardı ardına söylenen repliklerin ardından gruptaki kişiler birbirlerine bakarak bu soruna nasıl bir çözüm bulabileceklerini veya bunu kimin yapabileceğini düşünmeye koyuldular. Çok geçmeden bu soruya cevap bulabilecek kişilerin aslında bu sorunu ilk farkeden kişiler yani grup arkadaşları olduğunu anladılar. Hepsi ülkelerinde önemli üniversitelerden mezun olmuş ve alanlarında uzmanlaşmak, kendilerini geliştirmek için akademik kariyerlerine devam etmişlerdi. O dönem için böyle bir projenin yapılması için gerekli tüm matematiksel sorunların çözümü ile bilgisayarda yapılması gereken kodlamanın altından grup olarak kalkabileceklerini düşündüler. Grup olarak önce kullanıcıdan kaynaklı çözüm yöntemleri ile başlayıp ardından sunucular ve genele inen bir proje planı yaptılar. İlk olarak PGP (Pretty Good Privacy) adı ile anılan ve ilk dökümanlarının yayımlanmasının üzerinden neredeyse 8 sene geçmiş bir veri şifreleme-çözme yöntemi üzerinde durdular. Bu yöntemin (günümüzde nispeten daha güvenli olan) mail alışverişi sırasında kullanılmasının taraflar arasındaki gizliliği artıracağını düşündüler. Böylece kendilerine sormuş oldukları sorunun “güvenlik” kısmını irdelemeye başladılar ve bu başlangıç onları hiç tahmin edemeyecekleri yerlere ve kişilere götürdü. Onlar seçimini kırmızı hapı almaktan yana kullandılar. Böylece bilgisayardaki harikalar diyarının ve tavşan deliğinin ne kadar derin olduğunu tüm insanlara gösterme imkanı buldular. Yazı her ne kadar Star Wars filmi ile ilişkisi üzerinden devam etmiş olsa da Matrix filminin de aynı dönemde vizyona girdiği düşünüldüğünde böyle bir baş yapıttan etkilenilmediğini düşünmek yanlış olur.</p>
 <p>Eğer yazının bu kısmına kadar gelmeyi başardıysanız merakınızın sizi bir yerlere sürüklediğini, siz istediğiniz ve ben kendimde yazma kuvveti bulduğum sürece bu tavşan deliğinin ne kadar derin olabileceğini birlikte keşfedeceğimizi anlamışsınızdır. Eğer her yerde anlatılan alışılmış hikayelerin ve kalıplaşmış kabullerin ötesinde bilgisayar ve insan arasındaki ilişkinin nasıl işlediğini, arka planda neler olduğunu öğrenmek istiyorsanız beni Twitter&rsquo;dan ve şu an bulunduğunuz medium sitesinden takip edebilirsiniz. Sizlere şimdilik “her x günde veya x haftada bir yazı” şeklinde bir söz veremiyorum. Sizlere karşı verebileceğim tek söz benden bir şey beklemezseniz sizi bu konuda hayal kırıklığına da uğratamayacağım olacaktır. Yazı bitti. After credit sahnesini izlemek isteyenler için videomuza geçiyoruz.</p>
 <p>NOT: Bu yazı daha önce şahsi medium.com adresimde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
-]]></item><item><title>Umursamazlık Üzerine</title><link>https://wiseweb-works.github.io/blog/post/umursamazl%C4%B1k-uzerine/</link><pubDate>Wed, 25 Feb 2015 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/umursamazl%C4%B1k-uzerine/</guid><description>Bir arkadaşım bana geçtiğimiz günlerde “istemediğin veya vazgeçtiğin zaman nasıl böyle umursamaz olabiliyorsun ?” diye sordu. Arkadaşımın da merak ettigi bu konudan bahsetmek istiyorum biraz.
-Öncelikle bunu neden yaptım sorusuna cevap vererek başlamak istiyorum. Cevabı çok basit. Canım böyle istiyor çünkü. Bunun adına koca bir felsefe yıkmaktansa sadece öyle istediğim icin yapmak bana daha mantıklı geldi. Siz de takdir edersiniz ki sevmediğiniz bir insanla veya grup ile konuşmak istemez hatta bir adım daha ötesi görmek istemezsiniz.</description>
-<![CDATA[<p>Bir arkadaşım bana geçtiğimiz günlerde “istemediğin veya vazgeçtiğin zaman nasıl böyle umursamaz olabiliyorsun ?” diye sordu. Arkadaşımın da merak ettigi bu konudan bahsetmek istiyorum biraz.</p>
+]]></content:encoded></item><item><title>Umursamazlık Üzerine</title><link>https://wiseweb-works.github.io/blog/post/umursamazl%C4%B1k-uzerine/</link><pubDate>Wed, 25 Feb 2015 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/umursamazl%C4%B1k-uzerine/</guid><description>Bir arkadaşım bana geçtiğimiz günlerde “istemediğin veya vazgeçtiğin zaman nasıl böyle umursamaz olabiliyorsun ?” diye sordu. Arkadaşımın da merak ettigi bu konudan bahsetmek istiyorum biraz.
+Öncelikle bunu neden yaptım sorusuna cevap vererek başlamak istiyorum. Cevabı çok basit. Canım böyle istiyor çünkü. Bunun adına koca bir felsefe yıkmaktansa sadece öyle istediğim icin yapmak bana daha mantıklı geldi. Siz de takdir edersiniz ki sevmediğiniz bir insanla veya grup ile konuşmak istemez hatta bir adım daha ötesi görmek istemezsiniz.</description><content:encoded><![CDATA[<p>Bir arkadaşım bana geçtiğimiz günlerde “istemediğin veya vazgeçtiğin zaman nasıl böyle umursamaz olabiliyorsun ?” diye sordu. Arkadaşımın da merak ettigi bu konudan bahsetmek istiyorum biraz.</p>
 <p>Öncelikle bunu neden yaptım sorusuna cevap vererek başlamak istiyorum. Cevabı çok basit. Canım böyle istiyor çünkü. Bunun adına koca bir felsefe yıkmaktansa sadece öyle istediğim icin yapmak bana daha mantıklı geldi. Siz de takdir edersiniz ki sevmediğiniz bir insanla veya grup ile konuşmak istemez hatta bir adım daha ötesi görmek istemezsiniz. Ben buna bir de vazgeçtiğim seyleri de ekledim. Sonuçta simdi uyguladığım davranış tarzı ortaya çıktı.</p>
 <p>Kavga ettiğiniz veya tartıştığınız bir insan düşünün öncelikle. Ertesi gün okulda, sokakta muhtemelen tekrar göreceğiniz biri hem de bu kisi. Ve biliyorsunuz ki sonrasında bu sürtüşmelerin veya laf dalaşlarının devamı gelecek. Hele bir de bana genelde olduğu gibi yapışkan bir insan ile karşı karşıya iseniz isiniz bayağı zor olacaktır. Az veya çok bir sürenin sonunda (Cinnete beş kala) tamamen bağınız kopacak. Artık birbirimizi tanımıyor gibi davranacaksın ve görmek sizi o kadar da rahatsız etmeyecek, hatta umursamayacaksın.</p>
 <p>Ardından benim sonradan eklediğim kısma gecelim. Üzerinde sürekli düşündüğünüz bir şey var. Bu sevdiğiniz bir kız/erkek de olabilir sizi bundan daha fazla düşünmeye iten bir şey olabilir veya birçok kisiye saçma gelebilecek ama sizin icin onemli daha birçok şey olabilir. Demek istediğimi anladınız örnekleri daha da uzatmaya gerek yok, zeki insanlarız hepimiz. Bu durumda sevgili Einstein’ın dediği veya benim kafamdan da uydurmuş olabileceğim gibi “Beyin bir düşünce düzeyine ulaştığında tekrar eski haline gelmesi oldukça zordur.” Ortalama bir hesap yaparsak 7–8 hafta kafanızı bu seye yorsanız. Bunun en az bir 3–4 hafta da düzelme süresi olsa hayatınızdan 10–12 hafta gitti demektir. Ki ben bunu saçmalık olarak adlandırıyorum.</p>
@@ -2136,13 +3339,12 @@ Daha önceden üniversitelerin matematik ve bilgisayar programcılığı bölüm
 <p>Simdi sonucun bu şekilde olacağını bildiğiniz zaman “umursamamak” düşündüğünüzden daha kolay oluyor. Çünkü artık bu konuda bir motivasyonunuz var. Ve şunu da söylemek gerekir ki bunu söyleyebilecek kafaya gelmek icin bir çok olay yaşadım. Çok saçma seyler yaptım ve tabiri olarak duvara tosladım. Dedim bir şeyler yapmak lazım. Geçmişe bakınca böyle bir şey yapmalı dedim. Bu yüzden sunu da anladım ki sevgili Steve’in dediği veya benim de uydurmuş olabileceğim gibi “Noktaları ileriye bakarak birleştiremezsiniz. Noktalar geriye baktığınızda birleşir.” Ben bugün baktığımda noktalar çok net birleşiyor. Ama biz de duvara çarpmak istiyoruz, noktaları biz de göreceğiz diyorsanız tercih sizin. Bildiğiniz gibi bütün uyuyanları uyandırmak için tek bir uyanık yeter. Ben üzerime düşeni yaptım.</p>
 <p>Eğer söylediklerimi mantıklı bulduysanız, doğru geliyorsa, sizde öyle yapıyorsanız, yapmayı düşünüyorsanız, yardımcı olduysam veya olumlu bir şey söylemek istiyorsanız bana aşağıdaki yeşilli kalp simgesi veya ona benzeyen şeye basmanız gerekiyor. Zaten kaç kisinin okuduğunu, anlık görüntülenme oranını filan görüyorum. Benim icin önemli olan göremediğim ve sadece sizin bana iletebileceğin şey. Görüşleriniz. Ama sadece olumluları almak istiyorum. O yüzden sadece olumlu ileti butonu var. Olumsuzları görüşlerinizi bir A4 kağıdına yazın ve isiniz bitince kağıdı çöpe atın. Kesinlikle yere degil ama. Son.</p>
 <p>NOT: Bu yazı daha önce şahsi medium.com adresimde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
-]]></item><item><title>Arkadaslık ve Dostluk Üzerine</title><link>https://wiseweb-works.github.io/blog/post/arkadaslik-ve-dostluk/</link><pubDate>Thu, 29 Jan 2015 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/arkadaslik-ve-dostluk/</guid><description>Bir gün muhabbet sırasında “Çevrem çok geniştir ama arkadaşlarım azdır dostlarım ise bi’kaç tanedir.” şeklinde bir cümle kurmuşum. Etrafımda şaşkınlığa yol açan bu cümle benim için alelade bir söz değildi. Fakat o anda anlatılacak kadar da basit değildi. Eve gidip üzerinde biraz düşünüp, anlamlandırıp, örneklendirip anlatılması gerektiğini düşündüm. Ve şimdi karşınızdayım (somut olarak olmasa da) ve bugün bu konuda konuşmak istiyorum.
-Bu konuyu 2’e ayırıp incelemek istiyorum. İlk olarak çevreden ben ne anlıyorum, benim için ne anlam ifade ediyor bundan bahsetmek istiyorum.</description>
-<![CDATA[<p>Bir gün muhabbet sırasında “Çevrem çok geniştir ama arkadaşlarım azdır dostlarım ise bi’kaç tanedir.” şeklinde bir cümle kurmuşum. Etrafımda şaşkınlığa yol açan bu cümle benim için alelade bir söz değildi. Fakat o anda anlatılacak kadar da basit değildi. Eve gidip üzerinde biraz düşünüp, anlamlandırıp, örneklendirip anlatılması gerektiğini düşündüm. Ve şimdi karşınızdayım (somut olarak olmasa da) ve bugün bu konuda konuşmak istiyorum.</p>
+]]></content:encoded></item><item><title>Arkadaslık ve Dostluk Üzerine</title><link>https://wiseweb-works.github.io/blog/post/arkadaslik-ve-dostluk/</link><pubDate>Thu, 29 Jan 2015 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/arkadaslik-ve-dostluk/</guid><description>Bir gün muhabbet sırasında “Çevrem çok geniştir ama arkadaşlarım azdır dostlarım ise bi’kaç tanedir.” şeklinde bir cümle kurmuşum. Etrafımda şaşkınlığa yol açan bu cümle benim için alelade bir söz değildi. Fakat o anda anlatılacak kadar da basit değildi. Eve gidip üzerinde biraz düşünüp, anlamlandırıp, örneklendirip anlatılması gerektiğini düşündüm. Ve şimdi karşınızdayım (somut olarak olmasa da) ve bugün bu konuda konuşmak istiyorum.
+Bu konuyu 2’e ayırıp incelemek istiyorum. İlk olarak çevreden ben ne anlıyorum, benim için ne anlam ifade ediyor bundan bahsetmek istiyorum.</description><content:encoded><![CDATA[<p>Bir gün muhabbet sırasında “Çevrem çok geniştir ama arkadaşlarım azdır dostlarım ise bi’kaç tanedir.” şeklinde bir cümle kurmuşum. Etrafımda şaşkınlığa yol açan bu cümle benim için alelade bir söz değildi. Fakat o anda anlatılacak kadar da basit değildi. Eve gidip üzerinde biraz düşünüp, anlamlandırıp, örneklendirip anlatılması gerektiğini düşündüm. Ve şimdi karşınızdayım (somut olarak olmasa da) ve bugün bu konuda konuşmak istiyorum.</p>
 <p>Bu konuyu 2’e ayırıp incelemek istiyorum. İlk olarak çevreden ben ne anlıyorum, benim için ne anlam ifade ediyor bundan bahsetmek istiyorum. Bence insanın çevresi daha önce tanıştığı insanlar, tanışmamış olsa da hakkında ortalama bilgi sahibi olduğu insanlar veya da en azından aynı payda da yerleşebileceği insanlardır. Bunu söyle düşünebiliriz: üniversitede okuyorsunuz (en azından ben okuyorum) ve bir sürü insanla beraber günümüzün çoğunu geçiriyorsunuz. İlk adımda ortalama bir kısmı ile tanışıyorsunuz. Bu tanıştığınız kisi sayısı size ve arkadas grubunuza göre değişebilir. İkinci adımda gelip geçerken veya arkadas ortamında gördüğünüz, muhabbette adı geçen veyahut da kendiliğinden bir tanınırlığa sahip kişiler vardır. Bu zamana kadar tanımamışsınız demek ki daha da konuşmayacaksınız demektir. Üstelik bunlarla tanışmanız resmiyetten öteye geçmez. Zaten sizin ile olabilecekleri en iyi durumdadırlar. Fazlasını beklememek gerek. Üçüncü adımda ise belirli organizasyonlarda, önemli zamanlarda veya sizin için anlam ifade eden herhangi bir zamanda ortak paydada bir kesebileceğiniz insanlar vardır. Bunlar bir nebze vardır ama bir o kadar da yoklardır aslında. Her zaman göremezsiniz veya görmezlikten gelirsiniz. Ama işiniz düştüğünde veya lazım olduklarında -kısa veya uzun zamanlı- bir birlikteliğiniz olur. Sonrasında eski halinize iade.</p>
 <p>Bu üç adımda anlattığım insanların hepsi sizin hareketleriniz veya sözleriniz ile olumlu/olumsuz olarak etkileyebileceğiniz veya harekete geçirebileceğiniz insanlardır. Bir piramit olarak düşündüğümüzde hepsi seviye seviyedir. Bulundukları seviye ile elde edilen etki orantılıdır. Bunu bir deprem dalgasına benzetebiliriz. Merkez üssünden uzaklaştıkça etki ve güç gittikçe azalır, kontrolü merkezden bağımsız olmaya baslar. Depremin yer altındaki merkezi birinci asamadır. En yüksek etki orada gözükür. Depremin yüzeye ilk çıktığı yer ise depremin ikinci etkili olduğu yerdir. Deprem dalgalarının son ulaştığı nokta ise üçüncü asamadır. Depremin zaman zaman etkili olduğu yerdir. Etki bazen gözükmektedir. Ben çevreden bunları anlamaktayım.</p>
 <p>Kanunun 2’nci kısmına gelince arkadas ve dost ayrımını yapacağım. Ardından bu kavramların benim için ne ifade ettiğinden bahsedeceğim. Yukarıda çevremden bahsederken ilk aşamada tanıştığınız insanları söylemiştim. Bu tanıştığımız insanlar da gene kendi içinde 3’e ayrılıyor. İlk atama minimum seviyede samimiyettir. Ben buna arkadaşlık öncesi tanışıklık evresi diyorum. Tanıştığınız insanları gördüğünüzde en azından bir selam verirsiniz, yeri gelirse yan yana oturursunuz bazen de çay-kahve filan içersiniz. Çoğu zaman adını bile unutmuş olabilirsiniz. Ama bunu hiç belli etmezsiniz. İkinci aşamada ortalama bir samimiyetiniz vardır. Ben buna sizin de bildiğiniz arkadaşlık diyorum. Vaktinizin yeterli bir kısmını beraberce geçirirsiniz. Beraber ders çalışılır, yemek yer ve de belki en önemlisi okul dışında da etkileşimde bulunuyorsunuz. gezmeye çıkarsınız, telefonda konuşursunuz, dertlerinizi paylaşır, zamanla bir ritim tutturursunuz. Bu ritim tutturduktan sonra bir kısır döngü gibi kendini tekrar etmeye baslar. Ta ki biri bu döngüden sıkılıp seviyeyi daha ileriye götürmek isteyene veya artık bitirmek isteyene kadar. Benim için ikisi de benzer şeyleri ifade etmektedir. Çünkü bu istek sizi geri dönüsü olmayan bir yola götürür. Ya hep ya hiç misali bir sonuç elde edersiniz. Ya sevginizi açar birlikteliğiniz başka bir aşamaya taşırsınız, ya da arkadaşlığınızı dostluk aşamasına taşırsınız. İkisi hem aynı yeri ifade eder hem de bir o kadar farklı yerleri. Belirgin bir sekilde iki yol da tercih edilebilir. Ama aynı seviyeyi ifade etmelerine rağmen birbirinin yerini tutamayacağı kesindir. Ben şimdilik dostluktan bahsetmek istiyorum. Dostluk benim için basit bir tabirle sınırların ve engellerin bir çoğunun kaldırılmasıdır. O kadar ki artık konuşmadan da anlaşabilir, birbirinizin yerine hissedebilir, üzülebilirsiniz. Hareketlerinizi değerlendirmeden uygulayabilirsiniz. Çünkü artık kendi benliğinizden biriyle berabersiniz dir. Aranızda artık “acaba?” ve “keşkeler yoktur. geçirdiğimiz zamanları süper ve süper üstü olarak adlandırırsınız. En önemlisi de birbirinize güvenin çok yüksektir. Çünkü artık karşı karşıya değil yan yanasındır.</p>
 <p>Bu kadar anlatımdan sonra asıl cevaba ulaşmak üzereyim. Neden samimiyet seviyesi arttıkça sayısal olarak azalma oluyor. Bu ters orantının sebebi nedir ? Cevabı bir ekonomi teorisinden ibaret: “Arz ile talep ters orantılıdır.” Yani az olan şey daha çok makbuldür. Bütün insanlarla iyi anlasan herkese dostum diyen bir insanın düşündüğünüz zaman aklınıza gelen ilk kelimeler büyük ihtimal “samimiyetsiz” ve “yalaka” olacaktır. Evet her ne kadar bunu fark etmesek de bir çoğumuz bu durumu kötü buluruz. Ben buna bir sebep daha ekliyorum. Samimiyet arttıkça o kişiye ayırmamız gereken ilgi, alaka, zaman artmakta. Doğal olarak bu kadar fazla karsı edimimizin olduğu bir kişiden çok fazla olmasını istemeyiz. Bunu söyle örnekleyebiliriz. Çocuk sahibi olmak isteyen bir anne düşünün. 2–3 tane çocuğu olduğu zaman optimal sekilde onlarla ilgilenebilir ve bundan mutluluk duyabilir. Ama 6–7 gibi yüksek sayılara ve belki de daha üstüne çıkıldıkça artık ne ilginin paylaştırılabilmesi mümkün olabilmekte ne de bu durumdan mutluluk alınabilmektedir.</p>
 <p>Durum tamamen bundan ibarettir sevgili arkadaşlar. Bir daha ki yazıda görene kadar güzel günler sizlerle olsun efendim. İyi günler.</p>
 <p>NOT: Bu yazı daha önce şahsi medium.com adresimde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
-]]></item></channel></rss>
+]]></content:encoded></item></channel></rss>

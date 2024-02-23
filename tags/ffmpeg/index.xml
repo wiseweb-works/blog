@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>FFmpeg on Wise</title><link>https://wiseweb-works.github.io/blog/tags/ffmpeg/</link><description>Recent content in FFmpeg on Wise</description><generator>Hugo -- gohugo.io</generator><language>tr</language><lastBuildDate>Sat, 24 Feb 2024 00:17:41 +0100</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml"/><item><title>FFmpeg ile video çevirmek için en uygun ayarı kolayca bulmak</title><link>https://wiseweb-works.github.io/blog/post/ffmpeg-abav1/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ffmpeg-abav1/</guid><description>Giriş Günümüzde video ve ses (genel olarak medya diyebiliriz) dosyalarını işlemek (kesme, yeniden boyutlandırma ve filtre uygulama) ve dönüştürmek için birçok araç bulunmaktadır. Ancak, bu araçlardan biri diğerlerinden daha çok öne çıkmakta ve belki de birçoğunun arka planında (Yusuf İpek Videosu) kullanılmaktadır. FFMPEG adlı bu araç/yazılım ücretsiz ve açık kaynaklı olup LGPL, GPL2 ve GPL3 (farklı kısım ve tarihler açısından kullanılan diğer lisanlar da mevcut) lisanları altında geliştirilmektedir.
+Lisansla ilgili orjinal dilinde açıklama:</description><content:encoded><![CDATA[<h1 id="giriş">Giriş</h1>
+<p>Günümüzde video ve ses (genel olarak medya diyebiliriz) dosyalarını işlemek (kesme, yeniden boyutlandırma ve filtre uygulama) ve dönüştürmek için birçok araç bulunmaktadır. Ancak, bu araçlardan biri diğerlerinden daha çok öne çıkmakta ve belki de birçoğunun arka planında (<a href="https://www.youtube.com/watch?v=clrVhDx_A-s">Yusuf İpek Videosu</a>) kullanılmaktadır. FFMPEG adlı bu araç/yazılım ücretsiz ve <a href="https://github.com/FFmpeg/FFmpeg">açık kaynaklı</a> olup LGPL, GPL2 ve GPL3 (farklı kısım ve tarihler açısından kullanılan diğer lisanlar da mevcut) lisanları altında geliştirilmektedir.</p>
+<p>Lisansla ilgili orjinal dilinde açıklama:</p>
+<blockquote>
+<p>Most files in FFmpeg are under the GNU Lesser General Public License version 2.1 or later (LGPL v2.1+). Read the file COPYING.LGPLv2.1 for details. Some other files have MIT/X11/BSD-style licenses. In combination the LGPL v2.1+ applies to FFmpeg.</p>
+</blockquote>
+<blockquote>
+<p>Some optional parts of FFmpeg are licensed under the GNU General Public License version 2 or later GPL v2+). See the file COPYING.GPLv2 for details. None of these parts are used by default, you have to explicitly pass &ndash;enable-gpl to configure to activate them. In this case, FFmpeg&rsquo;s license changes to GPL v2+.</p>
+</blockquote>
+<p>Bu rehberde sizlerle birlikte FFMPEG yazılımın kullanımından ve kendimiz için en uygun/optimize ayarı;</p>
+<ol>
+<li>Hız,</li>
+<li>Dosya Boyutu,</li>
+<li>Görüntü Kalitesi ve</li>
+<li>(Opsiyonel) Uyumluluk</li>
+</ol>
+<p>başlıklarını da dikkate alarak nasıl bulabileceğimizi anlatacağım.</p>
+<h2 id="teknik-açıklama-kısmı">Teknik açıklama kısmı</h2>
+<p>Sürecin tamamına hakim olmak veya arka planında neler olduğunu anlamak isteyenler için işin teknik kısmını açıklayarak başlayacağım. Bu kısmı isterseniz atlayıp direk yandan &ldquo;AB-AV1 Yazılımı&rdquo; ile ilgili başlığa tıklayabilirsiniz.</p>
+<h3 id="videoses-codecleri-nelerdir">Video/Ses Codecleri Nelerdir?</h3>
+<p><a href="https://ffmpeg.org/ffmpeg-codecs.html">Video/Ses codecleri</a> video ve ses dosyalarını sıkıştırmak ve/veya yeniden kodlamak için kullanılan algoritmalardır. Bu işlem (encode/decode) daha küçük dosya boyutları elde etmek ve iletim ile depolama sırasında bant genişliğini azaltmak için önemlidir. Eğer bir video/ses dosyasını sıkıştırmadan saklamak isteseydik ihtiyacımız olacak alan gerçekten çok fazla olurdu. Örnek olarak 1 dk&rsquo;lık 1080p 30fps bir video uncompress şekilde (<a href="https://dvsgroup.com/tools/BitRateCalculator.php">Kaynak</a>) yaklaşık 10,5 GB yer kaplamaktadır. Bu miktar 4K 10 bit HDR dünyasına giriş yaptığımızda 1 dk için 55,6 GB gibi aşırı uçuk bir rakama çıkmaktadır.</p>
+<p>Bu boyutların ne kadar büyük olduğunu şu örnek ile farkedebiliriz. 4K UHD Blu-ray bir diskin içerisine bu 1dk&rsquo;lık sıkıştırılmamış video yerine 3:30 Saat civarı süren <a href="https://www.imdb.com/title/tt1302006/">The Irishman Filmini</a> farklı dillerde seslendirme, altyazı ve ekstra içeriklerle sığdırabiliyorlar.</p>
+<h4 id="x264-h264-video-encoder">x264: H.264 Video Encoder</h4>
+<p>x264, H.264/MPEG-4 AVC (Advanced Video Codec) standardını uygulayan bir video encoder&rsquo;dır. Bu codec, yüksek kaliteli (zamanına göre) video sağlamak için optimize edilmiştir ve geniş bir cihaz yelpazesinde desteklenir. x264 çıktığı dönem için yüksek sıkıştırma oranları sağlayarak düşük bant genişliği kullanımı yani kaliteli videolara erişmemizi mümkün kıldı. Halen daha kullandığımız birçok elektronik cihaz tarafından gerek yazılımsal gerek de donanımsal boyutta destekleniyor. Fakat günümüzün yüksek kalite ve düşük dosya boyutu isteklerine uyum sağlamakta güçlük çekmektedir. Zamanına göre yüksek sıkıştırma ve yüksek kalite verdiği düşünülen sonuçları artık bazı çevrelerce yeterli görülmemektedir.</p>
+<h4 id="x265-h265hevc-video-encoder">x265: H.265/HEVC Video Encoder</h4>
+<p>x265, H.265/HEVC (High-Efficiency Video Coding) standardını uygulayan ve H264&rsquo;ün ardılı olan bir video encoder&rsquo;dır. x265, x264&rsquo;e kıyasla daha iyi sıkıştırma performansı sunar. Bu, daha düşük bant genişliği kullanımı ve aynı kalitede daha küçük dosya boyutları anlamına gelir. H265&rsquo;de kendinden önce gelen video codec&rsquo;i gibi birçok cihaz tarafından yazılımsal ve bazı cihazlar tarafından donanımsal hızlandırma ile kullanılabilmektedir. Her iki codec arasındaki sıkıştırma farkı aynı kalite için yaklaşık %25 ile %50 civarında farketmektedir.</p>
+<h4 id="av1-video-encoder">AV1 Video Encoder</h4>
+<p>Geleceğin standartlarından biri olması beklenen AV1 özellikle yüksek verimli video sağlamak için tasarlanmıştır. x264 ve x265&rsquo;e alternatif olarak geliştirilen AV1, özellikle diğerlerinin aksine açık kaynaklı ve tescilli olmayan bir codec olarak dikkat çeker. AV1, çok daha yüksek kalitede videoyu (her zaman için ana hedef bu olmuştur) sağlaması ve çok daha düşük bant genişliği kullanımıyla bilinir. Diğer codeclerle asıl ayrıldığı nokta da zaten gerçekten çok düşük bant genişliklerinde verdiği yüksek kaliteden kaynaklıdır. Canlı yayın yapan oyuncular için çok büyük gelecek vaadetmekte ve 3,5 MBps gibi bir değerde dahi güzel bir deneyim sunabilmektedir.</p>
+<h4 id="karşılaştırma-x264-x265-ve-av1">Karşılaştırma: x264, x265 ve AV1</h4>
+<ul>
+<li><strong>Sıkıştırma Oranları:</strong> x265 ve AV1, genellikle daha iyi sıkıştırma oranları sunar.</li>
+<li><strong>Performans:</strong> x264, genellikle düşük kaynak tüketimi (CPU/GPU) ve hızlı oynatma performansı ile bilinir; ancak x265 ve AV1, yüksek performans ve daha iyi sıkıştırma sağlayabilir.</li>
+<li><strong>Uyumluluk:</strong> AV1 diğerlerinin aksine henüz çok geniş bir cihaz desteğine (sıkıştırma ve oynatma açısından) ulaşamadı. En yüksek cihaz/oynatıcı uyumluluğunu arayanlar için x264 en iyi sonucu verecektir.</li>
+</ul>
+<h4 id="kısa-sonuç">Kısa Sonuç</h4>
+<p>Her video encoder, belirli senaryolarda daha iyi performans gösterir ve seçim, kullanım amaçlarına ve gereksinimlere bağlıdır. x264, x265 ve AV1, farklı avantajlara sahip olabilir ve FFmpeg, bu encoder&rsquo;ları kullanarak geniş bir video işleme yelpazesi sunar. Ben şahsen AV1&rsquo;in henüz ev kullanıcıları özelinde kullanılabilir bir seviyede olmaması nedeniyle H265&rsquo;i tercih ediyorum. Yazının geri kalanında da bunun üzerinden anlatımıma devam edeceğim.</p>
+<h3 id="preset-nedir">Preset Nedir?</h3>
+<p>FFmpeg&rsquo;deki presetler, bir video veya ses dosyasını belirli bir kalite ve boyutta kodlamak için kullanılan <a href="https://x265.readthedocs.io/en/stable/presets.html">önceden tanımlanmış ayarlardır</a> Bu ayarlar, codec tarafından kullanılan bir dizi parametre grubunu (komut) içerir ve genellikle kalite ile dosya boyutu arasındaki dengeyi sağlamak için tasarlanmıştır.</p>
+<p>Presetlerde daha hızlı bir kodlama süreci genellikle daha düşük kalite ile sonuçlanır, bu nedenle kullanıcılar ihtiyacına bağlı olarak farklı presetleri seçebilirler. X265 için tanımlanmış olan presetler aşağıdaki gibidir:</p>
+<ol>
+<li><code>ultrafast</code>: En hızlı kodlama, ancak düşük kalite.</li>
+<li><code>superfast</code>: ultrafast&rsquo;ten biraz daha yavaş, daha iyi kalite.</li>
+<li><code>veryfast</code>: Daha dengeli bir hız ve kalite.</li>
+<li><code>faster</code>: Daha yüksek kalite, biraz daha uzun süren kodlama.</li>
+<li><code>fast</code>: Standart ayar, genel kullanım için iyi bir denge.</li>
+<li><code>medium</code>: Kalite ve hız arasında bir denge.</li>
+<li><code>slow</code>: Daha iyi kalite, ancak daha uzun süren kodlama.</li>
+<li><code>slower</code>: slow&rsquo;dan daha yüksek kalite, daha uzun süre.</li>
+<li><code>veryslow</code>: En yüksek kalite, ancak en uzun kodlama süresi.</li>
+<li><code>placebo</code>: Adından da anlaşılacağı üzere çok önerilen (veya dikkate alınan) bir preset değil</li>
+</ol>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/ffmpeg-abav1/1.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/ffmpeg-abav1/1.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/ffmpeg-abav1/1.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>X265 Encoding</b></small></center>
+</picture></p>
+<p>Şahsen genelde veryfast veya slow presetlerini kullanıyorum. Farklı ihtiyaçlarıma bu ikisi (genelde) en iyi cevap veriyor. Fakat girdi olarak hangi videonun dikkate alınacağı ve her video özelinde verecekleri sonuç her zaman için aynı olmayabiliyor. Bknz: <a href="https://www.youtube.com/watch?v=mntswiXuvfI">Anime videolarının sıkıştırılmasındaki problemler</a></p>
+<h3 id="crfvbr-ve-cbr-nedir">CRF/VBR ve CBR Nedir?</h3>
+<p><strong>CRF (Constant Rate Factor)</strong>, bir video dosyasının kalitesini kontrol etmek için kullanılan bir parametredir. Bu yöntemde, belirli bir hedef kalite seviyesine ulaşılması için codec, bitrate&rsquo;i otomatik olarak ayarlar. Yani, kullanıcı belirli bir bitrate&rsquo;i elle belirtmez, sadece kalite seviyesini seçer. Daha düşük bir CRF değeri, daha yüksek bir kalite anlamına gelir, ancak dosya boyutu artar.</p>
+<p><strong>CBR (Constant Bitrate)</strong>, videonun belirli bir sabit bitrate ile kodlanmasını sağlar. Bu, dosya boyutunu önceden belirlemenizi sağlar, ancak kalite değişkenlik gösterebilir. CBR, özellikle belirli bir bant genişliği sınırlaması varsa veya bir iletim ortamı belirli bir bitrate&rsquo;i destekliyorsa kullanışlıdır. Her saniye için harcanacak değer belirli olduğundan hareketli ve sabit sahneler arasında belirgin bir kalite farkı oluşacaktır. Bunu kendinize daha önce &ldquo;Neden konfeti atıldığında videonun kalitesi bozuluyor?&rdquo; diyerek sormuş olabilirsiniz. Eğer sormadıysanız da <a href="https://www.youtube.com/watch?v=r6Rp-uo6HmI">Tom Scott&rsquo;un</a> bununla ilgili eğitici bir videosu bulunuyor.</p>
+<p><strong>VBR (Variable Bitrate)</strong>, videonun her bir çerçevesi için farklı bit oranlarını kullanarak kodlanmasını sağlar. Bu, sahnede daha fazla ayrıntı olduğunda daha yüksek bir bitrate sağlayarak kaliteyi artırabilir. Ancak, dosya boyutu daha değişken olacaktır. Bu ayar aslında CRF ile aynı olarak düşünülebilir. Fakat farklı mecralarda ayrı ayrı ve bazen de birlikte anılmaları nedeniyle ekstradan açıklama gereği duydum.</p>
+<p>
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/ffmpeg-abav1/2.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/ffmpeg-abav1/2.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/ffmpeg-abav1/2.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>CRF-VMAF</b></small></center>
+</picture></p>
+<p>Şahsi olarak bazen 22 bazen de 24 olan CRF değerini kullanıyorum. Eğer biraz daha hızlı bir şekilde sonuçlandırmak istiyorsam 26 veya 28&rsquo;i de kullanabiliyorum. CRF değerleri 1-1 artmamaktadır. İsterseniz 22,03 gibi bir ayar dahi kullanabilirsiniz. Ama bu derece ince ayarın pek mantığı olmayacaktır. Genel kullanımda 2&rsquo;şer adım farklarla değişiklikler yapılmaktadır.</p>
+<h3 id="profil-türü-ve-seviyeleri-nelerdir">Profil Türü ve Seviyeleri Nelerdir?</h3>
+<p>Video kodlamada profil, bir codec&rsquo;in belirli bir uygulama senaryosu (film, video, animasyon ve resim gösterisi :smiley: ) için optimize edilmiş ayarları içeren bir grup parametreyi tanımlar. Her profil, belirli bir kullanım durumu veya cihaz için uygun olan farklı sıkıştırma ve kalite ayarlarına sahiptir.</p>
+<p>Profile seviyeleri ise bir codec tarafından desteklenen en yüksek çözünürlük, en yüksek bit hızı ve diğer teknik özellikleri belirleyen bir dizi sınırlamadır. Belirli bir seviye, belirli bir profil ile birleşerek bir codec&rsquo;in kapasitesini tanımlar.</p>
+<p>x265 için öntanımlı profiller olarak <code>auto, main, main10, main448, main448-intra, high</code> ve <code>mainstillpicture</code> gibi profilleri sayılabilir. Her profil, belirli bir uygulama senaryosuna yönelik optimize edilmiş ayarlar içerir. Bunlarla ilgili ayrıntılı teknik bilgi için <a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding_tiers_and_levels">Wiki sayfasına</a> göz atabilirsiniz. Ben aksine bir gereklilik olmadıkça main profili ve 5.1 seviyesini kullanıyorum.</p>
+<h3 id="vmaf-nedir-ve-neden-kullanıyoruz">VMAF Nedir ve Neden Kullanıyoruz?</h3>
+<p>VMAF, Netflix tarafından <a href="https://github.com/Netflix/vmaf">geliştirilen</a> ve 2014 yılında ortaya çıkan bir video kalite metriğidir. Bu metrik, izleyici deneyimini daha iyi anlamak ve video içeriğinin kalitesini değerlendirmek için tasarlanmıştır. Eğer Netflix&rsquo;in güzel içeriklerinin yüksek görüntü kalitesine aşina iseniz ve bu sizi tatmin ediyorsa o zaman görüntü kalitesi ölçütü olarak VMAF&rsquo;ya da güvenebilirsiniz.</p>
+<p>FFmpeg ise bu metriği kullanarak video kodlama ayarlarını optimize etme konusunda bize yardımcı olur. Belirli bir kalite aşıldıktan sonra insan gözüyle daha iyi/kötü ayrımı yapmamız veya bunu saatlerce süren bir video özelinde aynı özenle devam ettirmemiz mümkün değil. Rehberin önceki kısımlarında paylaştığım sıkıştırma teknolojileri yanlış veya bilinçsiz kullanımda izleyici deneyimini önemli ölçüde etkilemektedir. Bu bağlamda, Video Multimodal Assessment Fusion (VMAF) gibi teknolojiler (SSIM veya PSNR), video kalitesini artırmak ve daha verimli bir sıkıştırmayı tercih etmemiz konusunda bize yardımcı olmaktadır. Kaldı ki her zaman için daha yüksek dosya boyutu daha çok kalite anlamına gelmeyecektir. Bu nedenle kalitenin matematiksel ölçümünde VMAF ölçütünü kullanıyoruz.</p>
+<p>VMAF değeri 0-100 aralığında bir değer olup orjinal video ile dönüştürülmüş (kendileri bozulmuş da der aslında) video arasındaki benzerliği göstermektedir. 90 ve üzeri bir değeri neredeyse aynı kalite (bizi rahatsız etmeyecek kadar) olarak kabul etmemiz mümkün iken 95 ve üstünü artık en dikaktli gözlerin dahi farkedemeyeceği şekilde aynı olarak düşünebiliriz.</p>
+<p>Şahsi olarak min 90 değerini tutturabildiğim zaman video çevirimini başarılı olarak değerlendiriyorum.</p>
+<h2 id="otomatikleştirilmiş-hali-ab-av1-yazılımı">Otomatikleştirilmiş hali: AB-AV1 yazılımı</h2>
+<p>AB-AV1 gönüllüler tarafından MIT lisansı altında geliştirilen ve <a href="https://github.com/alexheretic/ab-av1">açık kaynaklı</a> bir yazılımdır. Yazılımın odaklandığı ve çözmek istediği sorun video dönüştürürken ve ffmpeg yazılımını kullanırken teknik bilgilerle çok boğuşmadan istediğimiz sonuca bizi ulaştıracak değer veya değerleri hızlı bir şekilde elde etmektir. Yazılım rehberin paylaşıldığı tarih itibariyle şu yöntemi izlemektedir. Öncelik her 12 dk&rsquo;lık video kısmı için bir örnek kısım alıyor. Bu örnek kısım/lar video çok kısa olmadığı sürece 20&rsquo;şer sn&rsquo;ye kadar çıkabilmektedir. Sonrasında bu örnek videoları farklı CRF ve Preset değerleri ile kombine edip ortaya çıkan sonuçların VMAF değerlerini de hesaplıyor. Bunu yaparken de kaba kuvvet saldırısı yapar gibi 1 den başlayıp 50 ye doğru gitmiyor. Her iki ayar içinde ortadan başlayıp (CRF 25, preset medium gibi) uçlara doğru giden bir yol izliyor. Eğer istenilen şartlara uyan 4-5 adet sonuç bulur ise aramayı durduruyor bu da çok hızlı bir şekilde sonuca ulaşmamızı sağlıyor.</p>
+<p>Bu yazılımı bulmadan önce kendim tüm 20-30 arasındaki tüm CRF değerleri ve tüm presetler için topluca komut çalıştırıp sonra gene elle hepsinin VMAF değerlerine bakıyor, bir excel tablosu yapıyordum. Bu da gerçekten çok uzun süren ve teknik bilgi olmadan yapılması kolay olmayan bir yola götürüyordu beni. İlgili eski çalışmalarımdan birkaç ekran görüntüsünü sizlerle paylaşmak istiyorum ki ne büyük bir dertten kurtulduğum daha ne anlaşılsın.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/ffmpeg-abav1/3.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>1</b></small></center>
+</picture></td>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+
+  
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/ffmpeg-abav1/4.jpeg"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>2</b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
+<p>İki adet test videosu ile yapmış olduğum bu testler yaklaşık 1 gün sürmüştü. Ben cihazı kullanırken arka planda sistem de bu testleri yapıyordu.</p>
+<h3 id="yazılımın-indirilmesi-veveya-kurulması">Yazılımın indirilmesi ve/veya kurulması</h3>
+<p>Yazılım Linux ve Windows işletim sistemlerini desteklemektedir. Windows için exe uzantılı dosyayı indirip kullanabilirsiniz. Arch Linux kullanıyorsanız <a href="https://aur.archlinux.org/packages/ab-av1">Aur&rsquo;da</a> paketi mevcut. Diğer linux dağıtımı kullanıcıları ise binary dosyası olarak indirebilir veya kendisi derleyebilir. Yükleme ile ilgili <a href="https://github.com/alexheretic/ab-av1?tab=readme-ov-file#install">talimatlara</a> Github sayfasından ulaşabilirsiniz.</p>
+<h3 id="yazılımın-ayarları">Yazılımın ayarları</h3>
+<p>Yazılımı kurduktan sonra <code>ab-av1 -h</code> komutu ile yardım kısmına veya ayrıntılı bilgiye ulaşabilirsiniz. Sizi yaklaşık olarak şöyle bir ekran karşılayacaktır.</p>
+<pre tabindex="0"><code>AV1 encoding with fast VMAF sampling
+
+Usage: ab-av1 &lt;COMMAND&gt;
+
+Commands:
+  sample-encode      Encode &amp; analyse input samples to predict how a full encode would go.
+                         This is much quicker than a full encode/vmaf run.
+  vmaf               Full VMAF score calculation, distorted file vs reference file.
+                         Works with videos and images.
+  encode             Invoke ffmpeg to encode a video or image
+  crf-search         Interpolated binary search using sample-encode to find the best crf
+                         value delivering min-vmaf &amp; max-encoded-percent.
+  auto-encode        Automatically determine the best crf to deliver the min-vmaf and use it to encode a video
+                         or image.
+  print-completions  Print shell completions
+  help               Print this message or the help of the given subcommand(s)
+
+Options:
+  -h, --help     Print help
+  -V, --version  Print version
+</code></pre><p>En basit kullanım senaryosu olarak aşağıdaki gibi yapabilirsiniz:</p>
+<pre tabindex="0"><code>ab-av1 crf-search --encoder libx265 -i dosyanız.uzantısı
+</code></pre><p>bu şekilde yazılımın öntanımlı olarak dikkate aldığı değer aralıklarında ve x265 için uygun olacak sonuçları size verecektir. Biraz ince ayar yapmak isterseniz eğer istediğiniz kalite miktarını VMAF değeri olarak aşağıdaki gibi belirtebilirsiniz:</p>
+<pre tabindex="0"><code>ab-av1 crf-search --encoder libx265 --min-vmaf 95 -i dosyanız.uzantısı (veya 90 artık size kalmış)
+</code></pre><p>Ben nasıl kullanıyorum diye soracak olursanız eğer:</p>
+<pre tabindex="0"><code>ab-av1 crf-search --encoder libx265 --min-vmaf 90 --min-crf 20 --max-crf 30 --crf-increment 2 --preset veryfast --enc x265-params=level=5.1:high-tier=1 -i dosyanız.uzantısı
+</code></pre><p>Örnek olarak çok bilinen bir video olan <a href="https://mango.blender.org/download/">Tears of Steel</a> üzerinde bir deneme yapmak gerekirse eğer:</p>
+<pre tabindex="0"><code>- crf 25 VMAF 94.40 (33%) (cache)
+- crf 27 VMAF 92.30 (26%) (cache)
+- crf 30 VMAF 87.55 (17%) (cache)
+- crf 28 VMAF 90.94 (22%) (cache)
+- crf 29 VMAF 89.36 (20%) (cache)
+00:00:00 ################################################(sampling crf 29, eta 0s)
+Encode with: ab-av1 encode -e libx265 -i tears_of_steel_1080p.mov --crf 28 --preset veryfast --enc x265-params=level=5.1:high-tier=1
+
+crf 28 VMAF 90.94 predicted video stream size 124.37 MiB (22%) taking 18 minutes
+</code></pre><p>çıktısını verecektir. Ben daha önce denemek için kullandığımdan bende cache&rsquo;den verileri hemen getirdi.</p>
+<p>Bize önerdiği ayar <strong>CRF: 28 Preset: Veryfast</strong> şeklinde olup tahmini olarak çevirinin 18 dk süreceğini ve sonuç dosya boyutunun %22&rsquo;si kadar olacağını (neredeyse 5&rsquo;te bir) öngörüyor. Özellikle öngörüyor dememim sebebi videonun tamamı özelinde bir kontrol değil de aldığı örnekler özelinde bir tahmin yürütttüğü için ufak da olsa bir hata payı mümkün. Bu bilgileri aldıktan sonra ister ffmpeg üzerinden siz ilgili komutları yazıp çeviriye başlayabilirsiniz ister de size verdiği ve <code>Encode with: ab-av1 ....</code> diye başlayan komutu direk yapıştırarak aynı araç içerisinden çeviriyi de yapabilirsiniz. Yani size komutu dahi veriyor :D</p>
+<h3 id="gerçek-dünya-testleri">Gerçek dünya testleri</h3>
+<p>Evdeki hesap her zaman pazara uymadığı için ve bunca yazının da gerçekten işe yarayıp yaramadığından emin olmak için test etmek iyi olacaktır. Videonun &ldquo;Full Movie – First version (HD rendered) - HD 1080p (mov)&rdquo; olan versiyonunu indirdim. İlgili video 12dk 14sn uzunluğunda ve 557M (583774083) boyutunda olup çeviri işlemi ffmpeg ile yapıldığında aşağıdaki:</p>
+<pre tabindex="0"><code>x265 [info]: HEVC encoder version 3.5
+x265 [info]: build info [Linux][GCC 11.2.0][64 bit] 8bit+10bit+12bit
+x265 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+x265 [warning]: Specifying a decoder level with constant rate factor rate-control requires
+x265 [warning]: enabling VBV with vbv-bufsize=160000kb vbv-maxrate=160000kbps. VBV outputs are non-deterministic!
+x265 [info]: Main profile, Level-5.1 (High tier)
+x265 [info]: Thread pool created using 4 threads
+x265 [info]: Slices                              : 1
+x265 [info]: frame threads / pool features       : 2 / wpp(13 rows)
+x265 [info]: Coding QT: max CU size, min CU size : 64 / 8
+x265 [info]: Residual QT: max TU size, max depth : 32 / 1 inter / 1 intra
+x265 [info]: ME / range / subpel / merge         : hex / 57 / 1 / 2
+x265 [info]: Keyframe min / max / scenecut / bias  : 24 / 250 / 40 / 5.00 
+x265 [info]: Lookahead / bframes / badapt        : 15 / 4 / 0
+x265 [info]: b-pyramid / weightp / weightb       : 1 / 1 / 0
+x265 [info]: References / ref-limit  cu / depth  : 2 / on / on
+x265 [info]: AQ: mode / str / qg-size / cu-tree  : 2 / 1.0 / 32 / 1
+x265 [info]: Rate Control / qCompress            : CRF-28.0 / 0.60
+x265 [info]: VBV/HRD buffer / max-rate / init    : 160000 / 160000 / 0.900
+x265 [info]: tools: rd=2 psy-rd=2.00 early-skip rskip mode=1 signhide tmvp
+x265 [info]: tools: fast-intra strong-intra-smoothing lslices=5 deblock sao
+frame=17620 fps= 22 q=32.8 Lsize=  124521kB time=00:12:14.07 bitrate=1389.6kbits/s speed=0.909x    
+x265 [info]: frame I:    172, Avg QP:26.60  kb/s: 9754.63 
+x265 [info]: frame P:   3528, Avg QP:28.30  kb/s: 3513.82 
+x265 [info]: frame B:  13920, Avg QP:34.37  kb/s: 577.41  
+x265 [info]: Weighted P-Frames: Y:4.1% UV:2.5%
+x265 [info]: consecutive B-frames: 4.8% 0.6% 0.8% 1.0% 92.8% 
+
+encoded 17620 frames in **807.69s (21.82 fps)**, 1254.95 kb/s, Avg QP:33.08
+</code></pre><p>çıktıyı verdi ve neticeten benim cihazımda (CPU i5-7300U) yaklaşık (807sn) 13,5 dk sürdü. Sonuç dosya boyutu ise 122 M (127509197) oldu. Ardından FFMPEG ile bu sefer de VMAF değerini hesaplatmak ve tüm sonuçları bir araya getirip değerlendirmek istedim. VMAF değerini hesaplamak için aşağıdaki komutu kullandım.</p>
+<pre tabindex="0"><code>ffmpeg -i output.mkv -i tears_of_steel_1080p.mov -lavfi libvmaf -f null –
+</code></pre><p>ve bana sonuç olarak aşağıdaki çıktıyı verdi:</p>
+<pre tabindex="0"><code>[out#0/null @ 0x558d1bc41180] video:8259kB audio:126464kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+frame=17620 fps= 12 q=-0.0 Lsize=N/A time=00:12:14.16 bitrate=N/A speed=0.492x    
+[Parsed_libvmaf_0 @ 0x558d1a9b2880] **VMAF score: 91.112250**
+</code></pre><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Orjinal Dosya</th>
+<th>AB-AV1 in Vaadi</th>
+<th>Gerçek Dünya Testi</th>
+<th>Fark</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VMAF</td>
+<td>% 100</td>
+<td>% 90,94</td>
+<td>% 91.11</td>
+<td>%+ 0,17</td>
+</tr>
+<tr>
+<td>Dosya Boyutu</td>
+<td>557 MB</td>
+<td>124,37 MB (%22)</td>
+<td>122 MB (%21.84)</td>
+<td>2,4 MB %-1,94</td>
+</tr>
+<tr>
+<td>Uzunluk/Çevirirken geçen süre</td>
+<td>12dk 14sn</td>
+<td>18 dk</td>
+<td>13dk  27 sn</td>
+<td>4 dk 33 sn %-25,28</td>
+</tr>
+</tbody>
+</table>
+<p>Sonuç olarak hepsini bir araya getirdiğimizde gerçekten iç açıcı ve vaat edilenden daha iyi sonuçlar elde etmiş olduk. Bütün bu süreçler devam ederken PC&rsquo;yi kullanmaya ve bu yazıyı yazmaya devam ettiğim de düşünülürse çok güzel sonuçlar verdiğini söyleyebiliriz.</p>
+<h2 id="anlatım-dışı-bırakılan-kısımlar">Anlatım dışı bırakılan kısımlar</h2>
+<p>Bu rehberde ses dosyalarının yeniden sıkıştırılması veya dönüştürülmesi konusuna hiç girmedim. Eğer böyle bir istek gelir ise bu kısma ekleme yapabilirim. Fakat 192 kb/s gibi bir bitrate bile kullansanız sonuç dosyayı çok farkettirmeyeceği için bu nedenle dikkate almadım. Odyofil olarak da adlandırılan kişilerden biri iseniz ve 5.1 veya 7.1 bir ses sistemine sahipseniz eğer işte o zaman bu kısım bir anlam ifade edebilir. Onun haricinde ses dosyalarını direk olduğu gibi alabilirsiniz ki ek bir ayar yapmazsanız zaten böyle olmaktadır.</p>
+<h1 id="son-söz-ve-kaynakça">Son Söz ve Kaynakça</h1>
+<p>Artık siz de profesyoneller gibi neredeyse hiç kalite kaybı yaşamadan videolarınızı sıkıştırabilir ve alandan tasarruf edebilirsiniz. Elinizdeki Blu-ray ve UltraHD Blu-ray&rsquo;leri daha az yer kaplayacak şekilde hard diskinize kaydetmek veya Plex gibi bir ev sinema sistemi kurmak istiyorsanız artık bunu gönül rahatlığı ile yapabilirsiniz. Bir sonraki rehbere kadar iyi seyirler ve esenlikler dileğiyle.</p>
+<p>Kaynaklar:</p>
+<ul>
+<li><a href="https://github.com/FFmpeg/FFmpeg">https://github.com/FFmpeg/FFmpeg</a></li>
+<li><a href="https://ffmpeg.org/ffmpeg-codecs.html">https://ffmpeg.org/ffmpeg-codecs.html</a></li>
+<li><a href="https://dvsgroup.com/tools/BitRateCalculator.php">https://dvsgroup.com/tools/BitRateCalculator.php</a></li>
+<li><a href="https://www.imdb.com/title/tt1302006/">https://www.imdb.com/title/tt1302006/</a></li>
+<li><a href="https://x265.readthedocs.io/en/stable/presets.html">https://x265.readthedocs.io/en/stable/presets.html</a></li>
+<li><a href="https://streaminglearningcenter.com">https://streaminglearningcenter.com</a> (Grafik)</li>
+<li><a href="https://goughlui.com">https://goughlui.com</a> (Grafik)</li>
+<li><a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding_tiers_and_levels">https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding_tiers_and_levels</a></li>
+<li><a href="https://github.com/Netflix/vmaf">https://github.com/Netflix/vmaf</a></li>
+<li><a href="https://github.com/alexheretic/ab-av1">https://github.com/alexheretic/ab-av1</a></li>
+<li><a href="https://aur.archlinux.org/packages/ab-av1">https://aur.archlinux.org/packages/ab-av1</a></li>
+<li><a href="https://github.com/alexheretic/ab-av1">https://github.com/alexheretic/ab-av1</a></li>
+<li><a href="https://mango.blender.org/">https://mango.blender.org/</a></li>
+<li><a href="https://ottverse.com/analysis-of-svt-av1-presets-and-crf-values/">https://ottverse.com/analysis-of-svt-av1-presets-and-crf-values/</a></li>
+<li><a href="https://superuser.com/questions/1556953/why-does-preset-veryfast-in-ffmpeg-generate-the-most-compressed-file-compared">https://superuser.com/questions/1556953/why-does-preset-veryfast-in-ffmpeg-generate-the-most-compressed-file-compared</a></li>
+<li><a href="https://codecalamity.com/encoding-uhd-4k-hdr10-videos-with-ffmpeg/">https://codecalamity.com/encoding-uhd-4k-hdr10-videos-with-ffmpeg/</a></li>
+<li>İlk Yayım: <a href="https://btt.community/t/ffmpeg-ile-video-cevirmek-icin-en-uygun-ayari-kolayca-bulmak/4443">BTT</a></li>
+</ul>
+]]></content:encoded></item></channel></rss>
