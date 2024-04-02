@@ -1,8 +1,0 @@
-{
-    "schedule": "daily",
-    "ignoredFiles": [
-        "*.svg",
-    ],
-    "minKBReduced": 5,
-    "aggressiveCompression": "true"
-}
