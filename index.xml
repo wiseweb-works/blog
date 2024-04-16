@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Wise</title><link>https://wiseweb-works.github.io/blog/</link><description>Recent content on Wise</description><generator>Hugo -- gohugo.io</generator><language>tr</language><lastBuildDate>Sat, 24 Feb 2024 00:17:41 +0100</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>FFmpeg ile video çevirmek için en uygun ayarı kolayca bulmak</title><link>https://wiseweb-works.github.io/blog/post/ffmpeg-abav1/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ffmpeg-abav1/</guid><description>Giriş Günümüzde video ve ses (genel olarak medya diyebiliriz) dosyalarını işlemek (kesme, yeniden boyutlandırma ve filtre uygulama) ve dönüştürmek için birçok araç bulunmaktadır. Ancak, bu araçlardan biri diğerlerinden daha çok öne çıkmakta ve belki de birçoğunun arka planında (Yusuf İpek Videosu) kullanılmaktadır. FFMPEG adlı bu araç/yazılım ücretsiz ve açık kaynaklı olup LGPL, GPL2 ve GPL3 (farklı kısım ve tarihler açısından kullanılan diğer lisanlar da mevcut) lisanları altında geliştirilmektedir.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Wise</title><link>https://wiseweb-works.github.io/blog/</link><description>Recent content on Wise</description><generator>Hugo -- 0.125.0</generator><language>tr</language><lastBuildDate>Sat, 24 Feb 2024 00:17:41 +0100</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>FFmpeg ile video çevirmek için en uygun ayarı kolayca bulmak</title><link>https://wiseweb-works.github.io/blog/post/ffmpeg-abav1/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ffmpeg-abav1/</guid><description>Giriş Günümüzde video ve ses (genel olarak medya diyebiliriz) dosyalarını işlemek (kesme, yeniden boyutlandırma ve filtre uygulama) ve dönüştürmek için birçok araç bulunmaktadır. Ancak, bu araçlardan biri diğerlerinden daha çok öne çıkmakta ve belki de birçoğunun arka planında (Yusuf İpek Videosu) kullanılmaktadır. FFMPEG adlı bu araç/yazılım ücretsiz ve açık kaynaklı olup LGPL, GPL2 ve GPL3 (farklı kısım ve tarihler açısından kullanılan diğer lisanlar da mevcut) lisanları altında geliştirilmektedir.
 Lisansla ilgili orjinal dilinde açıklama:</description><content:encoded><![CDATA[<h1 id="giriş">Giriş</h1>
 <p>Günümüzde video ve ses (genel olarak medya diyebiliriz) dosyalarını işlemek (kesme, yeniden boyutlandırma ve filtre uygulama) ve dönüştürmek için birçok araç bulunmaktadır. Ancak, bu araçlardan biri diğerlerinden daha çok öne çıkmakta ve belki de birçoğunun arka planında (<a href="https://www.youtube.com/watch?v=clrVhDx_A-s">Yusuf İpek Videosu</a>) kullanılmaktadır. FFMPEG adlı bu araç/yazılım ücretsiz ve <a href="https://github.com/FFmpeg/FFmpeg">açık kaynaklı</a> olup LGPL, GPL2 ve GPL3 (farklı kısım ve tarihler açısından kullanılan diğer lisanlar da mevcut) lisanları altında geliştirilmektedir.</p>
 <p>Lisansla ilgili orjinal dilinde açıklama:</p>
@@ -1035,9 +1035,12 @@ Bu süre zarfında herhangi bir şekilde Usb&rsquo;yi çıkarmayın ve yeniden b
 <p>OCLP gelişmeye devam ettikçe gelecekte bu talimatlardan sapmalar ortaya çıkabilir. Daha sonra yeni özellikleri <a href="https://github.com/dortania/OpenCore-Legacy-Patcher">OCLP web sitesinde</a> bulabilirsiniz. Ayrıca şu <a href="https://www.youtube.com/@Mr.Macintosh/videos">video koleksiyonunu</a> ve ilgili <a href="https://de.wikipedia.org/wiki/OpenCore_Legacy_Patcher">Wiki</a> sayfasına da göz atılmasını öneririm.</p>
 <p>MacOS Sonoma kurulumu ile ilgili örnek videoya aşağıdan ulaşabilirsiniz:
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/eGR2qGw9lG8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/eGR2qGw9lG8?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="Install macOS Sonoma on Unsupported Macs EASY (Step-by-Step Guide)"
+      ></iframe>
+    </div>
 </p>
 <h2 id="kaynakça">Kaynakça:</h2>
 <p>Yazı sırasında kullandığım kaynaklar:</p>
@@ -1630,9 +1633,12 @@ Adım 1: Actalis Extrassl Sayfasına Gidin İlk adımda, ücretsiz bir S/MIME se
 <p>(TL;DR) <sup id="fnref3:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> CrowdSec, siber tehditlere karşı gerçek zamanlı koruma sağlayan Linux sunucuları için güçlü bir güvenlik çözümüdür. CrowdSec, yasaklama, captcha&rsquo;lar ve özel kararlar gibi yöntemleri kullanarak meşru olmayan trafiği önleyebilir ve sunucunuzun güvenliğini artırabilir. İster küçük bir web sitesi ister büyük bir kurumsal uygulama çalıştırıyor olun, CrowdSec sunucunuzu siber tehditlere karşı korumanıza ve kullanıcılarınızın sitenize güvenli bir şekilde erişmesini sağlamanıza yardımcı olabilir.</p>
 <h1 id="4-crowdsec-ile-tech-demo">4. Crowdsec İle Tech Demo</h1>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/kG68PgwOOeU" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/kG68PgwOOeU?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="L7 DDoS mitigation with CrowdSec"
+      ></iframe>
+    </div>
 
 <blockquote>
 <p><a href="https://www.youtube.com/watch?v=kG68PgwOOeU">https://www.youtube.com/watch?v=kG68PgwOOeU</a></p>
@@ -3155,9 +3161,12 @@ Bulup değiştireceğimiz başlıklar</p>
 <p>Bu yazı daha önce <a href="https://teknolojirehberleri.xyz">https://teknolojirehberleri.xyz</a> adresinde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
 ]]></content:encoded></item><item><title>Maximum Kart reklamı Rubicon nehrini geçti mi?</title><link>https://wiseweb-works.github.io/blog/post/maximum-kart-reklami/</link><pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/maximum-kart-reklami/</guid><description>Maximum Kart’ın artık müze kartı olarak geçerli olmadığı şu günlerde “Zaten müze müze gezip de ne yapacağız, biz Cem Yılmaz izliyoruz o bize yetiyor” şeklinde düşünen arkadaşlar için bir içerik hazırladım. Bildiğiniz veya benim de uydurmuş olabileceğim üzere İş bankasının maximum kart departmının Cem Yılmaz ve diğer sanatçılar ile yapmış olduğu 4–6 reklamlık bir iş birliği (PR) anlaşması mevcuttu. Bu süreçte bankanın ve kartın kullanımını teşvik edecek ve aynı zamanda da Cem Yılmaz üzerinden bilinirliliğini artırıcı bir takım reklamlar çekildi ve basında yayımlandı.</description><content:encoded><![CDATA[<p>Maximum Kart’ın artık müze kartı olarak geçerli olmadığı şu günlerde “Zaten müze müze gezip de ne yapacağız, biz Cem Yılmaz izliyoruz o bize yetiyor” şeklinde düşünen arkadaşlar için bir içerik hazırladım. Bildiğiniz veya benim de uydurmuş olabileceğim üzere İş bankasının maximum kart departmının Cem Yılmaz ve diğer sanatçılar ile yapmış olduğu 4–6 reklamlık bir iş birliği (PR) anlaşması mevcuttu. Bu süreçte bankanın ve kartın kullanımını teşvik edecek ve aynı zamanda da Cem Yılmaz üzerinden bilinirliliğini artırıcı bir takım reklamlar çekildi ve basında yayımlandı. Bu reklamdan büyük bir çoğunluğu son kullanıcıya hitap eden ve direkt ürünün olduğu yerde (market, kafe v.b.) çekilmiş reklamlar olmasına rağmen içlerinden bir tanesi tamamen başka bir atmosferde çekilmişti. Sadece müze kart övmesi için bu kadar prodüksiyona ne gerek vardı diye düşünürken Cem Yılmazın böyle ilginç içerikleri çok sevdiği ve çok az kişinin anladığı ufak espiriler bıraktığı aklıma geldi. Mesela meşhur G.O.R.A filmindeki “evet evet tarafından” espirisinin bir dönem anlaşılmamış olması ve Cem Yılmazın bizatihi kendisi tarafından açıklanması sonucunda meşhur olması gibi. İşte ben de bugün sizlerle bu reklamı inceleyecek ve üzerine bir şeyler söyleyeceğim.</p>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/weFr-uSNjHo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/weFr-uSNjHo?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="Cem Yılmaz | Maximum  (Müzekart)"
+      ></iframe>
+    </div>
 
 <p>Öncelikle reklamın tümünde geçen replikler veya arka planların hepsi büyük özenle seçilmiş yerler. Hani bir savaş sahnesi canlandıralım diye yapılmış şeyler değil. Reklamın başladığı yer o dönem Galyalılara ait olan ve Vercingetorix tarafından yönetilen 80.000 kişi ile en büyük Galya şehri olan Alesia’dır. Yapılan savaş da şehirden ismini alan Alesia savaşıdır. Savaş M.Ö 52 yılında Sezar komutasındaki 12 lejyonla (30,000–60,000 kişi)’nin günümüzdeki Paris sınırları içerisinde kalan Alesia şehrini kuşatması sonucunda çıkıyor. Tüm Avrupayı neredeyse fetheden Roma İmparatorluğu bir türlü bu Galyalıları (Fransa civarlarında) yenemiyor. En sonunda direkt saldırmaya karar veriyorlar ama bilmiyorlar ki Galyalılar savunmada acayip iyiler. Gerçekten de beklenilen oluyor ve Galyalılar kaleye çekiliyor. Sezar ne yaptıysa kaleye yaklaşamıyor ve surları aşamıyor. Adamları açlık ile karşı karşıya bırakmış olmasına rağmen Galyalılar teslim olmuyor bir türlü.</p>
 <p>
@@ -3191,15 +3200,21 @@ Bulup değiştireceğimiz başlıklar</p>
 <p>Rubicon nehrini geçmek özdeyişi adını İtalya’da bulunan rubicon nehrinden alır. Roma Cumhuriyeti döneminde komutanlar askeri güçleri ve kimlikleri ile başkente giremeyeceği ve demokrasiye aykırı bir eylem olarak görüldüğü için Roma şehir sınırlarından biri olan Rubicon nehrini geçmek askerlere yasaklanmıştı. Roma’yı ele geçirmek isteyen komutanlar ilk eylem olarak bulundukları karargahtan çıkarak Rubicon nehrini geçer ve bu artık geri dönüşü olmayan bu yola girerlerdi. Bu öyle bir yoldu ki artık kararlarından vazgeçseler bile cezalandırılacaklardır. O yüzden Rubicon’u geçmeyi çok iyi hesaplamak, çok iyi düşünmek gerek. Maximum Kart Cem Yılmaz ile böyle bir reklam yaparak bence kitleleri etkileyecek bir şey yapmak istemiş olsa da kimsenin farketmeyeceği ama bence çok güzel bir reklama imza attılar.</p>
 <p>Bütün bu anlatımlardan sonra “bize maximum kart tarafından böyle bir şey söylenmedi” veya “kafandan uyduruyorsun bütün bunları” diyecekseniz sizi bonus sahneye alayım.</p>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/e6AbhhSOjEE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/e6AbhhSOjEE?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="Leyla ile Mecnun - Bana öyle bir şey söylenmedi [HD]"
+      ></iframe>
+    </div>
 
 <p>NOT: Bu yazı daha önce şahsi medium.com adresimde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
 ]]></content:encoded></item><item><title>PGP nedir ve gerçekten de oldukça iyi bir gizlilik sağlıyor mu?</title><link>https://wiseweb-works.github.io/blog/post/pgp-ve-gizlilik/</link><pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/pgp-ve-gizlilik/</guid><description>PGP Türkçede oldukça iyi gizlilik anlamına gelen Pretty Good Privacy kelimesinin baş harflerinde oluşturulmuş bir veri şifreleme, şifre çözme ve verileri elektronik olarak imzalama programıdır. Phil Zimmermann tarafından 90&amp;rsquo;lı yılların başında akademik bir makale olarak ortaya çıkmış ve yayımlandığı dönemden çok sonra gerçekten kullanılmaya ve getirilerinden yararlanılmaya başlanmıştır. Söz konusu program ilk ortaya çıktığı zamanlarda bir ihtiyacın kendisini ortaya çıkmaya zorlamasından ziyade daha çok bir düşünce deneyi olarak iletişimin her iki tarafı arasındaki verilerin şifrelenebileceği ve bunun nasıl yapılması gerektiği sorusu üzerine ortaya çıkmıştır.</description><content:encoded><![CDATA[
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/VGz1dZ4Sg-g" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/VGz1dZ4Sg-g?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="Cem Yılmaz | Uyudun mu?"
+      ></iframe>
+    </div>
 
 <p>PGP Türkçede oldukça iyi gizlilik anlamına gelen Pretty Good Privacy kelimesinin baş harflerinde oluşturulmuş bir veri şifreleme, şifre çözme ve verileri elektronik olarak imzalama programıdır. <a href="https://tr.wikipedia.org/w/index.php?title=Phil_Zimmermann&action=edit&redlink=1">Phil Zimmermann</a> tarafından 90&rsquo;lı yılların başında akademik bir makale olarak ortaya çıkmış ve yayımlandığı dönemden çok sonra gerçekten kullanılmaya ve getirilerinden yararlanılmaya başlanmıştır. Söz konusu program ilk ortaya çıktığı zamanlarda bir ihtiyacın kendisini ortaya çıkmaya zorlamasından ziyade daha çok bir düşünce deneyi olarak iletişimin her iki tarafı arasındaki verilerin şifrelenebileceği ve bunun nasıl yapılması gerektiği sorusu üzerine ortaya çıkmıştır. Ortaya çıkışının ardından gönderilen verilen şifrelenmesinin ve şifresinin taraflarca çözülmesinin yanına bir de verinin bütünlüğünün korunmasını sağlayan özet fonksiyonu ve mesajı gönderen kişinin kimliğinin doğrulanması sağlayan (ve kimi zaman inkar edilemezlik olarak da anılan) imzalama özelliği eklenmiştir. Ortaya çıktığı dönemde ve sonrasında açık kaynak kodlu olarak yayımlanmaya devam etmiş ve günümüzde OpenPGP adı altında gelişerek faaliyetlerine devam etmektedir. PGP’nin ortaya çıktığı 1991 yılından 6 sene sonra yani 1997 yılında kendilerine Internet Engineering Task Force (görev gücü biraz abartı olmadı :D) adını veren bir çalışma grubu PGP programının sağlamış olduğu şifreleme özelliklerinin piyasa standartı haline gelmesi ve kullanımının kolaylaştırılması için yazılar yayımlamaya başladılar.</p>
 <p>
@@ -3237,9 +3252,12 @@ Bulup değiştireceğimiz başlıklar</p>
 </blockquote>
 <p>Önce bu veriyi… arkadaşlar yazıyı yazarken sıkıldım. Kusura bakmayın bunu da bu kadar anlatmış olayım. Ben keyfime düşkün bir adamım sıkılınca yapamıyorum.</p>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/Z8aqzdARZns" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Z8aqzdARZns?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="Athena - Kafama Göre"
+      ></iframe>
+    </div>
 
 <p>NOT: Bu yazı daha önce şahsi medium.com adresimde yayımlanmıştır. Kişisel portfolyo oluşturmak adına şahsi sitemde yeniden yayımlama ihtiyacı hissettim.</p>
 ]]></content:encoded></item><item><title>Grigori Rasputin ve aynı isimli şarkı hk</title><link>https://wiseweb-works.github.io/blog/post/grigori-rasputin/</link><pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/grigori-rasputin/</guid><description>Nerede doğduğunu bilmediğimiz Grigori Rasputin isimli bu arkadaşın çocukluk yılları daha çok Sibirya geçiyor. Mavi gözleri ve etkileyici mimikleri var. Daha küçük yaştan itibaren insanları etkilemeyi ve ilgi çekmeyi başaran bir yapısı mevcut. Hatta bir keresinde yaşı küçük olmasına rağmen babasının çiftliğinden çalınan bir atı kimin çaldığını kehanet yoluyla tahmin eder. Herkes (babası da dahil) Rasputin’e inanmamış olsa da sonradan hırsız kendisi gelip suçunu itiraf eder. Bu olaydan sonra ailesi ve bütün çevresi onun gerçekten doğaüstü güçlere sahip olduğunu düşünmeye başlamıştır.</description><content:encoded><![CDATA[<p>Nerede doğduğunu bilmediğimiz Grigori Rasputin isimli bu arkadaşın çocukluk yılları daha çok Sibirya geçiyor. Mavi gözleri ve etkileyici mimikleri var. Daha küçük yaştan itibaren insanları etkilemeyi ve ilgi çekmeyi başaran bir yapısı mevcut. Hatta bir keresinde yaşı küçük olmasına rağmen babasının çiftliğinden çalınan bir atı kimin çaldığını kehanet yoluyla tahmin eder. Herkes (babası da dahil) Rasputin’e inanmamış olsa da sonradan hırsız kendisi gelip suçunu itiraf eder. Bu olaydan sonra ailesi ve bütün çevresi onun gerçekten doğaüstü güçlere sahip olduğunu düşünmeye başlamıştır.</p>

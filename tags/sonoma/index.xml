@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Sonoma on Wise</title><link>https://wiseweb-works.github.io/blog/tags/sonoma/</link><description>Recent content in Sonoma on Wise</description><generator>Hugo -- gohugo.io</generator><language>tr</language><lastBuildDate>Sat, 24 Feb 2024 00:17:41 +0100</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/sonoma/index.xml" rel="self" type="application/rss+xml"/><item><title>Eski Maclere OpenCore ile Desteklenmeyen Sürümlerin Kurulumu</title><link>https://wiseweb-works.github.io/blog/post/opencore-legacy-eski-macbook/</link><pubDate>Sun, 08 Oct 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/opencore-legacy-eski-macbook/</guid><description>OpenCore Legacy Mac Yama Aracı OpenCore Logosu Rehber son güncellenme: 08.10.2023 (Sonoma desteği dahil)
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Sonoma on Wise</title><link>https://wiseweb-works.github.io/blog/tags/sonoma/</link><description>Recent content in Sonoma on Wise</description><generator>Hugo -- 0.125.0</generator><language>tr</language><lastBuildDate>Sat, 24 Feb 2024 00:17:41 +0100</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/sonoma/index.xml" rel="self" type="application/rss+xml"/><item><title>Eski Maclere OpenCore ile Desteklenmeyen Sürümlerin Kurulumu</title><link>https://wiseweb-works.github.io/blog/post/opencore-legacy-eski-macbook/</link><pubDate>Sun, 08 Oct 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/opencore-legacy-eski-macbook/</guid><description>OpenCore Legacy Mac Yama Aracı OpenCore Logosu Rehber son güncellenme: 08.10.2023 (Sonoma desteği dahil)
 Bu rehber, OpenCore Legacy Patcher (bundan sonra OCLP olarak anılacaktır) programını kullanma konusunda size yol gösterecektir. Geliştirici katkıları ve kullanıcı raporlarının yanı sıra kişisel deneyimlerdeki araştırmalara dayanmaktadır. OCLP kullanılarak macOS 14 Sonoma ilginç bir şekilde 12 yıllık bir Mac&amp;rsquo;e başarıyla yüklendi. Söz konusu Mac, desteği 2017&amp;rsquo;de macOS 10.13 High Sierra ile sonlanan 2011 ortası iMac 27 inçtir.</description><content:encoded><![CDATA[<h1 id="opencore-legacy-mac-yama-aracı">OpenCore Legacy Mac Yama Aracı</h1>
 <p>
 <picture>
@@ -722,9 +722,12 @@ Bu süre zarfında herhangi bir şekilde Usb&rsquo;yi çıkarmayın ve yeniden b
 <p>OCLP gelişmeye devam ettikçe gelecekte bu talimatlardan sapmalar ortaya çıkabilir. Daha sonra yeni özellikleri <a href="https://github.com/dortania/OpenCore-Legacy-Patcher">OCLP web sitesinde</a> bulabilirsiniz. Ayrıca şu <a href="https://www.youtube.com/@Mr.Macintosh/videos">video koleksiyonunu</a> ve ilgili <a href="https://de.wikipedia.org/wiki/OpenCore_Legacy_Patcher">Wiki</a> sayfasına da göz atılmasını öneririm.</p>
 <p>MacOS Sonoma kurulumu ile ilgili örnek videoya aşağıdan ulaşabilirsiniz:
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/eGR2qGw9lG8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/eGR2qGw9lG8?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="Install macOS Sonoma on Unsupported Macs EASY (Step-by-Step Guide)"
+      ></iframe>
+    </div>
 </p>
 <h2 id="kaynakça">Kaynakça:</h2>
 <p>Yazı sırasında kullandığım kaynaklar:</p>
