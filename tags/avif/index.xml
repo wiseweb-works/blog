@@ -1,0 +1,2148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Avif on Wise</title><link>https://wiseweb-works.github.io/blog/tags/avif/</link><description>Recent content in Avif on Wise</description><generator>Hugo -- 0.128.0</generator><language>tr</language><lastBuildDate>Tue, 16 Apr 2024 22:17:43 +0200</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/avif/index.xml" rel="self" type="application/rss+xml"/><item><title>Fotoğraf sıkıştırma yöntemleri rehberi</title><link>https://wiseweb-works.github.io/blog/post/fotograf-compress-magick/</link><pubDate>Sun, 16 Jun 2024 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/fotograf-compress-magick/</guid><description>Giriş 1 2 Günümüzde yüksek kaliteli görüntüler satın aldığımız fotoğraf makineleri veya en basitinden cebimizdeki telefonlar aracılığı ile çok kolay ulaşılabilir hale geldi. Mesela son 4-5 sene içerisinde aldığımız bir telefon ile yüksek çözünürlüklü (50-100MP) fotoğraf çekebiliyor veya yüksek çözünürlüklü olmasa dahi RAW formatında daha fazla veri içeren fotoğraflar elde edebiliyoruz. Yani eskiden dert yakındığımız birçok konu (çözünürlük, kalite vb.) günümüzdeki teknolojiler tarafından sorun olmaktan çıkarıldı. Fakat bununla birlikte beraberlerinde yeni sorunları da getirmeyi ihmal etmediler.</description><content:encoded><![CDATA[<h1 id="giriş">Giriş</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/fotograf-compress-magick/giris1.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/fotograf-compress-magick/giris1.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/fotograf-compress-magick/giris1.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>1</b></small></center>
+</picture></td>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/fotograf-compress-magick/giris2.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/fotograf-compress-magick/giris2.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/fotograf-compress-magick/giris2.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>2</b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
+<p>Günümüzde yüksek kaliteli görüntüler satın aldığımız fotoğraf makineleri veya en basitinden cebimizdeki telefonlar aracılığı ile çok kolay ulaşılabilir hale geldi. Mesela son 4-5 sene içerisinde aldığımız bir telefon ile yüksek çözünürlüklü (50-100MP) fotoğraf çekebiliyor veya yüksek çözünürlüklü olmasa dahi RAW formatında daha fazla veri içeren fotoğraflar elde edebiliyoruz. Yani eskiden dert yakındığımız birçok konu (çözünürlük, kalite vb.) günümüzdeki teknolojiler tarafından sorun olmaktan çıkarıldı. Fakat bununla birlikte beraberlerinde yeni sorunları da getirmeyi ihmal etmediler. Bunun en bilinen örneği ise yüksek dosya boyutları nedeniyle kısa sürede dosyaları depolayamaz hale gelmek. Örnek vermek gerekirse eğer yakın zamanda bir arkadaşımın yaşadığı bir durumdan bahsetmek isterim. Kendisi bir iPhone kullanıcısı olarak telefonunu aldığı günden beridir aralıksız her etkinliğimizde grup fotoğraflarımızı çeker ve kendisi de bunun haricinde fotoğraf çekmeyi sever. Sonuç olarak kısa bir süre içerisinde telefonunun tüm hafızasını (çoğunluğu fotoğraf olmak üzere) doldurdu. Çektiği fotoğrafları çok sevdiğinden ve hiçbirini silmek istemediğinden dolayı bana bir çözüm bulmam için geldi. Ben de bu süreçte kendisine önerdiğim çözümleri ve bu süreçte yaptığım açıklamaları bir rehber haline getirip size sunmak istedim.</p>
+<p>Bu yazıda, modern görüntü sıkıştırma araçlarından ikisi olan avifenc ve cwebp&rsquo;yi ele alacağız. Özellikle web geliştiricileri (benim tanışma şeklimde de böyle oldu) ve tasarımcılar için değerli olan bu araçlar, AVIF ve WebP formatlarında yüksek verimli sıkıştırma sunar. Her iki araç da ücretsiz ve açık kaynaklı olup, geniş bir kullanıcı topluluğu tarafından desteklenmektedir. WebP formatı Google tarafından geliştirilmekte olup Open Media Alliance tarafından geliştirilmektedir.</p>
+<h1 id="fotoğraf-sıkıştırma-teknikleri-detaylı-bir-inceleme">Fotoğraf Sıkıştırma Teknikleri: Detaylı Bir İnceleme</h1>
+<p>BU yazıda fotoğraf sıkıştırma tekniklerinin temellerini ve bu tekniklerin nasıl çalıştığını inceleyeceğiz. Öncelikle kayıplı ve kayıpsız sıkıştırma arasındaki farkları, ardından her iki tür sıkıştırmada kullanılan yöntemleri ele alacağız. Ardında da avifenc ve cwebp araçlarının nasıl kullanılacağını, avantajlarını ve en iyi uygulama yöntemlerini inceleyeceğiz. Bu kısım biraz teknik ilerleyecek olup yazının sonraki kısmında ise her zaman olduğu gibi bu sürecin başkaca bir yazılım ile hızlı ve çok teknik detaya girmeden uygulanmasından da bahsedeceğim. Bu kısmı isterseniz atlayıp direkt yandan &ldquo;Imagemagick Yazılımı&rdquo; ile ilgili başlığa tıklayabilirsiniz.</p>
+<h2 id="kayıplı-ve-kayıpsız-sıkıştırma-arasındaki-fark">Kayıplı ve Kayıpsız Sıkıştırma Arasındaki Fark</h2>
+<h3 id="kayıpsız-sıkıştırma">Kayıpsız Sıkıştırma</h3>
+<p>Kayıpsız sıkıştırma, görüntü kalitesini hiç değiştirmeden veri boyutunu azaltmayı amaçlar. Bu yöntemde, orijinal veri sıkıştırıldıktan sonra tam olarak geri dönüştürülebilir. Kayıpsız sıkıştırma özellikle yüksek kaliteden az da olsa ödün vermek istemeyen aynı zamanda da mümkün olan bir miktarda yer kazanmayı isteyen kişiler için uygundur. Ayrıca kayıpsız sıkıştırma genellikle pikseller arası korelasyonun düşük olduğu şekil gibi görüntülerde kullanıma daha müsaittir.</p>
+<h3 id="kayıplı-sıkıştırma">Kayıplı Sıkıştırma</h3>
+<p>Kayıplı sıkıştırma dosya boyutunu daha fazla küçültmek için bir miktar veri kaybına izin verir. Bu yöntemde sıkıştırma sonrası görüntü orijinaline çok benzerdir fakat birebir aynı değildir. Mesela renk uzayı, bazı renklerin kodlanması ve bir takım detaylarda değişmeler/azalmalar olması muhtemeldir. Kayıplı sıkıştırma genel olarak webde paylaşılacak görüntülerde, sosyal medya ve genel fotoğraf depolama çözümleri için yaygın olarak kullanılır. Kayıplı sıkıştırma ile dosya boyutunu önemli ölçüde düşürme karmaşık ve yüksek korelasyona sahip görüntülerde daha çok kullanılmaktadır.</p>
+<h2 id="kayıpsız-sıkıştırmada-kullanılan-yöntemler">Kayıpsız Sıkıştırmada Kullanılan Yöntemler</h2>
+<h3 id="run-length-encoding-rle">Run-Length Encoding (RLE)</h3>
+<p>Run-Length Encoding, veri dizilerinde tekrarlanan öğeleri sıkıştırmak için kullanılır. Örneğin, bir görüntüde ardışık olarak gelen aynı renkteki pikseller, tek bir veri değeri ve bu değerin tekrar sayısı ile temsil edilir. Bu yöntem, uzun tekrarlanan piksellerin olduğu görüntülerde oldukça etkilidir. Sıralı renk tekrarlarının olduğu homojen renk dağılımlı görüntülerde RLE algoritması başarılı bir sıkıştırma yapabilmektedir. Diğer taraftan tekrarların az olduğu veya renklerin homojen bir dağılım göstermediği görüntülerde algoritmanın başarısı düşük kalabilmektedir. Örneğin aynı meyve/sebzelerden oluşan bir tabağın çekilen fotoğrafı bu yöntem için oldukça uygun bir seçimdir.</p>
+<h3 id="huffman-coding">Huffman Coding</h3>
+<p>Zamanında MIT&rsquo;de öğrenci olan David Huffman tarafından hocasının verdiği bir ödev üzerine geliştirilmiştir. Yaygın olarak kullanılan sıkıştırma yöntemlerinde son işlem olarak kullanılır ve muhtemelen sıkıştırma algoritmalarında en yaygın olarak kullanılan bileşendir. Huffman kodlamanın temel amacı, verideki frekanslarına göre veri parçalarının her birine değişken uzunluklarda kodlar atayarak verinin toplam kod uzunluğunu en aza indirmektir. Yüksek frekanslı parçalara daha kısa kodlar, düşük frekanslı parçalara ise nispeten daha uzun kodlar atanarak dosya boyutu düşürülmüş olur. Örneğin 0001 olarak kodlanan bir parçanın karşımıza çıkma olasılığı (mesela) 00000001 olarak kodlanmış bir parçadan daha yüksektir. Buna göre ilk parçaya daha kısa bir kod atanırken diğer parçaya daha uzun bir kod atanacaktır.</p>
+<h3 id="lzw-lempel-ziv-welch">LZW (Lempel-Ziv-Welch)</h3>
+<p>LZW, veri dizilerindeki tekrarları tespit eder ve bu tekrarları sıkıştırılmış bir kod olarak saklar. Daha kısa kod yerine geçtiği dizeden daha az yer kaplar ve daha küçük bir dosya elde edilir. Girdi verilerinde uzun veya tekrarlayan kelimelerin sayısı arttıkça algoritmanın verimliliği de artar. Grafik dosya formatları (GIF) ve çeşitli arşiv formatları (ZIP) gibi birçok uygulamada kullanılır. Bunu LZ77/78 olarak biliyor veya duymuş da olabilirsiniz. Daha önce 7zip kullanmış iseniz bununla karşılaşmış olmanız pek muhtemel.</p>
+<h3 id="flatedeflate">Flate/Deflate</h3>
+<p>Flate/Deflate Phil Katz tarafından 90’lı yılların ortalarında geliştirilmiş kayıpsız veri sıkıştırma formatıdır. Huffman Kodlaması ve LZ77 algoritmasının bir bileşimidir. PNG kayıpsız görüntü sıkıştırma standardı Deflate algoritmasını kullanmaktadır. Sıkıştırılacak olan veri birbirini takip eden bloklar kümesi olarak düşünülür. Her blok LZ77 algoritması ve Huffman kodlamasının birlikte kullanılması ile sıkıştırılır. Her blok için oluşturulan Huffman ağacı bir önceki ve bir sonraki bloktan bağımsızdır. Sıkıştırılabilen blokların büyüklüğü değişkendir. Deflate algoritması Huffman ağacının etkili kodlama yapamayacak kadar büyüdüğünü gördüğünde, yeni bir Huffman ağacı oluşturmak için o bloğu sonlandırarak yeni bir blok başlatır. Böylece daha verimli bir sıkıştırma yapmayı amaçlar.</p>
+<h3 id="color-quantization-kısmen">Color Quantization (Kısmen)</h3>
+<p>Renk sayısının veya derinliğinin azaltılmasıyla ya da renk uzayında yapılan değişikliklerle sıkıştırma sağlanır. Örneğin, bir görüntüde kullanılan renk sayısını 256 ile sınırlayarak dosya boyutu düşürülebilir. Bu teknik, genellikle GIF formatında kullanılır. Kayıpsız sıkıştırma yöntemlerinin sonuna bunu da eklememin sebebi kısmi bir bakış açısına göre kayıpsız sayılabileceği yönünde. Burada K-Means denilen bir terim devreye giriyor ve düzgün uyarlandığında tek başına dosya boyutunu 100&rsquo;de 1 oranına kadar (aşırı ve bence gerçek dışı bir oran) düşürebildiğinden bahsediliyor.</p>
+<h2 id="kayıplı-sıkıştırmada-kullanılan-yöntemler">Kayıplı Sıkıştırmada Kullanılan Yöntemler</h2>
+<h3 id="transform-kodlama-dct">Transform Kodlama (DCT)</h3>
+<p>Transform kodlama, görüntü verilerini frekans bileşenlerine dönüştürerek sıkıştırma sağlar. JPEG sıkıştırmasında yaygın olarak kullanılan Discrete Cosine Transform (DCT) buna bir örnektir.Sıkıştırma aşamalarında ilk olarak görsele RGB-YUV renk uzayı dönüşümü uygulanır. Sonrasında görsel 8×8 bloklara ayrılır ve her bloğa DCT uygulanır. DCT uygulanmış blok, 1-100 arasında, 1 en düşük kalite ve 100 en yüksek kalite olmak üzere kullanıcı tarafından seçilebilen bir kalite parametresine karşılık gelen kuantizasyon matrisi kullanılarak kuantalanır.</p>
+<p>Bununla ilgili Computerphile videosu: <a href="https://www.youtube.com/watch?v=Q2aEzeMDHMA">https://www.youtube.com/watch?v=Q2aEzeMDHMA</a></p>
+<h3 id="chroma-subsampling">Chroma Subsampling</h3>
+<p>Chroma subsampling, insan gözünün renk değişikliklerine duyarlılığının düşük olmasını kullanarak renk bilgilerini azaltır. YCbCr renk modelinde renk bileşenlerinin (Chroma) yatay ve/veya dikey çözünürlüğünü düşürerek sıkıştırma yapar. İlerleyen adımlarda size göstereceğim örnek görsellerden .yuv uzantılı olan 4:2:0 olarak sample edilmişken .y4m ve .ycbcr 4:4:4 olarak kabul edilebilir. Bu da herhangi başka bir işlem yapmandan 4:4:4 &ndash;&gt; 4:2:0 veya 4:1:1 dönüşümünde %50 4:4:4: &ndash;&gt; 4:2:2 dönüşümünde %33 civarında bir dosya boyut azalması sağlıyor. Bu bildiğimiz anlamda bir sıkıştırma yapmadan elde edilen ve gerçekten çok yüksek bir oran olan bir kazanç.</p>
+<h3 id="fraktal-sıkıştırma">Fraktal Sıkıştırma</h3>
+<p>Fraktal sıkıştırma, görüntüdeki tekrarlayan desenleri matematiksel fraktal algoritmalarla sıkıştırır. Fraktal sıkıştırmanın tekrarlanan fonksiyonlar ile gerçeklenebileceği fikri ilk defa Michael Barnsley ve Alan Sloan tarafından ortaya atılmıştır.  Fraktal tekniğinin en önemli avantajı, açma işleminin basit ve hızlı olmasıdır. Fakat sıkıştırma işlemi, açmanın tam tersine çok karmaşıktır. Bir resimdeki tekrar eden fraktalları bulmak milyonlarca, milyarlarca karşılaştırma işleminin yapılmasını gerektirebilir. Sıkıştırma işleminin çok zaman alması nedeniyle fraktal tekniği henüz yeterince yaygınlaşamamıştır. Bu yöntem, yüksek sıkıştırma oranları sağlar ancak bahsedildiği gibi hesaplama süreci genellikle daha uzundur.</p>
+<h2 id="kayıpsız-veya-kısmen-kayıpsız-görüntü-çözümleri">Kayıpsız (veya kısmen kayıpsız) Görüntü Çözümleri</h2>
+<h3 id="ycbcr">YCBCR</h3>
+<p>YCBCR, bir renk kodlama şemasıdır ve tek başına bir görüntü formatı değildir. Genellikle dijital video ve fotoğrafçılıkta kullanılır. Kayıpsız veya kayıplı sıkıştırma ile kullanılabilir. JPEG gibi kayıplı formatlarda da (çok mantıklı olmasa da) YCBCR renk alanını kullanabilir.</p>
+<h3 id="yuv">YUV</h3>
+<p>YUV (ycbcr de olduğu gibi) bir renk alanı ve aynı zamanda video verilerini saklamak için kullanılan bir format olabilir. Veriler sıkıştırılmamış veya kayıplı/kayıpsız sıkıştırma ile saklanabilir. YUV dosyalarının kayıpsız olup olmadığı kullanılan sıkıştırma yöntemine bağlıdır. Bugün biz sıkıştırılmamış olan halinden faydalanacağız.</p>
+<h3 id="y4m">Y4M</h3>
+<p>Y4M, YUV4MPEG2 video formatının bir dosya uzantısıdır. Bu format sıkıştırılmamış YUV video verilerini içerir ve bundan dolayı kayıpsızdır. Y4M genellikle video/fotoğraf işleme ve düzenleme yazılımlarında ara format olarak kullanılır. Biz de bugün bu amaçla kullanacağız.</p>
+<h3 id="ppm">PPM</h3>
+<p>PPM  sıkıştırılmamış (dolayısıyla kayıpsız) bir görüntü formatıdır. PPM&rsquo;de her pikselin kırmızı, yeşil ve mavi (RGB) bileşenlerini ASCII veya ikili formda saklanır. Kanaviçe yapar gibi düşünebilirsiniz. Sıkıştırılmamış olduğu için dosya boyutları oldukça büyük olabilir. Konumuzda kullanılacak ana giriş formatı bu olacaktır. Diğer üç format ise ara format veya kontrol formatı olarak kullanılacaktır.</p>
+<h2 id="kayıplı-sıkıştırma-kullanan-görüntü-formatları">Kayıplı Sıkıştırma Kullanan Görüntü Formatları</h2>
+<h3 id="webp">WebP</h3>
+<p>Google tarafından geliştirilen WebP, hem kayıplı hem de kayıpsız sıkıştırma destekleyen modern bir görüntü formatıdır. JPEG&rsquo;e kıyasla daha yüksek sıkıştırma oranları ve daha düşük dosya boyutları sunar. Modern tarayıcıların büyük kısmı tarafından hali hazırda kullanılan ve ek bir bileşene gerek bırakmayan bir formattır.</p>
+<h3 id="heic-high-efficiency-image-coding">HEIC (High Efficiency Image Coding)</h3>
+<p>HEIC/HEIF özellikle Apple cihazlarda yaygın olarak kullanılan bir görüntü formatıdır. Yüksek verimlilikte sıkıştırma sağlamak için HEVC (High Efficiency Video Coding) teknolojisini kullanır. Fakat Apple burada farklı bir bakış açısı ile şöyle bir amaç gütmüştür. Normalde (örneğin) 5 MB olacak görüntü dosya boyutunu 1 MB&rsquo;a indirmek yerine görüntü dosya boyutunu gene 5 MB olarak hedefleyip içine sıkıştırılmadan önceki hali 25 MB olan bir görüntü sıkıştırmayı hedeflemişlerdir. Dolayısıyla siz dosya boyutu açısından net bir fark göremesenizde sanki fotoğraflarınız daha kaliteli çıkıyormuş izlenimine kapılıyorsunuz. Bu nedenle bu formatı rehberin ilerleyen kısımlarında kullanmayacağız.</p>
+<h3 id="avif-av1-image-file-format">AVIF (AV1 Image File Format)</h3>
+<p>AVIF AV1 video codec&rsquo;inin (önceki rehberimizde bajsettiğimiz) sıkıştırma tekniklerini kullanan modern bir görüntü formatıdır. Hem kayıplı hem de kayıpsız sıkıştırma seçenekleri sunar ve yüksek sıkıştırma oranları ile dikkat çeker. Modern tarayıcılar tarafından destekleniyor olsa da işletim sistemi ve dağıtıma göre bazen bir paket/eklenti yüklemek gerekebiliyor. Örneğin Windows&rsquo;da Store üzerinden bir eklenti yüklenmesinden sonra bu formatla üretilmiş görüntüleri açabiliyorsunuz.</p>
+<h1 id="sıkıştırma-tekniklerinin-kullanımı">Sıkıştırma Tekniklerinin Kullanımı</h1>
+<h2 id="testlerde-kullanılacak-görüntüler">Testlerde Kullanılacak Görüntüler</h2>
+<p>Testlerde kullanılacak görüntüler için <a href="https://imagecompression.info/">https://imagecompression.info/</a> adlı websitesini tercih ettim. Kalite farkının ve dosya boyutundaki olabilecek maksimum durumun net belirli olması açısından çok yüksek kaliteli ve hiç sıkıştırılmamış görüntüler seçtim. Kullandığım görüntü grubu <a href="https://imagecompression.info/test_images/">RGB-8Bit</a> olarak belirtilmiş 14 adet renkli görüntüden ibaret. Bu görüntüler ayrıca aklımdaki çeşitli test koşullarının hepsine de uygun olduğu için ayrıca kendim görüntü üretmek zorunda kalmadım. Bu görseller websayfasında da belirtildiği üzere herhangi bir engelleyici telif hakkı kısıtlaması olmaksızın kullanılabilir.</p>
+<blockquote>
+<p>These Images are available without any prohibitive copyright restrictions.
+These images are (c) there respective owners. You are granted full redistribution and publication rights on these images provided</p>
+</blockquote>
+<p>Görüntülerin bilgileri aşağıdaki gibidir:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No</th>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">artificial.ppm</td>
+<td style="text-align:center">18874385</td>
+<td style="text-align:center">19M</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">big_building.ppm</td>
+<td style="text-align:center">117158993</td>
+<td style="text-align:center">112M</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">big_tree.ppm</td>
+<td style="text-align:center">83101217</td>
+<td style="text-align:center">80M</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">bridge.ppm</td>
+<td style="text-align:center">33392120</td>
+<td style="text-align:center">32M</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">cathedral.ppm</td>
+<td style="text-align:center">18048017</td>
+<td style="text-align:center">18M</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">deer.ppm</td>
+<td style="text-align:center">32032706</td>
+<td style="text-align:center">31M</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">fireworks.ppm</td>
+<td style="text-align:center">22127633</td>
+<td style="text-align:center">22M</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">flower_foveon.ppm</td>
+<td style="text-align:center">10287665</td>
+<td style="text-align:center">9.9M</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">hdr.ppm</td>
+<td style="text-align:center">18874385</td>
+<td style="text-align:center">19M</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">leaves_iso_1600.ppm</td>
+<td style="text-align:center">18048017</td>
+<td style="text-align:center">18M</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">leaves_iso_200.ppm</td>
+<td style="text-align:center">18048017</td>
+<td style="text-align:center">18M</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">nightshot_iso_100.ppm</td>
+<td style="text-align:center">22127633</td>
+<td style="text-align:center">22M</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">nightshot_iso_1600.ppm</td>
+<td style="text-align:center">22127633</td>
+<td style="text-align:center">22M</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">spider_web.ppm</td>
+<td style="text-align:center">36363281</td>
+<td style="text-align:center">35M</td>
+</tr>
+<tr>
+<td style="text-align:center">\</td>
+<td style="text-align:center">\</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">/</td>
+</tr>
+<tr>
+<td style="text-align:center">Toplam</td>
+<td style="text-align:center">&mdash;</td>
+<td style="text-align:center">470611702</td>
+<td style="text-align:center">471M</td>
+</tr>
+</tbody>
+</table>
+<h2 id="webp-formatı-cwebp-aracı">WebP Formatı (cwebp aracı)</h2>
+<p>Bu formatta bir görüntü üretmek için önce gerekli olan <code>cwebp</code> aracını kurmamız gerekiyor. Kullandığınız dağıtıma göre değişmekle beraber Ubuntu/Fedora/Arch gibi ana dağıtımların repolarında direkt mevcut olup Windows kullanıcıları ise ilgili <a href="https://developers.google.com/speed/webp/download?hl=tr">websitesinden</a> indirebileceklerdir.</p>
+<h3 id="kurulum-adımları">Kurulum adımları</h3>
+<ol>
+<li><strong>Ubuntu</strong></li>
+</ol>
+<pre tabindex="0"><code>sudo apt-get install libwebp
+</code></pre><ol start="2">
+<li><strong>Fedora</strong></li>
+</ol>
+<pre tabindex="0"><code>sudo dnf install libwebp-tools
+</code></pre><ol start="3">
+<li><strong>Arch</strong></li>
+</ol>
+<pre tabindex="0"><code>sudo pacman -S libwebp
+</code></pre><h3 id="kullanılacak-parametreler">Kullanılacak parametreler</h3>
+<p>Cwebp aracının manual sayfasına baktığınızda çok fazla bir parametresi olmadığını göreceksiniz. Standart kullanım girdisi şu şekildedir:</p>
+<pre tabindex="0"><code>cwebp input_file -o output_file.webp [options]
+</code></pre><p>Bu hem son kullanıcı açısından oluşacak kafa karışıklığını ortadan kaldırıyor hem de araç ne vaadediyorsa sadece onu yapıyor. Bizim için gerekli olabilecek parametreler ise aşağıdaki gibidir:</p>
+<p><code>-q sayı</code>: Çıktı olarak verilecek görüntünün kalite değerini ayarlamanızı sağlıyor. Değer olarak float girişi yapabilirsiniz fakat o kadar virgüllü sayılarla uğraşmaya değeceğini zannetmiyorum. Default olarak gelen değer değiştirmezseniz 75. Yani normal görüntüdeki detayların %75&rsquo;i korunuyor.</p>
+<p><code>-pass sayı</code>: Görüntünün yeniden oluşturulması sırasında yapılacak olan geçiş sayısını belirtiyor. Değer 0 ile 10 arasında bir tam sayı olarak belirtilmeli. Default değer 6. Dosya boyutuna ve kaliteye bir miktar etki ediyor. Değer ne kadar yüksek ise o kadar küçük dosya boyutunda o kadar yüksek kalite elde edilecektir. Sonuç olarak da maalesef dosya başına ayrılan işleme zamanı artacaktır.</p>
+<p><code>-metadata metin</code>: (isteğe bağlı) Forumda sorulduğu için ekstra yer veriyorum. Metadata verilerinin ne kadarının tutulup tutulmayacağı konusunda karar vermenize yarayan parametre. Mümkün olan değerler <code>all</code>, <code>none</code>, <code>exif</code>, <code>icc</code>, <code>xmp</code>. Default değer ise <code>none</code>. Yani özellikle gerekmediği sürece değiştirmenizi önermemem.</p>
+<p>Sonuç olarak benim kullandığım komut mevcut parametreler dahil olmak üzere:</p>
+<pre tabindex="0"><code>cwebp input_file -o output_file.webp -q 75 -pass 10
+</code></pre><h2 id="avif-avifenc-aracı">Avif (avifenc aracı)</h2>
+<p>Bu formatta bir görüntü üretmek için de bir önceki formatımızda olduğu gibi bir araç gerektiriyor. Gerekli olan aracımızın adı <code>avifenc</code>. Gene kullandığınız dağıtıma göre değişmekle beraber Ubuntu/Fedora/Arch gibi ana dağıtımların repolarında direkt mevcut. Windows kullanıcıları bu sefer projenin <a href="https://github.com/AOMediaCodec/libavif/releases">Github sayfasından</a> son sunulmuş release&rsquo;i indirmesi gerekecektir.</p>
+<h3 id="kurulum-adımları-1">Kurulum adımları</h3>
+<ol>
+<li><strong>Ubuntu</strong></li>
+</ol>
+<pre tabindex="0"><code>sudo apt-get install libavif-bin
+</code></pre><ol start="2">
+<li><strong>Fedora</strong></li>
+</ol>
+<pre tabindex="0"><code>sudo dnf install libavif-tools
+</code></pre><ol start="3">
+<li><strong>Arch</strong></li>
+</ol>
+<pre tabindex="0"><code>sudo pacman -S libavif
+</code></pre><h3 id="kullanılacak-parametreler-1">Kullanılacak parametreler</h3>
+<p>Avifenc aracının manual sayfası önceki araca göre biraz daha uzun ve bence kafa karıştırabilecek olmasına rağmen ihtiyacımız olacak parametreler gene çok fazla değil. Örneğin standart kullanımı gene benzer şekilde:</p>
+<pre tabindex="0"><code>avifenc input_file output.avif [options]
+</code></pre><p>Bu bize her iki araç açısından bir benzerlik sunup nispeten işimizi kolaylaştırıyor. Bu sefer ihtiyacımız olabilecek parametreler ise aşağıdaki gibi:</p>
+<p><code>--min sayı</code>: Renk için minimum quantizer değerini (niceleyiciyi) belirlememize yarayan değer. Sayı büyüdükçe kalite azalmakta dosya boyutu ise küçülmektedir. Kabul edilen değer aralığı 0 ile 63 arasıdır. 0 girilmesi durumunda kayıpsız çeviri yapılmaya çalışılır. Default değer 10&rsquo;dur.</p>
+<p><code>--max sayı</code>: Renk için minimum quantizer değerini (niceleyiciyi) belirlememize yarayan değer. Sayı büyüdükçe diğer parametre ile aynı etkiyi yapar. Kabul edilen değer aralığı yine 0 ile 63 arasıdır. 0 girilmesi durumunda kayıpsız çeviri yapılmaya çalışılır. Default değer 40&rsquo;dur.</p>
+<p>Bir önceki aracımızın aksine avifenc tekil bir kalite değeri yerine bir kalite aralığını girdi olarak kabul ediyor. Bu şekilde de bazı yerlerde daha fazla sıkıştırma yaparken diğer yerlerde durumun özelliğine göre daha az sıkıştırma yaparak optimal dosya boyutu/kalite oranına ulaşmayı hedefler. Yaptığım testlere göre ama (net bilgi olmamakla birlikte) yaklaşık %60-65 civarına tekabül edecek bir kaliteden bahsedebiliriz.</p>
+<p><code>--speed sayı</code>: Dosya değerlendirilirken kodlayıcının ne kadar hızlı hareket etmesi gerektiğini belirten değer. Ne kadar yavaş hareket ederse o kadar kaliteli yeniden kodlama ve düşük dosya boyutuna ulaşabilecekken tam tersi şekilde daha uzun bir süre (gerçekten uzun oluyor bazen) sonucunu doğuracaktır. Kabul edilen değer aralığı 0 ile 10 arasındadır. 0 en yavaş 10 en hızlıdır. Default değer 6&rsquo;dır.</p>
+<p><code>--jobs sayı</code>: Bu görev için oluşturulacak iş sayısını veya kullanılacak core/thread sayısını belirten değer. Linux kullanıcıları bu parametre ile aşinadır diye düşünüyorum. Girilebilecek değer aralığı CPU&rsquo;nuza göre değişecek olup minimum değer 1 olup maksimum ve aynı zamanda da Default değer de <code>all</code> dır</p>
+<p>Sonuç olarak benim kullandığım komut mevcut parametreler dahil olmak üzere:</p>
+<pre tabindex="0"><code>avifenc input_file output.avif --jobs all --speed 0 --min 10 --max 40
+</code></pre><h2 id="çeviri-sonuçları">Çeviri Sonuçları</h2>
+<p>Çeviri sırasında girdi olarak <code>.ppm</code> uzantılı ana test dosyalarımızın aynı zamanda <code>.ycbcr</code>, <code>.y4m</code>, <code>.tiff</code>, <code>.yuv</code> ve <code>.png</code> uzantılı kopyaları üretilmiştir. Bu kopyalar hem farklı formatlardan çeviri kalitesinin test edilmesi hem de ara formatların kullanılmasını gerektiren durumlar için hazırlanmıştır. Dosyaların hepsini websitesinde yer kaplamaması adına bir <a href="https://github.com/wiseweb-works/fotograf-cevirme">Github Reposu&rsquo;na</a> yükledim. ORadan direkt ulaşabilir ve isterseniz indirebilirisiniz.</p>
+<p>Avif açısından farklı <code>--speed</code> değerlerinin etkisinin de anlaşılması için 0, 6 ve 10 değerleri için ayrı ayrı çeviriler yapılmıştır.</p>
+<p>Webp açısından ise speed parametresi olmadığı ve pass parametresi hızı çok etkilemediği için tüm çevirilerde pass değeri 10 olarak alınmıştır.</p>
+<p>Aşağıda her bir örnek fotoğraf açısından çeviri sonuçlarını bulabilirsiniz. Çok yer kaplaması için ilk fotoğraftan sonrasını görmek için genişlet butonuna tıklamanız gerekmektedir.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+<th style="text-align:center">Oran %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">artificial.ppm</td>
+<td style="text-align:center">18874385</td>
+<td style="text-align:center">19M</td>
+<td style="text-align:center">Dosya aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">artificial.ycbcr</td>
+<td style="text-align:center">18874368</td>
+<td style="text-align:center">19M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">artificial.y4m</td>
+<td style="text-align:center">18874446</td>
+<td style="text-align:center">19M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">artificial.tiff</td>
+<td style="text-align:center">18874784</td>
+<td style="text-align:center">19M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">artificial.yuv</td>
+<td style="text-align:center">12582912</td>
+<td style="text-align:center">12M</td>
+<td style="text-align:center">66,67</td>
+</tr>
+<tr>
+<td style="text-align:center">artificial.png</td>
+<td style="text-align:center">1656508</td>
+<td style="text-align:center">1.6M</td>
+<td style="text-align:center">8,78</td>
+</tr>
+<tr>
+<td style="text-align:center">artificial_speed0.avif</td>
+<td style="text-align:center">149028</td>
+<td style="text-align:center">146K</td>
+<td style="text-align:center">0,79</td>
+</tr>
+<tr>
+<td style="text-align:center">artificial_speed10.avif</td>
+<td style="text-align:center">299051</td>
+<td style="text-align:center">293K</td>
+<td style="text-align:center">1,58</td>
+</tr>
+<tr>
+<td style="text-align:center">artificial_speed6.avif</td>
+<td style="text-align:center">168926</td>
+<td style="text-align:center">165K</td>
+<td style="text-align:center">0,90</td>
+</tr>
+<tr>
+<td style="text-align:center">artificial.webp</td>
+<td style="text-align:center">229228</td>
+<td style="text-align:center">224K</td>
+<td style="text-align:center">1,21</td>
+</tr>
+</tbody>
+</table>
+<!-- raw HTML omitted -->
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+<th style="text-align:center">Oran %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">big_building.ppm</td>
+<td style="text-align:center">117158993</td>
+<td style="text-align:center">112M</td>
+<td style="text-align:center">Dosya aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">big_building.ycbcr</td>
+<td style="text-align:center">117158976</td>
+<td style="text-align:center">112M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">big_building.y4m</td>
+<td style="text-align:center">117159054</td>
+<td style="text-align:center">112M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">big_building.tiff</td>
+<td style="text-align:center">117160144</td>
+<td style="text-align:center">112M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">big_building.yuv</td>
+<td style="text-align:center">78105984</td>
+<td style="text-align:center">75M</td>
+<td style="text-align:center">66,67</td>
+</tr>
+<tr>
+<td style="text-align:center">big_building.png</td>
+<td style="text-align:center">62150284</td>
+<td style="text-align:center">60M</td>
+<td style="text-align:center">53,05</td>
+</tr>
+<tr>
+<td style="text-align:center">big_building_speed0.avif</td>
+<td style="text-align:center">3014156</td>
+<td style="text-align:center">2.9M</td>
+<td style="text-align:center">2,57</td>
+</tr>
+<tr>
+<td style="text-align:center">big_building_speed10.avif</td>
+<td style="text-align:center">2959255</td>
+<td style="text-align:center">2.9M</td>
+<td style="text-align:center">2,53</td>
+</tr>
+<tr>
+<td style="text-align:center">big_building_speed6.avif</td>
+<td style="text-align:center">2943252</td>
+<td style="text-align:center">2.9M</td>
+<td style="text-align:center">2,51</td>
+</tr>
+<tr>
+<td style="text-align:center">big_building.webp</td>
+<td style="text-align:center">3414240</td>
+<td style="text-align:center">3.3M</td>
+<td style="text-align:center">2,91</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+<th style="text-align:center">Oran %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">big_tree.ppm</td>
+<td style="text-align:center">83101217</td>
+<td style="text-align:center">80M</td>
+<td style="text-align:center">Dosya aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">big_tree.ycbcr</td>
+<td style="text-align:center">83101200</td>
+<td style="text-align:center">80M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">big_tree.y4m</td>
+<td style="text-align:center">83101278</td>
+<td style="text-align:center">80M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">big_tree.tiff</td>
+<td style="text-align:center">83102224</td>
+<td style="text-align:center">80M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">big_tree.yuv</td>
+<td style="text-align:center">55400800</td>
+<td style="text-align:center">53M</td>
+<td style="text-align:center">66,67</td>
+</tr>
+<tr>
+<td style="text-align:center">big_tree.png</td>
+<td style="text-align:center">48100895</td>
+<td style="text-align:center">46M</td>
+<td style="text-align:center">57,88</td>
+</tr>
+<tr>
+<td style="text-align:center">big_tree_speed0.avif</td>
+<td style="text-align:center">3253303</td>
+<td style="text-align:center">3.2M</td>
+<td style="text-align:center">3,91</td>
+</tr>
+<tr>
+<td style="text-align:center">big_tree_speed10.avif</td>
+<td style="text-align:center">2982856</td>
+<td style="text-align:center">2.9M</td>
+<td style="text-align:center">3,59</td>
+</tr>
+<tr>
+<td style="text-align:center">big_tree_speed6.avif</td>
+<td style="text-align:center">3033840</td>
+<td style="text-align:center">2.9M</td>
+<td style="text-align:center">3,65</td>
+</tr>
+<tr>
+<td style="text-align:center">big_tree.webp</td>
+<td style="text-align:center">2167850</td>
+<td style="text-align:center">2.1M</td>
+<td style="text-align:center">2,61</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+<th style="text-align:center">Oran %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">bridge.ppm</td>
+<td style="text-align:center">33392120</td>
+<td style="text-align:center">32M</td>
+<td style="text-align:center">Dosya aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">bridge.ycbcr</td>
+<td style="text-align:center">33392103</td>
+<td style="text-align:center">32M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">bridge.y4m</td>
+<td style="text-align:center">33392181</td>
+<td style="text-align:center">32M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">bridge.tiff</td>
+<td style="text-align:center">33392624</td>
+<td style="text-align:center">32M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">bridge.yuv</td>
+<td style="text-align:center">22269500</td>
+<td style="text-align:center">22M</td>
+<td style="text-align:center">66,69</td>
+</tr>
+<tr>
+<td style="text-align:center">bridge.png</td>
+<td style="text-align:center">19747093</td>
+<td style="text-align:center">19M</td>
+<td style="text-align:center">59,14</td>
+</tr>
+<tr>
+<td style="text-align:center">bridge_speed0.avif</td>
+<td style="text-align:center">1411838</td>
+<td style="text-align:center">1.4M</td>
+<td style="text-align:center">4,23</td>
+</tr>
+<tr>
+<td style="text-align:center">bridge_speed10.avif</td>
+<td style="text-align:center">1262682</td>
+<td style="text-align:center">1.3M</td>
+<td style="text-align:center">3,78</td>
+</tr>
+<tr>
+<td style="text-align:center">bridge_speed6.avif</td>
+<td style="text-align:center">1323802</td>
+<td style="text-align:center">1.3M</td>
+<td style="text-align:center">3,96</td>
+</tr>
+<tr>
+<td style="text-align:center">bridge.webp</td>
+<td style="text-align:center">1083864</td>
+<td style="text-align:center">1.1M</td>
+<td style="text-align:center">3,25</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+<th style="text-align:center">Oran %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">cathedral.ppm</td>
+<td style="text-align:center">18048017</td>
+<td style="text-align:center">18M</td>
+<td style="text-align:center">Dosya aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">cathedral.ycbcr</td>
+<td style="text-align:center">18048000</td>
+<td style="text-align:center">18M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">cathedral.y4m</td>
+<td style="text-align:center">18048078</td>
+<td style="text-align:center">18M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">cathedral.tiff</td>
+<td style="text-align:center">18048416</td>
+<td style="text-align:center">18M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">cathedral.yuv</td>
+<td style="text-align:center">12032000</td>
+<td style="text-align:center">12M</td>
+<td style="text-align:center">66,67</td>
+</tr>
+<tr>
+<td style="text-align:center">cathedral.png</td>
+<td style="text-align:center">9352750</td>
+<td style="text-align:center">9.0M</td>
+<td style="text-align:center">51,82</td>
+</tr>
+<tr>
+<td style="text-align:center">cathedral_speed0.avif</td>
+<td style="text-align:center">374017</td>
+<td style="text-align:center">366K</td>
+<td style="text-align:center">2,07</td>
+</tr>
+<tr>
+<td style="text-align:center">cathedral_speed10.avif</td>
+<td style="text-align:center">349586</td>
+<td style="text-align:center">342K</td>
+<td style="text-align:center">1,94</td>
+</tr>
+<tr>
+<td style="text-align:center">cathedral_speed6.avif</td>
+<td style="text-align:center">345661</td>
+<td style="text-align:center">338K</td>
+<td style="text-align:center">1,92</td>
+</tr>
+<tr>
+<td style="text-align:center">cathedral.webp</td>
+<td style="text-align:center">361172</td>
+<td style="text-align:center">353K</td>
+<td style="text-align:center">2,00</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+<th style="text-align:center">Oran %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">deer.ppm</td>
+<td style="text-align:center">32032706</td>
+<td style="text-align:center">31M</td>
+<td style="text-align:center">Dosya aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">deer.ycbcr</td>
+<td style="text-align:center">32032689</td>
+<td style="text-align:center">31M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">deer.y4m</td>
+<td style="text-align:center">32032767</td>
+<td style="text-align:center">31M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">deer.tiff</td>
+<td style="text-align:center">32033226</td>
+<td style="text-align:center">31M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">deer.yuv</td>
+<td style="text-align:center">21360408</td>
+<td style="text-align:center">21M</td>
+<td style="text-align:center">66,68</td>
+</tr>
+<tr>
+<td style="text-align:center">deer.png</td>
+<td style="text-align:center">21196494</td>
+<td style="text-align:center">21M</td>
+<td style="text-align:center">66,17</td>
+</tr>
+<tr>
+<td style="text-align:center">deer_speed0.avif</td>
+<td style="text-align:center">1730016</td>
+<td style="text-align:center">1.7M</td>
+<td style="text-align:center">5,40</td>
+</tr>
+<tr>
+<td style="text-align:center">deer_speed10.avif</td>
+<td style="text-align:center">1713279</td>
+<td style="text-align:center">1.7M</td>
+<td style="text-align:center">5,35</td>
+</tr>
+<tr>
+<td style="text-align:center">deer_speed6.avif</td>
+<td style="text-align:center">1660326</td>
+<td style="text-align:center">1.6M</td>
+<td style="text-align:center">5,18</td>
+</tr>
+<tr>
+<td style="text-align:center">deer.webp</td>
+<td style="text-align:center">994750</td>
+<td style="text-align:center">972K</td>
+<td style="text-align:center">3,11</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+<th style="text-align:center">Oran %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">fireworks.ppm</td>
+<td style="text-align:center">22127633</td>
+<td style="text-align:center">22M</td>
+<td style="text-align:center">Dosya aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">fireworks.ycbcr</td>
+<td style="text-align:center">22127616</td>
+<td style="text-align:center">22M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">fireworks.y4m</td>
+<td style="text-align:center">22127694</td>
+<td style="text-align:center">22M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">fireworks.tiff</td>
+<td style="text-align:center">22128048</td>
+<td style="text-align:center">22M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">fireworks.yuv</td>
+<td style="text-align:center">14751744</td>
+<td style="text-align:center">15M</td>
+<td style="text-align:center">66,67</td>
+</tr>
+<tr>
+<td style="text-align:center">fireworks.png</td>
+<td style="text-align:center">5642881</td>
+<td style="text-align:center">5.4M</td>
+<td style="text-align:center">25,50</td>
+</tr>
+<tr>
+<td style="text-align:center">fireworks_speed0.avif</td>
+<td style="text-align:center">149166</td>
+<td style="text-align:center">146K</td>
+<td style="text-align:center">0,67</td>
+</tr>
+<tr>
+<td style="text-align:center">fireworks_speed10.avif</td>
+<td style="text-align:center">187413</td>
+<td style="text-align:center">184K</td>
+<td style="text-align:center">0,85</td>
+</tr>
+<tr>
+<td style="text-align:center">fireworks_speed6.avif</td>
+<td style="text-align:center">154956</td>
+<td style="text-align:center">152K</td>
+<td style="text-align:center">0,70</td>
+</tr>
+<tr>
+<td style="text-align:center">fireworks.webp</td>
+<td style="text-align:center">183674</td>
+<td style="text-align:center">180K</td>
+<td style="text-align:center">0,83</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+<th style="text-align:center">Oran %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">flower_foveon.ppm</td>
+<td style="text-align:center">10287665</td>
+<td style="text-align:center">9.9M</td>
+<td style="text-align:center">Dosya aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">flower_foveon.ycbcr</td>
+<td style="text-align:center">10287648</td>
+<td style="text-align:center">9.9M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">flower_foveon.y4m</td>
+<td style="text-align:center">10287726</td>
+<td style="text-align:center">9.9M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">flower_foveon.tiff</td>
+<td style="text-align:center">10288000</td>
+<td style="text-align:center">9.9M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">flower_foveon.yuv</td>
+<td style="text-align:center">6858432</td>
+<td style="text-align:center">6.6M</td>
+<td style="text-align:center">66,67</td>
+</tr>
+<tr>
+<td style="text-align:center">flower_foveon.png</td>
+<td style="text-align:center">3131970</td>
+<td style="text-align:center">3.0M</td>
+<td style="text-align:center">30,44</td>
+</tr>
+<tr>
+<td style="text-align:center">flower_foveon_speed0.avif</td>
+<td style="text-align:center">54972</td>
+<td style="text-align:center">54K</td>
+<td style="text-align:center">0,53</td>
+</tr>
+<tr>
+<td style="text-align:center">flower_foveon_speed10.avif</td>
+<td style="text-align:center">68146</td>
+<td style="text-align:center">67K</td>
+<td style="text-align:center">0,66</td>
+</tr>
+<tr>
+<td style="text-align:center">flower_foveon_speed6.avif</td>
+<td style="text-align:center">58684</td>
+<td style="text-align:center">58K</td>
+<td style="text-align:center">0,57</td>
+</tr>
+<tr>
+<td style="text-align:center">flower_foveon.webp</td>
+<td style="text-align:center">70382</td>
+<td style="text-align:center">69K</td>
+<td style="text-align:center">0,68</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+<th style="text-align:center">Oran %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">hdr.ppm</td>
+<td style="text-align:center">18874385</td>
+<td style="text-align:center">19M</td>
+<td style="text-align:center">Dosya aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">hdr.ycbcr</td>
+<td style="text-align:center">18874368</td>
+<td style="text-align:center">19M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">hdr.y4m</td>
+<td style="text-align:center">18874446</td>
+<td style="text-align:center">19M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">hdr.tiff</td>
+<td style="text-align:center">18874784</td>
+<td style="text-align:center">19M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">hdr.yuv</td>
+<td style="text-align:center">12582912</td>
+<td style="text-align:center">12M</td>
+<td style="text-align:center">66,67</td>
+</tr>
+<tr>
+<td style="text-align:center">hdr.png</td>
+<td style="text-align:center">6974764</td>
+<td style="text-align:center">6.7M</td>
+<td style="text-align:center">36,95</td>
+</tr>
+<tr>
+<td style="text-align:center">hdr_speed0.avif</td>
+<td style="text-align:center">114743</td>
+<td style="text-align:center">113K</td>
+<td style="text-align:center">0,61</td>
+</tr>
+<tr>
+<td style="text-align:center">hdr_speed10.avif</td>
+<td style="text-align:center">132916</td>
+<td style="text-align:center">130K</td>
+<td style="text-align:center">0,70</td>
+</tr>
+<tr>
+<td style="text-align:center">hdr_speed6.avif</td>
+<td style="text-align:center">117136</td>
+<td style="text-align:center">115K</td>
+<td style="text-align:center">0,62</td>
+</tr>
+<tr>
+<td style="text-align:center">hdr.webp</td>
+<td style="text-align:center">143366</td>
+<td style="text-align:center">141K</td>
+<td style="text-align:center">0,76</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+<th style="text-align:center">Oran %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">leaves_iso_1600.ppm</td>
+<td style="text-align:center">18048017</td>
+<td style="text-align:center">18M</td>
+<td style="text-align:center">Dosya aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_1600.ycbcr</td>
+<td style="text-align:center">18048000</td>
+<td style="text-align:center">18M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_1600.y4m</td>
+<td style="text-align:center">18048078</td>
+<td style="text-align:center">18M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_1600.tiff</td>
+<td style="text-align:center">18048408</td>
+<td style="text-align:center">18M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_1600.yuv</td>
+<td style="text-align:center">12032000</td>
+<td style="text-align:center">12M</td>
+<td style="text-align:center">66,67</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_1600.png</td>
+<td style="text-align:center">11327915</td>
+<td style="text-align:center">11M</td>
+<td style="text-align:center">62,77</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_1600_speed0.avif</td>
+<td style="text-align:center">1108271</td>
+<td style="text-align:center">1.1M</td>
+<td style="text-align:center">6,14</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_1600_speed10.avif</td>
+<td style="text-align:center">964810</td>
+<td style="text-align:center">943K</td>
+<td style="text-align:center">5,35</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_1600_speed6.avif</td>
+<td style="text-align:center">1013569</td>
+<td style="text-align:center">990K</td>
+<td style="text-align:center">5,62</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_1600.webp</td>
+<td style="text-align:center">883776</td>
+<td style="text-align:center">864K</td>
+<td style="text-align:center">4,90</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+<th style="text-align:center">Oran %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">leaves_iso_200.ppm</td>
+<td style="text-align:center">18048017</td>
+<td style="text-align:center">18M</td>
+<td style="text-align:center">Dosya aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_200.ycbcr</td>
+<td style="text-align:center">18048000</td>
+<td style="text-align:center">18M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_200.y4m</td>
+<td style="text-align:center">18048078</td>
+<td style="text-align:center">18M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_200.tiff</td>
+<td style="text-align:center">18048408</td>
+<td style="text-align:center">18M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_200.yuv</td>
+<td style="text-align:center">12032000</td>
+<td style="text-align:center">12M</td>
+<td style="text-align:center">66,67</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_200.png</td>
+<td style="text-align:center">10110529</td>
+<td style="text-align:center">9.7M</td>
+<td style="text-align:center">56,02</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_200_speed0.avif</td>
+<td style="text-align:center">780224</td>
+<td style="text-align:center">762K</td>
+<td style="text-align:center">4,32</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_200_speed10.avif</td>
+<td style="text-align:center">757813</td>
+<td style="text-align:center">741K</td>
+<td style="text-align:center">4,20</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_200_speed6.avif</td>
+<td style="text-align:center">762472</td>
+<td style="text-align:center">745K</td>
+<td style="text-align:center">4,22</td>
+</tr>
+<tr>
+<td style="text-align:center">leaves_iso_200.webp</td>
+<td style="text-align:center">720154</td>
+<td style="text-align:center">704K</td>
+<td style="text-align:center">3,99</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+<th style="text-align:center">Oran %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">nightshot_iso_100.ppm</td>
+<td style="text-align:center">22127633</td>
+<td style="text-align:center">22M</td>
+<td style="text-align:center">Dosya aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_100.ycbcr</td>
+<td style="text-align:center">22127616</td>
+<td style="text-align:center">22M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_100.y4m</td>
+<td style="text-align:center">22127694</td>
+<td style="text-align:center">22M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_100.tiff</td>
+<td style="text-align:center">22128048</td>
+<td style="text-align:center">22M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_100.yuv</td>
+<td style="text-align:center">14751744</td>
+<td style="text-align:center">15M</td>
+<td style="text-align:center">66,67</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_100.png</td>
+<td style="text-align:center">7635953</td>
+<td style="text-align:center">7.3M</td>
+<td style="text-align:center">34,51</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_100_speed0.avif</td>
+<td style="text-align:center">157003</td>
+<td style="text-align:center">154K</td>
+<td style="text-align:center">0,71</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_100_speed10.avif</td>
+<td style="text-align:center">213297</td>
+<td style="text-align:center">209K</td>
+<td style="text-align:center">0,96</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_100_speed6.avif</td>
+<td style="text-align:center">161694</td>
+<td style="text-align:center">158K</td>
+<td style="text-align:center">0,73</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_100.webp</td>
+<td style="text-align:center">223064</td>
+<td style="text-align:center">218K</td>
+<td style="text-align:center">1,01</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+<th style="text-align:center">Oran %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">nightshot_iso_1600.ppm</td>
+<td style="text-align:center">22127633</td>
+<td style="text-align:center">22M</td>
+<td style="text-align:center">Dosya aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_1600.ycbcr</td>
+<td style="text-align:center">22127616</td>
+<td style="text-align:center">22M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_1600.y4m</td>
+<td style="text-align:center">22127694</td>
+<td style="text-align:center">22M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_1600.tiff</td>
+<td style="text-align:center">22128048</td>
+<td style="text-align:center">22M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_1600.yuv</td>
+<td style="text-align:center">14751744</td>
+<td style="text-align:center">15M</td>
+<td style="text-align:center">66,67</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_1600.png</td>
+<td style="text-align:center">12520345</td>
+<td style="text-align:center">12M</td>
+<td style="text-align:center">56,58</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_1600_speed0.avif</td>
+<td style="text-align:center">789712</td>
+<td style="text-align:center">772K</td>
+<td style="text-align:center">3,57</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_1600_speed10.avif</td>
+<td style="text-align:center">686661</td>
+<td style="text-align:center">671K</td>
+<td style="text-align:center">3,10</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_1600_speed6.avif</td>
+<td style="text-align:center">703014</td>
+<td style="text-align:center">687K</td>
+<td style="text-align:center">3,18</td>
+</tr>
+<tr>
+<td style="text-align:center">nightshot_iso_1600.webp</td>
+<td style="text-align:center">576746</td>
+<td style="text-align:center">564K</td>
+<td style="text-align:center">2,61</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+<th style="text-align:center">Oran %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">spider_web.ppm</td>
+<td style="text-align:center">36363281</td>
+<td style="text-align:center">35M</td>
+<td style="text-align:center">Dosya aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">spider_web.ycbcr</td>
+<td style="text-align:center">36363264</td>
+<td style="text-align:center">35M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">spider_web.y4m</td>
+<td style="text-align:center">36363342</td>
+<td style="text-align:center">35M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">spider_web.tiff</td>
+<td style="text-align:center">36363816</td>
+<td style="text-align:center">35M</td>
+<td style="text-align:center">100,00</td>
+</tr>
+<tr>
+<td style="text-align:center">spider_web.yuv</td>
+<td style="text-align:center">24242176</td>
+<td style="text-align:center">24M</td>
+<td style="text-align:center">66,67</td>
+</tr>
+<tr>
+<td style="text-align:center">spider_web.png</td>
+<td style="text-align:center">10272309</td>
+<td style="text-align:center">9.8M</td>
+<td style="text-align:center">28,25</td>
+</tr>
+<tr>
+<td style="text-align:center">spider_web_speed0.avif</td>
+<td style="text-align:center">106255</td>
+<td style="text-align:center">104K</td>
+<td style="text-align:center">0,29</td>
+</tr>
+<tr>
+<td style="text-align:center">spider_web_speed10.avif</td>
+<td style="text-align:center">126188</td>
+<td style="text-align:center">124K</td>
+<td style="text-align:center">0,35</td>
+</tr>
+<tr>
+<td style="text-align:center">spider_web_speed6.avif</td>
+<td style="text-align:center">113351</td>
+<td style="text-align:center">111K</td>
+<td style="text-align:center">0,31</td>
+</tr>
+<tr>
+<td style="text-align:center">spider_web.webp</td>
+<td style="text-align:center">165030</td>
+<td style="text-align:center">162K</td>
+<td style="text-align:center">0,45</td>
+</tr>
+</tbody>
+</table>
+<!-- raw HTML omitted -->
+<p>Sonuçlara bakıldığında dosya boyutunu (en büyük dosyaya göre) %1-5&rsquo;ine kadar azaltabildiğini görüyoruz. Fakat gerçek dünyada bu tip RAW dosya formatları veya hiç sıkıştırılmamış dosyalar kullanmaıdğımız için bu derece bir boyut azalmasını görmeniz zor. Fakat png veya jpg uzantıları açısından değerlendirirsek dosya boyutunı %10-33 aralığına kadar düşürebildiğini çok rahat söyleyebiliriz. Gerçek dünya testlerinde de bu sonuçları görmeniz çok muhtemel.</p>
+<h1 id="otomatikleştirilmiş-hali-imagemagick">Otomatikleştirilmiş Hali: Imagemagick</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/fotograf-compress-magick/mid1.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/fotograf-compress-magick/mid1.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/fotograf-compress-magick/mid1.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>1</b></small></center>
+</picture></td>
+<td style="text-align:center">
+<picture>
+  
+  
+  
+
+  
+
+  
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/fotograf-compress-magick/mid2.avif" type="image/avif">
+
+    
+    
+
+    <source srcset="https://wiseweb-works.github.io/blog/images/fotograf-compress-magick/mid2.webp" type="image/webp">
+
+  <img
+    src="https://wiseweb-works.github.io/blog/images/fotograf-compress-magick/mid2.png"
+    loading="lazy"
+    decoding="async"
+    width= min(100%, 720px)
+    height= auto
+  />
+  <center><small><b>2</b></small></center>
+</picture></td>
+</tr>
+</tbody>
+</table>
+<p>Imagemagick <a href="https://imagemagick.org/">ImageMagick Studio LLC</a> tarafından geliştirilen ve <a href="https://github.com/ImageMagick/ImageMagick">açık kaynaklı</a> bir yazılımdır. Yazılımın lisansı mevcut olarak Github&rsquo;da kullanılan o veya şu lisans diye net olarak söyleyemiyorum. Bir kısım yerlerde Apache 2.0 Lisansına çok yakın olduğunu söylemiş olsalar da tam bilgi için <a href="https://raw.githubusercontent.com/ImageMagick/ImageMagick/main/LICENSE">LICENSE</a> dosyasına göz atmanızı öneririm.</p>
+<p>Yazılımın odaklandığı ve çözmek istediği sorun fotoğraf ve benzeri dağıtım formatlarını dönüştürürken ve yukarıda bahsettiğim gibi yazılımları kullanmadan, teknik bilgilerle çok boğuşmadan ve istediğimiz sonuca bizi ulaştıracak bir program üretmek. Yazılımı herhangi bir linux dağıtımında indirmek istediğiniz zaman bağımlılık olarak birçok görüntü formatı/kütüphanesi birlikte iniyor ve sizi ek yazılımları tespit edip indirme gerekliliğinden kurtarıyor. Yazılım rehberin paylaşıldığı tarih itibariyle çalışma mantığı tüm araçlar açısından tekil bir parametre sistemi getirme ve gerekirse sizin verdiğiniz parametreyi gerekli aracın anlayacağı şekle dönüştürmek. Örneğin bir araç kalite için <code>-q</code> diğeri <code>--quality</code> diğeri <code>-Q</code> kullanıyor dahi olsa program bunları ezberlemenizi gerektirmiyor. Siz hangi formattan hangi formata dönüştürecek olursanız olun <code>-quality değer</code> parametresi ile bu sonuca ulaşabiliyorsunuz. İlk ve en önemli özelliği bu.</p>
+<p>Bu yazılımı bulmadan önce kendim tüm bu araçlar açısından gerekli kütüphaneleri elle yüklüyor, hangi araç hangi formatları kabul ediyor bunu takip ediyor ve gerekirse ara formatlar üretiyordum. Mesela avif ppm den dönüşüme izin vermezken y4m den izin veriyor. Tam tersine cwebp ppm den dönüşüme izin verirken mesela ycbcr den dönüşüme izin vermiyor gibi. Fakat imagemagick aracını kullanırken bunları düşünmenize gerek yok. Çünkü o sizin için ara formatları kayıpszı bir şekilde oluşturup dosyanızı hedef formata dönüştürüyor ve gereksiz geçici dosyaları siliyor. Tüm bu anlattıklarım ise birkaç saniye içinde oluyor. Bu da sizin işinizi kolaylaştıracak ikinci güzel özelliği.</p>
+<p>Bahsetmeyi değer bulduğum üçüncü özelliği ise toplu dosya çevirme veya başka tabirle batch convert. Bahsettiğim diğer araçların ve bahsi geçmeyen birçok aracın en büyük eksikliği toplu olarak dosya seçmenize izin vermemesi. Hepsi kendi için tek tek dosya çevirme üzerine odaklanmışlardır. Aşağıdakine benzer bir komut ile toplu çeviri yapmaları mümkün olmasına rağmen bu hem son kullanıcı açısından anlaması pek kolay olmadığı gibi her zaman için de uygulanması mümkün olmamaktadır.</p>
+<p>Örnek komut (jpg &ndash;&gt; webp): <code>find ./ -type f -name '*.jpg' -exec sh -c 'cwebp $1 -o &quot;${1%.jpg}.webp&quot; [options]' _ {} \;</code></p>
+<p>Fakat imagemagick aracımızda ise bu süreç çok daha kolay. Örnek komut (jpg &ndash;&gt; webp): <code>magick mogrify -format webp -quality 90 *.jpg</code> ne kadar anlaşılır ve kolay değil mi gerçekten. Giriş verisi olarak birden fazla dosya seçilebildiği gibi çıkış formatı olarak da birden fazla dosya formatı seçilebilir. Örneğin bir klasördeki tüm JPG/PNG uzantılı fotoğraflarınızı webp ve avif uzantısına tek komut ile çevirebiliyorsunuz. Bu gerçekten süper bir imkan.</p>
+<h2 id="yazılımın-indirilmesi-veveya-kurulması">Yazılımın indirilmesi ve/veya kurulması</h2>
+<p>Yazılım Linux, Mac, iOS ve Windows&rsquo;u desteklemektedir. Windows için <a href="https://imagemagick.org/script/download.php#windows">exe uzantılı dosyayı</a> indirip kullanabilirsiniz.</p>
+<p>Arch kullanıyorsanız:</p>
+<pre tabindex="0"><code>sudo pacman -S imagemagick
+</code></pre><p>Ubuntu kullanıyorsanız:</p>
+<pre tabindex="0"><code>sudo apt-get install imagemagick
+</code></pre><p>Fedora kullanıyorsanız:</p>
+<pre tabindex="0"><code>sudo dnf install ImageMagick
+</code></pre><p>Diğer linux dağıtımı kullanıcıları ise binary dosyası olarak indirebilir veya kendisi derleyebilir. Yükleme ile ilgili <a href="https://imagemagick.org/script/install-source.php">talimatlara</a> Web sayfasından ulaşabilirsiniz.</p>
+<h2 id="yazılımın-ayarları">Yazılımın ayarları</h2>
+<p>Yazılımı kurduktan sonra <code>man magick</code> komutu ile yardım kısmına veya ayrıntılı bilgiye ulaşabilirsiniz. Sizi yaklaşık olarak (bir kısmını kırptım) şöyle bir ekran karşılayacaktır:</p>
+<pre tabindex="0"><code>magick(1)
+General Commands Manual
+magick(1)
+
+NAME
+       magick - convert between image formats as well as resize an image, blur, crop, despeckle, dither, draw on, flip, join, re-sample, and much more.
+
+SYNOPSIS
+       magick [input-options] input-file [output-options] output-file
+....
+
+DESCRIPTION
+....
+
+         -define format:option
+....
+         -preview type        image preview type
+         -quality value       JPEG/MIFF/PNG compression level
+....
+         -quiet               suppress all warning messages
+         -verbose             print detailed information about the image
+         -auto-orient         automatically orient image
+         -strip               strip image of all profiles and comments
+....
+       Miscellaneous Options:
+         -debug events        display copious debugging information
+         -help                print program options
+         -log format          format of debugging information
+         -list type           print a list of supported option arguments
+         -version             print version information
+
+       Use any setting or operator as an output-option.  Only a limited number of setting are  input-option. They include: -antialias, -caption, -density, -define, -encoding, -font, -pointsize, -size, and -texture as well as any of the
+       miscellaneous options.
+
+       By  default,  the image format of ‘file&#39; is determined by its magic number.  To specify a particular image format, precede the filename with an image format name and a colon (i.e. ps:image) or specify the image type as the file‐
+       name suffix (i.e. image.ps).  Specify &#39;file&#39; as &#39;-&#39; for standard input or output.
+
+SEE ALSO
+       ImageMagick(1)
+
+COPYRIGHT
+       Copyright (C) 1999 ImageMagick Studio LLC. Additional copyrights and licenses apply to this software, see file:///usr/share/doc/ImageMagick-7/www/license.html or https://imagemagick.org/script/license.php                                                                             
+</code></pre><h3 id="tekil-dosya-çevirme">Tekil dosya çevirme</h3>
+<p>En basit kullanım senaryosunda tek dosya çevirmek isterseniz aşağıdaki gibi kullanabilirsiniz.</p>
+<p>JPG/JPEG&rsquo;den WebP&rsquo;ye dönüştürme</p>
+<pre tabindex="0"><code>magick input.jpg -quality 75 output.webp
+</code></pre><p>JPG/JPEG&rsquo;den Avif&rsquo;e dönüştürme</p>
+<pre tabindex="0"><code>magick input.jpg -quality 75 output.avif
+</code></pre><p>Gördüğünüz üzere komut çok az değişti. Quality değerini örnek olarak o şekilde belirledim. Siz birkaç fotoğraf üzerinden deneme yapıp sizin için en uygun değeri rahatlıkla bulabilirsiniz. Peki ben nasıl kullanıyorum veya hangi parametreleri kullanıyorum diye soracak olursanız eğer:</p>
+<p>WebP için:</p>
+<pre tabindex="0"><code>magick input.jpg -define webp:pass=10 -quality 75 output.webp
+</code></pre><p>Avif için:</p>
+<pre tabindex="0"><code>magick input.jpg -define avif:speed=0 -quality 75 output.avif
+</code></pre><p>Buradaki <code>-define format:parametre</code> girdisi ilgili araç için ek bir özel parametre girmek istiyorsanız kullanılıyor. Bu iki araç açısından gerekli parametreleri daha iyi bildiğim için halen eski düzen böyle devam ediyorum.</p>
+<h3 id="çoklu-dosya-çevirme">Çoklu dosya çevirme</h3>
+<p>Çoklu dosya çevirmek istediğiniz senaryoda gerekli en basit komutlar aşağıdaki gibidir:</p>
+<p>JPG/JPEG&rsquo;den WebP&rsquo;ye dönüştürme</p>
+<pre tabindex="0"><code>magick mogrify -format webp -quality 75 *.jpg
+</code></pre><p>JPG/JPEG&rsquo;den Avif&rsquo;e dönüştürme</p>
+<pre tabindex="0"><code>magick mogrify -format avif -quality 75 *.jpg
+</code></pre><p>Komut gene çok az değişti ve okunabilirlik açısından da halen çok iyi bir durumda. Benim kullandığım tam komut ne diye soracak olursanız gene aynı parametreleri eklemiş olacağım ve şöyle görünecek:</p>
+<p>WebP için:</p>
+<pre tabindex="0"><code>magick mogrify -format webp -define webp:pass=10 -quality 75 *.jpg
+</code></pre><p>Avif için:</p>
+<pre tabindex="0"><code>magick mogrify -format avif -define avif:speed=0 -quality 75 *.jpg
+</code></pre><h3 id="gerçek-dünya-testleri">Gerçek dünya testleri</h3>
+<p>Imagemagick aracı kağıt üstünde diğer araçların yaptığı şeyin aynısını yapıyor görünüyor. Fakat akıldaki hesap her zaman gerçekle uyuşmadığı için ve bunca yazının da gerçekten işe yarayıp yaramadığından emin olmak için test etmek iyi olacaktır. Bu nedenle bir haftasonu gezisi sırasında çekmiş olduğum boyutları 1.6M ile 4.4M arasında değişen 8-Bit/RGB/JPG/4096x2304 özelliklerine sahip 36 adet fotoğrafı bu araç ile sıkıştıracağım.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+<th style="text-align:center">Oran %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">IMG-1.jpg</td>
+<td style="text-align:center">3123535</td>
+<td style="text-align:center">3.0M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-1.avif</td>
+<td style="text-align:center">1504064</td>
+<td style="text-align:center">1.5M</td>
+<td style="text-align:center">48,15</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-1.webp</td>
+<td style="text-align:center">1076958</td>
+<td style="text-align:center">1.1M</td>
+<td style="text-align:center">34,48</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-2.jpg</td>
+<td style="text-align:center">2790604</td>
+<td style="text-align:center">2.7M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-2.avif</td>
+<td style="text-align:center">550187</td>
+<td style="text-align:center">538K</td>
+<td style="text-align:center">19,72</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-2.webp</td>
+<td style="text-align:center">391096</td>
+<td style="text-align:center">382K</td>
+<td style="text-align:center">14,01</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-3.jpg</td>
+<td style="text-align:center">3150447</td>
+<td style="text-align:center">3.1M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-3.avif</td>
+<td style="text-align:center">766041</td>
+<td style="text-align:center">749K</td>
+<td style="text-align:center">24,32</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-3.webp</td>
+<td style="text-align:center">546460</td>
+<td style="text-align:center">534K</td>
+<td style="text-align:center">17,35</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-4.jpg</td>
+<td style="text-align:center">4526481</td>
+<td style="text-align:center">4.4M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-4.avif</td>
+<td style="text-align:center">1743551</td>
+<td style="text-align:center">1.7M</td>
+<td style="text-align:center">38,52</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-4.webp</td>
+<td style="text-align:center">1218140</td>
+<td style="text-align:center">1.2M</td>
+<td style="text-align:center">26,91</td>
+</tr>
+</tbody>
+</table>
+<!-- raw HTML omitted -->
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Dosya Adı</th>
+<th style="text-align:center">Dosya Boyutu (Uzun)</th>
+<th style="text-align:center">Dosya Boyutu (Kısa)</th>
+<th style="text-align:center">Oran %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">IMG-5.jpg</td>
+<td style="text-align:center">4229066</td>
+<td style="text-align:center">4.1M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-5.avif</td>
+<td style="text-align:center">1519081</td>
+<td style="text-align:center">1.5M</td>
+<td style="text-align:center">35,92</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-5.webp</td>
+<td style="text-align:center">1063014</td>
+<td style="text-align:center">1.1M</td>
+<td style="text-align:center">25,14</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-6.jpg</td>
+<td style="text-align:center">3159689</td>
+<td style="text-align:center">3.1M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-6.avif</td>
+<td style="text-align:center">1500718</td>
+<td style="text-align:center">1.5M</td>
+<td style="text-align:center">47,50</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-6.webp</td>
+<td style="text-align:center">1077274</td>
+<td style="text-align:center">1.1M</td>
+<td style="text-align:center">34,09</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-7.jpg</td>
+<td style="text-align:center">3173451</td>
+<td style="text-align:center">3.1M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-7.avif</td>
+<td style="text-align:center">1503358</td>
+<td style="text-align:center">1.5M</td>
+<td style="text-align:center">47,37</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-7.webp</td>
+<td style="text-align:center">1069566</td>
+<td style="text-align:center">1.1M</td>
+<td style="text-align:center">33,70</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-8.jpg</td>
+<td style="text-align:center">3757624</td>
+<td style="text-align:center">3.6M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-8.avif</td>
+<td style="text-align:center">1986912</td>
+<td style="text-align:center">1.9M</td>
+<td style="text-align:center">52,88</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-8.webp</td>
+<td style="text-align:center">1465148</td>
+<td style="text-align:center">1.4M</td>
+<td style="text-align:center">38,99</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-9.jpg</td>
+<td style="text-align:center">3039928</td>
+<td style="text-align:center">2.9M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-9.avif</td>
+<td style="text-align:center">1424021</td>
+<td style="text-align:center">1.4M</td>
+<td style="text-align:center">46,84</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-9.webp</td>
+<td style="text-align:center">1028336</td>
+<td style="text-align:center">1005K</td>
+<td style="text-align:center">33,83</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-10.jpg</td>
+<td style="text-align:center">2441091</td>
+<td style="text-align:center">2.4M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-10.avif</td>
+<td style="text-align:center">902915</td>
+<td style="text-align:center">882K</td>
+<td style="text-align:center">36,99</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-10.webp</td>
+<td style="text-align:center">611696</td>
+<td style="text-align:center">598K</td>
+<td style="text-align:center">25,06</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-11.jpg</td>
+<td style="text-align:center">2526240</td>
+<td style="text-align:center">2.5M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-11.avif</td>
+<td style="text-align:center">971978</td>
+<td style="text-align:center">950K</td>
+<td style="text-align:center">38,48</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-11.webp</td>
+<td style="text-align:center">672250</td>
+<td style="text-align:center">657K</td>
+<td style="text-align:center">26,61</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-12.jpg</td>
+<td style="text-align:center">3010868</td>
+<td style="text-align:center">2.9M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-12.avif</td>
+<td style="text-align:center">1363342</td>
+<td style="text-align:center">1.4M</td>
+<td style="text-align:center">45,28</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-12.webp</td>
+<td style="text-align:center">1003464</td>
+<td style="text-align:center">980K</td>
+<td style="text-align:center">33,33</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-13.jpg</td>
+<td style="text-align:center">2894166</td>
+<td style="text-align:center">2.8M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-13.avif</td>
+<td style="text-align:center">1262222</td>
+<td style="text-align:center">1.3M</td>
+<td style="text-align:center">43,61</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-13.webp</td>
+<td style="text-align:center">903482</td>
+<td style="text-align:center">883K</td>
+<td style="text-align:center">31,22</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-14.jpg</td>
+<td style="text-align:center">2794211</td>
+<td style="text-align:center">2.7M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-14.avif</td>
+<td style="text-align:center">1180628</td>
+<td style="text-align:center">1.2M</td>
+<td style="text-align:center">42,25</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-14.webp</td>
+<td style="text-align:center">845948</td>
+<td style="text-align:center">827K</td>
+<td style="text-align:center">30,28</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-15.jpg</td>
+<td style="text-align:center">2698751</td>
+<td style="text-align:center">2.6M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-15.avif</td>
+<td style="text-align:center">1625281</td>
+<td style="text-align:center">1.6M</td>
+<td style="text-align:center">60,22</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-15.webp</td>
+<td style="text-align:center">1147432</td>
+<td style="text-align:center">1.1M</td>
+<td style="text-align:center">42,52</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-16.jpg</td>
+<td style="text-align:center">2858864</td>
+<td style="text-align:center">2.8M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-16.avif</td>
+<td style="text-align:center">1778962</td>
+<td style="text-align:center">1.7M</td>
+<td style="text-align:center">62,23</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-16.webp</td>
+<td style="text-align:center">1269262</td>
+<td style="text-align:center">1.3M</td>
+<td style="text-align:center">44,40</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-17.jpg</td>
+<td style="text-align:center">2679597</td>
+<td style="text-align:center">2.6M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-17.avif</td>
+<td style="text-align:center">1604076</td>
+<td style="text-align:center">1.6M</td>
+<td style="text-align:center">59,86</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-17.webp</td>
+<td style="text-align:center">1127914</td>
+<td style="text-align:center">1.1M</td>
+<td style="text-align:center">42,09</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-18.jpg</td>
+<td style="text-align:center">1664310</td>
+<td style="text-align:center">1.6M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-18.avif</td>
+<td style="text-align:center">305830</td>
+<td style="text-align:center">299K</td>
+<td style="text-align:center">18,38</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-18.webp</td>
+<td style="text-align:center">211652</td>
+<td style="text-align:center">207K</td>
+<td style="text-align:center">12,72</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-19.jpg</td>
+<td style="text-align:center">3007566</td>
+<td style="text-align:center">2.9M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-19.avif</td>
+<td style="text-align:center">1393500</td>
+<td style="text-align:center">1.4M</td>
+<td style="text-align:center">46,33</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-19.webp</td>
+<td style="text-align:center">941406</td>
+<td style="text-align:center">920K</td>
+<td style="text-align:center">31,30</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-20.jpg</td>
+<td style="text-align:center">2097444</td>
+<td style="text-align:center">2.1M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-20.avif</td>
+<td style="text-align:center">582060</td>
+<td style="text-align:center">569K</td>
+<td style="text-align:center">27,75</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-20.webp</td>
+<td style="text-align:center">456522</td>
+<td style="text-align:center">446K</td>
+<td style="text-align:center">21,77</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-21.jpg</td>
+<td style="text-align:center">2852271</td>
+<td style="text-align:center">2.8M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-21.avif</td>
+<td style="text-align:center">1275593</td>
+<td style="text-align:center">1.3M</td>
+<td style="text-align:center">44,72</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-21.webp</td>
+<td style="text-align:center">887504</td>
+<td style="text-align:center">867K</td>
+<td style="text-align:center">31,12</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-22.jpg</td>
+<td style="text-align:center">2757359</td>
+<td style="text-align:center">2.7M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-22.avif</td>
+<td style="text-align:center">1181807</td>
+<td style="text-align:center">1.2M</td>
+<td style="text-align:center">42,86</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-22.webp</td>
+<td style="text-align:center">847800</td>
+<td style="text-align:center">828K</td>
+<td style="text-align:center">30,75</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-23.jpg</td>
+<td style="text-align:center">2312096</td>
+<td style="text-align:center">2.3M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-23.avif</td>
+<td style="text-align:center">817076</td>
+<td style="text-align:center">798K</td>
+<td style="text-align:center">35,34</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-23.webp</td>
+<td style="text-align:center">579860</td>
+<td style="text-align:center">567K</td>
+<td style="text-align:center">25,08</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-24.jpg</td>
+<td style="text-align:center">3550795</td>
+<td style="text-align:center">3.4M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-24.avif</td>
+<td style="text-align:center">1871401</td>
+<td style="text-align:center">1.8M</td>
+<td style="text-align:center">52,70</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-24.webp</td>
+<td style="text-align:center">1404298</td>
+<td style="text-align:center">1.4M</td>
+<td style="text-align:center">39,55</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-25.jpg</td>
+<td style="text-align:center">3203733</td>
+<td style="text-align:center">3.1M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-25.avif</td>
+<td style="text-align:center">1381699</td>
+<td style="text-align:center">1.4M</td>
+<td style="text-align:center">43,13</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-25.webp</td>
+<td style="text-align:center">1184984</td>
+<td style="text-align:center">1.2M</td>
+<td style="text-align:center">36,99</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-26.jpg</td>
+<td style="text-align:center">3174471</td>
+<td style="text-align:center">3.1M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-26.avif</td>
+<td style="text-align:center">1354947</td>
+<td style="text-align:center">1.3M</td>
+<td style="text-align:center">42,68</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-26.webp</td>
+<td style="text-align:center">1148438</td>
+<td style="text-align:center">1.1M</td>
+<td style="text-align:center">36,18</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-27.jpg</td>
+<td style="text-align:center">3341253</td>
+<td style="text-align:center">3.2M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-27.avif</td>
+<td style="text-align:center">1511043</td>
+<td style="text-align:center">1.5M</td>
+<td style="text-align:center">45,22</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-27.webp</td>
+<td style="text-align:center">1236658</td>
+<td style="text-align:center">1.2M</td>
+<td style="text-align:center">37,01</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-28.jpg</td>
+<td style="text-align:center">3588628</td>
+<td style="text-align:center">3.5M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-28.avif</td>
+<td style="text-align:center">1916504</td>
+<td style="text-align:center">1.9M</td>
+<td style="text-align:center">53,40</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-28.webp</td>
+<td style="text-align:center">1454832</td>
+<td style="text-align:center">1.4M</td>
+<td style="text-align:center">40,54</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-29.jpg</td>
+<td style="text-align:center">2356713</td>
+<td style="text-align:center">2.3M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-29.avif</td>
+<td style="text-align:center">1431777</td>
+<td style="text-align:center">1.4M</td>
+<td style="text-align:center">60,75</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-29.webp</td>
+<td style="text-align:center">1030610</td>
+<td style="text-align:center">1007K</td>
+<td style="text-align:center">43,73</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-30.jpg</td>
+<td style="text-align:center">3075593</td>
+<td style="text-align:center">3.0M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-30.avif</td>
+<td style="text-align:center">1487599</td>
+<td style="text-align:center">1.5M</td>
+<td style="text-align:center">48,37</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-30.webp</td>
+<td style="text-align:center">1069446</td>
+<td style="text-align:center">1.1M</td>
+<td style="text-align:center">34,77</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-31.jpg</td>
+<td style="text-align:center">2620141</td>
+<td style="text-align:center">2.5M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-31.avif</td>
+<td style="text-align:center">1053561</td>
+<td style="text-align:center">1.1M</td>
+<td style="text-align:center">40,21</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-31.webp</td>
+<td style="text-align:center">788630</td>
+<td style="text-align:center">771K</td>
+<td style="text-align:center">30,10</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-32.jpg</td>
+<td style="text-align:center">2793081</td>
+<td style="text-align:center">2.7M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-32.avif</td>
+<td style="text-align:center">1234183</td>
+<td style="text-align:center">1.2M</td>
+<td style="text-align:center">44,19</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-32.webp</td>
+<td style="text-align:center">903448</td>
+<td style="text-align:center">883K</td>
+<td style="text-align:center">32,35</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-33.jpg</td>
+<td style="text-align:center">2648478</td>
+<td style="text-align:center">2.6M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-33.avif</td>
+<td style="text-align:center">1100654</td>
+<td style="text-align:center">1.1M</td>
+<td style="text-align:center">41,56</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-33.webp</td>
+<td style="text-align:center">826504</td>
+<td style="text-align:center">808K</td>
+<td style="text-align:center">31,21</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-34.jpg</td>
+<td style="text-align:center">3181983</td>
+<td style="text-align:center">3.1M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-34.avif</td>
+<td style="text-align:center">1497755</td>
+<td style="text-align:center">1.5M</td>
+<td style="text-align:center">47,07</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-34.webp</td>
+<td style="text-align:center">1130016</td>
+<td style="text-align:center">1.1M</td>
+<td style="text-align:center">35,51</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-35.jpg</td>
+<td style="text-align:center">2580106</td>
+<td style="text-align:center">2.5M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-35.avif</td>
+<td style="text-align:center">1050044</td>
+<td style="text-align:center">1.1M</td>
+<td style="text-align:center">40,70</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-35.webp</td>
+<td style="text-align:center">790866</td>
+<td style="text-align:center">773K</td>
+<td style="text-align:center">30,65</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-36.jpg</td>
+<td style="text-align:center">2922206</td>
+<td style="text-align:center">2.8M</td>
+<td style="text-align:center">Dosya Aslı</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-36.avif</td>
+<td style="text-align:center">1338502</td>
+<td style="text-align:center">1.3M</td>
+<td style="text-align:center">45,80</td>
+</tr>
+<tr>
+<td style="text-align:center">IMG-36.webp</td>
+<td style="text-align:center">980454</td>
+<td style="text-align:center">958K</td>
+<td style="text-align:center">33,55</td>
+</tr>
+</tbody>
+</table>
+<!-- raw HTML omitted -->
+<p>Sonuç olarak:</p>
+<ul>
+<li>JPG&rsquo;de toplam dosya boyutu: 106582840 yani 107M</li>
+<li>WebP ile toplam dosya boyutu: 34391368 yani 35M (%32,26)</li>
+<li>Avif ile toplam dosya boyutu: 46972872 yani 47M (%44,07)</li>
+</ul>
+<p>Kısa bir değerlendirme ile orijinal araçların yaptığı kadar yüksek verimliliğe ulaşamasa da dikkate ve uygulamaya değer bir kazanım elde edebiliyoruz.</p>
+<h2 id="anlatım-dışı-bırakılan-kısımlar">Anlatım dışı bırakılan kısımlar</h2>
+<p>Bu rehberde elde edilen verim yeterli görüldüğü için <code>Color Space</code>, <code>Chroma Subsampling</code>, <code>Sampling Factor Geometry</code>, <code>Posterize</code>, <code>Iteration</code>, <code>Transparent Color</code> ve <code>Solorize</code> kavramları ile çalışılmamış default olan değerler kullanılmıştır. Bu kavramlara biraz daha aşina olup isteğe göre daha iyi sonuçlar elde etmek mümkün olup tek başına <code>Posterize</code> değerini değiştirerek bile çok güzel sonuçlar elde ettim. Fakat anlatması ve uygun değerin tespit edilmesi çok kolay olmadığı için bu rehber kapsamı dışında bırakılmıştır.</p>
+<h2 id="fotoğraf-sıkıştırma-ile-ilgili-forumda-açılmış-konular">Fotoğraf sıkıştırma ile ilgili forumda açılmış konular</h2>
+<p>Bu rehberin haricinde spesifik olarak (diğer rehberlerde de olduğu üzere) fotoğraf çevirme konuları ve imagemagick ilgili yaşanan sorunları veya ek rehberleri bu konu açısından fayda göstermesi durumunda atıf yapacağım. Ayrıca benim eklediğim konular dışındaki imagemagick ile ilgili tüm konulara #imagemagick veya #magick etiketine tıklayarak ulaşabilirsiniz.</p>
+<h1 id="son-söz-ve-kaynakça">Son Söz ve Kaynakça</h1>
+<p>Artık elimdeki bu fotoğrafları ne yapacağım acaba bir hard disk mi alsam gibi soruları kendinize sormanıza gerek kalmadı. Bu rehber sonucunda sizi bir süre daha götürecek kadar yer kazanmış oldunuz. Ayrıca sadece jpg değil kullanamadığınız tüm formatlar özelinde istediğiniz formata kolayca çevirmeyi de öğrenmiş oldunuz. Umarım keyifli bir rehber olmuştur. Rehberin teknik açıklaması veya içeriği ile ilgili bir eksiklik/hata görmeniz durumunda bana bildirebilir veya düzeltilmesi için cevap olarak yazabilirsiniz. Bir sonraki rehbere kadar iyi seyirler ve esenlikler dileğiyle.</p>
+<p>Kaynaklar:</p>
+<ol>
+<li><a href="https://tez.yok.gov.tr/UlusalTezMerkezi/">https://tez.yok.gov.tr/UlusalTezMerkezi/</a> Tez No: 183894 (Veri sıkıştırmada yeni yöntemler, ALTAN MESUT, 2006)</li>
+<li><a href="https://tez.yok.gov.tr/UlusalTezMerkezi/">https://tez.yok.gov.tr/UlusalTezMerkezi/</a> Tez No: 565227 (Tekrarlı uzunluk kodlaması (RLE) ve ayrıştırma esaslı görüntü sıkıştırma, MUSTAFA BURAK KALKAN, 2019)</li>
+<li><a href="https://pnrsolution.org/Datacenter/Vol3/Issue2/129.pdf">https://pnrsolution.org/Datacenter/Vol3/Issue2/129.pdf</a> (Image Compression Techniques: Lossy and Lossless, ROJATKAR/BORKAR/NAIK/PEDDIWAR, 2015)</li>
+<li><a href="https://arxiv.org/pdf/1101.0395">https://arxiv.org/pdf/1101.0395</a> (Improving the Performance of K-Means for Color Quantization, M. Emre CELEBİ, 2011)</li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/cluster/plot_color_quantization.html">https://scikit-learn.org/stable/auto_examples/cluster/plot_color_quantization.html</a></li>
+<li><a href="https://developers.google.com/speed/webp/docs/cwebp">https://developers.google.com/speed/webp/docs/cwebp</a></li>
+<li><a href="https://github.com/AOMediaCodec/libavif/blob/main/doc/avifenc.1.md">https://github.com/AOMediaCodec/libavif/blob/main/doc/avifenc.1.md</a></li>
+<li><a href="https://imagemagick.org/script/magick.php">https://imagemagick.org/script/magick.php</a></li>
+<li><a href="https://imagemagick.org/script/convert.php">https://imagemagick.org/script/convert.php</a></li>
+<li><a href="https://www.youtube.com/watch?v=Q2aEzeMDHMA">https://www.youtube.com/watch?v=Q2aEzeMDHMA</a> (JPEG DCT, Discrete Cosine Transform (JPEG Pt2) | Computerphile)</li>
+<li><a href="https://www.youtube.com/watch?v=F1kYBnY6mwg">https://www.youtube.com/watch?v=F1kYBnY6mwg</a> (Image compression deep-dive | Chrome for Developers)</li>
+<li><a href="https://www.youtube.com/watch?v=_ciMMmxNIGw">https://www.youtube.com/watch?v=_ciMMmxNIGw</a> (Image Compression - EE 274, Data Compression, L15 | Stanford Research Talks)</li>
+<li>İlk Yayım: <a href="https://btt.community/t/fotograf-sikistirma-yontemleri-inceleme-ve-rehber/8315">BTT</a></li>
+</ol>
+]]></content:encoded></item></channel></rss>
