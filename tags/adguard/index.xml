@@ -1,5 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Adguard on Wise</title><link>https://wiseweb-works.github.io/blog/tags/adguard/</link><description>Recent content in Adguard on Wise</description><generator>Hugo -- 0.128.0</generator><language>tr</language><lastBuildDate>Tue, 16 Apr 2024 22:17:43 +0200</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/adguard/index.xml" rel="self" type="application/rss+xml"/><item><title>AdGuard ile Reklam Engelleme</title><link>https://wiseweb-works.github.io/blog/post/adguard-reklam-engelleme/</link><pubDate>Thu, 06 Apr 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/adguard-reklam-engelleme/</guid><description>1. AdGuard: Reklamsız Gezinti İçin Nihai Çözümünüz İnternette gezinirken sürekli karşınıza çıkan reklam ve açılır pencerelerinden sıkıldıysanız, AdGuard Windows uygulamasını kullanmayı düşünebilirsiniz. AdGuard, yalnızca reklamları kaldırmakla kalmayıp aynı zamanda bilgisayarınızı kötü amaçlı yazılımlardan ve kimlik avı saldırılarından koruyan güçlü bir reklam engelleyicidir. Tanıdığınız ve bildiğiniz tüm reklamlara son kez sarılın artık onları bir daha göremeyeceksiniz. Çünkü bu blog gönderisinde, AdGuard&amp;rsquo;ın özelliklerini ve göz atma deneyiminizi nasıl geliştirebileceğini keşfedeceğiz.
-1.1 AdGuard Uygulamasının Özellikleri 1.</description><content:encoded><![CDATA[<h1 id="1-adguard-reklamsız-gezinti-için-nihai-çözümünüz">1. AdGuard: Reklamsız Gezinti İçin Nihai Çözümünüz</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Adguard on Wise</title><link>https://wiseweb-works.github.io/blog/tags/adguard/</link><description>Recent content in Adguard on Wise</description><generator>Hugo -- 0.136.2</generator><language>tr</language><lastBuildDate>Tue, 16 Apr 2024 22:17:43 +0200</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/adguard/index.xml" rel="self" type="application/rss+xml"/><item><title>AdGuard ile Reklam Engelleme</title><link>https://wiseweb-works.github.io/blog/post/adguard-reklam-engelleme/</link><pubDate>Thu, 06 Apr 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/adguard-reklam-engelleme/</guid><description>&lt;h1 id="1-adguard-reklamsız-gezinti-için-nihai-çözümünüz">1. AdGuard: Reklamsız Gezinti İçin Nihai Çözümünüz&lt;/h1>
+&lt;p>İnternette gezinirken sürekli karşınıza çıkan reklam ve açılır pencerelerinden sıkıldıysanız, &lt;a href="https://adguard.com/tr/adguard-windows/overview.html">AdGuard Windows uygulamasını&lt;/a> kullanmayı düşünebilirsiniz. AdGuard, yalnızca reklamları kaldırmakla kalmayıp aynı zamanda bilgisayarınızı kötü amaçlı yazılımlardan ve kimlik avı saldırılarından koruyan güçlü bir reklam engelleyicidir. Tanıdığınız ve bildiğiniz tüm reklamlara son kez sarılın artık onları bir daha göremeyeceksiniz. Çünkü bu blog gönderisinde, AdGuard&amp;rsquo;ın özelliklerini ve göz atma deneyiminizi nasıl geliştirebileceğini keşfedeceğiz.&lt;/p>
+&lt;h2 id="11-adguard-uygulamasının-özellikleri">1.1 AdGuard Uygulamasının Özellikleri&lt;/h2>
+&lt;h3 id="111-reklam-engelleyici">1.1.1 Reklam engelleyici&lt;/h3>
+&lt;ul>
+&lt;li>AdGuard&amp;rsquo;ın birincil özelliği, banner reklamlar, açılır pencereler ve video reklamlar dahil olmak üzere her türlü reklamı&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> web sayfalarından kaldırabilen reklam engelleyicisidir. Bu özellik yalnızca gezinmeyi hızlandırmakla kalmaz, aynı zamanda verilerden tasarruf etmenizi sağlar ve göz yorgunluğunu azaltır.&lt;/li>
+&lt;/ul>
+&lt;h3 id="112-gizlilik-koruması">1.1.2 Gizlilik koruması&lt;/h3>
+&lt;ul>
+&lt;li>AdGuard, web sitelerinin verilerinizi toplamak için kullandığı izleme çerezlerini ve diğer izleme mekanizmalarını engelleyerek gizliliğinizi korur. Ayrıca, IP adresinizi ve diğer hassas bilgileri web sitelerinden gizleyen Gizli mod adı verilen bir özelliği de vardır.&lt;/li>
+&lt;/ul>
+&lt;h3 id="113-ebeveyn-kontrolü">1.1.3 Ebeveyn Kontrolü&lt;/h3>
+&lt;ul>
+&lt;li>AdGuard, yetişkinlere uygun içerik veya diğer uygunsuz materyaller barındıran web sitelerine erişimi engellemenizi sağlayan bir ebeveyn denetimi özelliğine sahiptir. Belirli web sitelerini veya kategorileri engellemek için özel kurallar da oluşturabilirsiniz.&lt;/li>
+&lt;/ul>
+&lt;h3 id="114-malware-koruması">1.1.4 Malware koruması&lt;/h3>
+&lt;ul>
+&lt;li>AdGuard, kötü amaçlı kod veya bağlantılar içeren web sitelerini engelleyen yerleşik bir kötü amaçlı yazılımdan koruma özelliğine sahiptir. Ayrıca tehlikeli olduğu bildirilen bir web sitesini ziyaret ettiğinizde sizi uyarabilir.&lt;/li>
+&lt;/ul>
+&lt;h3 id="115-özelleştirilebilir-filtreler">1.1.5 Özelleştirilebilir Filtreler&lt;/h3>
+&lt;ul>
+&lt;li>AdGuard, belirli içerik türlerini veya web sitelerini engellemek için kendi filtrelerinizi oluşturmanıza veya diğer kullanıcılardan filtreler eklemenize olanak tanır. Bu özellik, gördükleriniz ve görmedikleriniz üzerinde tam kontrol sahibi olmanızı sağlar.&lt;/li>
+&lt;/ul>
+&lt;h3 id="116-kullanıcı-dostu-arayüz">1.1.6 Kullanıcı dostu arayüz&lt;/h3>
+&lt;ul>
+&lt;li>AdGuard, en acemi kullanıcılar için bile kullanımı kolaylaştıran basit ve sezgisel bir arayüze sahiptir. Tüm özelliklere ve ayarlara ana panodan kolayca erişebilirsiniz.&lt;/li>
+&lt;/ul>
+&lt;h3 id="-117-kısa-özet">&amp;gt; 1.1.7 Kısa Özet&lt;/h3>
+&lt;blockquote>
+&lt;p>(TL;DR)&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> AdGuard karşınıza çıkan reklamları engellerken aynı zamanda da kullanıcı dostu arayüzü ve özelleştirilebilir filtreleri sayesinde gizliliğinizi de korur. Ebeveyn kontrolü ve Malware koruması sayesinde ise istenmeyen sonuçlara karşı hazırlıklı olursunuz.&lt;/p></description><content:encoded><![CDATA[<h1 id="1-adguard-reklamsız-gezinti-için-nihai-çözümünüz">1. AdGuard: Reklamsız Gezinti İçin Nihai Çözümünüz</h1>
 <p>İnternette gezinirken sürekli karşınıza çıkan reklam ve açılır pencerelerinden sıkıldıysanız, <a href="https://adguard.com/tr/adguard-windows/overview.html">AdGuard Windows uygulamasını</a> kullanmayı düşünebilirsiniz. AdGuard, yalnızca reklamları kaldırmakla kalmayıp aynı zamanda bilgisayarınızı kötü amaçlı yazılımlardan ve kimlik avı saldırılarından koruyan güçlü bir reklam engelleyicidir. Tanıdığınız ve bildiğiniz tüm reklamlara son kez sarılın artık onları bir daha göremeyeceksiniz. Çünkü bu blog gönderisinde, AdGuard&rsquo;ın özelliklerini ve göz atma deneyiminizi nasıl geliştirebileceğini keşfedeceğiz.</p>
 <h2 id="11-adguard-uygulamasının-özellikleri">1.1 AdGuard Uygulamasının Özellikleri</h2>
 <h3 id="111-reklam-engelleyici">1.1.1 Reklam engelleyici</h3>

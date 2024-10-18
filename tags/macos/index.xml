@@ -1,5 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>MacOS on Wise</title><link>https://wiseweb-works.github.io/blog/tags/macos/</link><description>Recent content in MacOS on Wise</description><generator>Hugo -- 0.128.0</generator><language>tr</language><lastBuildDate>Sat, 24 Feb 2024 00:17:41 +0100</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/macos/index.xml" rel="self" type="application/rss+xml"/><item><title>Eski Maclere OpenCore ile Desteklenmeyen Sürümlerin Kurulumu</title><link>https://wiseweb-works.github.io/blog/post/opencore-legacy-eski-macbook/</link><pubDate>Sun, 08 Oct 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/opencore-legacy-eski-macbook/</guid><description>OpenCore Legacy Mac Yama Aracı OpenCore Logosu Rehber son güncellenme: 08.10.2023 (Sonoma desteği dahil)
-Bu rehber, OpenCore Legacy Patcher (bundan sonra OCLP olarak anılacaktır) programını kullanma konusunda size yol gösterecektir. Geliştirici katkıları ve kullanıcı raporlarının yanı sıra kişisel deneyimlerdeki araştırmalara dayanmaktadır. OCLP kullanılarak macOS 14 Sonoma ilginç bir şekilde 12 yıllık bir Mac&amp;rsquo;e başarıyla yüklendi. Söz konusu Mac, desteği 2017&amp;rsquo;de macOS 10.13 High Sierra ile sonlanan 2011 ortası iMac 27 inçtir.</description><content:encoded><![CDATA[<h1 id="opencore-legacy-mac-yama-aracı">OpenCore Legacy Mac Yama Aracı</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>MacOS on Wise</title><link>https://wiseweb-works.github.io/blog/tags/macos/</link><description>Recent content in MacOS on Wise</description><generator>Hugo -- 0.136.2</generator><language>tr</language><lastBuildDate>Sat, 24 Feb 2024 00:17:41 +0100</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/macos/index.xml" rel="self" type="application/rss+xml"/><item><title>Eski Maclere OpenCore ile Desteklenmeyen Sürümlerin Kurulumu</title><link>https://wiseweb-works.github.io/blog/post/opencore-legacy-eski-macbook/</link><pubDate>Sun, 08 Oct 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/opencore-legacy-eski-macbook/</guid><description>&lt;h1 id="opencore-legacy-mac-yama-aracı">OpenCore Legacy Mac Yama Aracı&lt;/h1>
+&lt;p>
+&lt;picture>
+&lt;img
+src="https://wiseweb-works.github.io/blog/images/opencore-legacy/1.jpeg"
+loading="lazy"
+decoding="async"
+width= min(100%, 720px)
+height= auto
+/>
+&lt;center>&lt;small>&lt;b>OpenCore Logosu&lt;/b>&lt;/small>&lt;/center>
+&lt;/picture>
+&lt;strong>Rehber son güncellenme: 08.10.2023 (Sonoma desteği dahil)&lt;/strong>&lt;/p>
+&lt;p>Bu rehber, OpenCore Legacy Patcher (bundan sonra OCLP olarak anılacaktır) programını kullanma konusunda size yol gösterecektir. Geliştirici katkıları ve kullanıcı raporlarının yanı sıra kişisel deneyimlerdeki araştırmalara dayanmaktadır. OCLP kullanılarak macOS 14 Sonoma ilginç bir şekilde 12 yıllık bir Mac&amp;rsquo;e başarıyla yüklendi. Söz konusu Mac, desteği 2017&amp;rsquo;de macOS 10.13 High Sierra ile sonlanan &lt;a href="https://support.apple.com/kb/SP689?locale=en_US&amp;viewlocale=en_US">2011 ortası iMac&lt;/a> 27 inçtir.&lt;/p></description><content:encoded><![CDATA[<h1 id="opencore-legacy-mac-yama-aracı">OpenCore Legacy Mac Yama Aracı</h1>
 <p>
 <picture>
   
@@ -173,15 +185,15 @@ Bu rehber, OpenCore Legacy Patcher (bundan sonra OCLP olarak anılacaktır) prog
 <p>➝ “MacOS Installer&rsquo;ı İndir” seçeneğine tıklayın.</p>
 <p>➝ macOS&rsquo;u seçin.</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">
+  <thead>
+      <tr>
+          <th style="text-align: center"></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">
 <picture>
   
   
@@ -208,7 +220,7 @@ Bu rehber, OpenCore Legacy Patcher (bundan sonra OCLP olarak anılacaktır) prog
   />
   <center><small><b>1</b></small></center>
 </picture></td>
-<td style="text-align:center">
+          <td style="text-align: center">
 <picture>
   
   
@@ -235,8 +247,8 @@ Bu rehber, OpenCore Legacy Patcher (bundan sonra OCLP olarak anılacaktır) prog
   />
   <center><small><b>2</b></small></center>
 </picture></td>
-</tr>
-</tbody>
+      </tr>
+  </tbody>
 </table>
 <p>➝ İndirdikten sonra otomatik doğrulamayı bekleyin.</p>
 <p>➝ Yönetici şifresini girin.</p>
@@ -477,15 +489,15 @@ Bu süre zarfında herhangi bir şekilde Usb&rsquo;yi çıkarmayın ve yeniden b
 </picture></p>
 <p>Yardımcı cihazı hazırladıktan sonra artık sistem kurulumunu ona kurabilirsiniz. Bunu yapmak için OCLP&rsquo;de “MacOS Yükleyici Oluştur” seçeneğine tıklayın. Yükleyiciye zaten sahipseniz “Mevcut macOS Yükleyiciyi Kullan” seçeneğini seçin. Aksi takdirde “MacOS Installer&rsquo;ı İndir” seçeneğini ve istediğiniz macOS&rsquo;u seçin. Daha sonra indirme işlemi başlayacaktır.</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">
+  <thead>
+      <tr>
+          <th style="text-align: center"></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">
 <picture>
   
   
@@ -512,7 +524,7 @@ Bu süre zarfında herhangi bir şekilde Usb&rsquo;yi çıkarmayın ve yeniden b
   />
   <center><small><b>1</b></small></center>
 </picture></td>
-<td style="text-align:center">
+          <td style="text-align: center">
 <picture>
   
   
@@ -539,8 +551,8 @@ Bu süre zarfında herhangi bir şekilde Usb&rsquo;yi çıkarmayın ve yeniden b
   />
   <center><small><b>2</b></small></center>
 </picture></td>
-</tr>
-</tbody>
+      </tr>
+  </tbody>
 </table>
 <p>İndirme işleminden sonra otomatik doğrulama gerçekleşir. Daha sonra yönetici şifresini girin ve “InstallAssistant.pkg” kurulum sihirbazından çıkartılan “install MacOS xyz.app” isimli sistem yükleyicisinin dahili sürücünüzün Uygulamalar klasöründe olduğundan emin olun. OCLP yalnızca orada sistem kurulumunu tanır.</p>
 <p>

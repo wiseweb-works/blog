@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ids on Wise</title><link>https://wiseweb-works.github.io/blog/tags/ids/</link><description>Recent content in Ids on Wise</description><generator>Hugo -- 0.128.0</generator><language>tr</language><lastBuildDate>Tue, 16 Apr 2024 22:17:43 +0200</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/ids/index.xml" rel="self" type="application/rss+xml"/><item><title>Crowdsec IPS/IDS Yazılımı</title><link>https://wiseweb-works.github.io/blog/post/crowdsec-anlatim/</link><pubDate>Tue, 11 Apr 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/crowdsec-anlatim/</guid><description>1. Crowdsec IPS/IDS Yazılımı Tanıtımı CrowdSec, siber tehditlere karşı gerçek zamanlı koruma sağlamak için kolektif bir zeka yaklaşımı kullanan Linux sunucuları için açık kaynaklı bir güvenlik çözümüdür. Bu blog gönderisinde, CrowdSec&amp;rsquo;in (v.1.4.6)1 özelliklerini, Linux sunucularınızı korumak için neden harika bir seçim olduğunun nedenlerini ve CrowdSec ile diğer IPS/IDS yazılımları arasındaki farkları ve benzerlikleri keşfedeceğiz.
-1.1 CrowdSec&amp;rsquo;in Özellikleri CrowdSec, onu Linux sunucuları için güçlü ve etkili bir güvenlik çözümü yapan çeşitli özellikler sunar.</description><content:encoded><![CDATA[<h1 id="1-crowdsec-ipsids-yazılımı-tanıtımı">1. Crowdsec IPS/IDS Yazılımı Tanıtımı</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ids on Wise</title><link>https://wiseweb-works.github.io/blog/tags/ids/</link><description>Recent content in Ids on Wise</description><generator>Hugo -- 0.136.2</generator><language>tr</language><lastBuildDate>Tue, 16 Apr 2024 22:17:43 +0200</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/ids/index.xml" rel="self" type="application/rss+xml"/><item><title>Crowdsec IPS/IDS Yazılımı</title><link>https://wiseweb-works.github.io/blog/post/crowdsec-anlatim/</link><pubDate>Tue, 11 Apr 2023 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/crowdsec-anlatim/</guid><description>&lt;h1 id="1-crowdsec-ipsids-yazılımı-tanıtımı">1. Crowdsec IPS/IDS Yazılımı Tanıtımı&lt;/h1>
+&lt;p>CrowdSec, siber tehditlere karşı gerçek zamanlı koruma sağlamak için kolektif bir zeka yaklaşımı kullanan Linux sunucuları için açık kaynaklı bir güvenlik çözümüdür. Bu blog gönderisinde, CrowdSec&amp;rsquo;in (v.1.4.6)&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> özelliklerini, Linux sunucularınızı korumak için neden harika bir seçim olduğunun nedenlerini ve CrowdSec ile diğer IPS/IDS yazılımları arasındaki farkları ve benzerlikleri keşfedeceğiz.&lt;/p>
+&lt;h2 id="11-crowdsecin-özellikleri">1.1 CrowdSec&amp;rsquo;in Özellikleri&lt;/h2>
+&lt;p>CrowdSec, onu Linux sunucuları için güçlü ve etkili bir güvenlik çözümü yapan çeşitli özellikler sunar. Temel özelliklerinden bazıları şunlardır:&lt;/p></description><content:encoded><![CDATA[<h1 id="1-crowdsec-ipsids-yazılımı-tanıtımı">1. Crowdsec IPS/IDS Yazılımı Tanıtımı</h1>
 <p>CrowdSec, siber tehditlere karşı gerçek zamanlı koruma sağlamak için kolektif bir zeka yaklaşımı kullanan Linux sunucuları için açık kaynaklı bir güvenlik çözümüdür. Bu blog gönderisinde, CrowdSec&rsquo;in (v.1.4.6)<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> özelliklerini, Linux sunucularınızı korumak için neden harika bir seçim olduğunun nedenlerini ve CrowdSec ile diğer IPS/IDS yazılımları arasındaki farkları ve benzerlikleri keşfedeceğiz.</p>
 <h2 id="11-crowdsecin-özellikleri">1.1 CrowdSec&rsquo;in Özellikleri</h2>
 <p>CrowdSec, onu Linux sunucuları için güçlü ve etkili bir güvenlik çözümü yapan çeşitli özellikler sunar. Temel özelliklerinden bazıları şunlardır:</p>
@@ -83,15 +85,15 @@
 </span></span></code></pre></div><h4 id="otomatikleştirilmiş-script-ile-repo-ve-gpg-anahtarının-eklenmesi">Otomatikleştirilmiş script ile Repo ve GPG anahtarının eklenmesi</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.deb.sh | sudo bash
 </span></span></code></pre></div><table>
-<thead>
-<tr>
-<th style="text-align:center">Debian<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></th>
-<th style="text-align:center">Ubuntu<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">
+  <thead>
+      <tr>
+          <th style="text-align: center">Debian<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></th>
+          <th style="text-align: center">Ubuntu<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">
 <picture>
   
   
@@ -118,7 +120,7 @@
   />
   <center><small><b></b></small></center>
 </picture></td>
-<td style="text-align:center">
+          <td style="text-align: center">
 <picture>
   
   
@@ -145,21 +147,21 @@
   />
   <center><small><b></b></small></center>
 </picture></td>
-</tr>
-</tbody>
+      </tr>
+  </tbody>
 </table>
 <p>Depoyu ve anahtarı ekledikten sonra CrowdSec&rsquo;i aşağıdaki komutu çalıştırarak kurulumu yapabilirsiniz:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt install crowdsec
 </span></span></code></pre></div><table>
-<thead>
-<tr>
-<th style="text-align:center">Debian<sup id="fnref1:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></th>
-<th style="text-align:center">Ubuntu<sup id="fnref1:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">
+  <thead>
+      <tr>
+          <th style="text-align: center">Debian<sup id="fnref1:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></th>
+          <th style="text-align: center">Ubuntu<sup id="fnref1:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">
 <picture>
   
   
@@ -186,7 +188,7 @@
   />
   <center><small><b></b></small></center>
 </picture></td>
-<td style="text-align:center">
+          <td style="text-align: center">
 <picture>
   
   
@@ -213,8 +215,8 @@
   />
   <center><small><b></b></small></center>
 </picture></td>
-</tr>
-</tbody>
+      </tr>
+  </tbody>
 </table>
 <h3 id="212-crowdseci-yapılandırın">2.1.2 CrowdSec&rsquo;i yapılandırın</h3>
 <p>CrowdSec yüklendikten sonra ihtiyaçlarınıza göre yapılandırmanız gerekir. CrowdSec için ana yapılandırma dosyası <code>/etc/crowdsec/config.yaml</code> konumunda bulunur. Bu dosyayı nano veya vim gibi bir metin düzenleyici kullanarak düzenleyebilirsiniz.</p>

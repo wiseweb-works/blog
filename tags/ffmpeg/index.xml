@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>FFmpeg on Wise</title><link>https://wiseweb-works.github.io/blog/tags/ffmpeg/</link><description>Recent content in FFmpeg on Wise</description><generator>Hugo -- 0.128.0</generator><language>tr</language><lastBuildDate>Sat, 24 Feb 2024 00:17:41 +0100</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml"/><item><title>FFmpeg ile video çevirmek için en uygun ayarı kolayca bulmak</title><link>https://wiseweb-works.github.io/blog/post/ffmpeg-abav1/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ffmpeg-abav1/</guid><description>Giriş Günümüzde video ve ses (genel olarak medya diyebiliriz) dosyalarını işlemek (kesme, yeniden boyutlandırma ve filtre uygulama) ve dönüştürmek için birçok araç bulunmaktadır. Ancak, bu araçlardan biri diğerlerinden daha çok öne çıkmakta ve belki de birçoğunun arka planında (Yusuf İpek Videosu) kullanılmaktadır. FFMPEG adlı bu araç/yazılım ücretsiz ve açık kaynaklı olup LGPL, GPL2 ve GPL3 (farklı kısım ve tarihler açısından kullanılan diğer lisanlar da mevcut) lisanları altında geliştirilmektedir.
-Lisansla ilgili orjinal dilinde açıklama:</description><content:encoded><![CDATA[<h1 id="giriş">Giriş</h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>FFmpeg on Wise</title><link>https://wiseweb-works.github.io/blog/tags/ffmpeg/</link><description>Recent content in FFmpeg on Wise</description><generator>Hugo -- 0.136.2</generator><language>tr</language><lastBuildDate>Sat, 24 Feb 2024 00:17:41 +0100</lastBuildDate><atom:link href="https://wiseweb-works.github.io/blog/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml"/><item><title>FFmpeg ile video çevirmek için en uygun ayarı kolayca bulmak</title><link>https://wiseweb-works.github.io/blog/post/ffmpeg-abav1/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://wiseweb-works.github.io/blog/post/ffmpeg-abav1/</guid><description>&lt;h1 id="giriş">Giriş&lt;/h1>
+&lt;p>Günümüzde video ve ses (genel olarak medya diyebiliriz) dosyalarını işlemek (kesme, yeniden boyutlandırma ve filtre uygulama) ve dönüştürmek için birçok araç bulunmaktadır. Ancak, bu araçlardan biri diğerlerinden daha çok öne çıkmakta ve belki de birçoğunun arka planında (&lt;a href="https://www.youtube.com/watch?v=clrVhDx_A-s">Yusuf İpek Videosu&lt;/a>) kullanılmaktadır. FFMPEG adlı bu araç/yazılım ücretsiz ve &lt;a href="https://github.com/FFmpeg/FFmpeg">açık kaynaklı&lt;/a> olup LGPL, GPL2 ve GPL3 (farklı kısım ve tarihler açısından kullanılan diğer lisanlar da mevcut) lisanları altında geliştirilmektedir.&lt;/p>
+&lt;p>Lisansla ilgili orjinal dilinde açıklama:&lt;/p></description><content:encoded><![CDATA[<h1 id="giriş">Giriş</h1>
 <p>Günümüzde video ve ses (genel olarak medya diyebiliriz) dosyalarını işlemek (kesme, yeniden boyutlandırma ve filtre uygulama) ve dönüştürmek için birçok araç bulunmaktadır. Ancak, bu araçlardan biri diğerlerinden daha çok öne çıkmakta ve belki de birçoğunun arka planında (<a href="https://www.youtube.com/watch?v=clrVhDx_A-s">Yusuf İpek Videosu</a>) kullanılmaktadır. FFMPEG adlı bu araç/yazılım ücretsiz ve <a href="https://github.com/FFmpeg/FFmpeg">açık kaynaklı</a> olup LGPL, GPL2 ve GPL3 (farklı kısım ve tarihler açısından kullanılan diğer lisanlar da mevcut) lisanları altında geliştirilmektedir.</p>
 <p>Lisansla ilgili orjinal dilinde açıklama:</p>
 <blockquote>
@@ -123,15 +124,15 @@ Lisansla ilgili orjinal dilinde açıklama:</description><content:encoded><![CDA
 <p>AB-AV1 gönüllüler tarafından MIT lisansı altında geliştirilen ve <a href="https://github.com/alexheretic/ab-av1">açık kaynaklı</a> bir yazılımdır. Yazılımın odaklandığı ve çözmek istediği sorun video dönüştürürken ve ffmpeg yazılımını kullanırken teknik bilgilerle çok boğuşmadan istediğimiz sonuca bizi ulaştıracak değer veya değerleri hızlı bir şekilde elde etmektir. Yazılım rehberin paylaşıldığı tarih itibariyle şu yöntemi izlemektedir. Öncelik her 12 dk&rsquo;lık video kısmı için bir örnek kısım alıyor. Bu örnek kısım/lar video çok kısa olmadığı sürece 20&rsquo;şer sn&rsquo;ye kadar çıkabilmektedir. Sonrasında bu örnek videoları farklı CRF ve Preset değerleri ile kombine edip ortaya çıkan sonuçların VMAF değerlerini de hesaplıyor. Bunu yaparken de kaba kuvvet saldırısı yapar gibi 1 den başlayıp 50 ye doğru gitmiyor. Her iki ayar içinde ortadan başlayıp (CRF 25, preset medium gibi) uçlara doğru giden bir yol izliyor. Eğer istenilen şartlara uyan 4-5 adet sonuç bulur ise aramayı durduruyor bu da çok hızlı bir şekilde sonuca ulaşmamızı sağlıyor.</p>
 <p>Bu yazılımı bulmadan önce kendim tüm 20-30 arasındaki tüm CRF değerleri ve tüm presetler için topluca komut çalıştırıp sonra gene elle hepsinin VMAF değerlerine bakıyor, bir excel tablosu yapıyordum. Bu da gerçekten çok uzun süren ve teknik bilgi olmadan yapılması kolay olmayan bir yola götürüyordu beni. İlgili eski çalışmalarımdan birkaç ekran görüntüsünü sizlerle paylaşmak istiyorum ki ne büyük bir dertten kurtulduğum daha ne anlaşılsın.</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">
+  <thead>
+      <tr>
+          <th style="text-align: center"></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">
 <picture>
   
   
@@ -150,7 +151,7 @@ Lisansla ilgili orjinal dilinde açıklama:</description><content:encoded><![CDA
   />
   <center><small><b>1</b></small></center>
 </picture></td>
-<td style="text-align:center">
+          <td style="text-align: center">
 <picture>
   
   
@@ -169,8 +170,8 @@ Lisansla ilgili orjinal dilinde açıklama:</description><content:encoded><![CDA
   />
   <center><small><b>2</b></small></center>
 </picture></td>
-</tr>
-</tbody>
+      </tr>
+  </tbody>
 </table>
 <p>İki adet test videosu ile yapmış olduğum bu testler yaklaşık 1 gün sürmüştü. Ben cihazı kullanırken arka planda sistem de bu testleri yapıyordu.</p>
 <h3 id="yazılımın-indirilmesi-veveya-kurulması">Yazılımın indirilmesi ve/veya kurulması</h3>
@@ -253,38 +254,38 @@ encoded 17620 frames in **807.69s (21.82 fps)**, 1254.95 kb/s, Avg QP:33.08
 frame=17620 fps= 12 q=-0.0 Lsize=N/A time=00:12:14.16 bitrate=N/A speed=0.492x    
 [Parsed_libvmaf_0 @ 0x558d1a9b2880] **VMAF score: 91.112250**
 </code></pre><table>
-<thead>
-<tr>
-<th>#</th>
-<th>Orjinal Dosya</th>
-<th>AB-AV1 in Vaadi</th>
-<th>Gerçek Dünya Testi</th>
-<th>Fark</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>VMAF</td>
-<td>% 100</td>
-<td>% 90,94</td>
-<td>% 91.11</td>
-<td>%+ 0,17</td>
-</tr>
-<tr>
-<td>Dosya Boyutu</td>
-<td>557 MB</td>
-<td>124,37 MB (%22)</td>
-<td>122 MB (%21.84)</td>
-<td>2,4 MB %-1,94</td>
-</tr>
-<tr>
-<td>Uzunluk/Çevirirken geçen süre</td>
-<td>12dk 14sn</td>
-<td>18 dk</td>
-<td>13dk  27 sn</td>
-<td>4 dk 33 sn %-25,28</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>#</th>
+          <th>Orjinal Dosya</th>
+          <th>AB-AV1 in Vaadi</th>
+          <th>Gerçek Dünya Testi</th>
+          <th>Fark</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>VMAF</td>
+          <td>% 100</td>
+          <td>% 90,94</td>
+          <td>% 91.11</td>
+          <td>%+ 0,17</td>
+      </tr>
+      <tr>
+          <td>Dosya Boyutu</td>
+          <td>557 MB</td>
+          <td>124,37 MB (%22)</td>
+          <td>122 MB (%21.84)</td>
+          <td>2,4 MB %-1,94</td>
+      </tr>
+      <tr>
+          <td>Uzunluk/Çevirirken geçen süre</td>
+          <td>12dk 14sn</td>
+          <td>18 dk</td>
+          <td>13dk  27 sn</td>
+          <td>4 dk 33 sn %-25,28</td>
+      </tr>
+  </tbody>
 </table>
 <p>Sonuç olarak hepsini bir araya getirdiğimizde gerçekten iç açıcı ve vaat edilenden daha iyi sonuçlar elde etmiş olduk. Bütün bu süreçler devam ederken PC&rsquo;yi kullanmaya ve bu yazıyı yazmaya devam ettiğim de düşünülürse çok güzel sonuçlar verdiğini söyleyebiliriz.</p>
 <h2 id="anlatım-dışı-bırakılan-kısımlar">Anlatım dışı bırakılan kısımlar</h2>
