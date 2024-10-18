@@ -127,6 +127,7 @@ params:
     buildExpired: false
     enableEmoji: true
     enableGitInfo: true
+    social: true
 
     socialIcons:
         - name: mastodon
