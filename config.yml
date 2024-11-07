@@ -14,24 +14,24 @@ imaging:
     excludeFields: ".*"
 
 minify:
-    disableXML: false
-    minifyOutput: true
+  disableXML: false
+  minifyOutput: true
 
 frontmatter:
   date:
-  - date
-  - publishDate
-  - lastmod
+    - date
+    - publishDate
+    - lastmod
   expiryDate:
-  - expiryDate
+    - expiryDate
   lastmod:
-  - lastmod
-  - :git
-  - date
-  - publishDate
+    - lastmod
+    - :git
+    - date
+    - publishDate
   publishDate:
-  - publishDate
-  - date
+    - publishDate
+    - date
 
 languages:
   tr:
@@ -59,7 +59,7 @@ languages:
       homeInfoParams:
         Title: "Weise Web Jobs"
         Content: Jetzt Weiser!
-          
+
 menu:
   main:
     - identifier: Anasayfa
@@ -88,88 +88,87 @@ menu:
       weight: 6
 
 outputs:
-    home:
-        - HTML
-        - RSS
-        - JSON
+  home:
+    - HTML
+    - RSS
+    - JSON
 
 params:
-    env: production
-    title: "Wise Web Works"
-    description: "Smarter Web Now!"
-    keywords: [Blog, Portfolio, PaperMod]
-    author: Wise
-    DateFormat: "2 January, 2006"
-    defaultTheme: auto
-    disableThemeToggle: false
-    ShowReadingTime: true
-    ShowShareButtons: false
-    ShowPostNavLinks: true
-    ShowBreadCrumbs: false
-    ShowCodeCopyButtons: true
-    ShowWordCount: true
-    ShowRssButtonInSectionTermList: true
-    disableSpecial1stPost: true
-    disableScrollToTop: false
-    rss: true
-    comments: false
-    hidemeta: false
-    hideSummary: false
-    tocopen: false
-    ShowToc: true
-    searchHidden: false
-    displayFullLangName: true
-    ShowFullTextinRSS: true
-    enableInlineShortcodes: true
-    enableRobotsTXT: true
-    buildDrafts: false
-    buildFuture: false
-    buildExpired: false
-    enableEmoji: true
-    enableGitInfo: true
-    social: true
+  env: production
+  title: "Wise Web Works"
+  description: "Smarter Web Now!"
+  keywords: [Blog, Portfolio, PaperMod]
+  author: Wise
+  DateFormat: "2 January, 2006"
+  defaultTheme: auto
+  disableThemeToggle: false
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  disableSpecial1stPost: true
+  disableScrollToTop: false
+  rss: true
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  tocopen: false
+  ShowToc: true
+  searchHidden: false
+  displayFullLangName: true
+  ShowFullTextinRSS: true
+  enableInlineShortcodes: true
+  enableRobotsTXT: true
+  buildDrafts: false
+  buildFuture: false
+  buildExpired: false
+  enableEmoji: true
+  enableGitInfo: true
+  # social: true
 
-    socialIcons:
-        - name: mastodon
-          url: "https://fosstodon.org/@wise"
-        - name: github
-          url: "https://github.com/wiseweb-works"
-        - name: email
-          url: "mailto:wisewebworks@outlook.com"
-        - name: rss
-          url: "https://wiseweb-works.github.io/blog/index.xml"
-        - name: other
-          url: "https://www.youtube.com/watch?v=ct5OucxpuUg"
+  socialIcons:
+    - name: mastodon
+      url: "https://fosstodon.org/@wise"
+    - name: github
+      url: "https://github.com/wiseweb-works"
+    - name: email
+      url: "mailto:wisewebworks@outlook.com"
+    - name: rss
+      url: "https://wiseweb-works.github.io/blog/index.xml"
+    - name: other
+      url: "https://www.youtube.com/watch?v=ct5OucxpuUg"
 
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
 
-    fuseOpts:
-        isCaseSensitive: false
-        shouldSort: true
-        location: 0
-        distance: 1000
-        threshold: 0.4
-        minMatchCharLength: 0
-        keys: ["title", "permalink", "summary", "content"]
+  editPost:
+    URL: "https://github.com/wiseweb-works/blog/tree/master/content"
+    # Text: "Suggest Changes"
+    appendFilePath: true
 
-    editPost:
-        URL: "https://github.com/wiseweb-works/blog/tree/master/content"
-        # Text: "Suggest Changes"
-        appendFilePath: true
+  assets:
+    disableHLJS: true
+    disableFingerprinting: false
+    favicon: "/blog/favicons/favicon.ico"
+    favicon16x16: "/blog/favicons/favicon-16x16.png"
+    favicon32x32: "/blog/favicons/favicon-32x32.png"
+    apple_touch_icon: "/blog/favicons/apple-touch-icon.png"
 
-    assets:
-        disableHLJS: true
-        disableFingerprinting: false
-        favicon: "/blog/favicons/favicon.ico"
-        favicon16x16:  "/blog/favicons/favicon-16x16.png"
-        favicon32x32:  "/blog/favicons/favicon-32x32.png"
-        apple_touch_icon:  "/blog/favicons/apple-touch-icon.png"
-
-    cover:
-        hidden: true
-        hiddenInList: true
-        hiddenInSingle: true
+  cover:
+    hidden: true
+    hiddenInList: true
+    hiddenInSingle: true
 
 taxonomies:
-    category: categories
-    tag: tags
-    series: series
+  category: categories
+  tag: tags
+  series: series
